@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B88B6E95F79C93244F404AF /* Pods_EasyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3440064850FC7CB26443334A /* Pods_EasyService.framework */; };
 		7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49725A0EA920053C413 /* AppDelegate.swift */; };
 		7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49925A0EA920053C413 /* SceneDelegate.swift */; };
 		7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49B25A0EA920053C413 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3440064850FC7CB26443334A /* Pods_EasyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.release.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.release.xcconfig"; sourceTree = "<group>"; };
 		7DF7A49425A0EA920053C413 /* EasyService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF7A49725A0EA920053C413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF7A49925A0EA920053C413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		7DF7A4A025A0EA940053C413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DF7A4A325A0EA940053C413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF7A4A525A0EA940053C413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.debug.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B88B6E95F79C93244F404AF /* Pods_EasyService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				7DF7A49625A0EA920053C413 /* EasyService */,
 				7DF7A49525A0EA920053C413 /* Products */,
+				CBCE32CFE5F661F4D28459D6 /* Pods */,
+				8B2391905D2B986E057DA7E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = EasyService;
 			sourceTree = "<group>";
 		};
+		8B2391905D2B986E057DA7E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3440064850FC7CB26443334A /* Pods_EasyService.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBCE32CFE5F661F4D28459D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */,
+				5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DF7A4A825A0EA940053C413 /* Build configuration list for PBXNativeTarget "EasyService" */;
 			buildPhases = (
+				D506A568330B5F030F8E0AB7 /* [CP] Check Pods Manifest.lock */,
 				7DF7A49025A0EA920053C413 /* Sources */,
 				7DF7A49125A0EA920053C413 /* Frameworks */,
 				7DF7A49225A0EA920053C413 /* Resources */,
+				7DF7A4AB25A0F26F0053C413 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7DF7A4AB25A0F26F0053C413 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		D506A568330B5F030F8E0AB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyService-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7DF7A49025A0EA920053C413 /* Sources */ = {
@@ -282,6 +350,7 @@
 		};
 		7DF7A4A925A0EA940053C413 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +368,7 @@
 		};
 		7DF7A4AA25A0EA940053C413 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
