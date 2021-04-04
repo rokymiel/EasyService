@@ -7,5 +7,8 @@ target 'EasyService' do
 
   # Pods for EasyService
   pod 'SwiftLint'
+  
+  pod 'Firebase/Auth'
+  pod "Firebase/Firestore"
 
 end
