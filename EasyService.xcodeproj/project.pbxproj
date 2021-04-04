@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2B88B6E95F79C93244F404AF /* Pods_EasyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3440064850FC7CB26443334A /* Pods_EasyService.framework */; };
+		7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */; };
+		7D1E658325A0FD6D00AE97D7 /* AddCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarViewController.xib */; };
+		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
+		7D1E658825A1048500AE97D7 /* NewCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658625A1048500AE97D7 /* NewCarViewController.xib */; };
 		7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49725A0EA920053C413 /* AppDelegate.swift */; };
 		7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49925A0EA920053C413 /* SceneDelegate.swift */; };
 		7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49B25A0EA920053C413 /* ViewController.swift */; };
@@ -19,6 +23,10 @@
 /* Begin PBXFileReference section */
 		3440064850FC7CB26443334A /* Pods_EasyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.release.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.release.xcconfig"; sourceTree = "<group>"; };
+		7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
+		7D1E658125A0FD6D00AE97D7 /* AddCarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarViewController.xib; sourceTree = "<group>"; };
+		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
+		7D1E658625A1048500AE97D7 /* NewCarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCarViewController.xib; sourceTree = "<group>"; };
 		7DF7A49425A0EA920053C413 /* EasyService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF7A49725A0EA920053C413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF7A49925A0EA920053C413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +50,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D1E657825A0FC7500AE97D7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7D1E658425A1045400AE97D7 /* NewCar */,
+				7D1E657D25A0FCDC00AE97D7 /* AddCar */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		7D1E657D25A0FCDC00AE97D7 /* AddCar */ = {
+			isa = PBXGroup;
+			children = (
+				7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */,
+				7D1E658125A0FD6D00AE97D7 /* AddCarViewController.xib */,
+			);
+			path = AddCar;
+			sourceTree = "<group>";
+		};
+		7D1E658425A1045400AE97D7 /* NewCar */ = {
+			isa = PBXGroup;
+			children = (
+				7D1E658525A1048500AE97D7 /* NewCarViewController.swift */,
+				7D1E658625A1048500AE97D7 /* NewCarViewController.xib */,
+			);
+			path = NewCar;
+			sourceTree = "<group>";
+		};
 		7DF7A48B25A0EA920053C413 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +105,8 @@
 		7DF7A49625A0EA920053C413 /* EasyService */ = {
 			isa = PBXGroup;
 			children = (
+				7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */,
+				7D1E657825A0FC7500AE97D7 /* CoreData */,
 				7DF7A49725A0EA920053C413 /* AppDelegate.swift */,
 				7DF7A49925A0EA920053C413 /* SceneDelegate.swift */,
 				7DF7A49B25A0EA920053C413 /* ViewController.swift */,
@@ -103,6 +147,7 @@
 				7DF7A49125A0EA920053C413 /* Frameworks */,
 				7DF7A49225A0EA920053C413 /* Resources */,
 				7DF7A4AB25A0F26F0053C413 /* ShellScript */,
+				FAF0DC739E5B939B0762DDBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,9 +196,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D1E658825A1048500AE97D7 /* NewCarViewController.xib in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
 				7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */,
 				7DF7A49F25A0EA920053C413 /* Main.storyboard in Resources */,
+				7D1E658325A0FD6D00AE97D7 /* AddCarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +246,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FAF0DC739E5B939B0762DDBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyService/Pods-EasyService-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyService/Pods-EasyService-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyService/Pods-EasyService-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -206,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
 				7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */,
+				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
 				7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
