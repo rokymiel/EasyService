@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		2B88B6E95F79C93244F404AF /* Pods_EasyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3440064850FC7CB26443334A /* Pods_EasyService.framework */; };
 		7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */; };
-		7D1E658325A0FD6D00AE97D7 /* AddCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarViewController.xib */; };
+		7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */; };
 		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
-		7D1E658825A1048500AE97D7 /* NewCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658625A1048500AE97D7 /* NewCarViewController.xib */; };
+		7D1E658825A1048500AE97D7 /* NewCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658625A1048500AE97D7 /* NewCarView.xib */; };
+		7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */; };
 		7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49725A0EA920053C413 /* AppDelegate.swift */; };
 		7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49925A0EA920053C413 /* SceneDelegate.swift */; };
 		7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49B25A0EA920053C413 /* ViewController.swift */; };
@@ -24,9 +25,10 @@
 		3440064850FC7CB26443334A /* Pods_EasyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.release.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.release.xcconfig"; sourceTree = "<group>"; };
 		7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
-		7D1E658125A0FD6D00AE97D7 /* AddCarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarViewController.xib; sourceTree = "<group>"; };
+		7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarView.xib; sourceTree = "<group>"; };
 		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
-		7D1E658625A1048500AE97D7 /* NewCarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCarViewController.xib; sourceTree = "<group>"; };
+		7D1E658625A1048500AE97D7 /* NewCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCarView.xib; sourceTree = "<group>"; };
+		7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DF7A49425A0EA920053C413 /* EasyService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF7A49725A0EA920053C413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF7A49925A0EA920053C413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,8 @@
 		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7DE0A3EF261CE87E002773E3 /* Login */,
+				7DE0A3EE261CE85F002773E3 /* Regisrtation */,
 				7D1E658425A1045400AE97D7 /* NewCar */,
 				7D1E657D25A0FCDC00AE97D7 /* AddCar */,
 			);
@@ -70,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */,
-				7D1E658125A0FD6D00AE97D7 /* AddCarViewController.xib */,
+				7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */,
 			);
 			path = AddCar;
 			sourceTree = "<group>";
@@ -79,9 +83,23 @@
 			isa = PBXGroup;
 			children = (
 				7D1E658525A1048500AE97D7 /* NewCarViewController.swift */,
-				7D1E658625A1048500AE97D7 /* NewCarViewController.xib */,
+				7D1E658625A1048500AE97D7 /* NewCarView.xib */,
 			);
 			path = NewCar;
+			sourceTree = "<group>";
+		};
+		7DE0A3EE261CE85F002773E3 /* Regisrtation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Regisrtation;
+			sourceTree = "<group>";
+		};
+		7DE0A3EF261CE87E002773E3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7DF7A48B25A0EA920053C413 = {
@@ -109,6 +127,7 @@
 				7D1E657825A0FC7500AE97D7 /* CoreData */,
 				7DF7A49725A0EA920053C413 /* AppDelegate.swift */,
 				7DF7A49925A0EA920053C413 /* SceneDelegate.swift */,
+				7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */,
 				7DF7A49B25A0EA920053C413 /* ViewController.swift */,
 				7DF7A49D25A0EA920053C413 /* Main.storyboard */,
 				7DF7A4A025A0EA940053C413 /* Assets.xcassets */,
@@ -196,11 +215,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D1E658825A1048500AE97D7 /* NewCarViewController.xib in Resources */,
+				7D1E658825A1048500AE97D7 /* NewCarView.xib in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
 				7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */,
 				7DF7A49F25A0EA920053C413 /* Main.storyboard in Resources */,
-				7D1E658325A0FD6D00AE97D7 /* AddCarViewController.xib in Resources */,
+				7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */,
+				7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
