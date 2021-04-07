@@ -13,6 +13,13 @@
 		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
 		7D1E658825A1048500AE97D7 /* NewCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658625A1048500AE97D7 /* NewCarView.xib */; };
 		7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */; };
+		7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */; };
+		7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */; };
+		7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FC261DC255002773E3 /* LoginViewController.swift */; };
+		7DE0A3FF261DC25F002773E3 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FE261DC25F002773E3 /* Login.storyboard */; };
+		7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A401261DC743002773E3 /* UIRoundedTextField.swift */; };
+		7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A403261DCD68002773E3 /* UIRoundedButton.swift */; };
+		7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A406261DD210002773E3 /* UIContainerView.swift */; };
 		7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49725A0EA920053C413 /* AppDelegate.swift */; };
 		7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49925A0EA920053C413 /* SceneDelegate.swift */; };
 		7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49B25A0EA920053C413 /* ViewController.swift */; };
@@ -29,6 +36,13 @@
 		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
 		7D1E658625A1048500AE97D7 /* NewCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCarView.xib; sourceTree = "<group>"; };
 		7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrtationViewController.swift; sourceTree = "<group>"; };
+		7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisrtationView.storyboard; sourceTree = "<group>"; };
+		7DE0A3FC261DC255002773E3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7DE0A3FE261DC25F002773E3 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		7DE0A401261DC743002773E3 /* UIRoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedTextField.swift; sourceTree = "<group>"; };
+		7DE0A403261DCD68002773E3 /* UIRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
+		7DE0A406261DD210002773E3 /* UIContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContainerView.swift; sourceTree = "<group>"; };
 		7DF7A49425A0EA920053C413 /* EasyService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF7A49725A0EA920053C413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF7A49925A0EA920053C413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +105,8 @@
 		7DE0A3EE261CE85F002773E3 /* Regisrtation */ = {
 			isa = PBXGroup;
 			children = (
+				7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */,
+				7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */,
 			);
 			path = Regisrtation;
 			sourceTree = "<group>";
@@ -98,8 +114,20 @@
 		7DE0A3EF261CE87E002773E3 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				7DE0A3FC261DC255002773E3 /* LoginViewController.swift */,
+				7DE0A3FE261DC25F002773E3 /* Login.storyboard */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7DE0A400261DC70E002773E3 /* EasyServiceUI */ = {
+			isa = PBXGroup;
+			children = (
+				7DE0A401261DC743002773E3 /* UIRoundedTextField.swift */,
+				7DE0A403261DCD68002773E3 /* UIRoundedButton.swift */,
+				7DE0A406261DD210002773E3 /* UIContainerView.swift */,
+			);
+			path = EasyServiceUI;
 			sourceTree = "<group>";
 		};
 		7DF7A48B25A0EA920053C413 = {
@@ -123,6 +151,7 @@
 		7DF7A49625A0EA920053C413 /* EasyService */ = {
 			isa = PBXGroup;
 			children = (
+				7DE0A400261DC70E002773E3 /* EasyServiceUI */,
 				7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */,
 				7D1E657825A0FC7500AE97D7 /* CoreData */,
 				7DF7A49725A0EA920053C413 /* AppDelegate.swift */,
@@ -215,6 +244,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DE0A3FF261DC25F002773E3 /* Login.storyboard in Resources */,
+				7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */,
 				7D1E658825A1048500AE97D7 /* NewCarView.xib in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
 				7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */,
@@ -290,10 +321,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */,
+				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,
 				7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
+				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,
 				7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */,
 				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
+				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
+				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
 				7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
