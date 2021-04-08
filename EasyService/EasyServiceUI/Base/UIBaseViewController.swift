@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIBaseViewController: UIViewController {
+extension UIViewController {
     func showAlert(with message: String) {
         let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))

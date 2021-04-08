@@ -17,7 +17,7 @@ extension UIStoryboard {
     }
     @nonobjc func instantiate<VC: UIViewController>(_ viewController: VC.Type) -> VC {
         guard
-            let vc = instantiateViewController(withIdentifier: "\(VC.self)") as? VC
+            let vc = instantiateInitialViewController() as? VC
             else { fatalError("Couldn't instantiate \(VC.self)") }
 
         return vc

@@ -9,13 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    lazy var assembly = PresentationAssembly()
 
-
+    @IBAction func show(_ sender: Any) {
+        present(assembly.buildLoginController(), animated: true)
+    }
 }
-

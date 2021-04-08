@@ -19,11 +19,11 @@
                                 <rect key="frame" x="20" y="311" width="210" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Добавить автомобиль" image="button:HKz-Mx-pNK:image" catalog="system">
+                                <state key="normal" title="Добавить автомобиль" image="button:HKz-Mx-pNK:image">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="OMM-qA-aEd" kind="show" id="Eth-Oo-qfv"/>
+                                    <action selector="show:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I3O-dg-XMe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,19 +35,9 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>
-        <!--Login-->
-        <scene sceneID="wUU-qH-Vmc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="OMM-qA-aEd" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="BMW-X0-iFu"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZQ-Lt-9JN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="942" y="-131"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="button:HKz-Mx-pNK:image" catalog="system" width="96" height="128">
+        <image name="button:HKz-Mx-pNK:image" width="96" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
 S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBscIRkmKisyNThCSktPUlUkbnVsbNcNDg8QERITFBUW

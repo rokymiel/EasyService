@@ -14,6 +14,7 @@
 		7D1E658825A1048500AE97D7 /* NewCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658625A1048500AE97D7 /* NewCarView.xib */; };
 		7D9F2661261F6DD500F04F32 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */; };
 		7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2664261F6F2200F04F32 /* UIBaseViewController.swift */; };
+		7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2666261F77F700F04F32 /* FirestoreService.swift */; };
 		7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */; };
 		7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */; };
 		7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */; };
@@ -44,6 +45,7 @@
 		7D1E658625A1048500AE97D7 /* NewCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCarView.xib; sourceTree = "<group>"; };
 		7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
 		7D9F2664261F6F2200F04F32 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
+		7D9F2666261F77F700F04F32 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisrtationView.storyboard; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				7DE0A411261F674B002773E3 /* AccountService.swift */,
+				7D9F2666261F77F700F04F32 /* FirestoreService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,
 				7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
+				7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */,
 				7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */,
 				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,
 				7DE0A40A261E0FAA002773E3 /* StringExtension.swift in Sources */,

@@ -8,14 +8,17 @@
 
 import UIKit
 
-final class LoginViewController: UIBaseViewController {
+final class LoginViewController: UIViewController {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var emailTextField: UIRoundedTextField!
     
     @IBOutlet weak var passwordTextField: UIRoundedTextField!
     
-    class func sInit() -> LoginViewController {
+    private var presentationAssembly: IPresentationAssembly!
+    
+    class func sInit(presentationAssembly: IPresentationAssembly) -> LoginViewController {
         let contraller = UIStoryboard.login.instantiate(LoginViewController.self)
+        contraller.presentationAssembly = presentationAssembly
         return contraller
     }
     
@@ -37,8 +40,8 @@ final class LoginViewController: UIBaseViewController {
     }
     
     @IBAction func showRegisrtationView(_ sender: Any) {
-        if let regisrtationController = UIStoryboard.regisrtation.instantiateInitialViewController() as? RegisrtationViewController {
-             present(regisrtationController, animated: true)
-        }
+        
+        present(presentationAssembly.buildRegisrtationController(), animated: true)
+        
     }
 }

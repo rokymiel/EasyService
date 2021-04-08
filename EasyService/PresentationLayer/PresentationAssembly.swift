@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
-final class PresentationAssembly {
-    lazy var accountService: IAccountService = AccountService()
+protocol IPresentationAssembly {
+    func buildRegisrtationController() -> RegisrtationViewController
+    func buildLoginController() -> LoginViewController
+}
+
+final class PresentationAssembly: IPresentationAssembly {
+    private lazy var db = Firestore.firestore()
+    private lazy var firestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
+    private lazy var accountService: IAccountService = AccountService(fireStoreService: firestoreService)
     
     func buildRegisrtationController() -> RegisrtationViewController {
         return RegisrtationViewController.sInit(accountService: accountService)
     }
     
     func buildLoginController() -> LoginViewController {
-        return LoginViewController.sInit()
+        return LoginViewController.sInit(presentationAssembly: self)
     }
 }

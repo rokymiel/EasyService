@@ -14,10 +14,14 @@ protocol IAccountService {
 
 final class AccountService: IAccountService {
     
+    private let fireStoreService: IFireStoreService
     
+    init(fireStoreService: IFireStoreService) {
+        self.fireStoreService = fireStoreService
+    }
     
     func saveNew(user: User) {
-        
+        _ = fireStoreService.addDocument(from: user)
     }
     
 

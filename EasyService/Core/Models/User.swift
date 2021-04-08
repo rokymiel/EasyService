@@ -6,16 +6,25 @@
 //  Copyright © 2021 rokymiel. All rights reserved.
 //
 
-import Firebase
+import FirebaseFirestoreSwift
 
-struct User {
-    let identifier: String
+struct User: Codable {
+    @DocumentID var identifier: String?
     let name: String
     let surname: String
     let patronymic: String?
     let dateOfBirth: Date
     let phone: String
     let email: String
-    let carIDs: [String]?
-    let registrationsIDs: [String]?
+    let carIDs: [String]? = nil
+    let registrationsIDs: [String]? = nil
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case surname
+        case patronymic
+        case dateOfBirth = "date_of_birth"
+        case phone
+        case email
+    }
 }

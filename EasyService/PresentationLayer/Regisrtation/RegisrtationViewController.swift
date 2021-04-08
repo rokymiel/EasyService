@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-final class RegisrtationViewController: UIBaseViewController, UITextFieldDelegate {
+final class RegisrtationViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -72,7 +72,6 @@ final class RegisrtationViewController: UIBaseViewController, UITextFieldDelegat
     @objc func cancelDatePicker() {
         self.view.endEditing(true)
     }
-    
     
     @IBAction func emailEditingDidEnd(_ sender: Any) {
         if let email = emailTextField.text, !email.isEmail() {
@@ -155,16 +154,11 @@ final class RegisrtationViewController: UIBaseViewController, UITextFieldDelegat
             return
         }
         
-        
         Auth.auth().createUser(withEmail: email, password: passwordTextField.text!) { authResult, error in
-//            print("Hi")
-//            print(error)
             if let error = error {
                 self.showAlert(with: error.localizedDescription)
                 return
             }
-//            print("AuthRes: ", authResult)
-//            print("Info: ", authResult?.additionalUserInfo)
             if let fUser = authResult?.user {
                 let user = User(identifier: fUser.uid,
                                 name: name,
@@ -172,9 +166,7 @@ final class RegisrtationViewController: UIBaseViewController, UITextFieldDelegat
                                 patronymic: patronymic,
                                 dateOfBirth: date,
                                 phone: phone,
-                                email: email,
-                                carIDs: nil,
-                                registrationsIDs: nil)
+                                email: email)
                 self.accountService.saveNew(user: user)
                 
             }
