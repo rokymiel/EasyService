@@ -25,6 +25,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var createAccountButton: UIRoundedButton!
     
     private var accountService: IAccountService!
     
@@ -133,6 +134,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     }
     
     @IBAction func createAccountClicked(_ sender: Any) {
+        createAccountButton.isEnabled = false
         self.view.endEditing(true)
         guard let name = nameTextField.text,
             let surname = surnameTextField.text,
@@ -143,14 +145,19 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
             !surname.isBlank(),
             let date = formatter.date(from: dateStr),
             email.isEmail(),
-            phone.isRUPhone() else { return; }
+            phone.isRUPhone() else {
+                createAccountButton.isEnabled = false
+                return
+        }
         let patronymic = patronymicTextField.text
         guard passwordTextField.text != nil, repeatPasswordTextField.text != nil else {
             showAlert(with: "Введите пароль!")
+            createAccountButton.isEnabled = true
             return
         }
         guard passwordTextField.text == repeatPasswordTextField.text else {
             showAlert(with: "Пароли не совпадают!")
+            createAccountButton.isEnabled = true
             return
         }
         

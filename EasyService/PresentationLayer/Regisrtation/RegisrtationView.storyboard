@@ -324,6 +324,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="createAccountButton" destination="1QC-99-ylC" id="arC-ti-foe"/>
                         <outlet property="dateLabel" destination="KGw-9B-LcN" id="LWQ-sx-hCg"/>
                         <outlet property="dateTextField" destination="OpI-Od-qvJ" id="u60-jV-2zr"/>
                         <outlet property="emailLabel" destination="Z5H-iM-yId" id="bnS-9O-ozS"/>

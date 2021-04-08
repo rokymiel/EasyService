@@ -15,6 +15,7 @@
 		7D9F2661261F6DD500F04F32 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */; };
 		7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2664261F6F2200F04F32 /* UIBaseViewController.swift */; };
 		7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2666261F77F700F04F32 /* FirestoreService.swift */; };
+		7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2668261F95E700F04F32 /* MainNavigationController.swift */; };
 		7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */; };
 		7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */; };
 		7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */; };
@@ -29,9 +30,8 @@
 		7DE0A412261F674B002773E3 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A411261F674B002773E3 /* AccountService.swift */; };
 		7DE0A414261F6979002773E3 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A413261F6979002773E3 /* UIStoryboardExtensions.swift */; };
 		7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49725A0EA920053C413 /* AppDelegate.swift */; };
-		7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49925A0EA920053C413 /* SceneDelegate.swift */; };
 		7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49B25A0EA920053C413 /* ViewController.swift */; };
-		7DF7A49F25A0EA920053C413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A49D25A0EA920053C413 /* Main.storyboard */; };
+		7DF7A49F25A0EA920053C413 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A49D25A0EA920053C413 /* Main2.storyboard */; };
 		7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A4A025A0EA940053C413 /* Assets.xcassets */; };
 		7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A4A225A0EA940053C413 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -46,6 +46,7 @@
 		7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
 		7D9F2664261F6F2200F04F32 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		7D9F2666261F77F700F04F32 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		7D9F2668261F95E700F04F32 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisrtationView.storyboard; sourceTree = "<group>"; };
@@ -61,9 +62,8 @@
 		7DE0A413261F6979002773E3 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		7DF7A49425A0EA920053C413 /* EasyService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF7A49725A0EA920053C413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DF7A49925A0EA920053C413 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7DF7A49B25A0EA920053C413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7DF7A49E25A0EA920053C413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7DF7A49E25A0EA920053C413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main2.storyboard; sourceTree = "<group>"; };
 		7DF7A4A025A0EA940053C413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DF7A4A325A0EA940053C413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF7A4A525A0EA940053C413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,13 +219,13 @@
 				7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */,
 				7D1E657825A0FC7500AE97D7 /* Core */,
 				7DF7A49725A0EA920053C413 /* AppDelegate.swift */,
-				7DF7A49925A0EA920053C413 /* SceneDelegate.swift */,
 				7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */,
 				7DF7A49B25A0EA920053C413 /* ViewController.swift */,
-				7DF7A49D25A0EA920053C413 /* Main.storyboard */,
+				7DF7A49D25A0EA920053C413 /* Main2.storyboard */,
 				7DF7A4A025A0EA940053C413 /* Assets.xcassets */,
 				7DF7A4A225A0EA940053C413 /* LaunchScreen.storyboard */,
 				7DF7A4A525A0EA940053C413 /* Info.plist */,
+				7D9F2668261F95E700F04F32 /* MainNavigationController.swift */,
 			);
 			path = EasyService;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 				7D1E658825A1048500AE97D7 /* NewCarView.xib in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
 				7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */,
-				7DF7A49F25A0EA920053C413 /* Main.storyboard in Resources */,
+				7DF7A49F25A0EA920053C413 /* Main2.storyboard in Resources */,
 				7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */,
 				7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */,
 			);
@@ -394,6 +394,7 @@
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
 				7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */,
 				7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */,
+				7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */,
 				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,
 				7DE0A40A261E0FAA002773E3 /* StringExtension.swift in Sources */,
 				7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */,
@@ -402,19 +403,18 @@
 				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
-				7DF7A49A25A0EA920053C413 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7DF7A49D25A0EA920053C413 /* Main.storyboard */ = {
+		7DF7A49D25A0EA920053C413 /* Main2.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7DF7A49E25A0EA920053C413 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Main2.storyboard;
 			sourceTree = "<group>";
 		};
 		7DF7A4A225A0EA940053C413 /* LaunchScreen.storyboard */ = {
