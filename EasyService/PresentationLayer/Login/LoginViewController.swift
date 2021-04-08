@@ -8,11 +8,17 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIBaseViewController {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var emailTextField: UIRoundedTextField!
     
     @IBOutlet weak var passwordTextField: UIRoundedTextField!
+    
+    class func sInit() -> LoginViewController {
+        let contraller = UIStoryboard.login.instantiate(LoginViewController.self)
+        return contraller
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.layer.cornerRadius = 20
@@ -30,4 +36,9 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func showRegisrtationView(_ sender: Any) {
+        if let regisrtationController = UIStoryboard.regisrtation.instantiateInitialViewController() as? RegisrtationViewController {
+             present(regisrtationController, animated: true)
+        }
+    }
 }

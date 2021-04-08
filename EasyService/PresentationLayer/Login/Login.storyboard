@@ -37,7 +37,7 @@
                                         <rect key="frame" x="91" y="250" width="92" height="30"/>
                                         <state key="normal" title="Регистрация"/>
                                         <connections>
-                                            <segue destination="7zM-ok-wbZ" kind="show" id="oaK-Q8-g1G"/>
+                                            <action selector="showRegisrtationView:" destination="s9c-tt-dNE" eventType="touchUpInside" id="j6h-dn-wxV"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tmd-Sx-T4X" customClass="UIRoundedTextField" customModule="EasyService" customModuleProvider="target">
@@ -99,16 +99,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7K-ZC-sJT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="150.72463768115944" y="143.97321428571428"/>
-        </scene>
-        <!--RegisrtationView-->
-        <scene sceneID="DOz-7b-Y1j">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RegisrtationView" id="7zM-ok-wbZ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="NzH-5O-cLG"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cjy-eM-oyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="825" y="224"/>
         </scene>
     </scenes>
 </document>
