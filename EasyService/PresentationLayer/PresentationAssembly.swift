@@ -24,6 +24,6 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     
     func buildLoginController() -> LoginViewController {
-        return LoginViewController.sInit(presentationAssembly: self)
+        return LoginViewController.sInit(accountService: accountService, presentationAssembly: self)
     }
 }
