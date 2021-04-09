@@ -26,6 +26,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchTextChanged:" destination="pYQ-BV-k49" eventType="editingChanged" id="M9J-7u-w6u"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -41,6 +44,7 @@
                         <viewLayoutGuide key="safeArea" id="sSB-hj-bxh"/>
                     </view>
                     <connections>
+                        <outlet property="itemsTableView" destination="o26-Bg-tpv" id="sOI-AP-M1a"/>
                         <outlet property="searchTextField" destination="cZ3-Gd-kPt" id="taG-kY-lXr"/>
                     </connections>
                 </viewController>

@@ -29,7 +29,10 @@ class MainNavigationController: UINavigationController {
         Auth.auth().addStateDidChangeListener { _, user in
             if let user = user {
                 NSLog("Has user")
-                self.viewControllers = [self.presentationAssembly.buildCarListController()]
+//                self.viewControllers = [self.presentationAssembly.buildCarListController()]
+                self.present(self.presentationAssembly.buildItemInListChooserViewController(items: ["Audi", "Kia","Auqura","Keno"]) { item in
+                    print(item)
+                }, animated: true)
                 
             } else {
                 NSLog("No user")

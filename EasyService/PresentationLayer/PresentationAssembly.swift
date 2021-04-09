@@ -13,6 +13,7 @@ protocol IPresentationAssembly {
     func buildRegisrtationController() -> RegisrtationViewController
     func buildLoginController() -> LoginViewController
     func buildCarListController() -> CarListViewController
+    func buildItemInListChooserViewController(items: [String], _ compilition: @escaping ItemChosenHandler) -> ItemInListChooserViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
@@ -30,5 +31,9 @@ final class PresentationAssembly: IPresentationAssembly {
     
     func buildCarListController() -> CarListViewController {
         return CarListViewController.sInit(accountService: accountService, presentationAssembly: self)
+    }
+    
+    func buildItemInListChooserViewController(items: [String], _ compilition: @escaping ItemChosenHandler) -> ItemInListChooserViewController {
+        return ItemInListChooserViewController.sInit(items: items, compilition)
     }
 }
