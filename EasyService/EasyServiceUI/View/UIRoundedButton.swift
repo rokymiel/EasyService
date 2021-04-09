@@ -10,8 +10,12 @@ import UIKit
 
 class UIRoundedButton: UIButton {
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
+    }
 
-    override func draw(_ rect: CGRect) {
+    func setup() {
         layer.cornerRadius = 15
         layer.backgroundColor = UIColor.orange.cgColor
         frame.size = CGSize(width: frame.width, height: 50)

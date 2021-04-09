@@ -12,6 +12,7 @@ import Firebase
 protocol IPresentationAssembly {
     func buildRegisrtationController() -> RegisrtationViewController
     func buildLoginController() -> LoginViewController
+    func buildCarListController() -> CarListViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
@@ -25,5 +26,9 @@ final class PresentationAssembly: IPresentationAssembly {
     
     func buildLoginController() -> LoginViewController {
         return LoginViewController.sInit(accountService: accountService, presentationAssembly: self)
+    }
+    
+    func buildCarListController() -> CarListViewController {
+        return CarListViewController.sInit(accountService: accountService, presentationAssembly: self)
     }
 }

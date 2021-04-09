@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dXM-3B-b34">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Car List View Controller-->
+        <scene sceneID="TR8-jE-wkn">
+            <objects>
+                <viewController id="dXM-3B-b34" customClass="CarListViewController" customModule="EasyService" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eau-BT-8xS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YZg-L1-dqI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YZg-L1-dqI" secondAttribute="bottom" id="4S7-tB-Yht"/>
+                            <constraint firstItem="YZg-L1-dqI" firstAttribute="leading" secondItem="Ql2-3K-CZd" secondAttribute="leading" id="9cY-o8-pfP"/>
+                            <constraint firstItem="YZg-L1-dqI" firstAttribute="trailing" secondItem="Ql2-3K-CZd" secondAttribute="trailing" id="gZV-pQ-K78"/>
+                            <constraint firstItem="YZg-L1-dqI" firstAttribute="top" secondItem="Ql2-3K-CZd" secondAttribute="top" id="yHK-xc-vmv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ql2-3K-CZd"/>
+                    </view>
+                    <connections>
+                        <outlet property="carsListTableView" destination="YZg-L1-dqI" id="ir4-8S-wVO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olD-ze-Ozs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-765.21739130434787" y="163.39285714285714"/>
+        </scene>
+    </scenes>
+</document>
