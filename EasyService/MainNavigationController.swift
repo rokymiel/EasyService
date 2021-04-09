@@ -33,7 +33,7 @@ class MainNavigationController: UINavigationController {
 //                self.present(self.presentationAssembly.buildItemInListChooserViewController(items: ["Audi", "Kia","Auqura","Keno"]) { item in
 //                    print(item)
 //                }, animated: true)
-                self.present(self.presentationAssembly.buildLoginController(), animated: true)
+                self.present(self.presentationAssembly.buildNewCarViewController(), animated: true)
                 
             } else {
                 NSLog("No user")

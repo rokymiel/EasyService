@@ -14,8 +14,9 @@ class ItemInListChooserViewController: UIViewController {
     @IBOutlet weak var searchTextField: UIUnderlinedTextField!
     @IBOutlet weak var itemsTableView: UITableView!
     
-    private var items: [String]!
-    
+    public var items: [String]!
+    public var itemChosenHandler: ItemChosenHandler!
+
     let cellReuseIdentifier = "cell"
     private var searchString: String?
     private var filteredPersons: [String] {
@@ -26,12 +27,8 @@ class ItemInListChooserViewController: UIViewController {
         return items
     }
     
-    private var itemChosenHandler: ItemChosenHandler!
-    
-    class func sInit(items: [String], _ itemChosenHandler: @escaping ItemChosenHandler) -> ItemInListChooserViewController {
+    class func sInit() -> ItemInListChooserViewController {
         let contraller = UIStoryboard.itemInListChooser.instantiate(self)
-        contraller.items = items
-        contraller.itemChosenHandler = itemChosenHandler
         return contraller
     }
     
@@ -40,6 +37,11 @@ class ItemInListChooserViewController: UIViewController {
         itemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchTextField.text = ""
     }
     
     @IBAction func searchTextChanged(_ sender: Any) {
@@ -56,24 +58,22 @@ extension ItemInListChooserViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ?? UITableViewCell()
-        
         cell.textLabel?.text = filteredPersons[indexPath.row]
-        
         return cell
     }
-    
-    
 }
 
 extension ItemInListChooserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchTextField.text = filteredPersons[indexPath.row]
+        
         itemChosenHandler(filteredPersons[indexPath.row])
         
         if let navigationController = navigationController {
             navigationController.popViewController(animated: true)
             return
         }
-//        self.dismissViewControllerAnimated(
+        itemsTableView.deselectRow(at: indexPath, animated: true)
         dismiss(animated: true, completion: nil)
     }
 }

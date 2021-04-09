@@ -150,6 +150,13 @@
 			path = ItemInListChooser;
 			sourceTree = "<group>";
 		};
+		7D90C3E22620F94B0035B704 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7D9F2662261F6EF900F04F32 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +251,7 @@
 		7DF7A49625A0EA920053C413 /* EasyService */ = {
 			isa = PBXGroup;
 			children = (
+				7D90C3E22620F94B0035B704 /* Resources */,
 				7DE0A410261F672C002773E3 /* Service */,
 				7DE0A408261E0F6C002773E3 /* Extentions */,
 				7DE0A400261DC70E002773E3 /* EasyServiceUI */,

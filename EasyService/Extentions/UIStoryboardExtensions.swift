@@ -21,6 +21,9 @@ extension UIStoryboard {
     @nonobjc class var itemInListChooser: UIStoryboard {
       return UIStoryboard(name: .itemInListChooser, bundle: nil)
     }
+    @nonobjc class var newCarViewController: UIStoryboard {
+      return UIStoryboard(name: .newCarViewController, bundle: nil)
+    }
     @nonobjc func instantiate<VC: UIViewController>(_ viewController: VC.Type) -> VC {
         guard
             let vc = instantiateInitialViewController() as? VC
@@ -35,4 +38,5 @@ private extension String {
     static let regisrtation = "RegisrtationView"
     static let carList = "CarListView"
     static let itemInListChooser = "ItemInListChooserView"
+    static let newCarViewController = "NewCarView"
 }

@@ -22,9 +22,5 @@ final class AccountService: IAccountService {
     
     func saveNew(user: User) {
         _ = fireStoreService.addDocument(from: user)
-    }
-    
-
-    
-    
+    }  
 }
