@@ -30,9 +30,10 @@ class MainNavigationController: UINavigationController {
             if let user = user {
                 NSLog("Has user")
 //                self.viewControllers = [self.presentationAssembly.buildCarListController()]
-                self.present(self.presentationAssembly.buildItemInListChooserViewController(items: ["Audi", "Kia","Auqura","Keno"]) { item in
-                    print(item)
-                }, animated: true)
+//                self.present(self.presentationAssembly.buildItemInListChooserViewController(items: ["Audi", "Kia","Auqura","Keno"]) { item in
+//                    print(item)
+//                }, animated: true)
+                self.present(self.presentationAssembly.buildLoginController(), animated: true)
                 
             } else {
                 NSLog("No user")

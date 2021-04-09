@@ -18,7 +18,6 @@ class UIRoundedButton: UIButton {
     func setup() {
         layer.cornerRadius = 15
         layer.backgroundColor = UIColor.orange.cgColor
-        frame.size = CGSize(width: frame.width, height: 50)
         tintColor = UIColor.white
     }
 

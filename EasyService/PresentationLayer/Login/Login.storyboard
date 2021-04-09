@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubS-qu-f3Z">
-                                <rect key="frame" x="70" y="202" width="274" height="310"/>
+                                <rect key="frame" x="70" y="202" width="274" height="319"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21B-8M-jHn">
                                         <rect key="frame" x="107.5" y="40" width="59" height="29"/>
@@ -34,7 +34,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJ7-qH-wkv">
-                                        <rect key="frame" x="91" y="250" width="92" height="30"/>
+                                        <rect key="frame" x="91" y="259" width="92" height="30"/>
                                         <state key="normal" title="Регистрация"/>
                                         <connections>
                                             <action selector="showRegisrtationView:" destination="s9c-tt-dNE" eventType="touchUpInside" id="j6h-dn-wxV"/>
@@ -50,13 +50,14 @@
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-J7-cg9">
-                                        <rect key="frame" x="79" y="212" width="116" height="30"/>
+                                        <rect key="frame" x="79" y="221" width="116" height="30"/>
                                         <state key="normal" title="Забыли пароль?"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PR2-1p-zSL" customClass="UIRoundedButton" customModule="EasyService" customModuleProvider="target">
-                                        <rect key="frame" x="37" y="162" width="200" height="30"/>
+                                        <rect key="frame" x="37" y="167" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="4Jb-Im-PUv"/>
+                                            <constraint firstAttribute="height" constant="34" id="L1t-fw-Xgc"/>
                                         </constraints>
                                         <state key="normal" title="Войти"/>
                                         <connections>
@@ -77,7 +78,7 @@
                                     <constraint firstItem="WJ7-qH-wkv" firstAttribute="centerX" secondItem="ubS-qu-f3Z" secondAttribute="centerX" id="eSS-Dw-t1Q"/>
                                     <constraint firstItem="WJ7-qH-wkv" firstAttribute="top" secondItem="XiY-J7-cg9" secondAttribute="bottom" constant="8" id="fpj-T2-jwg"/>
                                     <constraint firstItem="XiY-J7-cg9" firstAttribute="centerX" secondItem="ubS-qu-f3Z" secondAttribute="centerX" id="jI5-a3-9zn"/>
-                                    <constraint firstItem="PR2-1p-zSL" firstAttribute="top" secondItem="aDd-bj-ztP" secondAttribute="bottom" constant="10" id="mGa-SN-x4Q"/>
+                                    <constraint firstItem="PR2-1p-zSL" firstAttribute="top" secondItem="aDd-bj-ztP" secondAttribute="bottom" constant="15" id="mGa-SN-x4Q"/>
                                     <constraint firstItem="Tmd-Sx-T4X" firstAttribute="top" secondItem="21B-8M-jHn" secondAttribute="bottom" constant="10" id="tri-Nl-0i9"/>
                                 </constraints>
                             </view>
