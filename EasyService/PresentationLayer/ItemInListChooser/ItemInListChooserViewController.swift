@@ -14,17 +14,20 @@ class ItemInListChooserViewController: UIViewController {
     @IBOutlet weak var searchTextField: UIUnderlinedTextField!
     @IBOutlet weak var itemsTableView: UITableView!
     
-    public var items: [String]!
+    public var items: [String]?
     public var itemChosenHandler: ItemChosenHandler!
-
+    
     let cellReuseIdentifier = "cell"
     private var searchString: String?
     private var filteredPersons: [String] {
-        if let searchString = searchString?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
-            !searchString.isEmpty {
-            return items.filter { $0.lowercased().contains(searchString) }
+        if let items = items {
+            if let searchString = searchString?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
+                !searchString.isEmpty {
+                return items.filter { $0.lowercased().contains(searchString) }
+            }
+            return items
         }
-        return items
+        return []
     }
     
     class func sInit() -> ItemInListChooserViewController {
@@ -41,7 +44,9 @@ class ItemInListChooserViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchTextField.text = ""
+        searchTextField.text = nil
+        searchString = nil
+        itemsTableView.reloadData()
     }
     
     @IBAction func searchTextChanged(_ sender: Any) {

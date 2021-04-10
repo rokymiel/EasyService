@@ -34,6 +34,7 @@ class MainNavigationController: UINavigationController {
 //                    print(item)
 //                }, animated: true)
                 self.present(self.presentationAssembly.buildNewCarViewController(), animated: true)
+//                self.present(self.presentationAssembly.buildLoginController(), animated: true)
                 
             } else {
                 NSLog("No user")

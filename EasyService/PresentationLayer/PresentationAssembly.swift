@@ -21,6 +21,7 @@ final class PresentationAssembly: IPresentationAssembly {
     private lazy var db = Firestore.firestore()
     private lazy var firestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     private lazy var accountService: IAccountService = AccountService(fireStoreService: firestoreService)
+    private lazy var resourcesService: IResourcesService = ResourcesService()
     
     func buildRegisrtationController() -> RegisrtationViewController {
         return RegisrtationViewController.sInit(accountService: accountService)
@@ -39,6 +40,6 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     
     func buildNewCarViewController() -> NewCarViewController {
-        return NewCarViewController.sInit(presentationAssembly: self)
+        return NewCarViewController.sInit(resourcesService: resourcesService, presentationAssembly: self)
     }
 }

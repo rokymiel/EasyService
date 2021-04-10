@@ -30,6 +30,7 @@ class CarListViewController: UIViewController{
     }
     @objc func addClicked() {
         print("clc")
+        present(presentationAssembly.buildNewCarViewController(), animated: true)
     }
     
     

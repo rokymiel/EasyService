@@ -11,5 +11,6 @@ target 'EasyService' do
   pod 'Firebase/Auth'
   pod "Firebase/Firestore"
   pod 'FirebaseFirestoreSwift'
+  pod 'SwiftyJSON'
 
 end

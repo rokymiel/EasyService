@@ -304,12 +304,14 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.12)
   - SwiftLint (0.43.1)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - SwiftLint
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -330,6 +332,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SwiftLint
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -349,7 +352,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: a4a8b0122a46cd86bbfcfdeb8b690988cbc185cf
+PODFILE CHECKSUM: 441f7d6da9aae1ac0f1aab2841e9df72035f7996
 
 COCOAPODS: 1.10.0
