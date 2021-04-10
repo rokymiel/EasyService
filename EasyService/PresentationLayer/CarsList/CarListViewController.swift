@@ -29,7 +29,9 @@ class CarListViewController: UIViewController{
         // Do any additional setup after loading the view.
     }
     @objc func addClicked(sender: Any) {
-        print("clc")
+        present(presentationAssembly.buildNewCarViewController { car in
+            print(car)
+        }, animated: true)
     }
     func getEmptyView(title: String) -> UIView {
             button = UIRoundedButton()

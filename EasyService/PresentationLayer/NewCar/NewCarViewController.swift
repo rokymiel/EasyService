@@ -16,15 +16,16 @@ class NewCarViewController: UITableViewController {
     @IBOutlet weak var gearTextField: UITextField!
     @IBOutlet weak var engineVolumeTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
-    
     @IBOutlet weak var engineVolumeStepper: UIStepper!
     
     private var presentationAssembly: PresentationAssembly!
     private var resourcesService: IResourcesService!
-    class func sInit(resourcesService: IResourcesService, presentationAssembly: PresentationAssembly) -> NewCarViewController {
+    private var saved: ((Car) -> Void)!
+    class func sInit(resourcesService: IResourcesService, presentationAssembly: PresentationAssembly, on saved: @escaping (Car) -> Void) -> NewCarViewController {
         let contraller = UIStoryboard.newCarViewController.instantiate(self)
         contraller.presentationAssembly = presentationAssembly
         contraller.resourcesService = resourcesService
+        contraller.saved = saved
         //        contraller.accountService = accountService
         return contraller
     }
@@ -139,6 +140,23 @@ class NewCarViewController: UITableViewController {
     @IBAction func stepperValueChanged(_ sender: Any) {
         
         engineVolumeTextField.text = String( engineVolumeStepper.value/10)
+    }
+    
+    
+    @IBAction func carSavedClicked(_ sender: Any) {
+        guard let mark = markTextField.text,
+            let model = modelTextField.text,
+            let body = bodyTextField.text,
+            let gear = gearTextField.text,
+            let engineStr = engineVolumeTextField.text,
+            let engine = Double(engineStr),
+            let yearStr = yearTextField.text,
+            let year = Int(yearStr) else {
+                return
+        }
+        
+        saved(Car(mark: mark, model: model, body: body, gear: gear, engine: engine, year: year))
+        dismiss(animated: true, completion: nil)
     }
 }
 

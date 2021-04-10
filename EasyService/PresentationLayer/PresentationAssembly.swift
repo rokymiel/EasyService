@@ -14,7 +14,7 @@ protocol IPresentationAssembly {
     func buildLoginController() -> LoginViewController
     func buildCarListController() -> CarListViewController
     func buildItemInListChooserViewController() -> ItemInListChooserViewController
-    func buildNewCarViewController() -> NewCarViewController
+    func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
@@ -39,7 +39,7 @@ final class PresentationAssembly: IPresentationAssembly {
         return ItemInListChooserViewController.sInit()
     }
     
-    func buildNewCarViewController() -> NewCarViewController {
-        return NewCarViewController.sInit(resourcesService: resourcesService, presentationAssembly: self)
+    func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController {
+        return NewCarViewController.sInit(resourcesService: resourcesService, presentationAssembly: self, on: saved)
     }
 }

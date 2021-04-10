@@ -16,6 +16,7 @@
 		7D7F710D2622158600B3341E /* carsBodies.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F710C2622158500B3341E /* carsBodies.json */; };
 		7D7F710F2622158B00B3341E /* gears.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F710E2622158B00B3341E /* gears.json */; };
 		7D7F71112622293E00B3341E /* UIYearPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */; };
+		7D7F71132622419700B3341E /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71122622419700B3341E /* Car.swift */; };
 		7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90C3D3261FAC410035B704 /* CarListViewController.swift */; };
 		7D90C3D8261FAFD70035B704 /* CarListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90C3D7261FAFD70035B704 /* CarListView.storyboard */; };
 		7D90C3DA261FB9F60035B704 /* NewCarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */; };
@@ -57,6 +58,7 @@
 		7D7F710C2622158500B3341E /* carsBodies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carsBodies.json; sourceTree = "<group>"; };
 		7D7F710E2622158B00B3341E /* gears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gears.json; sourceTree = "<group>"; };
 		7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIYearPickerDelegate.swift; sourceTree = "<group>"; };
+		7D7F71122622419700B3341E /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		7D90C3D3261FAC410035B704 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		7D90C3D7261FAFD70035B704 /* CarListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarListView.storyboard; sourceTree = "<group>"; };
 		7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCarView.storyboard; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				7DE0A40E261E3CB3002773E3 /* User.swift */,
+				7D7F71122622419700B3341E /* Car.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			files = (
 				7DE0A414261F6979002773E3 /* UIStoryboardExtensions.swift in Sources */,
 				7D9F2661261F6DD500F04F32 /* PresentationAssembly.swift in Sources */,
+				7D7F71132622419700B3341E /* Car.swift in Sources */,
 				7DE0A40F261E3CB3002773E3 /* User.swift in Sources */,
 				7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */,
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,

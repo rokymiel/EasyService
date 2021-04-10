@@ -236,6 +236,9 @@
                                                         <constraint firstAttribute="height" constant="50" id="DQa-gZ-MC8"/>
                                                     </constraints>
                                                     <state key="normal" title="Сохранить"/>
+                                                    <connections>
+                                                        <action selector="carSavedClicked:" destination="2no-9U-k4f" eventType="touchUpInside" id="AOg-Kz-28B"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
