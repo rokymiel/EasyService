@@ -11,7 +11,7 @@ import UIKit
 class CarListViewController: UIViewController{
     
     @IBOutlet weak var carsListTableView: UITableView!
-    
+    private var button: UIRoundedButton!
     private var presentationAssembly: IPresentationAssembly!
     private var accountService: IAccountService!
     
@@ -24,14 +24,36 @@ class CarListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         carsListTableView.dataSource = self
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(sender:)))
         
         // Do any additional setup after loading the view.
     }
-    @objc func addClicked() {
+    @objc func addClicked(sender: Any) {
         print("clc")
-        present(presentationAssembly.buildNewCarViewController(), animated: true)
     }
+    func getEmptyView(title: String) -> UIView {
+            button = UIRoundedButton()
+            button.setTitle(title, for: .normal)
+            
+            let emptyView = UIView(frame: CGRect(x: carsListTableView.center.x,
+                                                 y: carsListTableView.center.y,
+                                                 width: carsListTableView.bounds.size.width,
+                                                 height: carsListTableView.bounds.size.height))
+            
+            emptyView.addSubview(button)
+            
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+            button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+            button.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
+            button.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
+            
+        button.addTarget(self, action: #selector(addClicked(sender:)), for: .touchUpInside)
+    //        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            
+            // The only tricky part is here:
+            return emptyView
+        }
     
     
     /*
@@ -50,7 +72,8 @@ class CarListViewController: UIViewController{
 extension CarListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        if names.count == 0 {
-        tableView.setEmptyView(title: "Добавить автомобиль", selector: #selector(addClicked))
+        
+        tableView.setEmptyView(view: getEmptyView(title: "Добавить автомобиль"))
         //        }
         //        else {
         //            tableView.restore()
@@ -65,25 +88,9 @@ extension CarListViewController: UITableViewDataSource {
 }
 
 private extension UITableView {
-    func setEmptyView(title: String, selector: Selector) {
-        let button = UIRoundedButton()
-        button.setTitle(title, for: .normal)
+    func setEmptyView(view: UIView) {
         
-        let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
-        
-        emptyView.addSubview(button)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
-        button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
-        button.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
-        button.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
-        
-        button.addTarget(self, action: selector, for: .allEvents)
-//        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        // The only tricky part is here:
-        self.backgroundView = emptyView
+        self.backgroundView = view
         self.separatorStyle = .none
     }
     func setEmptyView(title: String, message: String) {

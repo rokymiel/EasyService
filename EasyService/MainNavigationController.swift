@@ -29,11 +29,11 @@ class MainNavigationController: UINavigationController {
         Auth.auth().addStateDidChangeListener { _, user in
             if let user = user {
                 NSLog("Has user")
-//                self.viewControllers = [self.presentationAssembly.buildCarListController()]
+                self.viewControllers = [self.presentationAssembly.buildCarListController()]
 //                self.present(self.presentationAssembly.buildItemInListChooserViewController(items: ["Audi", "Kia","Auqura","Keno"]) { item in
 //                    print(item)
 //                }, animated: true)
-                self.present(self.presentationAssembly.buildNewCarViewController(), animated: true)
+//                self.present(self.presentationAssembly.buildNewCarViewController(), animated: true)
 //                self.present(self.presentationAssembly.buildLoginController(), animated: true)
                 
             } else {
