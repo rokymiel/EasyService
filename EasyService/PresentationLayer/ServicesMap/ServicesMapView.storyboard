@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HHf-Uu-ebr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Services Map View Controller-->
+        <scene sceneID="Bym-cQ-nhC">
+            <objects>
+                <viewController id="HHf-Uu-ebr" customClass="ServicesMapViewController" customModule="EasyService" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3AX-MP-3Is">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJL-Wv-4Nf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-ic-w4V">
+                                <rect key="frame" x="27" y="75" width="361" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bRA-8P-Co9"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZJL-Wv-4Nf" firstAttribute="trailing" secondItem="2sf-Zg-jTH" secondAttribute="trailing" id="3Uw-aU-St1"/>
+                            <constraint firstItem="ZJL-Wv-4Nf" firstAttribute="leading" secondItem="2sf-Zg-jTH" secondAttribute="leading" id="Cbg-b2-h7d"/>
+                            <constraint firstItem="g5M-ic-w4V" firstAttribute="leading" secondItem="2sf-Zg-jTH" secondAttribute="leading" constant="27" id="Hl4-ap-jga"/>
+                            <constraint firstItem="2sf-Zg-jTH" firstAttribute="trailing" secondItem="g5M-ic-w4V" secondAttribute="trailing" constant="26" id="JMZ-MT-GYT"/>
+                            <constraint firstAttribute="bottom" secondItem="ZJL-Wv-4Nf" secondAttribute="bottom" id="O4q-Vw-bqf"/>
+                            <constraint firstItem="ZJL-Wv-4Nf" firstAttribute="top" secondItem="3AX-MP-3Is" secondAttribute="top" id="uUF-AV-w1z"/>
+                            <constraint firstItem="g5M-ic-w4V" firstAttribute="top" secondItem="2sf-Zg-jTH" secondAttribute="top" constant="31" id="uqO-1h-Xlt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2sf-Zg-jTH"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZJL-Wv-4Nf" id="Yb7-En-4Cu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62P-Do-NJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188.40579710144928" y="191.51785714285714"/>
+        </scene>
+    </scenes>
+</document>

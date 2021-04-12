@@ -74,7 +74,7 @@ class UIContainerView: UIView {
     
     
     let containerView = UIView()
-    let cornerRadius: CGFloat = 6.0
+    let cornerRadius: CGFloat = 15
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -88,13 +88,14 @@ class UIContainerView: UIView {
     }
     
     func layoutView() {
+        let backgroundColor = self.backgroundColor
         
         // set the shadow of the view's layer
         layer.backgroundColor = UIColor.clear.cgColor
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        layer.shadowOpacity = 0.2
-        layer.shadowRadius = 4.0
+        layer.shadowOpacity = 0.5
+        layer.shadowRadius = cornerRadius
         
         // set the cornerRadius of the containerView's layer
         containerView.layer.cornerRadius = cornerRadius

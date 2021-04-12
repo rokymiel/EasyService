@@ -9,12 +9,34 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-protocol IFireStoreService {
+protocol IFireStoreService: class {
     func addDocument(data: [String: Any])
     func addDocument<T: Encodable>(from value: T) -> DocumentReference?
+    func loadDocuments<T: Decodable>(_ compilation: @escaping (Result<[T], Error>) -> Void)
 }
 
 final class FireStoreService: IFireStoreService {
+    func addDocument<T>(from value: T) -> DocumentReference? where T : Encodable {
+         return try? reference.addDocument(from: value)
+    }
+    
+    func loadDocuments<T>(_ compilation: @escaping (Result<[T], Error>) -> Void) where T : Decodable {
+         reference.getDocuments { snapshot, error in
+            if let error = error {
+                return compilation(.failure(error))
+            }
+            for d in snapshot!.documents {
+                print(d.data())
+                print(try? d.data(as: T.self))
+                print(try? d.data(as: Service.self))
+            }
+            
+            if let services = snapshot?.documents.compactMap({ try? $0.data(as: T.self) }) {
+                compilation(.success(services))
+            }
+        }
+    }
+    
     
     let reference: CollectionReference
     
@@ -22,10 +44,7 @@ final class FireStoreService: IFireStoreService {
         self.reference = reference
     }
     
-    func addDocument(data: [String : Any]) {
+    func addDocument(data: [String: Any]) {
         reference.addDocument(data: data)
-    }
-    func addDocument<T: Encodable>(from value: T) -> DocumentReference? {
-         return try? reference.addDocument(from: value)
     }
 }

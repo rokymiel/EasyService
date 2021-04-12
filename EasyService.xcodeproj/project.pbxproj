@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2B88B6E95F79C93244F404AF /* Pods_EasyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3440064850FC7CB26443334A /* Pods_EasyService.framework */; };
+		7D0A69D32624C596005C1599 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69D22624C596005C1599 /* RegistrationService.swift */; };
+		7D0A69D52624D538005C1599 /* ServiceMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */; };
+		7D0A69D92624E3C4005C1599 /* AnnotationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69D72624E3C4005C1599 /* AnnotationDetailsViewController.swift */; };
+		7D0A69DA2624E3C4005C1599 /* AnnotationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */; };
+		7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69DB2624F3B9005C1599 /* Configurable.swift */; };
 		7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */; };
 		7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */; };
 		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
@@ -17,6 +22,9 @@
 		7D7F710F2622158B00B3341E /* gears.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F710E2622158B00B3341E /* gears.json */; };
 		7D7F71112622293E00B3341E /* UIYearPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */; };
 		7D7F71132622419700B3341E /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71122622419700B3341E /* Car.swift */; };
+		7D7F71152622544000B3341E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71142622544000B3341E /* Service.swift */; };
+		7D7F7117262257DC00B3341E /* ServicesMapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F7116262257DC00B3341E /* ServicesMapView.storyboard */; };
+		7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71192622587800B3341E /* ServicesMapViewController.swift */; };
 		7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90C3D3261FAC410035B704 /* CarListViewController.swift */; };
 		7D90C3D8261FAFD70035B704 /* CarListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90C3D7261FAFD70035B704 /* CarListView.storyboard */; };
 		7D90C3DA261FB9F60035B704 /* NewCarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */; };
@@ -50,6 +58,11 @@
 /* Begin PBXFileReference section */
 		3440064850FC7CB26443334A /* Pods_EasyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.release.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.release.xcconfig"; sourceTree = "<group>"; };
+		7D0A69D22624C596005C1599 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
+		7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMKAnnotation.swift; sourceTree = "<group>"; };
+		7D0A69D72624E3C4005C1599 /* AnnotationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailsViewController.swift; sourceTree = "<group>"; };
+		7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationDetailsViewController.xib; sourceTree = "<group>"; };
+		7D0A69DB2624F3B9005C1599 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarView.xib; sourceTree = "<group>"; };
 		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +72,9 @@
 		7D7F710E2622158B00B3341E /* gears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gears.json; sourceTree = "<group>"; };
 		7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIYearPickerDelegate.swift; sourceTree = "<group>"; };
 		7D7F71122622419700B3341E /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		7D7F71142622544000B3341E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7D7F7116262257DC00B3341E /* ServicesMapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServicesMapView.storyboard; sourceTree = "<group>"; };
+		7D7F71192622587800B3341E /* ServicesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesMapViewController.swift; sourceTree = "<group>"; };
 		7D90C3D3261FAC410035B704 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		7D90C3D7261FAFD70035B704 /* CarListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarListView.storyboard; sourceTree = "<group>"; };
 		7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCarView.storyboard; sourceTree = "<group>"; };
@@ -104,6 +120,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D0A69D62624E33F005C1599 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A69D72624E3C4005C1599 /* AnnotationDetailsViewController.swift */,
+				7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		7D0A69DD2624F3BE005C1599 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A69DB2624F3B9005C1599 /* Configurable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		7D1E657825A0FC7500AE97D7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +148,7 @@
 		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7D7F71182622585D00B3341E /* ServicesMap */,
 				7D90C3DB2620D02B0035B704 /* ItemInListChooser */,
 				7D90C3CE261FA9850035B704 /* CarsList */,
 				7DE0A3EF261CE87E002773E3 /* Login */,
@@ -142,6 +176,16 @@
 				7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */,
 			);
 			path = NewCar;
+			sourceTree = "<group>";
+		};
+		7D7F71182622585D00B3341E /* ServicesMap */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A69D62624E33F005C1599 /* MapView */,
+				7D7F7116262257DC00B3341E /* ServicesMapView.storyboard */,
+				7D7F71192622587800B3341E /* ServicesMapViewController.swift */,
+			);
+			path = ServicesMap;
 			sourceTree = "<group>";
 		};
 		7D90C3CE261FA9850035B704 /* CarsList */ = {
@@ -188,6 +232,7 @@
 				7DE0A406261DD210002773E3 /* UIContainerView.swift */,
 				7D90C3E02620D2B10035B704 /* UIUnderlinedTextField.swift */,
 				7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */,
+				7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +258,7 @@
 		7DE0A400261DC70E002773E3 /* EasyServiceUI */ = {
 			isa = PBXGroup;
 			children = (
+				7D0A69DD2624F3BE005C1599 /* Protocol */,
 				7D9F2663261F6F0300F04F32 /* View */,
 				7D9F2662261F6EF900F04F32 /* Base */,
 			);
@@ -234,6 +280,7 @@
 			children = (
 				7DE0A40E261E3CB3002773E3 /* User.swift */,
 				7D7F71122622419700B3341E /* Car.swift */,
+				7D7F71142622544000B3341E /* Service.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +291,7 @@
 				7DE0A411261F674B002773E3 /* AccountService.swift */,
 				7D9F2666261F77F700F04F32 /* FirestoreService.swift */,
 				7D7F710A2621A7B500B3341E /* ResourcesService.swift */,
+				7D0A69D22624C596005C1599 /* RegistrationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -367,8 +415,10 @@
 			files = (
 				7D7F710F2622158B00B3341E /* gears.json in Resources */,
 				7D90C3DD2620D0720035B704 /* ItemInListChooserView.storyboard in Resources */,
+				7D7F7117262257DC00B3341E /* ServicesMapView.storyboard in Resources */,
 				7DE0A3FF261DC25F002773E3 /* Login.storyboard in Resources */,
 				7D7F710D2622158600B3341E /* carsBodies.json in Resources */,
+				7D0A69DA2624E3C4005C1599 /* AnnotationDetailsViewController.xib in Resources */,
 				7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */,
 				7D90C3DA261FB9F60035B704 /* NewCarView.storyboard in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
@@ -449,7 +499,10 @@
 			files = (
 				7DE0A414261F6979002773E3 /* UIStoryboardExtensions.swift in Sources */,
 				7D9F2661261F6DD500F04F32 /* PresentationAssembly.swift in Sources */,
+				7D0A69D92624E3C4005C1599 /* AnnotationDetailsViewController.swift in Sources */,
+				7D7F71152622544000B3341E /* Service.swift in Sources */,
 				7D7F71132622419700B3341E /* Car.swift in Sources */,
+				7D0A69D32624C596005C1599 /* RegistrationService.swift in Sources */,
 				7DE0A40F261E3CB3002773E3 /* User.swift in Sources */,
 				7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */,
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,
@@ -465,12 +518,15 @@
 				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,
 				7DE0A40A261E0FAA002773E3 /* StringExtension.swift in Sources */,
 				7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */,
+				7D0A69D52624D538005C1599 /* ServiceMKAnnotation.swift in Sources */,
 				7DE0A40C261E38BB002773E3 /* DateFormatterExtension.swift in Sources */,
 				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
+				7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */,
 				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
+				7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
