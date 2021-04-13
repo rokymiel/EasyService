@@ -121,6 +121,10 @@ class ServicesMapViewController: UIViewController {
 extension ServicesMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 //        let translation = recognizer.translation(in: self.view)
+        if let service = (view.annotation as? ServiceMKAnnotation)?.service {
+            serviceDetaildController.configure(service)
+        }
+        
         serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height/3, width:  serviceDetaildController.view.frame.width, height:  serviceDetaildController.view.frame.height)
 //        recognizer.setTranslation(.zero, in: self.view)
     }

@@ -11,29 +11,74 @@ import UIKit
 class AnnotationDetailsViewController: UIViewController, Configurable {
     typealias Model = Service
     func configure(_ model: Service) {
-        return
+        service = model
+        contactsCount = 0
+        setContacts(service: model)
+        setWorkTime(service: model)
+        nameLabel.text = service?.name
+        addressViewCell.textLabel?.text = service?.address
+        detailsTableView.reloadData()
+    }
+    func setContacts(service: Service) {
+        
+        contactsCount += 1
+        if contactCells.count < contactsCount {
+            contactCells.append(newCell())
+        }
+        contactCells[contactsCount - 1].textLabel?.text = service.phone
+        
+    }
+    func setWorkTime(service: Service) {
+        let workTime = service.workTime
+        for (i, element) in workTime.enumerated() {
+            workTimeCells[i].detailTextLabel?.text = element
+        }
     }
     
-    @IBOutlet weak var detailsView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet var registrationButtonCellView: UITableViewCell!
+    lazy var addressViewCell: UITableViewCell = newCell()
+    private var service: Service?
+    private var contactsCount = 0
+    private var contactCells: [UITableViewCell] = []
+    private lazy var workTimeCells: [UITableViewCell] = {
+        var cells: [UITableViewCell] = []
+        var calender = Calendar.current
+        calender.locale = Locale(identifier: "ru")
+        for i in 0..<7 {
+             
+            let left = calender.shortWeekdaySymbols[(i+1)%7]
+            let cell = newDetailsCell()
+            cell.textLabel?.text = left
+            cells.append(cell)
+        }
+        return cells
+    }()
+    
+    //    @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var dragView: UIView!
+    @IBOutlet weak var detailsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dragView.layer.cornerRadius = dragView.frame.height / 2.0
+        
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         view.layer.cornerRadius = 15
-        
-//        detailsView.layer.cornerRadius = 20
-//        detailsView.layer.shadowColor = UIColor.black.cgColor
-//        detailsView.layer.shadowOpacity = 0.3
-//        detailsView.layer.shadowOffset = .zero
-//        detailsView.layer.shadowRadius = 20
-//        detailsView.layer.shadowPath = UIBezierPath(rect: detailsView.bounds).cgPath
-//        detailsView.layer.shouldRasterize = true
-//        detailsView.layer.rasterizationScale = UIScreen.main.scale
+        detailsTableView.dataSource = self
+        detailsTableView.delegate = self
+        //        detailsView.layer.cornerRadius = 20
+        //        detailsView.layer.shadowColor = UIColor.black.cgColor
+        //        detailsView.layer.shadowOpacity = 0.3
+        //        detailsView.layer.shadowOffset = .zero
+        //        detailsView.layer.shadowRadius = 20
+        //        detailsView.layer.shadowPath = UIBezierPath(rect: detailsView.bounds).cgPath
+        //        detailsView.layer.shouldRasterize = true
+        //        detailsView.layer.rasterizationScale = UIScreen.main.scale
         //        UIView.animate(withDuration: 0.3) { [weak self] in
         //            let frame = self?.view.frame
         //            let yComponent = UIScreen.main.bounds.height - 200
@@ -51,5 +96,60 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
      // Pass the selected object to the new view controller.
      }
      */
+    func newCell() -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .systemGray4
+        return cell
+    }
+    func newDetailsCell() -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        cell.backgroundColor = .systemGray4
+        return cell
+    }
     
+}
+
+extension AnnotationDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0: return 1
+        case 1: return contactsCount
+        case 2: return 7
+        case 3: return 1
+        default:
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return "Адрес"
+        case 1: return "Контакты"
+        case 2: return "Время работы"
+        case 3: return nil
+        default:
+            return nil
+        }
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0: return addressViewCell
+        case 1: return contactCells[indexPath.row]
+        case 2: return workTimeCells[indexPath.row]
+        case 3: return registrationButtonCellView
+        default:
+            return newCell()
+        }
+    }
+}
+
+extension AnnotationDetailsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 3) { return 50 }
+        return 40
+    }
 }

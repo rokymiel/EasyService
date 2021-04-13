@@ -16,13 +16,13 @@ struct Service: Codable {
     let address: String
     let location: GeoPoint
     let workTime: [String]
-    let contacts: [String]
+    let phone: String
     
     enum CodingKeys: String, CodingKey {
         case name
         case address
         case location
         case workTime = "work_time"
-        case contacts
+        case phone
     }
 }

@@ -27,6 +27,7 @@ final class FireStoreService: IFireStoreService {
             }
             for d in snapshot!.documents {
                 print(d.data())
+                print(d.data()["work_time"] as? [String: Any])
                 print(try? d.data(as: T.self))
                 print(try? d.data(as: Service.self))
             }
