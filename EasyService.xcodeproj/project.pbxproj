@@ -16,6 +16,8 @@
 		7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */; };
 		7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */; };
 		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
+		7D219295262654F100B77667 /* CarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D219293262654F100B77667 /* CarViewCell.swift */; };
+		7D219296262654F100B77667 /* CarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D219294262654F100B77667 /* CarViewCell.xib */; };
 		7D7F71092621A75B00B3341E /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F71082621A75B00B3341E /* cars.json */; };
 		7D7F710B2621A7B500B3341E /* ResourcesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F710A2621A7B500B3341E /* ResourcesService.swift */; };
 		7D7F710D2622158600B3341E /* carsBodies.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F710C2622158500B3341E /* carsBodies.json */; };
@@ -66,6 +68,8 @@
 		7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarView.xib; sourceTree = "<group>"; };
 		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
+		7D219293262654F100B77667 /* CarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewCell.swift; sourceTree = "<group>"; };
+		7D219294262654F100B77667 /* CarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarViewCell.xib; sourceTree = "<group>"; };
 		7D7F71082621A75B00B3341E /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		7D7F710A2621A7B500B3341E /* ResourcesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesService.swift; sourceTree = "<group>"; };
 		7D7F710C2622158500B3341E /* carsBodies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carsBodies.json; sourceTree = "<group>"; };
@@ -185,6 +189,15 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7D219292262654BF00B77667 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D219293262654F100B77667 /* CarViewCell.swift */,
+				7D219294262654F100B77667 /* CarViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7D7F71182622585D00B3341E /* ServicesMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +211,7 @@
 		7D90C3CE261FA9850035B704 /* CarsList */ = {
 			isa = PBXGroup;
 			children = (
+				7D219292262654BF00B77667 /* Cell */,
 				7D90C3D3261FAC410035B704 /* CarListViewController.swift */,
 				7D90C3D7261FAFD70035B704 /* CarListView.storyboard */,
 			);
@@ -422,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D7F710F2622158B00B3341E /* gears.json in Resources */,
+				7D219296262654F100B77667 /* CarViewCell.xib in Resources */,
 				7D90C3DD2620D0720035B704 /* ItemInListChooserView.storyboard in Resources */,
 				7D7F7117262257DC00B3341E /* ServicesMapView.storyboard in Resources */,
 				7DE0A3FF261DC25F002773E3 /* Login.storyboard in Resources */,
@@ -507,6 +522,7 @@
 			files = (
 				7DE0A414261F6979002773E3 /* UIStoryboardExtensions.swift in Sources */,
 				7D9F2661261F6DD500F04F32 /* PresentationAssembly.swift in Sources */,
+				7D219295262654F100B77667 /* CarViewCell.swift in Sources */,
 				7D0A69D92624E3C4005C1599 /* AnnotationDetailsViewController.swift in Sources */,
 				7D7F71152622544000B3341E /* Service.swift in Sources */,
 				7D7F71132622419700B3341E /* Car.swift in Sources */,
