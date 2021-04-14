@@ -25,12 +25,11 @@ final class FireStoreService: IFireStoreService {
             if let error = error {
                 return compilation(.failure(error))
             }
-            for d in snapshot!.documents {
-                print(d.data())
-                print(d.data()["work_time"] as? [String: Any])
-                print(try? d.data(as: T.self))
-                print(try? d.data(as: Service.self))
-            }
+//            for d in snapshot!.documents {
+//                print(d.data())
+//                print(try? d.data(as: T.self))
+//                print(try? d.data(as: Registration.self))
+//            }
             
             if let services = snapshot?.documents.compactMap({ try? $0.data(as: T.self) }) {
                 compilation(.success(services))

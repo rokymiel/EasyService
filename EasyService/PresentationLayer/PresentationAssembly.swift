@@ -22,9 +22,10 @@ final class PresentationAssembly: IPresentationAssembly {
     private lazy var db = Firestore.firestore()
     private lazy var usersFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     private lazy var servicesFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("services"))
+    private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("registrations"))
     private lazy var accountService: IAccountService = AccountService(fireStoreService: usersFirestoreService)
     private lazy var resourcesService: IResourcesService = ResourcesService()
-    private lazy var registrationService: IRegistrationService = RegistrationService(fireStoreService: servicesFirestoreService)
+    private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService)
     
     func buildRegisrtationController() -> RegisrtationViewController {
         return RegisrtationViewController.sInit(accountService: accountService)

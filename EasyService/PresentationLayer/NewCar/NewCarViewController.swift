@@ -141,8 +141,7 @@ class NewCarViewController: UITableViewController {
         
         engineVolumeTextField.text = String( engineVolumeStepper.value/10)
     }
-    
-    
+        
     @IBAction func carSavedClicked(_ sender: Any) {
         guard let mark = markTextField.text,
             let model = modelTextField.text,
@@ -155,7 +154,7 @@ class NewCarViewController: UITableViewController {
                 return
         }
         
-        saved(Car(mark: mark, model: model, body: body, gear: gear, engine: engine, year: year))
+        saved(Car(mark: mark, model: model, body: body, gear: gear, engine: engine, productionYear: year))
         dismiss(animated: true, completion: nil)
     }
 }

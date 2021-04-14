@@ -6,16 +6,24 @@
 //  Copyright © 2021 rokymiel. All rights reserved.
 //
 
-import Foundation
+import FirebaseFirestoreSwift
 
-struct Car {
+struct Car: Codable {
+    @DocumentID var identifier: String?
     
     let mark: String
-    
     let model: String
     let body: String
     let gear: String
     let engine: Double
-    let year: Int
+    let productionYear: Int
     
+    enum CodingKeys: String, CodingKey {
+        case mark
+        case model
+        case body
+        case gear
+        case engine
+        case productionYear = "production_year"
+    }
 }

@@ -16,8 +16,8 @@ struct User: Codable {
     let dateOfBirth: Date
     let phone: String
     let email: String
-    let carIDs: [String]? = nil
-    let registrationsIDs: [String]? = nil
+    var carIDs = [String]()
+    var registrationsIDs = [String]()
     
     enum CodingKeys: String, CodingKey {
         case name

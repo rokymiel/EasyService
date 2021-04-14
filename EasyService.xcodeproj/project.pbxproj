@@ -27,6 +27,9 @@
 		7D7F71152622544000B3341E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71142622544000B3341E /* Service.swift */; };
 		7D7F7117262257DC00B3341E /* ServicesMapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F7116262257DC00B3341E /* ServicesMapView.storyboard */; };
 		7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F71192622587800B3341E /* ServicesMapViewController.swift */; };
+		7D90033926271764002168C1 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90033826271764002168C1 /* Registration.swift */; };
+		7D90033D26271A9D002168C1 /* Service.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D90033B26271A9D002168C1 /* Service.xcdatamodeld */; };
+		7D90033F26271ED3002168C1 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90033E26271ED3002168C1 /* ServiceAssembly.swift */; };
 		7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90C3D3261FAC410035B704 /* CarListViewController.swift */; };
 		7D90C3D8261FAFD70035B704 /* CarListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90C3D7261FAFD70035B704 /* CarListView.storyboard */; };
 		7D90C3DA261FB9F60035B704 /* NewCarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */; };
@@ -79,6 +82,9 @@
 		7D7F71142622544000B3341E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		7D7F7116262257DC00B3341E /* ServicesMapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServicesMapView.storyboard; sourceTree = "<group>"; };
 		7D7F71192622587800B3341E /* ServicesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesMapViewController.swift; sourceTree = "<group>"; };
+		7D90033826271764002168C1 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		7D90033C26271A9D002168C1 /* Service.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Service.xcdatamodel; sourceTree = "<group>"; };
+		7D90033E26271ED3002168C1 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		7D90C3D3261FAC410035B704 /* CarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		7D90C3D7261FAFD70035B704 /* CarListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarListView.storyboard; sourceTree = "<group>"; };
 		7D90C3D9261FB9F60035B704 /* NewCarView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCarView.storyboard; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 		7D1E657825A0FC7500AE97D7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7D90033A262719EB002168C1 /* CoreData */,
 				7DE0A40D261E3CA2002773E3 /* Models */,
 			);
 			path = Core;
@@ -206,6 +213,14 @@
 				7D7F71192622587800B3341E /* ServicesMapViewController.swift */,
 			);
 			path = ServicesMap;
+			sourceTree = "<group>";
+		};
+		7D90033A262719EB002168C1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7D90033B26271A9D002168C1 /* Service.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		7D90C3CE261FA9850035B704 /* CarsList */ = {
@@ -302,6 +317,7 @@
 				7DE0A40E261E3CB3002773E3 /* User.swift */,
 				7D7F71122622419700B3341E /* Car.swift */,
 				7D7F71142622544000B3341E /* Service.swift */,
+				7D90033826271764002168C1 /* Registration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,6 +329,7 @@
 				7D9F2666261F77F700F04F32 /* FirestoreService.swift */,
 				7D7F710A2621A7B500B3341E /* ResourcesService.swift */,
 				7D0A69D22624C596005C1599 /* RegistrationService.swift */,
+				7D90033E26271ED3002168C1 /* ServiceAssembly.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -528,6 +545,7 @@
 				7D7F71132622419700B3341E /* Car.swift in Sources */,
 				7D0A69D32624C596005C1599 /* RegistrationService.swift in Sources */,
 				7DE0A40F261E3CB3002773E3 /* User.swift in Sources */,
+				7D90033926271764002168C1 /* Registration.swift in Sources */,
 				7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */,
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,
 				7D90C3E12620D2B10035B704 /* UIUnderlinedTextField.swift in Sources */,
@@ -537,6 +555,7 @@
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
 				7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */,
 				7D90C3DF2620D23F0035B704 /* ItemInListChooserViewController.swift in Sources */,
+				7D90033D26271A9D002168C1 /* Service.xcdatamodeld in Sources */,
 				7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */,
 				7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */,
 				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,
@@ -549,6 +568,7 @@
 				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,
+				7D90033F26271ED3002168C1 /* ServiceAssembly.swift in Sources */,
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
 				7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */,
 			);
@@ -750,6 +770,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7D90033B26271A9D002168C1 /* Service.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7D90033C26271A9D002168C1 /* Service.xcdatamodel */,
+			);
+			currentVersion = 7D90033C26271A9D002168C1 /* Service.xcdatamodel */;
+			path = Service.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7DF7A48C25A0EA920053C413 /* Project object */;
 }

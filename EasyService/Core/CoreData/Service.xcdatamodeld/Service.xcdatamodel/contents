@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CarDB" representedClassName="CarDB" syncable="YES" codeGenerationType="class">
+        <attribute name="body" attributeType="String"/>
+        <attribute name="engine" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="gear" attributeType="String"/>
+        <attribute name="identifier" attributeType="String"/>
+        <attribute name="mark" attributeType="String"/>
+        <attribute name="model" attributeType="String"/>
+        <attribute name="productionYear" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserDB" inverseName="cars" inverseEntity="UserDB"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="identifier"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="RegistrationDB" representedClassName="RegistrationDB" syncable="YES" codeGenerationType="class">
+        <attribute name="carID" attributeType="String"/>
+        <attribute name="clientID" attributeType="String"/>
+        <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="dateOfCreation" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dateOfRegistration" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descriptionString" optional="YES" attributeType="String"/>
+        <attribute name="identifier" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="timeOfWorks" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="typeOfWorks" attributeType="String"/>
+        <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserDB" inverseName="registrations" inverseEntity="UserDB"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="identifier"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="UserDB" representedClassName="UserDB" syncable="YES" codeGenerationType="class">
+        <attribute name="carIDs" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="dateOfBirth" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="identifier" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="patronymic" optional="YES" attributeType="String"/>
+        <attribute name="phone" attributeType="String"/>
+        <attribute name="registrationsIDs" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="surname" attributeType="String"/>
+        <relationship name="cars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CarDB" inverseName="client" inverseEntity="CarDB"/>
+        <relationship name="registrations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RegistrationDB" inverseName="client" inverseEntity="RegistrationDB"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="identifier"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
+        <element name="CarDB" positionX="191.45703125" positionY="58.75390625" width="128" height="163"/>
+        <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="223"/>
+    </elements>
+</model>

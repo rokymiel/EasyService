@@ -10,17 +10,24 @@ import Foundation
 
 protocol IRegistrationService {
     func getServices(compilation: @escaping (Result<[Service], Error>) -> Void)
+    func getRegistrations(compilation: @escaping (Result<[Registration], Error>) -> Void)
 }
 
 class RegistrationService: IRegistrationService {
     
-    private let fireStoreService: IFireStoreService
+    private let servicesFirestore: IFireStoreService
+    private let regisrtationsFirestore: IFireStoreService
     
-    init(fireStoreService: IFireStoreService) {
-        self.fireStoreService = fireStoreService
+    init(servicesFirestore: IFireStoreService, regisrtationsFirestore: IFireStoreService) {
+        self.servicesFirestore = servicesFirestore
+        self.regisrtationsFirestore = regisrtationsFirestore
     }
     
     func getServices(compilation: @escaping (Result<[Service], Error>) -> Void) {
-        fireStoreService.loadDocuments(compilation)
+        servicesFirestore.loadDocuments(compilation)
+    }
+    
+    func getRegistrations(compilation: @escaping (Result<[Registration], Error>) -> Void) {
+        regisrtationsFirestore.loadDocuments(compilation)
     }
 }
