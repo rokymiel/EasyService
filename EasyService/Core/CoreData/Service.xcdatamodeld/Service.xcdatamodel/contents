@@ -35,14 +35,14 @@
         </uniquenessConstraints>
     </entity>
     <entity name="UserDB" representedClassName="UserDB" syncable="YES" codeGenerationType="class">
-        <attribute name="carIDs" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="carIDs" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
         <attribute name="dateOfBirth" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="email" attributeType="String"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="patronymic" optional="YES" attributeType="String"/>
         <attribute name="phone" attributeType="String"/>
-        <attribute name="registrationsIDs" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="registrationsIDs" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
         <attribute name="surname" attributeType="String"/>
         <relationship name="cars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CarDB" inverseName="client" inverseEntity="CarDB"/>
         <relationship name="registrations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RegistrationDB" inverseName="client" inverseEntity="RegistrationDB"/>

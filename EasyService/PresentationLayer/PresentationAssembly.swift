@@ -23,7 +23,9 @@ final class PresentationAssembly: IPresentationAssembly {
     private lazy var usersFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     private lazy var servicesFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("services"))
     private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("registrations"))
-    private lazy var accountService: IAccountService = AccountService(fireStoreService: usersFirestoreService)
+    private lazy var coreDataStack = CoreDataStack()
+    private lazy var coreDataManager: ICoreDataManager = CoreDataManager(dataStack: coreDataStack)
+    private lazy var accountService: IAccountService = AccountService(fireStoreService: usersFirestoreService, coreDataManager: coreDataManager)
     private lazy var resourcesService: IResourcesService = ResourcesService()
     private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService)
     

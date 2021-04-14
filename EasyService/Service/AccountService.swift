@@ -15,12 +15,18 @@ protocol IAccountService {
 final class AccountService: IAccountService {
     
     private let fireStoreService: IFireStoreService
+    private let coreDataManager: ICoreDataManager
     
-    init(fireStoreService: IFireStoreService) {
+    init(fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager) {
         self.fireStoreService = fireStoreService
+        self.coreDataManager = coreDataManager
     }
     
     func saveNew(user: User) {
         _ = fireStoreService.addDocument(from: user)
-    }  
+        coreDataManager.save(model: user, nil)
+    }
+//    func getUser() -> User {
+//        
+//    }
 }
