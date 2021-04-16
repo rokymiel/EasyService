@@ -94,13 +94,13 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     }
     
     @IBAction func phoneEditingDidBegin(_ sender: Any) {
-        phoneTextField.textColor = nil
-        phoneLabel.textColor = nil
+        phoneTextField.textColor = .label
+        phoneLabel.textColor = .label
     }
     
     @IBAction func emailEditingDidBegin(_ sender: Any) {
-        emailTextField.textColor = nil
-        emailLabel.textColor = nil
+        emailTextField.textColor = .label
+        emailLabel.textColor = .label
     }
     
     @IBAction func surnameEditingDidEnd(_ sender: Any) {
@@ -111,7 +111,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
         
     }
     @IBAction func surnameEditingDidBegin(_ sender: Any) {
-        surnameLabel.textColor = nil
+        surnameLabel.textColor = .label
     }
     
     @IBAction func nameEditingDidEnd(_ sender: Any) {
@@ -122,11 +122,11 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
         
     }
     @IBAction func nameEditingDidBegin(_ sender: Any) {
-        nameLabel.textColor = nil
+        nameLabel.textColor = .label
     }
     @IBAction func dateEditingDidBegin(_ sender: Any) {
-        dateLabel.textColor = nil
-        dateTextField.textColor = nil
+        dateLabel.textColor = .label
+        dateTextField.textColor = .label
     }
     
     @IBAction func dateEditingDidEnd(_ sender: Any) {
