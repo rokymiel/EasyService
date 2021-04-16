@@ -13,9 +13,9 @@ class MainNavigationController: UINavigationController {
     
     private let presentationAssembly: IPresentationAssembly
     private let serviceAssembly: IServiceAssembly
-    init(presentationAssembly: IPresentationAssembly) {
+    init(presentationAssembly: IPresentationAssembly, serviceAssembly: IServiceAssembly) {
         self.presentationAssembly = presentationAssembly
-        self.serviceAssembly = ServiceAssembly()
+        self.serviceAssembly = serviceAssembly
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -27,59 +27,35 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        let manager = CoreDataManager(dataStack: coreDataStack)
         
-        manager.fetchAll(UserDB.self) { (items) in
-            print(1)
-            //            for item in items ?? [] {
-            //                   print(item.identifier, item.name)
-            //               }
-            print(items?[1].name)
-            sleep(1)
-            print(11)
-            for item in items ?? [] {
-                print(item)
-                print(item.identifier, item.name)
-            }
-            
-        }
-        
-        let user = User(identifier: "ASDR",
-                        name: "Man5", surname: "Sur", patronymic: nil, dateOfBirth: Date(), phone: "989898", email: "jdhakjdh")
-        manager.save(model: user) {
-            print("Saved")
-            manager.fetchAll(UserDB.self) { (items) in
-                print(2)
-                print(items?.map({ $0.name }))
-                
-            }
-        }
-        
-        
-        //        serviceAssembly.buildRegisrtationService().getRegistrations { (result) in
+        //        accountService.getUser { (result) in
         //            switch result {
-        //            case .failure(let error):
-        //                print(error)
-        //            case .success(let registrations):
-        //                print(registrations)
+        //            case .success(let user): // TODO: - как-то использовать
+        //                self.viewControllers = [self.presentationAssembly.buildCarListController()]
+        //            case .failure:
+        //                print("ASA")
+        //                self.present(self.presentationAssembly.buildLoginController(), animated: true)
         //            }
         //        }
-//        Auth.auth().addStateDidChangeListener { _, user in
-//            if let user = user {
-//                NSLog("Has user")
-//                //                self.viewControllers = [self.presentationAssembly.buildCarListController()]
-//                self.present(self.presentationAssembly.buildServicesMapViewController(), animated: true)
-//                //                self.present(self.presentationAssembly.buildItemInListChooserViewController(items: ["Audi", "Kia","Auqura","Keno"]) { item in
-//                //                    print(item)
-//                //                }, animated: true)
-//                //                self.present(self.presentationAssembly.buildNewCarViewController(), animated: true)
-//                //                self.present(self.presentationAssembly.buildLoginController(), animated: true)
-//
-//            } else {
-//                NSLog("No user")
-//                self.present(self.presentationAssembly.buildLoginController(), animated: true)
-//            }
-//
-//        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let accountService = serviceAssembly.buildAccountService()
+        do{ try Auth.auth().signOut() } catch {}
+        accountService.getUser { (result) in
+            switch result {
+            case .success(let user):
+                DispatchQueue.main.async {
+                    print()// TODO: - как-то использовать
+                    self.viewControllers = [self.presentationAssembly.buildCarListController()]
+                }
+                
+            case .failure:
+                DispatchQueue.main.async {
+                    print("ASA")
+                    self.present(self.presentationAssembly.buildLoginController(), animated: true)
+                    
+                }
+            }
+        }
     }
 }

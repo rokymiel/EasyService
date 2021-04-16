@@ -15,7 +15,7 @@ protocol ICoreDatsStack {
     func getViewContext() -> NSManagedObjectContext
     
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void )
-    func fetch<T: NSFetchRequestResult> (type: T.Type, request: NSFetchRequest<NSFetchRequestResult>) -> [T]? 
+    func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]?
 }
 
 class CoreDataStack: ICoreDatsStack {
@@ -48,14 +48,13 @@ class CoreDataStack: ICoreDatsStack {
         }
     }
     
-    func fetch<T: NSFetchRequestResult> (type: T.Type, request: NSFetchRequest<NSFetchRequestResult>) -> [T]? {
-        let c = try? container.viewContext.fetch(request)
+    func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]? {
+//        let c = try? container.viewContext.fetch(request)
 //        for a in c ?? []{
 //            print(a as? UserDB)
 //        }
 //        print(c as? [T])
-        return c as? [T]
-        
+        return try? container.viewContext.fetch(request)
     }
 }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 final class RegisrtationViewController: UITableViewController, UITextFieldDelegate {
     
@@ -34,6 +35,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "dd.MM.yyyy"
+        f.locale = NSLocale.current
         return f
     }()
     
@@ -66,6 +68,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     }
     
     @objc func donedatePicker() {
+        print("DAAAATE", datePicker.date)
         dateTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }

@@ -9,8 +9,9 @@ import Foundation
 import CoreData
 
 protocol ICoreDataManager {
-    func save(model: IDBModel, _ block: (()-> Void)?)
-    func fetchAll<T: NSManagedObject> (_ item: T.Type, _ block: @escaping ([T]?) -> Void)
+    func save(model: IDBModel, _ block: (() -> Void)?)
+    func fetchAll<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping ([T]?) -> Void)
+    func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping (T?) -> Void)
 }
 
 class CoreDataManager: ICoreDataManager {
@@ -33,9 +34,15 @@ class CoreDataManager: ICoreDataManager {
         }
     }
     
-    func fetchAll<T: NSManagedObject> (_ item: T.Type, _ block: @escaping ([T]?) -> Void) {
+    func fetchAll<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping ([T]?) -> Void) {
         queue.async {
-            block(self.coreDataStack.fetch(type: item, request: item.fetchRequest()))
+            block(self.coreDataStack.fetch(request: request))
+        }
+    }
+    
+    func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping (T?) -> Void) {
+        queue.async {
+            block(self.coreDataStack.fetch(request: request)?.first)
         }
     }
 }

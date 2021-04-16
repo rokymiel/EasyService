@@ -19,26 +19,33 @@ protocol IPresentationAssembly {
 }
 
 final class PresentationAssembly: IPresentationAssembly {
+    
+    private let serviceAssembly: IServiceAssembly
+    
+    
     private lazy var db = Firestore.firestore()
     private lazy var usersFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     private lazy var servicesFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("services"))
     private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("registrations"))
-    private lazy var coreDataStack = CoreDataStack()
-    private lazy var coreDataManager: ICoreDataManager = CoreDataManager(dataStack: coreDataStack)
-    private lazy var accountService: IAccountService = AccountService(fireStoreService: usersFirestoreService, coreDataManager: coreDataManager)
+   
+
     private lazy var resourcesService: IResourcesService = ResourcesService()
     private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService)
     
+    init(serviceAssembly: IServiceAssembly) {
+        self.serviceAssembly = serviceAssembly
+    }
+    
     func buildRegisrtationController() -> RegisrtationViewController {
-        return RegisrtationViewController.sInit(accountService: accountService)
+        return RegisrtationViewController.sInit(accountService: serviceAssembly.buildAccountService())
     }
     
     func buildLoginController() -> LoginViewController {
-        return LoginViewController.sInit(accountService: accountService, presentationAssembly: self)
+        return LoginViewController.sInit(accountService: serviceAssembly.buildAccountService(), presentationAssembly: self)
     }
     
     func buildCarListController() -> CarListViewController {
-        return CarListViewController.sInit(accountService: accountService, presentationAssembly: self)
+        return CarListViewController.sInit(accountService: serviceAssembly.buildAccountService(), presentationAssembly: self)
     }
     
     func buildItemInListChooserViewController() -> ItemInListChooserViewController {

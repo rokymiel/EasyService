@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        let assembly = PresentationAssembly()
+        let serviceAssembly = ServiceAssembly()
+        let assembly = PresentationAssembly(serviceAssembly: serviceAssembly)
         window = UIWindow(frame: UIScreen.main.bounds)
         
         //        self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -25,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
         //        UIApplication.shared.windows.first?.rootViewController = PresentationAssembly().buildLoginController()
         self.window?.makeKeyAndVisible()
         //        Auth.auth().currentUser
-        self.window?.rootViewController = MainNavigationController(presentationAssembly: assembly)
+        self.window?.rootViewController = MainNavigationController(presentationAssembly: assembly, serviceAssembly: serviceAssembly)
         //        do {
         //            try Auth.auth().signOut()
         //        } catch let signOutError as NSError {

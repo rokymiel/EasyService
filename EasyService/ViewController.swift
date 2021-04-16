@@ -14,9 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    lazy var assembly = PresentationAssembly()
+//    lazy var assembly = PresentationAssembly()
 
     @IBAction func show(_ sender: Any) {
-        present(assembly.buildLoginController(), animated: true)
+//        present(assembly.buildLoginController(), animated: true)
     }
 }

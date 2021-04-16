@@ -7,7 +7,7 @@
         <attribute name="identifier" attributeType="String"/>
         <attribute name="mark" attributeType="String"/>
         <attribute name="model" attributeType="String"/>
-        <attribute name="productionYear" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productionYear" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserDB" inverseName="cars" inverseEntity="UserDB"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -18,7 +18,7 @@
     <entity name="RegistrationDB" representedClassName="RegistrationDB" syncable="YES" codeGenerationType="class">
         <attribute name="carID" attributeType="String"/>
         <attribute name="clientID" attributeType="String"/>
-        <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="cost" optional="YES" attributeType="Transformable" customClassName="NSNumber"/>
         <attribute name="dateOfCreation" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateOfRegistration" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="descriptionString" optional="YES" attributeType="String"/>
@@ -53,8 +53,8 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
         <element name="CarDB" positionX="191.45703125" positionY="58.75390625" width="128" height="163"/>
         <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="223"/>
+        <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
     </elements>
 </model>

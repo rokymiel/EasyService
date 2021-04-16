@@ -20,6 +20,7 @@ protocol IFireStoreService: class {
     
     func loadDocuments<T>(where field: String, isEqualTo value: Any, _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable
     func loadDocument<T>(id: String, _ completion: @escaping (Result<T, Error>) -> Void) where T: Decodable
+    func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) where T: Decodable
 }
 
 final class FireStoreService: IFireStoreService {
