@@ -52,7 +52,10 @@ class MainNavigationController: UINavigationController {
             case .failure:
                 DispatchQueue.main.async {
                     print("ASA")
-                    self.present(self.presentationAssembly.buildLoginController(), animated: true)
+                    self.present(self.presentationAssembly.buildLoginController {
+                        print("asd")
+                        self.viewControllers = [self.presentationAssembly.buildCarListController()]
+                    }, animated: true)
                     
                 }
             }

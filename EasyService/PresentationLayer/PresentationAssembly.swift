@@ -10,8 +10,8 @@ import UIKit
 import Firebase
 
 protocol IPresentationAssembly {
-    func buildRegisrtationController() -> RegisrtationViewController
-    func buildLoginController() -> LoginViewController
+    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegisrtationViewController
+    func buildLoginController(_ completition: @escaping () -> Void) -> LoginViewController
     func buildCarListController() -> CarListViewController
     func buildItemInListChooserViewController() -> ItemInListChooserViewController
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController
@@ -36,12 +36,12 @@ final class PresentationAssembly: IPresentationAssembly {
         self.serviceAssembly = serviceAssembly
     }
     
-    func buildRegisrtationController() -> RegisrtationViewController {
-        return RegisrtationViewController.sInit(accountService: serviceAssembly.buildAccountService())
+    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegisrtationViewController {
+        return RegisrtationViewController.sInit(accountService: serviceAssembly.buildAccountService(), completition)
     }
     
-    func buildLoginController() -> LoginViewController {
-        return LoginViewController.sInit(accountService: serviceAssembly.buildAccountService(), presentationAssembly: self)
+    func buildLoginController(_ completition: @escaping () -> Void) -> LoginViewController {
+        return LoginViewController.sInit(accountService: serviceAssembly.buildAccountService(), presentationAssembly: self, completition)
     }
     
     func buildCarListController() -> CarListViewController {

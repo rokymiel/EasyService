@@ -29,6 +29,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     @IBOutlet weak var createAccountButton: UIRoundedButton!
     
     private var accountService: IAccountService!
+    private var completition: (() -> Void)!
     
     let datePicker = UIDatePicker()
     
@@ -39,9 +40,10 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
         return f
     }()
     
-    class func sInit(accountService: IAccountService) -> RegisrtationViewController {
+    class func sInit(accountService: IAccountService, _ completition: @escaping () -> Void) -> RegisrtationViewController {
         let contraller = UIStoryboard.regisrtation.instantiate(RegisrtationViewController.self)
         contraller.accountService = accountService
+        contraller.completition = completition
         return contraller
     }
     
@@ -167,6 +169,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
         Auth.auth().createUser(withEmail: email, password: passwordTextField.text!) { authResult, error in
             if let error = error {
                 self.showAlert(with: error.localizedDescription)
+                self.createAccountButton.isEnabled = true
                 return
             }
             if let fUser = authResult?.user {
@@ -178,7 +181,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
                                 phone: phone,
                                 email: email)
                 self.accountService.saveNew(user: user)
-                
+                self.dismiss(animated: true, completion: self.completition)
             }
         }
     }
