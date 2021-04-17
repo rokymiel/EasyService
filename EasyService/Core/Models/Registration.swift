@@ -13,15 +13,16 @@ struct Registration: Codable {
     let carID: String
     let clientID: String
     let cost: Double?
-    let dateOfCreation: Timestamp
-    let dateOfRegistration: Timestamp
+    let dateOfCreation: Date
+    let dateOfRegistration: Date
     let description: String?
     let notes: String?
     let status: Status
-    let timeOfWorks: Timestamp?
+    let timeOfWorks: Date?
     let typeOfWorks: String
     
     enum CodingKeys: String, CodingKey {
+        case identifier
         case carID = "car_id"
         case clientID = "client_id"
         case cost
@@ -41,5 +42,17 @@ struct Registration: Codable {
         case canceled
         case inProgress = "in_progress"
         case completed
+        
+        init(rawValue: String) {
+            switch rawValue {
+            case "denied": self = .denied
+            case "new": self = .new
+            case "accepted": self = .accepted
+            case "canceled": self = .canceled
+            case "in_progress" : self = .inProgress
+            case "completed": self = .completed
+            default: self = .new
+            }
+        }
     }
 }

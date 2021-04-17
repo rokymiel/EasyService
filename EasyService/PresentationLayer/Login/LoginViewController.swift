@@ -17,9 +17,9 @@ final class LoginViewController: UIViewController {
     
     private var presentationAssembly: IPresentationAssembly!
     private var accountService: IAccountService!
-    private var completition: (() -> Void)!
+    private var completition: ((String) -> Void)!
     
-    class func sInit(accountService: IAccountService, presentationAssembly: IPresentationAssembly, _ completition: @escaping () -> Void) -> LoginViewController {
+    class func sInit(accountService: IAccountService, presentationAssembly: IPresentationAssembly, _ completition: @escaping (String) -> Void) -> LoginViewController {
         let contraller = UIStoryboard.login.instantiate(LoginViewController.self)
         contraller.presentationAssembly = presentationAssembly
         contraller.completition = completition
@@ -48,21 +48,21 @@ final class LoginViewController: UIViewController {
             showAlert(with: "Введите пароль!")
             return
         }
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 self.showAlert(with: error.localizedDescription)
                 return
             }
-//            if let user = result?.user {
-//                
-//            }
-            self.dismiss(animated: true, completion: self.completition)
+            if let user = result?.user {
+                self.dismiss(animated: true, completion: { self.completition(user.uid) } )
+
+            }
         }
     }
     
     @IBAction func showRegisrtationView(_ sender: Any) {
-        present(presentationAssembly.buildRegisrtationController {
-            self.dismiss(animated: true, completion: self.completition)
+        present(presentationAssembly.buildRegisrtationController { id in
+            self.dismiss(animated: true, completion: { self.completition(id) } )
         }, animated: true)
     }
 }

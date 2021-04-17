@@ -54,7 +54,12 @@ class CoreDataStack: ICoreDatsStack {
 //            print(a as? UserDB)
 //        }
 //        print(c as? [T])
-        print(try? container.viewContext.fetch(UserDB.fetchRequest()))
+//        let f: NSFetchRequest<UserDB> = UserDB.fetchRequest()
+//        let a = try? container.viewContext.fetch(f).first
+//        print("CREmail", a?.email)
+//        print("CRE", a)
+//        print("CREid", a?.identifier)
+        request.returnsObjectsAsFaults = false
         return try? container.viewContext.fetch(request)
     }
 }

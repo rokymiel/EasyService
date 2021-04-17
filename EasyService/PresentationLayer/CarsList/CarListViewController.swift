@@ -13,15 +13,16 @@ class CarListViewController: UIViewController{
     @IBOutlet weak var carsListTableView: UITableView!
     private var button: UIRoundedButton!
     private var presentationAssembly: IPresentationAssembly!
-    private var accountService: IAccountService!
+    private var carsService: ICarsService!
     
-    class func sInit(accountService: IAccountService, presentationAssembly: IPresentationAssembly) -> CarListViewController {
+    class func sInit(carsService: ICarsService, presentationAssembly: IPresentationAssembly) -> CarListViewController {
         let contraller = UIStoryboard.carList.instantiate(CarListViewController.self)
+        contraller.carsService = carsService
         contraller.presentationAssembly = presentationAssembly
         return contraller
     }
-    private let cars = [Car(identifier: "1", mark: "Audi", model: "A6", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2016),
-                        Car(identifier: "2", mark: "Audi", model: "A3", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2020)]
+    private var cars = [Car]()//[Car(identifier: "1", mark: "Audi", model: "A6", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2016),
+    // Car(identifier: "2", mark: "Audi", model: "A3", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2020)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,22 @@ class CarListViewController: UIViewController{
         title = "Автомобили"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(sender:)))
         
+        carsService.getCars { (result) in
+            if case let .success(cars) = result {
+                print("HIQWERTYU", cars.count)
+                DispatchQueue.main.async {
+                    self.cars = cars
+                    self.carsListTableView.reloadData()
+                    
+                }
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
     @objc func addClicked(sender: Any) {
         present(presentationAssembly.buildNewCarViewController { car in
-            print(car)
+            self.carsService.saveNew(car: car)
         }, animated: true)
     }
     func getEmptyView(title: String) -> UIView {
@@ -64,7 +76,7 @@ class CarListViewController: UIViewController{
         
         button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
         button.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 70).isActive = true
-
+        
         button.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
         button.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -92,20 +104,20 @@ class CarListViewController: UIViewController{
 
 extension CarListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        if names.count == 0 {
+        if cars.count == 0 {
+            
+            tableView.setEmptyView(view: getEmptyView(title: "Добавить автомобиль"))
+            return 0
+        }
+        tableView.restore()
         
-//        tableView.setEmptyView(view: getEmptyView(title: "Добавить автомобиль"))
-        //        }
-        //        else {
-        //            tableView.restore()
-        //        }
         return cars.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = self.carsListTableView.dequeueReusableCell(withIdentifier: String(describing: CarViewCell.self), for: indexPath) as? CarViewCell {
             cell.configure(cars[indexPath.row])
-//            cell.applyTheme()
+            //            cell.applyTheme()
             return cell
         }
         return UITableViewCell()

@@ -27,7 +27,7 @@ class CoreDataManager: ICoreDataManager {
     func save(model: IDBModel, _ block: (()-> Void)?) {
         queue.async {
             self.coreDataStack.perform { context in
-                _ = model.toModel(in: context)
+                _ = model.toDBModel(in: context)
                 _ = context.trySave()
                 block?()
             }

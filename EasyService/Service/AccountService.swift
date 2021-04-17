@@ -20,8 +20,9 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         switch auth {
         case .user(let user):
             self.getUser(with: user.uid) { (result) in
-                print(result)
+                print("authorizationDidChange", result)
                 if case let .success(user) = result   {
+                    print(user)
                     self.coreDataManager.save(model: user, nil)
                 }
             }
@@ -55,6 +56,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     
     func getUser(completition: @escaping (Result<User, Error>) -> Void) {
         if let user = authService.user {
+            print(user.uid)
             getUser(with: user.uid, completition: completition)
         } else {
             completition(.failure(NoneError.none))
@@ -66,9 +68,11 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         let predicate = NSPredicate(format: "identifier == %@", id)
         request.predicate = predicate
         coreDataManager.fetch(request: request) { (result) in
-            print("RES", result)
+//            print(result)
+//            print("RES", result?.identifier)
+//            print(result)
             if let user = result {
-                completition(.success(user.user))
+                completition(.success(user.dataModel))
             } else {
                 completition(.failure(NoneError.none))
             }

@@ -19,6 +19,7 @@ struct Car: Codable {
     let productionYear: Int
     
     enum CodingKeys: String, CodingKey {
+        case identifier
         case mark
         case model
         case body

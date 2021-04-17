@@ -9,13 +9,26 @@
 import CoreData
 
 protocol IDBModel {
-    func toModel(in context: NSManagedObjectContext) -> NSManagedObject
+    func toDBModel(in context: NSManagedObjectContext) -> NSManagedObject
 }
 
-extension UserDB {
+extension Array where Element == IDBModel {
+    func toDBModels(in context: NSManagedObjectContext) -> [NSManagedObject] {
+        self.map { $0.toDBModel(in: context) }
+    }
+}
+
+protocol IModel {
+    associatedtype DataType
+    var dataModel: DataType { get }
+}
+
+extension UserDB: IModel {
     convenience init(user: User, in context: NSManagedObjectContext) {
         self.init(context: context)
+        print("init1", user.identifier)
         identifier = user.identifier
+        print("init2", identifier)
         name = user.name
         surname = user.surname
         patronymic = user.patronymic
@@ -25,8 +38,9 @@ extension UserDB {
         carIDs = user.carIDs
         registrationsIDs = user.registrationsIDs
     }
-    var user: User {
-        User(identifier: identifier,
+    var dataModel: User {
+        print("dataModel", identifier)
+        return User(identifier: identifier,
              name: name!,
              surname: surname!,
              patronymic: patronymic,
@@ -39,12 +53,12 @@ extension UserDB {
 }
 
 extension User: IDBModel {
-    func toModel(in context: NSManagedObjectContext) -> NSManagedObject {
+    func toDBModel(in context: NSManagedObjectContext) -> NSManagedObject {
         UserDB(user: self, in: context)
     }
 }
 
-extension CarDB {
+extension CarDB: IModel {
     convenience init(car: Car, in context: NSManagedObjectContext) {
         self.init(context: context)
         identifier = car.identifier
@@ -56,7 +70,7 @@ extension CarDB {
         productionYear = Int32(car.productionYear)
     }
     
-    var car: Car {
+    var dataModel: Car {
         Car(identifier: identifier,
             mark: mark!,
             model: model!,
@@ -68,12 +82,12 @@ extension CarDB {
 }
 
 extension Car: IDBModel {
-    func toModel(in context: NSManagedObjectContext) -> NSManagedObject {
+    func toDBModel(in context: NSManagedObjectContext) -> NSManagedObject {
         CarDB(car: self, in: context)
     }
 }
 
-extension RegistrationDB {
+extension RegistrationDB: IModel {
     convenience init(registration: Registration, in context: NSManagedObjectContext) {
         self.init(context: context)
         identifier = registration.identifier
@@ -83,18 +97,35 @@ extension RegistrationDB {
         if let reCost = registration.cost {
             cost = NSNumber(value: reCost)
         }
-        dateOfCreation = registration.dateOfCreation.dateValue()
-        dateOfRegistration = registration.dateOfRegistration.dateValue()
+        dateOfCreation = registration.dateOfCreation
+        dateOfRegistration = registration.dateOfRegistration
         descriptionString = registration.description
         notes = registration.notes
         status = registration.status.rawValue
-        timeOfWorks = registration.timeOfWorks?.dateValue()
+        timeOfWorks = registration.timeOfWorks
         typeOfWorks = registration.typeOfWorks
+    }
+    var dataModel: Registration {
+        var dCost: Double? = nil
+        if let cost = cost {
+            dCost = Double(exactly: cost)
+        }
+        return Registration(identifier: identifier,
+                     carID: carID!,
+                     clientID: clientID!,
+                     cost: dCost,
+                     dateOfCreation: dateOfCreation!,
+                     dateOfRegistration: dateOfRegistration!,
+                     description: descriptionString,
+                     notes: notes,
+                     status: .init(rawValue: status!),
+                     timeOfWorks: timeOfWorks,
+                     typeOfWorks: typeOfWorks!)
     }
 }
 
 extension Registration: IDBModel {
-    func toModel(in context: NSManagedObjectContext) -> NSManagedObject {
+    func toDBModel(in context: NSManagedObjectContext) -> NSManagedObject {
         RegistrationDB(registration: self, in: context)
     }
 }

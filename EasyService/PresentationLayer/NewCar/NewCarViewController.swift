@@ -154,7 +154,7 @@ class NewCarViewController: UITableViewController {
                 return
         }
         
-        saved(Car(mark: mark, model: model, body: body, gear: gear, engine: engine, productionYear: year))
+        saved(Car(identifier: UUID().uuidString,  mark: mark, model: model, body: body, gear: gear, engine: engine, productionYear: year))
         dismiss(animated: true, completion: nil)
     }
 }

@@ -20,6 +20,7 @@ struct User: Codable {
     var registrationsIDs = [String]()
     
     enum CodingKeys: String, CodingKey {
+        case identifier
         case name
         case surname
         case patronymic

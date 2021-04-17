@@ -10,9 +10,9 @@ import UIKit
 import Firebase
 
 protocol IPresentationAssembly {
-    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegisrtationViewController
-    func buildLoginController(_ completition: @escaping () -> Void) -> LoginViewController
-    func buildCarListController() -> CarListViewController
+    func buildRegisrtationController(_ completition: @escaping (String) -> Void) -> RegisrtationViewController
+    func buildLoginController(_ completition: @escaping (String) -> Void) -> LoginViewController
+    func buildCarListController(with userId: String) -> CarListViewController
     func buildItemInListChooserViewController() -> ItemInListChooserViewController
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController
     func buildServicesMapViewController() -> ServicesMapViewController
@@ -36,16 +36,16 @@ final class PresentationAssembly: IPresentationAssembly {
         self.serviceAssembly = serviceAssembly
     }
     
-    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegisrtationViewController {
-        return RegisrtationViewController.sInit(accountService: serviceAssembly.buildAccountService(), completition)
+    func buildRegisrtationController(_ completition: @escaping (String) -> Void) -> RegisrtationViewController {
+        return RegisrtationViewController.sInit(accountService: serviceAssembly.getAccountService(), completition)
     }
     
-    func buildLoginController(_ completition: @escaping () -> Void) -> LoginViewController {
-        return LoginViewController.sInit(accountService: serviceAssembly.buildAccountService(), presentationAssembly: self, completition)
+    func buildLoginController(_ completition: @escaping (String) -> Void) -> LoginViewController {
+        return LoginViewController.sInit(accountService: serviceAssembly.getAccountService(), presentationAssembly: self, completition)
     }
     
-    func buildCarListController() -> CarListViewController {
-        return CarListViewController.sInit(accountService: serviceAssembly.buildAccountService(), presentationAssembly: self)
+    func buildCarListController(with userId: String) -> CarListViewController {
+        return CarListViewController.sInit(carsService: serviceAssembly.getCarService(with: userId), presentationAssembly: self)
     }
     
     func buildItemInListChooserViewController() -> ItemInListChooserViewController {

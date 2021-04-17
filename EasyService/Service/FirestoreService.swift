@@ -31,7 +31,10 @@ final class FireStoreService: IFireStoreService {
     }
     
     func addDocument<T>(with id: String, from value: T) where T: Encodable {
-        try? reference.document(id).setData(from: value)
+        print("SSSAAAVVV")
+        do {try reference.document(id).setData(from: value)} catch {
+            print(error)
+        }
     }
     
     func loadDocuments<T>(_ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable {

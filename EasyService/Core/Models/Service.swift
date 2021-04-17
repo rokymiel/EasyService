@@ -19,6 +19,7 @@ struct Service: Codable {
     let phone: String
     
     enum CodingKeys: String, CodingKey {
+        case identifier
         case name
         case address
         case location
