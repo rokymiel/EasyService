@@ -35,7 +35,7 @@ class CarListViewController: UIViewController{
     }
     func getEmptyView(title: String) -> UIView {
         let messageLabel = UILabel()
-        messageLabel.text = "Exx"
+        messageLabel.text = "Автомобилей нет"
         button = UIRoundedButton()
         button.setTitle(title, for: .normal)
         
@@ -50,19 +50,23 @@ class CarListViewController: UIViewController{
         button.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        messageLabel.topAnchor.constraint(equalTo: emptyView.topAnchor, constant: -20).isActive = true
+        messageLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
         messageLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
         
-        button.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
         button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        button.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 70).isActive = true
+
         button.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
         button.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         button.addTarget(self, action: #selector(addClicked(sender:)), for: .touchUpInside)
         //        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // The only tricky part is here:
-        
+        messageLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         messageLabel.textAlignment = .center
         return emptyView
     }
