@@ -98,12 +98,12 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
      */
     func newCell() -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.backgroundColor = .systemGray4
+        cell.backgroundColor = .systemGray6
         return cell
     }
     func newDetailsCell() -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        cell.backgroundColor = .systemGray4
+        cell.backgroundColor = .systemGray6
         return cell
     }
     
