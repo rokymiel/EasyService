@@ -40,7 +40,7 @@ class MainNavigationController: UINavigationController {
     }
     override func viewDidAppear(_ animated: Bool) {
         let accountService = serviceAssembly.buildAccountService()
-        do{ try Auth.auth().signOut() } catch {}
+//        do{ try Auth.auth().signOut() } catch {}
         accountService.getUser { (result) in
             switch result {
             case .success(let user):

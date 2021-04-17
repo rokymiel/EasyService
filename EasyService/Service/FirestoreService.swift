@@ -12,6 +12,8 @@ import FirebaseFirestoreSwift
 protocol IFireStoreService: class {
     func addDocument(data: [String: Any])
     func addDocument<T>(from value: T) -> DocumentReference? where T: Encodable
+    func addDocument<T>(with id: String, from value: T) where T: Encodable
+    
     func loadDocuments<T>(_ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable
     
     func loadDocuments<T>(_ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable
@@ -26,6 +28,10 @@ protocol IFireStoreService: class {
 final class FireStoreService: IFireStoreService {
     func addDocument<T>(from value: T) -> DocumentReference? where T: Encodable {
         return try? reference.addDocument(from: value)
+    }
+    
+    func addDocument<T>(with id: String, from value: T) where T: Encodable {
+        try? reference.document(id).setData(from: value)
     }
     
     func loadDocuments<T>(_ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable {
@@ -86,13 +92,21 @@ final class FireStoreService: IFireStoreService {
     }
     
     func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) where T: Decodable {
+        print("Id",id)
         reference.document(id).addSnapshotListener { snapshot, error in
+            print("CC")
             if let error = error {
+                print(error)
                 return listener(.failure(error))
             }
             if let snapshot = snapshot, let item = try? snapshot.data(as: T.self) {
+                print(item)
                 listener(.success(item))
+            } else {
+                print("Lox")
+                print(snapshot?.data())
             }
+            
         }
     }
     

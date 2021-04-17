@@ -54,6 +54,7 @@ class CoreDataStack: ICoreDatsStack {
 //            print(a as? UserDB)
 //        }
 //        print(c as? [T])
+        print(try? container.viewContext.fetch(UserDB.fetchRequest()))
         return try? container.viewContext.fetch(request)
     }
 }

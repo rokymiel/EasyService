@@ -34,28 +34,38 @@ class CarListViewController: UIViewController{
         }, animated: true)
     }
     func getEmptyView(title: String) -> UIView {
-            button = UIRoundedButton()
-            button.setTitle(title, for: .normal)
-            
-            let emptyView = UIView(frame: CGRect(x: carsListTableView.center.x,
-                                                 y: carsListTableView.center.y,
-                                                 width: carsListTableView.bounds.size.width,
-                                                 height: carsListTableView.bounds.size.height))
-            
-            emptyView.addSubview(button)
-            
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
-            button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
-            button.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
-            button.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
-            
+        let messageLabel = UILabel()
+        messageLabel.text = "Exx"
+        button = UIRoundedButton()
+        button.setTitle(title, for: .normal)
+        
+        let emptyView = UIView(frame: CGRect(x: carsListTableView.center.x,
+                                             y: carsListTableView.center.y,
+                                             width: carsListTableView.bounds.size.width,
+                                             height: carsListTableView.bounds.size.height))
+        
+        emptyView.addSubview(button)
+        emptyView.addSubview(messageLabel)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        messageLabel.topAnchor.constraint(equalTo: emptyView.topAnchor, constant: -20).isActive = true
+        messageLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        
+        button.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        button.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        button.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 50).isActive = true
+        button.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -50).isActive = true
+        
         button.addTarget(self, action: #selector(addClicked(sender:)), for: .touchUpInside)
-    //        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            
-            // The only tricky part is here:
-            return emptyView
-        }
+        //        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // The only tricky part is here:
+        
+        messageLabel.textAlignment = .center
+        return emptyView
+    }
     
     
     /*
@@ -96,32 +106,32 @@ private extension UITableView {
         self.separatorStyle = .none
     }
     func setEmptyView(title: String, message: String) {
-    let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
-    let titleLabel = UIRoundedButton()
-    
-    let messageLabel = UILabel()
+        let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+        let titleLabel = UIRoundedButton()
+        
+        let messageLabel = UILabel()
         
         titleLabel.backgroundColor = .red
-    titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    messageLabel.translatesAutoresizingMaskIntoConstraints = false
-//    titleLabel.textColor = UIColor.black
-//    titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
-    messageLabel.textColor = UIColor.lightGray
-    messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
-    emptyView.addSubview(titleLabel)
-    emptyView.addSubview(messageLabel)
-    titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
-    titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
-    messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
-    messageLabel.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 20).isActive = true
-    messageLabel.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -20).isActive = true
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        //    titleLabel.textColor = UIColor.black
+        //    titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        messageLabel.textColor = UIColor.lightGray
+        messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+        emptyView.addSubview(titleLabel)
+        emptyView.addSubview(messageLabel)
+        titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 20).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -20).isActive = true
         titleLabel.setTitle(title, for: .normal)
-    messageLabel.text = message
-    messageLabel.numberOfLines = 0
-    messageLabel.textAlignment = .center
-    // The only tricky part is here:
-    self.backgroundView = emptyView
-    self.separatorStyle = .none
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        // The only tricky part is here:
+        self.backgroundView = emptyView
+        self.separatorStyle = .none
     }
     func restore() {
         self.backgroundView = nil

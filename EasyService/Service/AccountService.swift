@@ -20,6 +20,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         switch auth {
         case .user(let user):
             self.getUser(with: user.uid) { (result) in
+                print(result)
                 if case let .success(user) = result   {
                     self.coreDataManager.save(model: user, nil)
                 }
@@ -45,7 +46,9 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     }
     
     func saveNew(user: User) {
-        _ = fireStoreService.addDocument(from: user)
+        if let id = user.identifier {
+            _ = fireStoreService.addDocument(with: id, from: user)
+        }
         coreDataManager.save(model: user, nil)
     }
     
@@ -63,6 +66,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         let predicate = NSPredicate(format: "identifier == %@", id)
         request.predicate = predicate
         coreDataManager.fetch(request: request) { (result) in
+            print("RES", result)
             if let user = result {
                 completition(.success(user.user))
             } else {

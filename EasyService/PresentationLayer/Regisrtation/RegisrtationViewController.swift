@@ -173,6 +173,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
                 return
             }
             if let fUser = authResult?.user {
+//                print(fUser.token)
                 let user = User(identifier: fUser.uid,
                                 name: name,
                                 surname: surname,
