@@ -20,10 +20,17 @@ class CarListViewController: UIViewController{
         contraller.presentationAssembly = presentationAssembly
         return contraller
     }
+    private let cars = [Car(identifier: "1", mark: "Audi", model: "A6", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2016),
+                        Car(identifier: "2", mark: "Audi", model: "A3", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2020)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         carsListTableView.dataSource = self
+        carsListTableView.delegate = self
+        carsListTableView.register(UINib(nibName: String(describing: CarViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: CarViewCell.self))
+        
+        title = "Автомобили"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(sender:)))
         
         // Do any additional setup after loading the view.
@@ -71,7 +78,6 @@ class CarListViewController: UIViewController{
         return emptyView
     }
     
-    
     /*
      // MARK: - Navigation
      
@@ -82,23 +88,26 @@ class CarListViewController: UIViewController{
      }
      */
     
-    
 }
 
 extension CarListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        if names.count == 0 {
         
-        tableView.setEmptyView(view: getEmptyView(title: "Добавить автомобиль"))
+//        tableView.setEmptyView(view: getEmptyView(title: "Добавить автомобиль"))
         //        }
         //        else {
         //            tableView.restore()
         //        }
-        return 0
+        return cars.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = self.carsListTableView.dequeueReusableCell(withIdentifier: String(describing: CarViewCell.self), for: indexPath) as? CarViewCell {
+            cell.configure(cars[indexPath.row])
+//            cell.applyTheme()
+            return cell
+        }
         return UITableViewCell()
     }
 }
@@ -140,5 +149,11 @@ private extension UITableView {
     func restore() {
         self.backgroundView = nil
         self.separatorStyle = .singleLine
+    }
+}
+
+extension CarListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
