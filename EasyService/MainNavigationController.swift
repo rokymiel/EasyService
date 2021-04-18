@@ -39,29 +39,35 @@ class MainNavigationController: UINavigationController {
         //        }
     }
     override func viewDidAppear(_ animated: Bool) {
-        let accountService = serviceAssembly.getAccountService()
+        super.viewDidAppear(animated)
+        
+        self.present(presentationAssembly.buildNewServiceRegisrtationViewController(), animated: true)
+//        let accountService = serviceAssembly.getAccountService()
 //        do{ try Auth.auth().signOut() } catch {}
-        accountService.getUser { (result) in
-            switch result {
-            case .success(let user):
-                print("QWERTYUI")
-//                print("IIIDD ",user.email)
-                DispatchQueue.main.async {
-                    print(user)// TODO: - как-то использовать
-                    self.viewControllers = [self.presentationAssembly.buildCarListController(with: user.identifier!)]
-                }
-                
-            case .failure:
-                print("fail")
-                DispatchQueue.main.async {
-                    print("ASA")
-                    self.present(self.presentationAssembly.buildLoginController { id in
-                        print("asd")
-                        self.viewControllers = [self.presentationAssembly.buildCarListController(with: id)]
-                    }, animated: true)
-
-                }
-            }
-        }
+//        accountService.getUser { (result) in
+//            switch result {
+//            case .success(let user):
+//                print("QWERTYUI")
+////                print("IIIDD ",user.email)
+//                DispatchQueue.main.async {
+//                    print(user)// TODO: - как-то использовать
+//                    self.viewControllers = [self.presentationAssembly.buildCarListController(with: user.identifier!)]
+//                }
+//
+//            case .failure:
+//                print("fail")
+//                DispatchQueue.main.async {
+//                    print("ASA")
+//                    self.present(self.presentationAssembly.buildLoginController { id in
+//                        print("asd")
+//                        self.viewControllers = [self.presentationAssembly.buildCarListController(with: id)]
+//                    }, animated: true)
+//
+//                }
+//            }
+//        }
+        
+        
+        
     }
 }

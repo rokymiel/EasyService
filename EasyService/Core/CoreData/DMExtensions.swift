@@ -104,6 +104,7 @@ extension RegistrationDB: IModel {
         status = registration.status.rawValue
         timeOfWorks = registration.timeOfWorks
         typeOfWorks = registration.typeOfWorks
+        serviceId = registration.serviceId
     }
     var dataModel: Registration {
         var dCost: Double? = nil
@@ -120,7 +121,7 @@ extension RegistrationDB: IModel {
                      notes: notes,
                      status: .init(rawValue: status!),
                      timeOfWorks: timeOfWorks,
-                     typeOfWorks: typeOfWorks!)
+                     typeOfWorks: typeOfWorks!, serviceId: serviceId!)
     }
 }
 

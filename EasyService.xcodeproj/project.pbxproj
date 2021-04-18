@@ -46,6 +46,8 @@
 		7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2664261F6F2200F04F32 /* UIBaseViewController.swift */; };
 		7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2666261F77F700F04F32 /* FirestoreService.swift */; };
 		7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2668261F95E700F04F32 /* MainNavigationController.swift */; };
+		7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */; };
+		7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */; };
 		7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */; };
 		7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */; };
 		7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */; };
@@ -107,6 +109,8 @@
 		7D9F2664261F6F2200F04F32 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		7D9F2666261F77F700F04F32 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		7D9F2668261F95E700F04F32 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceRegisrtationViewController.swift; sourceTree = "<group>"; };
+		7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewServiceRegisrtationView.storyboard; sourceTree = "<group>"; };
 		7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisrtationView.storyboard; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7DA54D1B262BA239002A6EB5 /* NewServiceRegisrtation */,
 				7D7F71182622585D00B3341E /* ServicesMap */,
 				7D90C3DB2620D02B0035B704 /* ItemInListChooser */,
 				7D90C3CE261FA9850035B704 /* CarsList */,
@@ -285,6 +290,15 @@
 				7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7DA54D1B262BA239002A6EB5 /* NewServiceRegisrtation */ = {
+			isa = PBXGroup;
+			children = (
+				7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */,
+				7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */,
+			);
+			path = NewServiceRegisrtation;
 			sourceTree = "<group>";
 		};
 		7DE0A3EE261CE85F002773E3 /* Regisrtation */ = {
@@ -486,6 +500,7 @@
 				7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */,
 				7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */,
 				7D90C3D8261FAFD70035B704 /* CarListView.storyboard in Resources */,
+				7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +609,7 @@
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,
 				7D90033F26271ED3002168C1 /* ServiceAssembly.swift in Sources */,
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
+				7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */,
 				7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

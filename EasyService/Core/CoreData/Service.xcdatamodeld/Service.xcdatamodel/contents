@@ -24,6 +24,7 @@
         <attribute name="descriptionString" optional="YES" attributeType="String"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="serviceId" attributeType="String"/>
         <attribute name="status" attributeType="String"/>
         <attribute name="timeOfWorks" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="typeOfWorks" attributeType="String"/>
@@ -54,7 +55,7 @@
     </entity>
     <elements>
         <element name="CarDB" positionX="191.45703125" positionY="58.75390625" width="128" height="163"/>
-        <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="223"/>
+        <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="238"/>
         <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
     </elements>
 </model>

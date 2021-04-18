@@ -16,6 +16,7 @@ protocol IPresentationAssembly {
     func buildItemInListChooserViewController() -> ItemInListChooserViewController
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController
     func buildServicesMapViewController() -> ServicesMapViewController
+    func buildNewServiceRegisrtationViewController() -> NewServiceRegisrtationViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
@@ -57,5 +58,9 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     func buildServicesMapViewController() -> ServicesMapViewController {
         return ServicesMapViewController.sInit(registrationService: registrationService)
+    }
+    
+    func buildNewServiceRegisrtationViewController() -> NewServiceRegisrtationViewController {
+        return NewServiceRegisrtationViewController.sInit(registrationService: registrationService)
     }
 }

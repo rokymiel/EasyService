@@ -20,6 +20,7 @@ struct Registration: Codable {
     let status: Status
     let timeOfWorks: Date?
     let typeOfWorks: String
+    let serviceId: String
     
     enum CodingKeys: String, CodingKey {
         case identifier
@@ -33,6 +34,7 @@ struct Registration: Codable {
         case status
         case timeOfWorks = "time_of_works"
         case typeOfWorks = "type_of_works"
+        case serviceId = "service_id"
     }
     
     enum Status: String, Codable {
