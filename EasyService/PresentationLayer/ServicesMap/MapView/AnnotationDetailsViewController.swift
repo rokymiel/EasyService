@@ -9,6 +9,9 @@
 import UIKit
 
 class AnnotationDetailsViewController: UIViewController, Configurable {
+    
+    private let presentationAssembly: IPresentationAssembly
+    
     typealias Model = Service
     func configure(_ model: Service) {
         service = model
@@ -34,6 +37,15 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
             workTimeCells[i].detailTextLabel?.text = element
         }
     }
+    init(presentationAssembly: IPresentationAssembly, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.presentationAssembly = presentationAssembly
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet var registrationButtonCellView: UITableViewCell!
@@ -46,7 +58,6 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         var calender = Calendar.current
         calender.locale = Locale(identifier: "ru")
         for i in 0..<7 {
-             
             let left = calender.shortWeekdaySymbols[(i+1)%7]
             let cell = newDetailsCell()
             cell.textLabel?.text = left
@@ -63,8 +74,6 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         super.viewDidLoad()
         dragView.layer.cornerRadius = dragView.frame.height / 2.0
         
-        
-        // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -105,6 +114,16 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
         cell.backgroundColor = .systemGray6
         return cell
+    }
+    @IBAction func registerClicked(_ sender: Any) {
+        self.present(presentationAssembly.buildNewServiceRegisrtationViewController(service: service!,
+                                                                                    car: Car(identifier: "KJLK",
+                                                                                             mark: "Audi",
+                                                                                             model: "A4",
+                                                                                             body: "седан",
+                                                                                             gear: "asd",
+                                                                                             engine: 2,
+                                                                                             productionYear: 2019)), animated: true)
     }
     
 }

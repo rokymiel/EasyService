@@ -77,6 +77,9 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txf-1y-u7M" customClass="UIRoundedButton" customModule="EasyService" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                         <state key="normal" title="Записаться"/>
+                        <connections>
+                            <action selector="registerClicked:" destination="-1" eventType="touchUpInside" id="i1h-bL-Xgt"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

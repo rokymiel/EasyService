@@ -44,6 +44,7 @@ class ItemInListChooserViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        searchTextField.becomeFirstResponder()
         searchTextField.text = nil
         searchString = nil
         itemsTableView.reloadData()

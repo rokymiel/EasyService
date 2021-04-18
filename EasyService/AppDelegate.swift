@@ -33,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
         //          print ("Error signing out: %@", signOutError)
         //        }
         
-        
         return true
     }
 }
-

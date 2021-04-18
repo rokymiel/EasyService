@@ -21,13 +21,15 @@ class ServicesMapViewController: UIViewController {
     var animationProgressWhenInterrupted: CGFloat = 0
     
     private var registrationService: IRegistrationService!
+    private var presentationAssembly: IPresentationAssembly!
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     var serviceDetaildController: AnnotationDetailsViewController!
     
-    class func sInit(registrationService: IRegistrationService) -> ServicesMapViewController {
+    class func sInit(presentationAssembly: IPresentationAssembly, registrationService: IRegistrationService) -> ServicesMapViewController {
         let contraller = UIStoryboard.servicesMapView.instantiate(self)
         contraller.registrationService = registrationService
+        contraller.presentationAssembly = presentationAssembly
         return contraller
     }
     
@@ -57,7 +59,7 @@ class ServicesMapViewController: UIViewController {
 ////        view.addSubview(visualEffectView)
 //        view.insertSubview(visualEffectView, at: 0)
         
-        serviceDetaildController = AnnotationDetailsViewController(nibName: "AnnotationDetailsViewController", bundle: nil)
+        serviceDetaildController = AnnotationDetailsViewController(presentationAssembly: presentationAssembly, nibName: "AnnotationDetailsViewController", bundle: nil)
         addChild(serviceDetaildController)
         view.addSubview(serviceDetaildController.view)
         
