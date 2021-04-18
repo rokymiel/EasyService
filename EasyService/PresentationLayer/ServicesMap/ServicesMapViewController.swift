@@ -54,10 +54,10 @@ class ServicesMapViewController: UIViewController {
     }
     
     func setupCard() {
-//        visualEffectView = UIVisualEffectView()
-//        visualEffectView.frame = view.frame
-////        view.addSubview(visualEffectView)
-//        view.insertSubview(visualEffectView, at: 0)
+        //        visualEffectView = UIVisualEffectView()
+        //        visualEffectView.frame = view.frame
+        ////        view.addSubview(visualEffectView)
+        //        view.insertSubview(visualEffectView, at: 0)
         
         serviceDetaildController = AnnotationDetailsViewController(presentationAssembly: presentationAssembly, nibName: "AnnotationDetailsViewController", bundle: nil)
         addChild(serviceDetaildController)
@@ -69,7 +69,7 @@ class ServicesMapViewController: UIViewController {
                                                      height: 2*view.frame.height/3)
         serviceDetaildController.view.clipsToBounds = true
         
-
+        
     }
     
     @objc func handleCardTap(recognizer: UITapGestureRecognizer) {
@@ -122,13 +122,17 @@ class ServicesMapViewController: UIViewController {
 
 extension ServicesMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        let translation = recognizer.translation(in: self.view)
-        if let service = (view.annotation as? ServiceMKAnnotation)?.service {
-            serviceDetaildController.configure(service)
+        //        let translation = recognizer.translation(in: self.view)
+        if let annotation = (view.annotation as? ServiceMKAnnotation) {
+            serviceDetaildController.configure(annotation.service)
+            var region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            region.center.latitude -= 0.05 / 4.5
+
+            self.mapView.setRegion(region, animated: true)
+            
         }
-        
         serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height/3, width:  serviceDetaildController.view.frame.width, height:  serviceDetaildController.view.frame.height)
-//        recognizer.setTranslation(.zero, in: self.view)
+        //        recognizer.setTranslation(.zero, in: self.view)
     }
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         print("DEselected")
