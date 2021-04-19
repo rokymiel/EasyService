@@ -20,6 +20,7 @@ class ServicesMapViewController: UIViewController {
     lazy var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted: CGFloat = 0
     private var isSearching = false
+    private let cellReuseIdentifier = "searchCell"
     
     private var registrationService: IRegistrationService!
     private var presentationAssembly: IPresentationAssembly!
@@ -36,12 +37,23 @@ class ServicesMapViewController: UIViewController {
         contraller.presentationAssembly = presentationAssembly
         return contraller
     }
-    
+    private var searchString: String? = nil
     private var servicePoints: [ServiceMKAnnotation]?
+    private var filteredPoints: [ServiceMKAnnotation] {
+        if let items = servicePoints {
+            if let searchString = searchString?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
+               !searchString.isEmpty {
+                return items.filter { $0.service.name.lowercased().contains(searchString)}
+            }
+            return items
+        }
+        return []
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCard()
+        hideKeyboardWhenTappedAround()
         registrationService.getServices { result in
             switch result {
             case .success(let services):
@@ -60,6 +72,9 @@ class ServicesMapViewController: UIViewController {
         searchTableView.layer.cornerRadius = 15
         searchTableView.layer.cornerCurve = .continuous
         searchBar.delegate = self
+        //        searchTableView.register(UITableViewCell.De.self, forCellReuseIdentifier: cellReuseIdentifier)
+        searchTableView.dataSource = self
+        searchTableView.delegate = self
         
     }
     
@@ -128,6 +143,9 @@ class ServicesMapViewController: UIViewController {
             runningAnimations.append(frameAnimation)
         }
     }
+    func hide() {
+        serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height, width:  serviceDetaildController.view.frame.width, height:  serviceDetaildController.view.frame.height)
+    }
 }
 
 extension ServicesMapViewController: MKMapViewDelegate {
@@ -146,16 +164,16 @@ extension ServicesMapViewController: MKMapViewDelegate {
     }
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         print("DEselected")
-        serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height, width:  serviceDetaildController.view.frame.width, height:  serviceDetaildController.view.frame.height)
+        hide()
     }
 }
 
 extension ServicesMapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 4000, longitudinalMeters: 4000)
-        mapView.setRegion(region, animated: true)
-    }
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        guard let location = locations.last else { return }
+    //        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 4000, longitudinalMeters: 4000)
+    //        mapView.setRegion(region, animated: true)
+    //    }
     
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
@@ -203,60 +221,79 @@ extension ServicesMapViewController: CLLocationManagerDelegate {
 }
 
 extension ServicesMapViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        mapView.deselectAnnotation(nil, animated: true)
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchTableView.isHidden = false
-        //        UIView.transition(with: searchTableView, duration: 0.4,
-        //                          options: [.transitionFlipFromTop, .showHideTransitionViews],
-        //                          animations: {
-        //                            if searchText.isBlank() {
-        //                                self.searchTableView.layer.opacity = 0
-        //
-        //
-        //                            } else {
-        //                                self.searchTableView.layer.opacity = 1
-        //                                //                         self.searchTableView.isHidden = false
-        //                            }
-        //        })
-        
         if searchText.isBlank() {
             if isSearching {
-                isSearching = false
-                UIView.transition(with: searchTableView, duration: 0.2,
-                                  options: [.transitionCrossDissolve, .showHideTransitionViews],
-                                  animations: {
-                                    self.searchTableView.layer.opacity = 0 },
-                                  completion: { _ in
-                                    self.searchTableView.isHidden = true })
+                hideSearchTable()
             }
         } else if !isSearching {
-            isSearching = true
-            UIView.transition(with: searchTableView, duration: 0.4,
-                              options: [.transitionFlipFromTop, .showHideTransitionViews],
-                              animations: {
-                                self.searchTableView.layer.opacity = 1
-                                self.searchTableView.isHidden = false
-            })
-            //                         self.searchTableView.isHidden = false
+            showSearchTable()
+            
         }
+        if isSearching {
+            searchString = searchText
+            searchTableView.reloadData()
+        }
+    }
+    
+    func hideSearchTable() {
+        isSearching = false
+        UIView.transition(with: searchTableView, duration: 0.2,
+                          options: [.transitionCrossDissolve, .showHideTransitionViews],
+                          animations: {
+                            self.searchTableView.layer.opacity = 0 },
+                          completion: { _ in
+                            self.searchTableView.isHidden = true })
+    }
+    func showSearchTable() {
+        isSearching = true
+        UIView.transition(with: searchTableView, duration: 0.4,
+                          options: [.transitionFlipFromTop, .showHideTransitionViews],
+                          animations: {
+                            self.searchTableView.layer.opacity = 1
+                            self.searchTableView.isHidden = false
+                          })
+    }
+}
+
+extension ServicesMapViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching {
+            return filteredPoints.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ?? UITableViewCell()
         
-        
-        //        } else {
-        //            UIView.transition(with: searchTableView, duration: 0.4,
-        //                options: .transitionCrossDissolve,
-        //                animations: {
-        //                    self.searchTableView.isHidden = false
-        //            })
-        //        }
-        
-        //        UIView.animate(withDuration: 1) {
-        //            if searchText.isBlank() {
-        //                self.searchTableView.layer.opacity = 0
-        //                self.searchTableView.isHidden = true
-        //
-        //            } else {
-        //                self.searchTableView.layer.opacity = 1
-        //                self.searchTableView.isHidden = false
-        //            }
-        //        }
+        let points = filteredPoints[indexPath.row]
+        cell.textLabel?.text = points.service.name
+        cell.detailTextLabel?.text = points.service.address
+        return cell
+    }
+}
+
+extension ServicesMapViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        hideSearchTable()
+        mapView.selectAnnotation(filteredPoints[indexPath.row], animated: true)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

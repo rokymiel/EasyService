@@ -29,7 +29,7 @@ class CarListViewController: UIViewController{
         self.navigationController?.navigationBar.prefersLargeTitles = true
         carsListTableView.dataSource = self
         carsListTableView.delegate = self
-        carsListTableView.register(UINib(nibName: String(describing: CarViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: CarViewCell.self))
+        carsListTableView.register(CarViewCell.self, forCellReuseIdentifier: String(describing: CarViewCell.self))
         
         title = "Автомобили"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(sender:)))
@@ -118,6 +118,7 @@ extension CarListViewController: UITableViewDataSource {
         if let cell = self.carsListTableView.dequeueReusableCell(withIdentifier: String(describing: CarViewCell.self), for: indexPath) as? CarViewCell {
             cell.configure(cars[indexPath.row])
             //            cell.applyTheme()
+            cell.backgroundColor = .systemGray6
             return cell
         }
         return UITableViewCell()

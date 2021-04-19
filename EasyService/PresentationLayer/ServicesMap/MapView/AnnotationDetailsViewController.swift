@@ -72,6 +72,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         dragView.layer.cornerRadius = dragView.frame.height / 2.0
         
     }
