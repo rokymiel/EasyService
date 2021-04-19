@@ -34,6 +34,7 @@ class NewCarViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         markTextField.delegate = self
         modelTextField.delegate = self
         bodyTextField.delegate = self

@@ -49,6 +49,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         carCell.configure(car)
         addDateToolbar()
         addTimeToolbar()

@@ -50,6 +50,7 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         showDatePicker()
+         hideKeyboardWhenTappedAround()
     }
     func showDatePicker() {
         //Formate Date
