@@ -28,6 +28,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         loginView.layer.cornerRadius = 20
         loginView.layer.shadowColor = UIColor.black.cgColor
         loginView.layer.shadowOpacity = 0.3
