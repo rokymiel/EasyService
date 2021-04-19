@@ -22,6 +22,7 @@
 		7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */; };
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
 		7D7BE3B3262CE04000C075F7 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */; };
+		7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */; };
 		7D7F71092621A75B00B3341E /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F71082621A75B00B3341E /* cars.json */; };
 		7D7F710B2621A7B500B3341E /* ResourcesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F710A2621A7B500B3341E /* ResourcesService.swift */; };
 		7D7F710D2622158600B3341E /* carsBodies.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F710C2622158500B3341E /* carsBodies.json */; };
@@ -86,6 +87,7 @@
 		7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
 		7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = EasyService/Assets.xcassets/TextFieldExtension.swift; sourceTree = SOURCE_ROOT; };
+		7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7D7F71082621A75B00B3341E /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
 		7D7F710A2621A7B500B3341E /* ResourcesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesService.swift; sourceTree = "<group>"; };
 		7D7F710C2622158500B3341E /* carsBodies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carsBodies.json; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				7DE0A40B261E38BB002773E3 /* DateFormatterExtension.swift */,
 				7DE0A413261F6979002773E3 /* UIStoryboardExtensions.swift */,
 				7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */,
+				7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,
 				7D90C3E12620D2B10035B704 /* UIUnderlinedTextField.swift in Sources */,
 				7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */,
+				7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */,
 				7D7F71112622293E00B3341E /* UIYearPickerDelegate.swift in Sources */,
 				7D7F710B2621A7B500B3341E /* ResourcesService.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,

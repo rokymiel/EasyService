@@ -19,11 +19,15 @@ class ServicesMapViewController: UIViewController {
     var visualEffectView: UIVisualEffectView!
     lazy var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted: CGFloat = 0
+    private var isSearching = false
     
     private var registrationService: IRegistrationService!
     private var presentationAssembly: IPresentationAssembly!
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var serviceDetaildController: AnnotationDetailsViewController!
     
     class func sInit(presentationAssembly: IPresentationAssembly, registrationService: IRegistrationService) -> ServicesMapViewController {
@@ -48,8 +52,14 @@ class ServicesMapViewController: UIViewController {
                 print(error)
             }
         }
+        searchView.layer.cornerRadius = 15
+        searchView.layer.cornerCurve = .continuous
+        searchView.setBlur()
         checkLocationServices()
         mapView.delegate = self
+        searchTableView.layer.cornerRadius = 15
+        searchTableView.layer.cornerCurve = .continuous
+        searchBar.delegate = self
         
     }
     
@@ -127,7 +137,7 @@ extension ServicesMapViewController: MKMapViewDelegate {
             serviceDetaildController.configure(annotation.service)
             var region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
             region.center.latitude -= 0.05 / 4.5
-
+            
             self.mapView.setRegion(region, animated: true)
             
         }
@@ -189,5 +199,64 @@ extension ServicesMapViewController: CLLocationManagerDelegate {
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+}
+
+extension ServicesMapViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTableView.isHidden = false
+        //        UIView.transition(with: searchTableView, duration: 0.4,
+        //                          options: [.transitionFlipFromTop, .showHideTransitionViews],
+        //                          animations: {
+        //                            if searchText.isBlank() {
+        //                                self.searchTableView.layer.opacity = 0
+        //
+        //
+        //                            } else {
+        //                                self.searchTableView.layer.opacity = 1
+        //                                //                         self.searchTableView.isHidden = false
+        //                            }
+        //        })
+        
+        if searchText.isBlank() {
+            if isSearching {
+                isSearching = false
+                UIView.transition(with: searchTableView, duration: 0.2,
+                                  options: [.transitionCrossDissolve, .showHideTransitionViews],
+                                  animations: {
+                                    self.searchTableView.layer.opacity = 0 },
+                                  completion: { _ in
+                                    self.searchTableView.isHidden = true })
+            }
+        } else if !isSearching {
+            isSearching = true
+            UIView.transition(with: searchTableView, duration: 0.4,
+                              options: [.transitionFlipFromTop, .showHideTransitionViews],
+                              animations: {
+                                self.searchTableView.layer.opacity = 1
+                                self.searchTableView.isHidden = false
+            })
+            //                         self.searchTableView.isHidden = false
+        }
+        
+        
+        //        } else {
+        //            UIView.transition(with: searchTableView, duration: 0.4,
+        //                options: .transitionCrossDissolve,
+        //                animations: {
+        //                    self.searchTableView.isHidden = false
+        //            })
+        //        }
+        
+        //        UIView.animate(withDuration: 1) {
+        //            if searchText.isBlank() {
+        //                self.searchTableView.layer.opacity = 0
+        //                self.searchTableView.isHidden = true
+        //
+        //            } else {
+        //                self.searchTableView.layer.opacity = 1
+        //                self.searchTableView.isHidden = false
+        //            }
+        //        }
     }
 }

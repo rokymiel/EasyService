@@ -18,28 +18,48 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJL-Wv-4Nf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-ic-w4V">
-                                <rect key="frame" x="27" y="75" width="361" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hw-XL-Sd4">
+                                <rect key="frame" x="25" y="59" width="364" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-ic-w4V">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="bRA-8P-Co9"/>
+                                    <constraint firstItem="g5M-ic-w4V" firstAttribute="leading" secondItem="6Hw-XL-Sd4" secondAttribute="leading" id="CDd-Sh-WhN"/>
+                                    <constraint firstItem="g5M-ic-w4V" firstAttribute="top" secondItem="6Hw-XL-Sd4" secondAttribute="top" id="cL3-ZE-sOE"/>
+                                    <constraint firstAttribute="trailing" secondItem="g5M-ic-w4V" secondAttribute="trailing" id="tPa-VX-nLc"/>
+                                    <constraint firstAttribute="bottom" secondItem="g5M-ic-w4V" secondAttribute="bottom" id="x4y-Uq-L12"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            </view>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e11-P8-6iZ">
+                                <rect key="frame" x="25" y="120" width="364" height="328"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Hw-XL-Sd4" firstAttribute="top" secondItem="2sf-Zg-jTH" secondAttribute="top" constant="15" id="2cN-oK-7M5"/>
                             <constraint firstItem="ZJL-Wv-4Nf" firstAttribute="trailing" secondItem="2sf-Zg-jTH" secondAttribute="trailing" id="3Uw-aU-St1"/>
+                            <constraint firstItem="6Hw-XL-Sd4" firstAttribute="centerX" secondItem="2sf-Zg-jTH" secondAttribute="centerX" id="8gM-mw-vSi"/>
                             <constraint firstItem="ZJL-Wv-4Nf" firstAttribute="leading" secondItem="2sf-Zg-jTH" secondAttribute="leading" id="Cbg-b2-h7d"/>
-                            <constraint firstItem="g5M-ic-w4V" firstAttribute="leading" secondItem="2sf-Zg-jTH" secondAttribute="leading" constant="27" id="Hl4-ap-jga"/>
-                            <constraint firstItem="2sf-Zg-jTH" firstAttribute="trailing" secondItem="g5M-ic-w4V" secondAttribute="trailing" constant="26" id="JMZ-MT-GYT"/>
                             <constraint firstAttribute="bottom" secondItem="ZJL-Wv-4Nf" secondAttribute="bottom" id="O4q-Vw-bqf"/>
+                            <constraint firstItem="e11-P8-6iZ" firstAttribute="top" secondItem="6Hw-XL-Sd4" secondAttribute="bottom" constant="5" id="VcJ-Ha-NP2"/>
+                            <constraint firstItem="6Hw-XL-Sd4" firstAttribute="leading" secondItem="2sf-Zg-jTH" secondAttribute="leading" constant="25" id="cde-wI-rJe"/>
+                            <constraint firstItem="e11-P8-6iZ" firstAttribute="trailing" secondItem="g5M-ic-w4V" secondAttribute="trailing" id="hX6-uz-3s5"/>
+                            <constraint firstItem="e11-P8-6iZ" firstAttribute="bottom" secondItem="ZJL-Wv-4Nf" secondAttribute="centerY" id="log-VL-BVV"/>
+                            <constraint firstItem="e11-P8-6iZ" firstAttribute="leading" secondItem="g5M-ic-w4V" secondAttribute="leading" id="oFC-Z6-FkU"/>
                             <constraint firstItem="ZJL-Wv-4Nf" firstAttribute="top" secondItem="3AX-MP-3Is" secondAttribute="top" id="uUF-AV-w1z"/>
-                            <constraint firstItem="g5M-ic-w4V" firstAttribute="top" secondItem="2sf-Zg-jTH" secondAttribute="top" constant="31" id="uqO-1h-Xlt"/>
+                            <constraint firstItem="2sf-Zg-jTH" firstAttribute="trailing" secondItem="6Hw-XL-Sd4" secondAttribute="trailing" constant="25" id="wWF-CB-pPH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2sf-Zg-jTH"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="ZJL-Wv-4Nf" id="Yb7-En-4Cu"/>
+                        <outlet property="searchBar" destination="g5M-ic-w4V" id="0Hs-ce-H5s"/>
+                        <outlet property="searchTableView" destination="e11-P8-6iZ" id="bZD-vl-7R7"/>
+                        <outlet property="searchView" destination="6Hw-XL-Sd4" id="c2G-UZ-ixh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62P-Do-NJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
