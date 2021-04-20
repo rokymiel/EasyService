@@ -143,8 +143,20 @@ class ServicesMapViewController: UIViewController {
             runningAnimations.append(frameAnimation)
         }
     }
-    func hide() {
-        serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height, width:  serviceDetaildController.view.frame.width, height:  serviceDetaildController.view.frame.height)
+    func hideDetails() {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
+            self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height,
+                                                              width: self.serviceDetaildController.view.frame.width,
+                                                              height: self.serviceDetaildController.view.frame.height)
+        }, completion: nil)
+    }
+    func showDetails() {
+        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseOut, animations: {
+            self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height / 3,
+                                                              width: self.serviceDetaildController.view.frame.width,
+                                                              height: self.serviceDetaildController.view.frame.height)
+        }, completion: nil)
+        
     }
 }
 
@@ -159,12 +171,12 @@ extension ServicesMapViewController: MKMapViewDelegate {
             self.mapView.setRegion(region, animated: true)
             
         }
-        serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height/3, width:  serviceDetaildController.view.frame.width, height:  serviceDetaildController.view.frame.height)
+        showDetails()
         //        recognizer.setTranslation(.zero, in: self.view)
     }
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         print("DEselected")
-        hide()
+        hideDetails()
     }
 }
 
