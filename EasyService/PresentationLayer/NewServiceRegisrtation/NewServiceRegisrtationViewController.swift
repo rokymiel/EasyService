@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class NewServiceRegisrtationViewController: UITableViewController {
     
@@ -17,6 +18,9 @@ class NewServiceRegisrtationViewController: UITableViewController {
     
     private lazy var chooser: ItemInListChooserViewController = presentationAssembly.buildItemInListChooserViewController()
     
+    @IBOutlet weak var serviceNameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var serviceLocationMap: MKMapView!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var typeOfWorksTextField: UITextField!
@@ -51,6 +55,15 @@ class NewServiceRegisrtationViewController: UITableViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         carCell.configure(car)
+        serviceNameLabel.text = service.name
+        addressLabel.text = service.address
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = .init(latitude: service.location.latitude, longitude: service.location.longitude)
+        serviceLocationMap.addAnnotation(annotation)
+        let region = MKCoordinateRegion(center: annotation.coordinate,
+                                        span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        
+        self.serviceLocationMap.setRegion(region, animated: true)
         addDateToolbar()
         addTimeToolbar()
     }
@@ -129,13 +142,6 @@ class NewServiceRegisrtationViewController: UITableViewController {
             showAlert(with: "В выбранный день сервис не работает")
             return false
         }
-        
-        
-        //        let inStr = "16:50"
-        //        let date = formatter.dateFromString(inStr)!
-        //        let outStr = formatter.stringFromDate(date)
-        //        println(outStr) // -> outputs 04:50
-        
     }
     
     @IBAction func typeOfWorksChoose(_ sender: Any) {
