@@ -168,5 +168,9 @@ private extension UITableView {
 extension CarListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let id = cars[indexPath.row].identifier {
+            carsService.select(id: id)
+        }
+        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
     }
 }

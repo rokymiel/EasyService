@@ -11,7 +11,7 @@ import Firebase
 protocol IServiceAssembly {
     func getRegisrtationService() -> IRegistrationService
     func getAccountService() -> IAccountService
-    func getCarService(with id: String) -> ICarsService
+    func getCarsService() -> ICarsService
 }
 
 final class ServiceAssembly: IServiceAssembly {
@@ -22,6 +22,7 @@ final class ServiceAssembly: IServiceAssembly {
     private var userId: String?
     private lazy var carsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     //    private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("user"))
+    private lazy var localDictionary: ILocalDictionary = LocalDictionary()
     private lazy var coreDataStack: ICoreDatsStack = CoreDataStack()
     private lazy var coreDataManager: ICoreDataManager = CoreDataManager(dataStack: coreDataStack)
     private lazy var authServiceFactory: IAuthServiceFactory = AuthServiceFactory()
@@ -39,15 +40,15 @@ final class ServiceAssembly: IServiceAssembly {
         return accountService
     }
     
-    func getCarService(with id: String) -> ICarsService {
+    func getCarsService() -> ICarsService {
         if let userId = userId {
-            if userId != id {
+            if userId != accountService.currentId {
                 newCarService()
             }
             return carsService
             
         }
-        userId = id
+        userId = accountService.currentId
         newCarService()
         return carsService
         
@@ -55,7 +56,7 @@ final class ServiceAssembly: IServiceAssembly {
     
     private func newCarService() {
         carsService = CarsService(carsFirebaseService: FireStoreService(reference: db.collection("users").document(userId!).collection("cars")),
-                                  coreDataManager: coreDataManager)
+                                  coreDataManager: coreDataManager, localDictionary: localDictionary)
     }
         
 }

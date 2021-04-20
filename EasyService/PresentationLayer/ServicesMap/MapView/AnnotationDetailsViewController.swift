@@ -11,6 +11,7 @@ import UIKit
 class AnnotationDetailsViewController: UIViewController, Configurable {
     
     private let presentationAssembly: IPresentationAssembly
+    private let carsService: ICarsService
     
     typealias Model = Service
     func configure(_ model: Service) {
@@ -37,9 +38,10 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
             workTimeCells[i].detailTextLabel?.text = element
         }
     }
-    init(presentationAssembly: IPresentationAssembly, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    init(carsService: ICarsService,presentationAssembly: IPresentationAssembly) {
         self.presentationAssembly = presentationAssembly
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.carsService = carsService
+        super.init(nibName: "AnnotationDetailsViewController", bundle: nil)
         
     }
     
@@ -117,15 +119,22 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         return cell
     }
     @IBAction func registerClicked(_ sender: Any) {
-        self.present(presentationAssembly.buildNewServiceRegisrtationViewController(service: service!,
-                                                                                    car: Car(identifier: "KJLK",
-                                                                                             mark: "Audi",
-                                                                                             model: "A4",
-                                                                                             body: "седан",
-                                                                                             gear: "asd",
-                                                                                             engine: 2,
-                                                                                             productionYear: 2019)), animated: true)
+        if let service = service {
+            carsService.getCar { [weak self] result in
+                switch result {
+                case .success(let car):
+                    if let presentationAssembly = self?.presentationAssembly {
+                        DispatchQueue.main.async {
+                            self?.present(presentationAssembly.buildNewServiceRegisrtationViewController(with: car, service: service), animated: true)
+                        }
+                    }
+                case .failure:
+                    self?.showAlert(with: "Нет автомобиля")
+                }
+            }
+        }
     }
+    
     
 }
 

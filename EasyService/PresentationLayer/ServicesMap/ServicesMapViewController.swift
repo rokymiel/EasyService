@@ -84,7 +84,7 @@ class ServicesMapViewController: UIViewController {
         ////        view.addSubview(visualEffectView)
         //        view.insertSubview(visualEffectView, at: 0)
         
-        serviceDetaildController = AnnotationDetailsViewController(presentationAssembly: presentationAssembly, nibName: "AnnotationDetailsViewController", bundle: nil)
+        serviceDetaildController = presentationAssembly.buildAnnotationDetailsViewController()
         addChild(serviceDetaildController)
         view.addSubview(serviceDetaildController.view)
         

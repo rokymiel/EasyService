@@ -21,6 +21,7 @@
 		7D385998262A2CF80036DF3B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385997262A2CF80036DF3B /* AuthService.swift */; };
 		7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */; };
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
+		7D7B0177262F11D000F3CCD8 /* LocalDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */; };
 		7D7BE3B3262CE04000C075F7 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */; };
 		7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */; };
 		7D7F71092621A75B00B3341E /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F71082621A75B00B3341E /* cars.json */; };
@@ -86,6 +87,7 @@
 		7D385997262A2CF80036DF3B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
+		7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionary.swift; sourceTree = "<group>"; };
 		7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = EasyService/Assets.xcassets/TextFieldExtension.swift; sourceTree = SOURCE_ROOT; };
 		7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7D7F71082621A75B00B3341E /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		7D1E657825A0FC7500AE97D7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7D7B0175262F119B00F3CCD8 /* Local */,
 				7D90033A262719EB002168C1 /* CoreData */,
 				7DE0A40D261E3CA2002773E3 /* Models */,
 			);
@@ -224,6 +227,14 @@
 				7D219294262654F100B77667 /* CarViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7D7B0175262F119B00F3CCD8 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 		7D7F71182622585D00B3341E /* ServicesMap */ = {
@@ -601,6 +612,7 @@
 				7D90033D26271A9D002168C1 /* Service.xcdatamodeld in Sources */,
 				7D9F2665261F6F2200F04F32 /* UIBaseViewController.swift in Sources */,
 				7D38599C262A3D240036DF3B /* CarsService.swift in Sources */,
+				7D7B0177262F11D000F3CCD8 /* LocalDictionary.swift in Sources */,
 				7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */,
 				7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */,
 				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,

@@ -101,13 +101,14 @@ class NewCarViewController: UITableViewController {
     }
     
     @IBAction func bodyClicked(_ sender: Any) {
-        if let controller = chooser {
+//        if let controller = chooser {
+        let controller = presentationAssembly.buildItemInListChooserViewController()
             controller.items = carsBodies
             controller.itemChosenHandler = { str in
                 self.bodyTextField.text = str
             }
             present(controller, animated: true)
-        }
+//        }
     }
     
     @IBAction func gearClicked(_ sender: Any) {

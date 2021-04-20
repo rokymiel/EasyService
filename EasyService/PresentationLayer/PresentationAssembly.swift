@@ -12,26 +12,26 @@ import Firebase
 protocol IPresentationAssembly {
     func buildRegisrtationController(_ completition: @escaping (String) -> Void) -> RegisrtationViewController
     func buildLoginController(_ completition: @escaping (String) -> Void) -> LoginViewController
-    func buildCarListController(with userId: String) -> CarListViewController
+    func buildCarListController() -> CarListViewController
     func buildItemInListChooserViewController() -> ItemInListChooserViewController
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController
     func buildServicesMapViewController() -> ServicesMapViewController
-    func buildNewServiceRegisrtationViewController(service: Service, car: Car) -> NewServiceRegisrtationViewController
+    func buildNewServiceRegisrtationViewController(with car: Car, service: Service) -> NewServiceRegisrtationViewController
+    func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
     
     private let serviceAssembly: IServiceAssembly
-    
-    
+        
     private lazy var db = Firestore.firestore()
     private lazy var usersFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     private lazy var servicesFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("services"))
     private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("registrations"))
-   
-
+    
     private lazy var resourcesService: IResourcesService = ResourcesService()
-    private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService)
+    private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService,
+                                                                                     regisrtationsFirestore: registrationsFirestoreService)
     
     init(serviceAssembly: IServiceAssembly) {
         self.serviceAssembly = serviceAssembly
@@ -45,8 +45,8 @@ final class PresentationAssembly: IPresentationAssembly {
         return LoginViewController.sInit(accountService: serviceAssembly.getAccountService(), presentationAssembly: self, completition)
     }
     
-    func buildCarListController(with userId: String) -> CarListViewController {
-        return CarListViewController.sInit(carsService: serviceAssembly.getCarService(with: userId), presentationAssembly: self)
+    func buildCarListController() -> CarListViewController {
+        return CarListViewController.sInit(carsService: serviceAssembly.getCarsService(), presentationAssembly: self)
     }
     
     func buildItemInListChooserViewController() -> ItemInListChooserViewController {
@@ -60,7 +60,14 @@ final class PresentationAssembly: IPresentationAssembly {
         return ServicesMapViewController.sInit(presentationAssembly: self, registrationService: registrationService)
     }
     
-    func buildNewServiceRegisrtationViewController(service: Service, car: Car) -> NewServiceRegisrtationViewController {
-        return NewServiceRegisrtationViewController.sInit(service: service, car: car, registrationService: registrationService, presentationAssembly: self)
+    func buildNewServiceRegisrtationViewController(with car: Car, service: Service) -> NewServiceRegisrtationViewController {
+        if let userId = serviceAssembly.getAccountService().currentId {
+            return NewServiceRegisrtationViewController.sInit(userId: userId, service: service, car: car, registrationService: registrationService, presentationAssembly: self)
+        }
+        fatalError("Должен быть получен пользователь")
+    }
+    
+    func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController {
+        return AnnotationDetailsViewController(carsService: serviceAssembly.getCarsService(), presentationAssembly: self)
     }
 }

@@ -11,6 +11,7 @@ import Foundation
 protocol IRegistrationService {
     func getServices(compilation: @escaping (Result<[Service], Error>) -> Void)
     func getRegistrations(compilation: @escaping (Result<[Registration], Error>) -> Void)
+    func new(registration: Registration)
 }
 
 class RegistrationService: IRegistrationService {
@@ -29,5 +30,11 @@ class RegistrationService: IRegistrationService {
     
     func getRegistrations(compilation: @escaping (Result<[Registration], Error>) -> Void) {
         regisrtationsFirestore.loadDocuments(compilation)
+    }
+    
+    func new(registration: Registration) {
+        if let id = registration.identifier {
+            regisrtationsFirestore.addDocument(with: id, from: registration)
+        }
     }
 }

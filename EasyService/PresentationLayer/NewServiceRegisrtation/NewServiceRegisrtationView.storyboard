@@ -292,6 +292,7 @@
                         <outlet property="addressLabel" destination="AlV-IJ-Bji" id="Wzi-ll-vdK"/>
                         <outlet property="carCell" destination="Geb-VK-tZg" id="8Cd-Bb-ZcO"/>
                         <outlet property="dateTextField" destination="ifX-Lv-7Qy" id="PUX-s5-AEs"/>
+                        <outlet property="notesTextView" destination="MTi-Ph-gFN" id="3wb-JP-tGG"/>
                         <outlet property="serviceLocationMap" destination="zY7-F1-nY8" id="DaZ-Of-aWL"/>
                         <outlet property="serviceNameLabel" destination="5J7-A3-Zda" id="B91-5e-jXm"/>
                         <outlet property="timeTextField" destination="IER-kN-aTD" id="Mqa-06-lGk"/>

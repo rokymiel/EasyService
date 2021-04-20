@@ -15,6 +15,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     private var presentationAssembly: IPresentationAssembly!
     private var service: Service!
     private var car: Car!
+    private var userId: String!
     
     private lazy var chooser: ItemInListChooserViewController = presentationAssembly.buildItemInListChooserViewController()
     
@@ -25,6 +26,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var typeOfWorksTextField: UITextField!
     @IBOutlet weak var carCell: CarViewCell!
+    @IBOutlet weak var notesTextView: UITextView!
     
     let dateFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -38,16 +40,27 @@ class NewServiceRegisrtationViewController: UITableViewController {
         f.locale = .init(identifier: "ru")
         return f
     }()
+    let resultFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "dd.MM.yyyy HH:mm"
+        f.locale = .init(identifier: "ru")
+        return f
+    }()
     
     private let datePicker = UIDatePicker()
     private let timePicker = UIDatePicker()
     
-    class func sInit(service: Service, car: Car, registrationService: IRegistrationService, presentationAssembly: IPresentationAssembly) -> NewServiceRegisrtationViewController {
+    class func sInit(userId: String,
+                     service: Service,
+                     car: Car,
+                     registrationService: IRegistrationService,
+                     presentationAssembly: IPresentationAssembly) -> NewServiceRegisrtationViewController {
         let contraller = UIStoryboard.newServiceRegisrtation.instantiate(self)
         contraller.registrationService = registrationService
         contraller.presentationAssembly = presentationAssembly
         contraller.service = service
         contraller.car = car
+        contraller.userId = userId
         return contraller
     }
     
@@ -163,6 +176,26 @@ class NewServiceRegisrtationViewController: UITableViewController {
                 timeTextField.setPlaceholder(color: .systemRed)
                 return
         }
+        guard let carID = car.identifier,
+              let resultDate = resultFormatter.date(from: "\(date) \(time)"),
+              let serviceId = service.identifier else {
+            return
+        }
+        
+        let notes = notesTextView.text.isBlank() ? nil : notesTextView.text
+        let registration = Registration(identifier: UUID().uuidString,
+                                        carID: carID, clientID: userId,
+                                        cost: nil,
+                                        dateOfCreation: Date(),
+                                        dateOfRegistration: resultDate,
+                                        description: nil,
+                                        notes: notes,
+                                        status: .new,
+                                        timeOfWorks: nil,
+                                        typeOfWorks: type,
+                                        serviceId: serviceId)
+        
+        registrationService.new(registration: registration)
         
     }
     

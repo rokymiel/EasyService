@@ -40,8 +40,8 @@ class MainNavigationController: UINavigationController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
-//        account()
+//        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
+        account()
     }
     
     func account() {
@@ -54,16 +54,16 @@ class MainNavigationController: UINavigationController {
 //                print("IIIDD ",user.email)
                 DispatchQueue.main.async {
                     print(user)// TODO: - как-то использовать
-                    self.viewControllers = [self.presentationAssembly.buildCarListController(with: user.identifier!)]
+                    self.viewControllers = [self.presentationAssembly.buildCarListController()]
                 }
 
             case .failure:
                 print("fail")
                 DispatchQueue.main.async {
                     print("ASA")
-                    self.present(self.presentationAssembly.buildLoginController { id in
+                    self.present(self.presentationAssembly.buildLoginController { _ in
                         print("asd")
-                        self.viewControllers = [self.presentationAssembly.buildCarListController(with: id)]
+                        self.viewControllers = [self.presentationAssembly.buildCarListController()]
                     }, animated: true)
 
                 }

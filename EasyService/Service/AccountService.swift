@@ -12,6 +12,7 @@ import CoreData
 protocol IAccountService {
     func saveNew(user: User)
     func getUser(completition: @escaping (Result<User, Error>) -> Void)
+    var currentId: String? { get }
 }
 
 final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
@@ -19,16 +20,16 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     func authorizationDidChange(_ auth: Aauthorization) {
         switch auth {
         case .user(let user):
+            self.currentId = user.uid
             self.getUser(with: user.uid) { (result) in
                 print("authorizationDidChange", result)
-                if case let .success(user) = result   {
-                    print(user)
-                    self.coreDataManager.save(model: user, nil)
+                if case let .success(user) = result {
+                    //self.coreDataManager.save(model: user, nil)
                 }
             }
         case .none:
             print("NONE")
-            // delete
+        // delete
         }
     }
     
@@ -53,7 +54,6 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         coreDataManager.save(model: user, nil)
     }
     
-    
     func getUser(completition: @escaping (Result<User, Error>) -> Void) {
         if let user = authService.user {
             print(user.uid)
@@ -63,21 +63,30 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         }
     }
     
+    var currentId: String?
+    
     private func getUser(with id: String, completition: @escaping (Result<User, Error>) -> Void) {
         let request: NSFetchRequest<UserDB> = UserDB.fetchRequest()
         let predicate = NSPredicate(format: "identifier == %@", id)
         request.predicate = predicate
         coreDataManager.fetch(request: request) { (result) in
-//            print(result)
-//            print("RES", result?.identifier)
-//            print(result)
-            if let user = result {
-                completition(.success(user.dataModel))
+            //            print(result)
+            //            print("RES", result?.identifier)
+            //            print(result)
+            if let dbUser = result {
+                let user = dbUser.dataModel
+                completition(.success(user))
             } else {
                 completition(.failure(NoneError.none))
             }
         }
-        fireStoreService.loadDocument(id: id, listener: completition)
+        fireStoreService.loadDocument(id: id, listener: loadUser(completition))
+    }
+    
+    func loadUser(_ completition: @escaping (Result<User, Error>) -> Void) -> ((Result<User, Error>) -> Void) {
+        return { res in
+            completition(res)
+        }
     }
 }
 
