@@ -56,8 +56,14 @@ class NewServiceRegisrtationViewController: UITableViewController {
     }
     
     func addDateToolbar() {
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        } else {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
         datePicker.minimumDate = Date()
         datePicker.datePickerMode = .date
+        datePicker.sizeToFit()
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneDatePicker))
@@ -68,11 +74,15 @@ class NewServiceRegisrtationViewController: UITableViewController {
         
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
+        if #available(iOS 14.0, *) {
+            dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 380)
+        }
     }
     
     func addTimeToolbar() {
         timePicker.datePickerMode = .time
         timePicker.minuteInterval = 10
+        timePicker.preferredDatePickerStyle = .wheels
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTimePicker))

@@ -54,19 +54,31 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
     }
     func showDatePicker() {
         //Formate Date
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        } else {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date()
+        datePicker.locale = .current
+        datePicker.sizeToFit()
+        
         //ToolBar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
         
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
+        if #available(iOS 14.0, *) {
+            dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 300)
+        }
+        
         
     }
     

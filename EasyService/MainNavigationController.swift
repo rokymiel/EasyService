@@ -40,7 +40,11 @@ class MainNavigationController: UINavigationController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
+        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
+//        account()
+    }
+    
+    func account() {
         let accountService = serviceAssembly.getAccountService()
 //        do{ try Auth.auth().signOut() } catch {}
         accountService.getUser { (result) in
@@ -65,8 +69,5 @@ class MainNavigationController: UINavigationController {
                 }
             }
         }
-        
-        
-        
     }
 }
