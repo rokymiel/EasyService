@@ -31,16 +31,25 @@ class HomeViewController: UITableViewController {
                 width: registrationsCollectionView.widestCellWidth, height: registrationsCollectionView.frame.height
             )
         }
-//        if let flowLayout = registrationsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//           flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let text = headers[section] {
+            let header = LabelHeaderView(reuseIdentifier: String(describing: LabelHeaderView.self))
+            header.configure(text)
+            return header
+        }
+        print("LOX")
+        return nil
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if headers[section] != nil {
+            return 40
+        }
+        return -1
+    }
+    private let headers: [Int: String] = [
+        1: "Записи"
+    ]
     
 }
 

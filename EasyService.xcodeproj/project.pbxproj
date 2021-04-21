@@ -24,6 +24,7 @@
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
 		7D6D93A02630B05C00E2E081 /* UIEdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */; };
+		7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */; };
 		7D7B0177262F11D000F3CCD8 /* LocalDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */; };
 		7D7BE3B3262CE04000C075F7 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */; };
 		7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */; };
@@ -97,6 +98,7 @@
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetLabel.swift; sourceTree = "<group>"; };
+		7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeaderView.swift; sourceTree = "<group>"; };
 		7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionary.swift; sourceTree = "<group>"; };
 		7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = EasyService/Assets.xcassets/TextFieldExtension.swift; sourceTree = SOURCE_ROOT; };
 		7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				7DFFB41F26309E92003C6B4E /* Cell */,
 				7DFFB419263085D9003C6B4E /* HomeView.storyboard */,
 				7DFFB41C2630869E003C6B4E /* HomeViewController.swift */,
+				7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				7D7F71112622293E00B3341E /* UIYearPickerDelegate.swift in Sources */,
 				7D7F710B2621A7B500B3341E /* ResourcesService.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
+				7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */,
 				7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */,
 				7D90C3DF2620D23F0035B704 /* ItemInListChooserViewController.swift in Sources */,
 				7D90033D26271A9D002168C1 /* Service.xcdatamodeld in Sources */,

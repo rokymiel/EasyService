@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Главная-->
         <scene sceneID="Bra-3N-Qy5">
             <objects>
-                <tableViewController id="E4M-Mj-esq" customClass="HomeViewController" customModule="EasyService" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Главная" id="E4M-Mj-esq" customClass="HomeViewController" customModule="EasyService" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6n6-ke-NxP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,16 +68,8 @@
                             </tableViewSection>
                             <tableViewSection id="foO-Pj-pj1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="152" id="fU8-Lu-RhQ">
-                                        <rect key="frame" x="0.0" y="270" width="414" height="152"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fU8-Lu-RhQ" id="IpV-pf-bIi">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4hp-0T-AUc">
-                                        <rect key="frame" x="0.0" y="422" width="414" height="152"/>
+                                        <rect key="frame" x="0.0" y="270" width="414" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4hp-0T-AUc" id="e0V-hK-R3X">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
@@ -108,10 +100,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-3" id="nKO-CP-mki">
+                            <tableViewSection id="nKO-CP-mki">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qKp-vS-k1G">
-                                        <rect key="frame" x="0.0" y="630" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="478" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qKp-vS-k1G" id="ktV-qJ-Uv4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>

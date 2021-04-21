@@ -23,7 +23,7 @@ class UIContainerView: UIView {
     var hasShadow: Bool = true {
         didSet {
             if hasShadow {
-                layer.shadowOpacity = 0.5
+                layer.shadowOpacity = 0.3
             } else {
                 layer.shadowOpacity = 0
             }
@@ -50,7 +50,7 @@ class UIContainerView: UIView {
             layer.shadowColor = UIColor.black.cgColor
         }
         layer.shadowOffset = .zero
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.3
         layer.shadowRadius = cornerRadius
         
         

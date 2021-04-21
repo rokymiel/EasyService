@@ -40,6 +40,8 @@ class MainNavigationController: UINavigationController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationBar.prefersLargeTitles = true
+        navigationBar.isTranslucent = true
 //        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
 //        account()
         self.viewControllers = [presentationAssembly.buildHomeViewController()]
