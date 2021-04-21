@@ -13,6 +13,7 @@
 		7D0A69D92624E3C4005C1599 /* AnnotationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69D72624E3C4005C1599 /* AnnotationDetailsViewController.swift */; };
 		7D0A69DA2624E3C4005C1599 /* AnnotationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */; };
 		7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69DB2624F3B9005C1599 /* Configurable.swift */; };
+		7D0ECCB0263073FC0025C5DA /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0ECCAF263073FC0025C5DA /* ProfileView.storyboard */; };
 		7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */; };
 		7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */; };
 		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
@@ -21,6 +22,8 @@
 		7D385998262A2CF80036DF3B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385997262A2CF80036DF3B /* AuthService.swift */; };
 		7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */; };
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
+		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
+		7D6D93A02630B05C00E2E081 /* UIEdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */; };
 		7D7B0177262F11D000F3CCD8 /* LocalDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */; };
 		7D7BE3B3262CE04000C075F7 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */; };
 		7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */; };
@@ -69,6 +72,10 @@
 		7DF7A49F25A0EA920053C413 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A49D25A0EA920053C413 /* Main2.storyboard */; };
 		7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A4A025A0EA940053C413 /* Assets.xcassets */; };
 		7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A4A225A0EA940053C413 /* LaunchScreen.storyboard */; };
+		7DFFB41A263085D9003C6B4E /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFFB419263085D9003C6B4E /* HomeView.storyboard */; };
+		7DFFB41D2630869E003C6B4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB41C2630869E003C6B4E /* HomeViewController.swift */; };
+		7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */; };
+		7DFFB42326309EBB003C6B4E /* RegistrationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +86,7 @@
 		7D0A69D72624E3C4005C1599 /* AnnotationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailsViewController.swift; sourceTree = "<group>"; };
 		7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationDetailsViewController.xib; sourceTree = "<group>"; };
 		7D0A69DB2624F3B9005C1599 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		7D0ECCAF263073FC0025C5DA /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
 		7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarView.xib; sourceTree = "<group>"; };
 		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 		7D385997262A2CF80036DF3B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
+		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetLabel.swift; sourceTree = "<group>"; };
 		7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionary.swift; sourceTree = "<group>"; };
 		7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = EasyService/Assets.xcassets/TextFieldExtension.swift; sourceTree = SOURCE_ROOT; };
 		7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -137,6 +147,10 @@
 		7DF7A4A025A0EA940053C413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DF7A4A325A0EA940053C413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF7A4A525A0EA940053C413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DFFB419263085D9003C6B4E /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
+		7DFFB41C2630869E003C6B4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCollectionViewCell.swift; sourceTree = "<group>"; };
+		7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationCollectionViewCell.xib; sourceTree = "<group>"; };
 		BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.debug.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +196,8 @@
 		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7DFFB418263085B4003C6B4E /* HomePage */,
+				7DDF5636263073C000215CFE /* Profile */,
 				7DA54D1B262BA239002A6EB5 /* NewServiceRegisrtation */,
 				7D7F71182622585D00B3341E /* ServicesMap */,
 				7D90C3DB2620D02B0035B704 /* ItemInListChooser */,
@@ -303,6 +319,7 @@
 				7D90C3E02620D2B10035B704 /* UIUnderlinedTextField.swift */,
 				7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */,
 				7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */,
+				7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,6 +331,15 @@
 				7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */,
 			);
 			path = NewServiceRegisrtation;
+			sourceTree = "<group>";
+		};
+		7DDF5636263073C000215CFE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */,
+				7D0ECCAF263073FC0025C5DA /* ProfileView.storyboard */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7DE0A3EE261CE85F002773E3 /* Regisrtation */ = {
@@ -423,6 +449,25 @@
 			path = EasyService;
 			sourceTree = "<group>";
 		};
+		7DFFB418263085B4003C6B4E /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				7DFFB41F26309E92003C6B4E /* Cell */,
+				7DFFB419263085D9003C6B4E /* HomeView.storyboard */,
+				7DFFB41C2630869E003C6B4E /* HomeViewController.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		7DFFB41F26309E92003C6B4E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */,
+				7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8B2391905D2B986E057DA7E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,11 +548,14 @@
 			files = (
 				7D7F710F2622158B00B3341E /* gears.json in Resources */,
 				7D219296262654F100B77667 /* CarViewCell.xib in Resources */,
+				7DFFB41A263085D9003C6B4E /* HomeView.storyboard in Resources */,
 				7D90C3DD2620D0720035B704 /* ItemInListChooserView.storyboard in Resources */,
 				7D7F7117262257DC00B3341E /* ServicesMapView.storyboard in Resources */,
 				7DE0A3FF261DC25F002773E3 /* Login.storyboard in Resources */,
+				7D0ECCB0263073FC0025C5DA /* ProfileView.storyboard in Resources */,
 				7D7F710D2622158600B3341E /* carsBodies.json in Resources */,
 				7D0A69DA2624E3C4005C1599 /* AnnotationDetailsViewController.xib in Resources */,
+				7DFFB42326309EBB003C6B4E /* RegistrationCollectionViewCell.xib in Resources */,
 				7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */,
 				7D90C3DA261FB9F60035B704 /* NewCarView.storyboard in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
@@ -594,6 +642,7 @@
 				7D90034326276F68002168C1 /* DMExtensions.swift in Sources */,
 				7D219295262654F100B77667 /* CarViewCell.swift in Sources */,
 				7D0A69D92624E3C4005C1599 /* AnnotationDetailsViewController.swift in Sources */,
+				7D6D93A02630B05C00E2E081 /* UIEdgeInsetLabel.swift in Sources */,
 				7D7F71152622544000B3341E /* Service.swift in Sources */,
 				7D7F71132622419700B3341E /* Car.swift in Sources */,
 				7D0A69D32624C596005C1599 /* RegistrationService.swift in Sources */,
@@ -616,17 +665,20 @@
 				7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */,
 				7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */,
 				7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */,
+				7DFFB41D2630869E003C6B4E /* HomeViewController.swift in Sources */,
 				7DE0A40A261E0FAA002773E3 /* StringExtension.swift in Sources */,
 				7D385998262A2CF80036DF3B /* AuthService.swift in Sources */,
 				7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */,
 				7D90034826277D25002168C1 /* CoreDataManager.swift in Sources */,
 				7D0A69D52624D538005C1599 /* ServiceMKAnnotation.swift in Sources */,
 				7DE0A40C261E38BB002773E3 /* DateFormatterExtension.swift in Sources */,
+				7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */,
 				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
 				7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */,
 				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,
+				7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */,
 				7D90033F26271ED3002168C1 /* ServiceAssembly.swift in Sources */,
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
 				7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */,

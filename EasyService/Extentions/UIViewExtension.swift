@@ -18,4 +18,20 @@ extension UIView {
         insertSubview(blurEffectView, at: 0)
         
     }
+    
+    //    func squircle:  {
+    //        layer.cornerCurve = //.continuous
+    //    }
+    
+    @IBInspectable
+    var squircle: Bool {
+        get { return layer.cornerCurve == .continuous}
+        set {
+            if newValue {
+                layer.cornerCurve = .continuous
+            } else {
+                layer.cornerCurve = .circular
+            }
+        }
+    }
 }

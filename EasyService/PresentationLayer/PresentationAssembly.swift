@@ -18,6 +18,8 @@ protocol IPresentationAssembly {
     func buildServicesMapViewController() -> ServicesMapViewController
     func buildNewServiceRegisrtationViewController(with car: Car, service: Service) -> NewServiceRegisrtationViewController
     func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController
+    func buildProfileViewController() -> ProfileViewController
+    func buildHomeViewController() -> HomeViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
@@ -69,5 +71,13 @@ final class PresentationAssembly: IPresentationAssembly {
     
     func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController {
         return AnnotationDetailsViewController(carsService: serviceAssembly.getCarsService(), presentationAssembly: self)
+    }
+    
+    func buildProfileViewController() -> ProfileViewController {
+        return ProfileViewController.sInit()
+    }
+    
+    func buildHomeViewController() -> HomeViewController {
+        return HomeViewController.sInit()
     }
 }

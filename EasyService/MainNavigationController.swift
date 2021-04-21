@@ -41,7 +41,8 @@ class MainNavigationController: UINavigationController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
-        account()
+//        account()
+        self.viewControllers = [presentationAssembly.buildHomeViewController()]
     }
     
     func account() {
