@@ -19,6 +19,17 @@ class UIContainerView: UIView {
         }
     }
     
+    @IBInspectable
+    var hasShadow: Bool = true {
+        didSet {
+            if hasShadow {
+                layer.shadowOpacity = 0.5
+            } else {
+                layer.shadowOpacity = 0
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -35,17 +46,20 @@ class UIContainerView: UIView {
         
         // set the shadow of the view's layer
         layer.backgroundColor = UIColor.clear.cgColor
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        if hasShadow {
+            layer.shadowColor = UIColor.black.cgColor
+        }
+        layer.shadowOffset = .zero
         layer.shadowOpacity = 0.5
         layer.shadowRadius = cornerRadius
+        
         
         // set the cornerRadius of the containerView's layer
         containerView.layer.cornerRadius = cornerRadius
         containerView.layer.masksToBounds = true
         containerView.backgroundColor = backgroundColor
         insertSubview(containerView, at: 0)
-              
+        
         //
         // add additional views to the containerView here
         //
