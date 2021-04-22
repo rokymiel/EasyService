@@ -11,7 +11,7 @@ import Charts
 
 class MileageChartViewCell: UITableViewCell, Configurable {
     
-    typealias Model = [(date: Date, mileage: Int)]
+    typealias Model = [Mileage]
     
     private let lineChart = LineChartView()
     
@@ -28,8 +28,8 @@ class MileageChartViewCell: UITableViewCell, Configurable {
     func configure(_ model: Model) {
         var entries = [ChartDataEntry]()
         
-        for  (i, (_, mileage)) in model.enumerated() {
-            entries.append(.init(x: Double(i), y: Double(mileage)))
+        for  (i, mileage) in model.enumerated() {
+            entries.append(.init(x: Double(i), y: Double(mileage.value)))
         }
         lineChart.data = LineChartData(dataSet: LineChartDataSet(entries))
         

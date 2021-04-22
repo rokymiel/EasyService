@@ -18,6 +18,7 @@
     </entity>
     <entity name="MileageDB" representedClassName="MileageDB" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isVerified" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CarDB" inverseName="mileage" inverseEntity="CarDB"/>
     </entity>
@@ -61,7 +62,7 @@
     </entity>
     <elements>
         <element name="CarDB" positionX="337.3984375" positionY="-16.98828125" width="128" height="178"/>
-        <element name="MileageDB" positionX="612.21875" positionY="284.15625" width="128" height="88"/>
+        <element name="MileageDB" positionX="612.21875" positionY="284.15625" width="128" height="103"/>
         <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="238"/>
         <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
     </elements>

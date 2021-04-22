@@ -128,7 +128,8 @@
                     </tableView>
                     <connections>
                         <outlet property="carLabel" destination="gjJ-tc-zDX" id="4mc-Vv-UG9"/>
-                        <outlet property="mileageCell" destination="Ix8-no-E3f" id="ucy-5V-4kh"/>
+                        <outlet property="mileageChartCell" destination="Ix8-no-E3f" id="vc7-nO-6Qo"/>
+                        <outlet property="mileageViewCell" destination="Jb6-ok-5RU" id="71h-Op-DWP"/>
                         <outlet property="registrationsCollectionView" destination="qDK-CT-yso" id="3UK-pG-k6X"/>
                     </connections>
                 </tableViewController>

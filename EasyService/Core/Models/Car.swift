@@ -34,8 +34,10 @@ struct Car: Codable {
 struct Mileage: Codable {
     let date: Date
     let value: Int
+    let isVerified: Bool
     enum CodingKeys: String, CodingKey {
         case date
         case value
+        case isVerified = "is_verified"
     }
 }

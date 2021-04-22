@@ -14,7 +14,8 @@ class HomeViewController: UITableViewController {
     
     @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
-    @IBOutlet weak var mileageCell: MileageChartViewCell!
+    @IBOutlet weak var mileageChartCell: MileageChartViewCell!
+    @IBOutlet weak var mileageViewCell: MileageViewCell!
     class func sInit(carsService: ICarsService) -> HomeViewController {
         let contraller = UIStoryboard.homeView.instantiate(self)
         contraller.carsService = carsService
@@ -24,12 +25,6 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        
-        mileageCell.configure([(Date(), 1000),
-                               (Date(), 2000),
-                               (Date(), 7000),
-                               (Date(), 16000),
-                               (Date(), 18000)])
         
         registrationsCollectionView.dataSource = self
         registrationsCollectionView.register(
@@ -50,6 +45,10 @@ class HomeViewController: UITableViewController {
             DispatchQueue.main.async {
                 if case let .success(car) = result {
                     self?.carLabel.text = [car.mark, car.model, car.body].joined(separator: " ")
+                    if let mileage = car.mileage.last {
+                        self?.mileageViewCell.configure(mileage)
+                        
+                    }
                 }
             }
         }

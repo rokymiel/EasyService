@@ -17,7 +17,14 @@ private extension UIImage {
     }
 }
 
-class MileageViewCell: UITableViewCell {
+class MileageViewCell: UITableViewCell, Configurable {
+    func configure(_ model: Mileage) {
+        mileageLabel.text = String(model.value)
+        statusImage.image = model.isVerified ? .verified : .notVerified
+        statusImage.tintColor = model.isVerified ? .systemGreen : .systemRed
+    }
+    
+    typealias Model = Mileage
     
     private let titleLabel = UILabel()
     

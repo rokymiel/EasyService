@@ -59,13 +59,14 @@ extension User: IDBModel {
 }
 extension MileageDB: IModel {
     var dataModel: Mileage {
-        Mileage(date: date!, value: Int(value))
+        Mileage(date: date!, value: Int(value), isVerified: isVerified)
     }
     
     convenience init(mileage: Mileage, in context: NSManagedObjectContext) {
         self.init(context: context)
         date = mileage.date
         value = Int32(mileage.value)
+        isVerified = mileage.isVerified
     }
 }
 
