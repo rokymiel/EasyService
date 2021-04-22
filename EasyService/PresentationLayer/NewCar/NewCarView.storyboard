@@ -200,7 +200,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="dA4-uQ-Q05">
                                         <rect key="frame" x="16" y="324" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dA4-uQ-Q05" id="anG-BD-Nl5">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dA4-uQ-Q05" id="anG-BD-Nl5">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -217,7 +217,44 @@
                                                 <constraint firstItem="zi0-F8-gbX" firstAttribute="leading" secondItem="anG-BD-Nl5" secondAttribute="leading" constant="10" id="BKZ-oo-wkG"/>
                                                 <constraint firstItem="zi0-F8-gbX" firstAttribute="top" secondItem="anG-BD-Nl5" secondAttribute="top" constant="5" id="H4t-Mx-5HF"/>
                                                 <constraint firstAttribute="trailing" secondItem="zi0-F8-gbX" secondAttribute="trailing" constant="10" id="fRw-j2-i8G"/>
-                                                <constraint firstAttribute="bottom" secondItem="zi0-F8-gbX" secondAttribute="bottom" constant="10" id="vBa-5Q-S7k"/>
+                                                <constraint firstAttribute="bottom" secondItem="zi0-F8-gbX" secondAttribute="bottom" constant="5" id="vBa-5Q-S7k"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="RB9-On-Kj9">
+                                        <rect key="frame" x="16" y="368" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RB9-On-Kj9" id="e5T-uF-t89">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пробег" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucY-eY-NRB">
+                                                    <rect key="frame" x="10" y="5" width="50" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="LZc-Cl-Hi2"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Xeg-aW-p9P"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="км" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DP-6A-Vcw">
+                                                    <rect key="frame" x="65" y="5" width="22" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="Qwe-Ua-RVt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ucY-eY-NRB" firstAttribute="top" secondItem="e5T-uF-t89" secondAttribute="top" constant="5" id="8RG-Fs-Spj"/>
+                                                <constraint firstItem="ucY-eY-NRB" firstAttribute="leading" secondItem="e5T-uF-t89" secondAttribute="leading" constant="10" id="Ko6-LX-nlj"/>
+                                                <constraint firstItem="5DP-6A-Vcw" firstAttribute="top" secondItem="e5T-uF-t89" secondAttribute="top" constant="5" id="QfD-Ut-yrW"/>
+                                                <constraint firstAttribute="bottom" secondItem="5DP-6A-Vcw" secondAttribute="bottom" constant="10" id="iSR-HX-rQf"/>
+                                                <constraint firstItem="5DP-6A-Vcw" firstAttribute="leading" secondItem="ucY-eY-NRB" secondAttribute="trailing" constant="5" id="jLK-gl-QUN"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5DP-6A-Vcw" secondAttribute="trailing" constant="10" id="pRm-bP-TXg"/>
+                                                <constraint firstAttribute="bottom" secondItem="ucY-eY-NRB" secondAttribute="bottom" constant="10" id="y10-2a-gMv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -226,7 +263,7 @@
                             <tableViewSection id="2Jz-Ed-prX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43.5" id="2h1-72-YOq">
-                                        <rect key="frame" x="16" y="404" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="448" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2h1-72-YOq" id="ZQG-gk-FO0">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -266,6 +303,7 @@
                         <outlet property="engineVolumeTextField" destination="yd3-Z2-a9o" id="7Zw-jf-5Wo"/>
                         <outlet property="gearTextField" destination="BNR-Hu-McF" id="nib-cl-OCd"/>
                         <outlet property="markTextField" destination="m2b-Lj-ENS" id="yKm-8S-GUx"/>
+                        <outlet property="mileageTextField" destination="ucY-eY-NRB" id="nCu-wY-Wxm"/>
                         <outlet property="modelTextField" destination="cj5-RB-jfH" id="sOY-6h-VxA"/>
                         <outlet property="yearTextField" destination="zi0-F8-gbX" id="KrL-ql-aGY"/>
                     </connections>

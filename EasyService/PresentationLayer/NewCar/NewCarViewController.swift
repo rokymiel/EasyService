@@ -17,6 +17,7 @@ class NewCarViewController: UITableViewController {
     @IBOutlet weak var engineVolumeTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
     @IBOutlet weak var engineVolumeStepper: UIStepper!
+    @IBOutlet weak var mileageTextField: UITextField!
     
     private var presentationAssembly: PresentationAssembly!
     private var resourcesService: IResourcesService!
@@ -141,7 +142,7 @@ class NewCarViewController: UITableViewController {
     
     @IBAction func stepperValueChanged(_ sender: Any) {
         
-        engineVolumeTextField.text = String( engineVolumeStepper.value/10)
+        engineVolumeTextField.text = String( engineVolumeStepper.value / 10)
     }
         
     @IBAction func carSavedClicked(_ sender: Any) {
@@ -152,12 +153,21 @@ class NewCarViewController: UITableViewController {
             let engineStr = engineVolumeTextField.text,
             let engine = Double(engineStr),
             let yearStr = yearTextField.text,
-            let year = Int(yearStr) else {
+            let year = Int(yearStr),
+            let mileageStr = mileageTextField.text,
+            let mileage = Int(mileageStr) else {
+            markTextField.setPlaceholder(color: .systemRed)
+            modelTextField.setPlaceholder(color: .systemRed)
+            bodyTextField.setPlaceholder(color: .systemRed)
+            gearTextField.setPlaceholder(color: .systemRed)
+            engineVolumeTextField.setPlaceholder(color: .systemRed)
+            yearTextField.setPlaceholder(color: .systemRed)
+            mileageTextField.setPlaceholder(color: .systemRed)
                 return
         }
         
         saved(Car(identifier: UUID().uuidString, mark: mark, model: model,
-                  body: body, gear: gear, engine: engine, productionYear: year, mileage: [.init(date: Date(timeIntervalSince1970: 0), value: 25000)]))
+                  body: body, gear: gear, engine: engine, productionYear: year, mileage: [.init(date: Date(), value: mileage)]))
         dismiss(animated: true, completion: nil)
     }
 }
