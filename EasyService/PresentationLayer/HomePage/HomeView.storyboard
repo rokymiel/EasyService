@@ -127,6 +127,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="carLabel" destination="gjJ-tc-zDX" id="4mc-Vv-UG9"/>
                         <outlet property="mileageCell" destination="Ix8-no-E3f" id="ucy-5V-4kh"/>
                         <outlet property="registrationsCollectionView" destination="qDK-CT-yso" id="3UK-pG-k6X"/>
                     </connections>

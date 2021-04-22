@@ -26,7 +26,7 @@ class CarListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let carId = carsService.currentId {
+        if carsService.currentId != nil{
             navigationController?.pushViewController(presentationAssembly.buildHomeViewController(), animated: true)
         }
         
@@ -42,6 +42,7 @@ class CarListViewController: UIViewController{
             if case let .success(cars) = result {
                 print("HIQWERTYU", cars.count)
                 DispatchQueue.main.async {
+                    print("MileageDB", cars.map { $0.mileage})
                     self.cars = cars
                     self.carsListTableView.reloadData()
                     

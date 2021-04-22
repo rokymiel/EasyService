@@ -17,6 +17,7 @@ struct Car: Codable {
     let gear: String
     let engine: Double
     let productionYear: Int
+    let mileage: [Mileage]
     
     enum CodingKeys: String, CodingKey {
         case identifier
@@ -26,5 +27,15 @@ struct Car: Codable {
         case gear
         case engine
         case productionYear = "production_year"
+        case mileage
+    }
+}
+
+struct Mileage: Codable {
+    let date: Date
+    let value: Int
+    enum CodingKeys: String, CodingKey {
+        case date
+        case value
     }
 }

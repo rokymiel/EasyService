@@ -10,24 +10,26 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     
+    private var carsService: ICarsService!
+    
+    @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
     @IBOutlet weak var mileageCell: MileageChartViewCell!
-    class func sInit() -> HomeViewController {
+    class func sInit(carsService: ICarsService) -> HomeViewController {
         let contraller = UIStoryboard.homeView.instantiate(self)
-        
+        contraller.carsService = carsService
         return contraller
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configure()
         
         mileageCell.configure([(Date(), 1000),
                                (Date(), 2000),
                                (Date(), 7000),
                                (Date(), 16000),
                                (Date(), 18000)])
-        
         
         registrationsCollectionView.dataSource = self
         registrationsCollectionView.register(
@@ -42,6 +44,17 @@ class HomeViewController: UITableViewController {
             )
         }
     }
+    
+    func configure() {
+        carsService.getCar { [weak self] (result) in
+            DispatchQueue.main.async {
+                if case let .success(car) = result {
+                    self?.carLabel.text = [car.mark, car.model, car.body].joined(separator: " ")
+                }
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let text = headers[section] {
             let header = LabelHeaderView(reuseIdentifier: String(describing: LabelHeaderView.self))

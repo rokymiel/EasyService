@@ -72,6 +72,9 @@ extension NSManagedObjectContext {
                 try self.save()
                 return true
             } catch {
+                print("AAAAAAAAAASUKA",error)
+                print(error.localizedDescription)
+                print(self)
                 self.rollback()
                 return false
             }

@@ -78,6 +78,6 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     
     func buildHomeViewController() -> HomeViewController {
-        return HomeViewController.sInit()
+        return HomeViewController.sInit(carsService: serviceAssembly.getCarsService())
     }
 }

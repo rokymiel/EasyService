@@ -57,6 +57,23 @@ extension User: IDBModel {
         UserDB(user: self, in: context)
     }
 }
+extension MileageDB: IModel {
+    var dataModel: Mileage {
+        Mileage(date: date!, value: Int(value))
+    }
+    
+    convenience init(mileage: Mileage, in context: NSManagedObjectContext) {
+        self.init(context: context)
+        date = mileage.date
+        value = Int32(mileage.value)
+    }
+}
+
+extension Mileage: IDBModel {
+    func toDBModel(in context: NSManagedObjectContext) -> NSManagedObject {
+        MileageDB(mileage: self, in: context)
+    }
+}
 
 extension CarDB: IModel {
     convenience init(car: Car, in context: NSManagedObjectContext) {
@@ -68,6 +85,12 @@ extension CarDB: IModel {
         gear = car.gear
         engine = car.engine
         productionYear = Int32(car.productionYear)
+        car.mileage.forEach { mileage in
+            if let model = mileage.toDBModel(in: context) as? MileageDB {
+                self.addToMileage(model)
+            }
+            
+        }
     }
     
     var dataModel: Car {
@@ -77,7 +100,9 @@ extension CarDB: IModel {
             body: body!,
             gear: gear!,
             engine: engine,
-            productionYear: Int(productionYear))
+            productionYear: Int(productionYear), mileage: mileage?.compactMap { mil in
+                return (mil as? MileageDB)?.dataModel
+            } ?? [])
     }
 }
 
@@ -107,7 +132,7 @@ extension RegistrationDB: IModel {
         serviceId = registration.serviceId
     }
     var dataModel: Registration {
-        var dCost: Double? = nil
+        var dCost: Double?
         if let cost = cost {
             dCost = Double(exactly: cost)
         }
