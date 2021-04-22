@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Завершено" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE4-Zl-c1M" customClass="UIEdgeInsetLabel" customModule="EasyService" customModuleProvider="target">
-                                <rect key="frame" x="38" y="8" width="95" height="21.5"/>
+                                <rect key="frame" x="24" y="8" width="109" height="27.5"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -83,10 +83,11 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="squircle" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nE4-Zl-c1M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GcJ-Rq-bFY" secondAttribute="leading" constant="8" id="5vG-50-LfZ"/>
                             <constraint firstItem="nE4-Zl-c1M" firstAttribute="top" secondItem="GcJ-Rq-bFY" secondAttribute="top" constant="8" id="Bfc-wH-tKU"/>
@@ -123,15 +124,15 @@
     </objects>
     <designables>
         <designable name="nE4-Zl-c1M">
-            <size key="intrinsicContentSize" width="95" height="21.5"/>
+            <size key="intrinsicContentSize" width="109" height="27.5"/>
         </designable>
     </designables>
     <resources>
         <namedColor name="main">
             <color red="0.99599999189376831" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
