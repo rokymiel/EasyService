@@ -26,6 +26,7 @@
 		7D6D93A02630B05C00E2E081 /* UIEdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */; };
 		7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */; };
 		7D6D93AB2630EFE700E2E081 /* MileageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93A92630EFE700E2E081 /* MileageViewCell.swift */; };
+		7D6D93C72630F96300E2E081 /* MileageChartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */; };
 		7D7B0177262F11D000F3CCD8 /* LocalDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */; };
 		7D7BE3B3262CE04000C075F7 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */; };
 		7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */; };
@@ -101,6 +102,7 @@
 		7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetLabel.swift; sourceTree = "<group>"; };
 		7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeaderView.swift; sourceTree = "<group>"; };
 		7D6D93A92630EFE700E2E081 /* MileageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageViewCell.swift; sourceTree = "<group>"; };
+		7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageChartViewCell.swift; sourceTree = "<group>"; };
 		7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionary.swift; sourceTree = "<group>"; };
 		7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = EasyService/Assets.xcassets/TextFieldExtension.swift; sourceTree = SOURCE_ROOT; };
 		7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 			children = (
 				7D6D93A72630EFB200E2E081 /* RegistrationCell */,
 				7D6D93A62630EF8A00E2E081 /* MileageCell */,
+				7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
 				7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */,
 				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
+				7D6D93C72630F96300E2E081 /* MileageChartViewCell.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,
 				7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UITableViewController {
     
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
+    @IBOutlet weak var mileageCell: MileageChartViewCell!
     class func sInit() -> HomeViewController {
         let contraller = UIStoryboard.homeView.instantiate(self)
         
@@ -19,6 +20,15 @@ class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        mileageCell.configure([(Date(), 1000),
+                               (Date(), 2000),
+                               (Date(), 7000),
+                               (Date(), 16000),
+                               (Date(), 18000)])
+        
+        
         registrationsCollectionView.dataSource = self
         registrationsCollectionView.register(
             UINib(nibName:

@@ -12,5 +12,6 @@ target 'EasyService' do
   pod "Firebase/Firestore"
   pod 'FirebaseFirestoreSwift'
   pod 'SwiftyJSON'
+  pod 'Charts'
 
 end
