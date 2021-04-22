@@ -171,6 +171,7 @@ extension CarListViewController: UITableViewDelegate {
         if let id = cars[indexPath.row].identifier {
             carsService.select(id: id)
         }
-        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
+        navigationController?.pushViewController(presentationAssembly.buildHomeViewController(), animated: true)
+//        self.present(, animated: true)
     }
 }

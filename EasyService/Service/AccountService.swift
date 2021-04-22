@@ -13,23 +13,38 @@ protocol IAccountService {
     func saveNew(user: User)
     func getUser(completition: @escaping (Result<User, Error>) -> Void)
     var currentId: String? { get }
+    var delegate: AccountDelegate? { get set }
+}
+
+protocol AccountDelegate: NSObject {
+    func login()
+    func logout()
 }
 
 final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
+    typealias UserCallback = (Result<User, Error>) -> Void
+    private var callbacks = [UserCallback]()
+    weak var delegate: AccountDelegate? {
+        didSet {
+            if authService.user != nil {
+                delegate?.login()
+            } else {
+                delegate?.logout()
+            }
+        }
+    }
     
     func authorizationDidChange(_ auth: Aauthorization) {
         switch auth {
         case .user(let user):
-            self.currentId = user.uid
-            self.getUser(with: user.uid) { (result) in
-                print("authorizationDidChange", result)
-                if case let .success(user) = result {
-                    //self.coreDataManager.save(model: user, nil)
-                }
-            }
+            currentId = user.uid
+            loadUser(with: user.uid)
+            delegate?.login()
         case .none:
             print("NONE")
-        // delete
+            // TODO: - clear cash
+            currentId = nil
+            delegate?.logout()
         }
     }
     
@@ -70,9 +85,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         let predicate = NSPredicate(format: "identifier == %@", id)
         request.predicate = predicate
         coreDataManager.fetch(request: request) { (result) in
-            //            print(result)
-            //            print("RES", result?.identifier)
-            //            print(result)
+
             if let dbUser = result {
                 let user = dbUser.dataModel
                 completition(.success(user))
@@ -80,12 +93,15 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
                 completition(.failure(NoneError.none))
             }
         }
-        fireStoreService.loadDocument(id: id, listener: loadUser(completition))
     }
     
-    func loadUser(_ completition: @escaping (Result<User, Error>) -> Void) -> ((Result<User, Error>) -> Void) {
-        return { res in
-            completition(res)
+    func loadUser(with id: String) {
+        fireStoreService.loadDocument(id: id, listener: userLoaded)
+    }
+    
+    func userLoaded(result: (Result<User, Error>)) {
+        if case let .success(user) = result {
+            coreDataManager.save(model: user, nil)
         }
     }
 }

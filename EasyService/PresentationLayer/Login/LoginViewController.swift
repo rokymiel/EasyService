@@ -17,9 +17,9 @@ final class LoginViewController: UIViewController {
     
     private var presentationAssembly: IPresentationAssembly!
     private var accountService: IAccountService!
-    private var completition: ((String) -> Void)!
+    private var completition: (() -> Void)!
     
-    class func sInit(accountService: IAccountService, presentationAssembly: IPresentationAssembly, _ completition: @escaping (String) -> Void) -> LoginViewController {
+    class func sInit(accountService: IAccountService, presentationAssembly: IPresentationAssembly, _ completition: @escaping () -> Void) -> LoginViewController {
         let contraller = UIStoryboard.login.instantiate(LoginViewController.self)
         contraller.presentationAssembly = presentationAssembly
         contraller.completition = completition
@@ -54,16 +54,16 @@ final class LoginViewController: UIViewController {
                 self.showAlert(with: error.localizedDescription)
                 return
             }
-            if let user = result?.user {
-                self.dismiss(animated: true, completion: { self.completition(user.uid) } )
+            if result != nil {
+                self.dismiss(animated: true, completion: self.completition)
 
             }
         }
     }
     
     @IBAction func showRegisrtationView(_ sender: Any) {
-        present(presentationAssembly.buildRegisrtationController { id in
-            self.dismiss(animated: true, completion: { self.completition(id) } )
+        present(presentationAssembly.buildRegisrtationController { 
+            self.dismiss(animated: true, completion: self.completition)
         }, animated: true)
     }
 }

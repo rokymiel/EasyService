@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
         //        UIApplication.shared.windows.first?.rootViewController = PresentationAssembly().buildLoginController()
         self.window?.makeKeyAndVisible()
         //        Auth.auth().currentUser
-        self.window?.rootViewController = MainNavigationController(presentationAssembly: assembly, serviceAssembly: serviceAssembly)
+        self.window?.rootViewController = MainNavigationController(presentationAssembly: assembly, accountService: serviceAssembly.getAccountService())
         //        do {
         //            try Auth.auth().signOut()
         //        } catch let signOutError as NSError {
