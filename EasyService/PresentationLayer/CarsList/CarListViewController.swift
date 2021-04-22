@@ -26,6 +26,10 @@ class CarListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let carId = carsService.currentId {
+            navigationController?.pushViewController(presentationAssembly.buildHomeViewController(), animated: true)
+        }
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         carsListTableView.dataSource = self
         carsListTableView.delegate = self
