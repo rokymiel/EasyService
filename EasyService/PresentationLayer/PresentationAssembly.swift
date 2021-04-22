@@ -32,8 +32,6 @@ final class PresentationAssembly: IPresentationAssembly {
     private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("registrations"))
     
     private lazy var resourcesService: IResourcesService = ResourcesService()
-    private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService,
-                                                                                     regisrtationsFirestore: registrationsFirestoreService)
     
     init(serviceAssembly: IServiceAssembly) {
         self.serviceAssembly = serviceAssembly
@@ -59,12 +57,12 @@ final class PresentationAssembly: IPresentationAssembly {
         return NewCarViewController.sInit(resourcesService: resourcesService, presentationAssembly: self, on: saved)
     }
     func buildServicesMapViewController() -> ServicesMapViewController {
-        return ServicesMapViewController.sInit(presentationAssembly: self, registrationService: registrationService)
+        return ServicesMapViewController.sInit(presentationAssembly: self, registrationService: serviceAssembly.getRegisrtationService())
     }
     
     func buildNewServiceRegisrtationViewController(with car: Car, service: Service) -> NewServiceRegisrtationViewController {
         if let userId = serviceAssembly.getAccountService().currentId {
-            return NewServiceRegisrtationViewController.sInit(userId: userId, service: service, car: car, registrationService: registrationService, presentationAssembly: self)
+            return NewServiceRegisrtationViewController.sInit(userId: userId, service: service, car: car, registrationService: serviceAssembly.getRegisrtationService(), presentationAssembly: self)
         }
         fatalError("Должен быть получен пользователь")
     }

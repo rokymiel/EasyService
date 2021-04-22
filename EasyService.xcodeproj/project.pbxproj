@@ -22,6 +22,7 @@
 		7D385998262A2CF80036DF3B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385997262A2CF80036DF3B /* AuthService.swift */; };
 		7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */; };
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
+		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
 		7D6D93A02630B05C00E2E081 /* UIEdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */; };
 		7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */; };
@@ -98,6 +99,7 @@
 		7D385997262A2CF80036DF3B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
+		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetLabel.swift; sourceTree = "<group>"; };
 		7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeaderView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		7D21928F2626487700B77667 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7D6BD32A263238EE004C3622 /* WeakRef.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				7D7F71132622419700B3341E /* Car.swift in Sources */,
 				7D0A69D32624C596005C1599 /* RegistrationService.swift in Sources */,
 				7DE0A40F261E3CB3002773E3 /* User.swift in Sources */,
+				7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */,
 				7D90033926271764002168C1 /* Registration.swift in Sources */,
 				7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */,
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,

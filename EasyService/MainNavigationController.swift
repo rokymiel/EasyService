@@ -90,6 +90,7 @@ extension MainNavigationController: AccountDelegate {
         DispatchQueue.main.async {
             print("ASA")
             self.viewControllers = []
+            self.tabBarController?.viewControllers = []
             self.present(self.presentationAssembly.buildLoginController({ }), animated: true)
         }
     }

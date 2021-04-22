@@ -30,9 +30,18 @@ final class ServiceAssembly: IServiceAssembly {
                                                                       fireStoreService: usersFirestoreService,
                                                                       coreDataManager: coreDataManager)
     private var carsService: ICarsService!
-    private lazy var registrationService: IRegistrationService = RegistrationService(servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService)
+    private var registrationService: IRegistrationService!
     
     func getRegisrtationService() -> IRegistrationService {
+        if let userId = userId {
+            if userId != accountService.currentId {
+                update()
+            }
+            return registrationService
+            
+        }
+        userId = accountService.currentId
+        update()
         return registrationService
     }
     
@@ -43,18 +52,19 @@ final class ServiceAssembly: IServiceAssembly {
     func getCarsService() -> ICarsService {
         if let userId = userId {
             if userId != accountService.currentId {
-                newCarService()
+                update()
             }
             return carsService
             
         }
         userId = accountService.currentId
-        newCarService()
+        update()
         return carsService
         
     }
     
-    private func newCarService() {
+    private func update() {
+        registrationService = RegistrationService(with: userId!, servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService, coreDataManager: coreDataManager)
         carsService = CarsService(carsFirebaseService: FireStoreService(reference: db.collection("users").document(userId!).collection("cars")),
                                   coreDataManager: coreDataManager, localDictionary: localDictionary)
     }
