@@ -48,7 +48,8 @@ class HomeViewController: UITableViewController {
         return -1
     }
     private let headers: [Int: String] = [
-        1: "Записи"
+        1: "Пробег",
+        2: "Записи"
     ]
     
 }
