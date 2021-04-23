@@ -13,6 +13,7 @@ class HomeViewController: UITableViewController {
     private var carsService: ICarsService!
     private var registrationService: IRegistrationService!
     
+    @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
     @IBOutlet weak var mileageChartCell: MileageChartViewCell!
@@ -65,6 +66,17 @@ class HomeViewController: UITableViewController {
                         
                     }
                 }
+            }
+        }
+    }
+    private var firstAppear = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if firstAppear {
+            firstAppear = false
+            self.carImage.layer.opacity = 0
+            UIView.animate(withDuration: 1.5, delay: 0, options: .curveEaseOut) {
+                self.carImage.layer.opacity = 1
             }
         }
     }
