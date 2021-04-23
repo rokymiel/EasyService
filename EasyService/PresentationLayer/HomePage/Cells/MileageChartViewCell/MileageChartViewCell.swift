@@ -70,10 +70,14 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
 extension MileageChartViewCell: IAxisValueFormatter {
     
     func stringForValue( _ value: Double, axis _: AxisBase?) -> String {
-        let date = mileage[Int(value)].date
-        if date.get(.year) == Date().get(.year) {
-            return date.dayMonthDate
+        let index = Int(value)
+        if Double(index) == value {
+            let date = mileage[Int(value)].date
+            if date.get(.year) == Date().get(.year) {
+                return date.dayMonthDate
+            }
+            return date.fullDate
         }
-        return date.fullDate
+        return ""
     }
 }
