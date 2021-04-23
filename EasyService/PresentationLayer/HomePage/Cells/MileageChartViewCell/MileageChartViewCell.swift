@@ -18,17 +18,29 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
         chart.leftAxis.enabled = false
         chart.xAxis.labelPosition = .bottom
         chart.animate(xAxisDuration: 1)
+        chart.xAxis.labelFont = .systemFont(ofSize: 7)
         return chart
     }()
+    private var container = UIContainerView(frame: .zero)
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addSubview(lineChart)
+        addSubview(container)
+        container.backgroundColor = .secondarySystemGroupedBackground
+        container.updateView()
+        container.addSubview(lineChart)
+
         lineChart.translatesAutoresizingMaskIntoConstraints = false
-        lineChart.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        lineChart.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        lineChart.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        lineChart.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        lineChart.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
+        lineChart.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true
+        lineChart.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
+        lineChart.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
+        
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+        container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+        container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         
         lineChart.xAxis.valueFormatter = self
         

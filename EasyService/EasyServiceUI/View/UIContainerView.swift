@@ -14,8 +14,14 @@ class UIContainerView: UIView {
     @IBInspectable
     var cornerRadius: CGFloat = 15 {
         didSet {
-            layer.shadowRadius = cornerRadius
             containerView.layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    @IBInspectable
+    var shadowRadius: CGFloat = 10 {
+        didSet {
+            layer.shadowRadius = cornerRadius
         }
     }
     
@@ -41,7 +47,7 @@ class UIContainerView: UIView {
         layoutView()
     }
     
-    func layoutView() {
+    func updateView() {
         let backgroundColor = self.backgroundColor
         
         // set the shadow of the view's layer
@@ -51,15 +57,19 @@ class UIContainerView: UIView {
         }
         layer.shadowOffset = .zero
         layer.shadowOpacity = 0.3
-        layer.shadowRadius = cornerRadius
+        layer.shadowRadius = shadowRadius
         
         
         // set the cornerRadius of the containerView's layer
         containerView.layer.cornerRadius = cornerRadius
         containerView.layer.masksToBounds = true
         containerView.backgroundColor = backgroundColor
+    }
+    
+    private func layoutView() {
+       
+        updateView()
         insertSubview(containerView, at: 0)
-        
         //
         // add additional views to the containerView here
         //
