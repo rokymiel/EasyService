@@ -24,8 +24,18 @@ extension Date {
     }
     var month: String {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = .preferredLocale
         dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: self)
     }
     
+}
+
+extension Locale {
+    static var preferredLocale: Locale {
+        guard let preferredIdentifier = Locale.preferredLanguages.first else {
+            return Locale.current
+        }
+        return Locale(identifier: preferredIdentifier)
+    }
 }
