@@ -22,10 +22,25 @@ extension Date {
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }
+    
     var month: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .preferredLocale
         dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: self)
+    }
+    
+    var fullDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.locale = .preferredLocale
+        return dateFormatter.string(from: self)
+    }
+    
+    var dayMonthDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM"
+        dateFormatter.locale = .preferredLocale
         return dateFormatter.string(from: self)
     }
     

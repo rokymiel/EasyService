@@ -49,7 +49,7 @@ class HomeViewController: UITableViewController {
             DispatchQueue.main.async {
                 if case let .success(car) = result {
                     self?.carLabel.text = [car.mark, car.model, car.body].joined(separator: " ")
-                    if let mileage = car.mileage.last {
+                    if let mileage = car.mileage.max(by: { $0.date < $1.date }) {
                         self?.mileageViewCell.configure(mileage)
                     }
                     self?.mileageChartCell.configure(car.mileage)
