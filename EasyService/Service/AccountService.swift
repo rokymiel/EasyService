@@ -48,7 +48,6 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         }
     }
     
-    
     private let fireStoreService: IFireStoreService
     private let coreDataManager: ICoreDataManager
     private let authServiceFactory: IAuthServiceFactory

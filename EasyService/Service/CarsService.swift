@@ -92,7 +92,7 @@ class CarsService: ICarsService {
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
         coreDataManager.fetchAll(request: request) { (cars) in
             if let cars = cars {
-                print("CORE",cars)
+                print("CORE", cars)
                 completetion(.success(cars.map { $0.dataModel }))
             } else {
                 completetion(.failure(NoneError.none))

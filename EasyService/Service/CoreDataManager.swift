@@ -24,7 +24,7 @@ class CoreDataManager: ICoreDataManager {
         }
     }
     
-    func save(model: IDBModel, _ block: (()-> Void)?) {
+    func save(model: IDBModel, _ block: (() -> Void)?) {
         queue.async {
             self.coreDataStack.perform { context in
                 _ = model.toDBModel(in: context)

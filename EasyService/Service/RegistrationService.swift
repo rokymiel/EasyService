@@ -56,6 +56,8 @@ class RegistrationService: IRegistrationService {
     private func readAllFromCore(with car: String, _ completetion: @escaping (Result<[Registration], Error>) -> Void) {
         let request: NSFetchRequest<RegistrationDB> = RegistrationDB.fetchRequest()
         let predicate = NSPredicate(format: "carID == %@", car)
+        let salarySort = NSSortDescriptor(key: "dateOfRegistration", ascending: false)
+        request.sortDescriptors = [salarySort]
         request.predicate = predicate
         coreDataManager.fetchAll(request: request) { registrations in
             if let registrations = registrations {
@@ -80,7 +82,9 @@ class RegistrationService: IRegistrationService {
     }
     
     private func loadAndListent() {
-        regisrtationsFirestore.loadDocuments(where: Registration.CodingKeys.clientID.rawValue, isEqualTo: userID) { (result: Result<[(type: DocumentChangeType, item: Registration?)], Error>) in
+        regisrtationsFirestore.loadDocuments(where: Registration.CodingKeys.clientID.rawValue,
+                                             isEqualTo: userID) {
+            (result: Result<[(type: DocumentChangeType, item: Registration?)], Error>) in
             switch result {
             case .success(let registrations):
                 let group = DispatchGroup()
