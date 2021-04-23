@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UITableViewController {
     
     private var carsService: ICarsService!
-    private var registrationService:IRegistrationService!
+    private var registrationService: IRegistrationService!
     
     @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
@@ -52,6 +52,7 @@ class HomeViewController: UITableViewController {
                     if let mileage = car.mileage.last {
                         self?.mileageViewCell.configure(mileage)
                     }
+                    self?.mileageChartCell.configure(car.mileage)
                     if let id = car.identifier {
                         self?.registrationService.getRegistrations(with: id, completetion: { result in
                             DispatchQueue.main.async {

@@ -254,6 +254,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7D6BD32D263343FA004C3622 /* MileageChartViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */,
+			);
+			path = MileageChartViewCell;
+			sourceTree = "<group>";
+		};
 		7D6D93A62630EF8A00E2E081 /* MileageCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,9 +497,9 @@
 		7DFFB41F26309E92003C6B4E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7D6BD32D263343FA004C3622 /* MileageChartViewCell */,
 				7D6D93A72630EFB200E2E081 /* RegistrationCell */,
 				7D6D93A62630EF8A00E2E081 /* MileageCell */,
-				7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

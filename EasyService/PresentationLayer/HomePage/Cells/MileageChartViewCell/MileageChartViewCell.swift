@@ -26,6 +26,7 @@ class MileageChartViewCell: UITableViewCell, Configurable {
         
     }
     func configure(_ model: Model) {
+        print("COMN", model.count)
         var entries = [ChartDataEntry]()
         
         for  (i, mileage) in model.enumerated() {

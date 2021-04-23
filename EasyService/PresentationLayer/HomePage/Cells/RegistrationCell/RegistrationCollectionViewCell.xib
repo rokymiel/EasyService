@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Завершено" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nE4-Zl-c1M" customClass="UIEdgeInsetLabel" customModule="EasyService" customModuleProvider="target">
-                                <rect key="frame" x="24" y="8" width="109" height="27.5"/>
+                                <rect key="frame" x="38" y="8" width="95" height="21.5"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -128,7 +128,7 @@
     </objects>
     <designables>
         <designable name="nE4-Zl-c1M">
-            <size key="intrinsicContentSize" width="109" height="27.5"/>
+            <size key="intrinsicContentSize" width="95" height="21.5"/>
         </designable>
     </designables>
     <resources>

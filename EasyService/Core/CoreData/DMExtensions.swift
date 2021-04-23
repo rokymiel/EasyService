@@ -62,17 +62,18 @@ extension MileageDB: IModel {
         Mileage(date: date!, value: Int(value), isVerified: isVerified)
     }
     
-    convenience init(mileage: Mileage, in context: NSManagedObjectContext) {
+    convenience init(mileage: Mileage, of car: String, in context: NSManagedObjectContext) {
         self.init(context: context)
-        date = mileage.date
-        value = Int32(mileage.value)
-        isVerified = mileage.isVerified
+        self.date = mileage.date
+        self.value = Int32(mileage.value)
+        self.isVerified = mileage.isVerified
+        self.carId = car
     }
 }
 
-extension Mileage: IDBModel {
-    func toDBModel(in context: NSManagedObjectContext) -> NSManagedObject {
-        MileageDB(mileage: self, in: context)
+extension Mileage {
+    func toDBModel(with car: String ,in context: NSManagedObjectContext) -> NSManagedObject {
+        MileageDB(mileage: self, of: car, in: context)
     }
 }
 
@@ -86,11 +87,12 @@ extension CarDB: IModel {
         gear = car.gear
         engine = car.engine
         productionYear = Int32(car.productionYear)
-        car.mileage.forEach { mileage in
-            if let model = mileage.toDBModel(in: context) as? MileageDB {
-                self.addToMileage(model)
+        if let id = car.identifier {
+            car.mileage.forEach { mileage in
+                if let model = mileage.toDBModel(with: id, in: context) as? MileageDB {
+                    self.addToMileage(model)
+                }
             }
-            
         }
     }
     
