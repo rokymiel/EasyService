@@ -43,7 +43,7 @@ class CoreDataStack: ICoreDatsStack {
     
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void ) {
         container.performBackgroundTask { (context) in
-            context.mergePolicy = NSOverwriteMergePolicy
+            context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy //NSOverwriteMergePolicy
             block(context)
         }
     }

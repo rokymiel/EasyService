@@ -72,7 +72,8 @@ class CarsService: ICarsService {
                     case .added, .modified:
                         if let car = car {
                             group.enter()
-                            self.coreDataManager.save(model: car) {                                 group.leave()
+                            self.coreDataManager.save(model: car) {
+                                group.leave()
                             }
                         }
                     case .removed:

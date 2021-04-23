@@ -13,7 +13,15 @@ class MileageChartViewCell: UITableViewCell, Configurable {
     
     typealias Model = [Mileage]
     
-    private let lineChart = LineChartView()
+    private let lineChart: LineChartView = {
+        let chart = LineChartView()
+        chart.leftAxis.enabled = false
+        chart.xAxis.labelPosition = .bottom
+        
+        chart.animate(xAxisDuration: 1)
+        
+        return chart
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +40,13 @@ class MileageChartViewCell: UITableViewCell, Configurable {
         for  (i, mileage) in model.enumerated() {
             entries.append(.init(x: Double(i), y: Double(mileage.value)))
         }
-        lineChart.data = LineChartData(dataSet: LineChartDataSet(entries))
+        let set = LineChartDataSet(entries)
+        set.circleColors = [.orange]
+        lineChart.data = LineChartData(dataSet: set)
         
     }
+}
+
+extension MileageChartViewCell: ChartViewDelegate {
     
 }

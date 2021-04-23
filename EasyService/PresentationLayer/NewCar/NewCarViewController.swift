@@ -46,7 +46,7 @@ class NewCarViewController: UITableViewController {
         yearPickerDelegate = UIYearPickerDelegate(min: 1890, max: year)
         yearPicker.dataSource = yearPickerDelegate
         yearPicker.delegate = yearPickerDelegate
-        yearPicker.selectRow(year-1890, inComponent: 0, animated: false)
+        yearPicker.selectRow(year - 1890, inComponent: 0, animated: false)
         //ToolBar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -58,7 +58,6 @@ class NewCarViewController: UITableViewController {
         
         yearTextField.inputAccessoryView = toolbar
         yearTextField.inputView = yearPicker
-        
         
         chooser = presentationAssembly.buildItemInListChooserViewController()
         cars = resourcesService.getCars()
@@ -167,10 +166,23 @@ class NewCarViewController: UITableViewController {
         }
         
         saved(Car(identifier: UUID().uuidString, mark: mark, model: model,
-                  body: body, gear: gear, engine: engine, productionYear: year, mileage: [.init(date: Date(), value: mileage, isVerified: false)]))
+                  body: body, gear: gear, engine: engine, productionYear: year,
+                  mileage: [.init(date: dateFormatter.date(from: "02.03.2017")!, value: 0, isVerified: true),
+                            .init(date: dateFormatter.date(from: "12.09.2017")!, value: 2000, isVerified: true),
+                            .init(date: dateFormatter.date(from: "11.05.2018")!, value: 10000, isVerified: false),
+                            .init(date: dateFormatter.date(from: "04.02.2019")!, value: 25000, isVerified: true),
+                            .init(date: dateFormatter.date(from: "25.04.2019")!, value: 30000, isVerified: false),
+                            .init(date: dateFormatter.date(from: "01.08.2020")!, value: 60000, isVerified: true),
+                            .init(date: dateFormatter.date(from: "22.09.2020")!, value: 65000, isVerified: false)]))
         dismiss(animated: true, completion: nil)
     }
 }
+let dateFormatter: DateFormatter = {
+    let f = DateFormatter()
+    f.dateFormat = "dd.MM.yyyy"
+    f.locale = .init(identifier: "ru")
+    return f
+}()
 
 extension NewCarViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

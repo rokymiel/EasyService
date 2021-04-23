@@ -9,7 +9,7 @@
         <attribute name="model" attributeType="String"/>
         <attribute name="productionYear" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserDB" inverseName="cars" inverseEntity="UserDB"/>
-        <relationship name="mileage" toMany="YES" deletionRule="No Action" destinationEntity="MileageDB" inverseName="car" inverseEntity="MileageDB"/>
+        <relationship name="mileage" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MileageDB" inverseName="car" inverseEntity="MileageDB"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="identifier"/>
@@ -25,8 +25,6 @@
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="date"/>
-            </uniquenessConstraint>
-            <uniquenessConstraint>
                 <constraint value="carId"/>
             </uniquenessConstraint>
         </uniquenessConstraints>

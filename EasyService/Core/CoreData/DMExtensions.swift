@@ -94,10 +94,12 @@ extension CarDB: IModel {
                 }
             }
         }
+        print("SACEEEE", mileage?.count)
     }
     
     var dataModel: Car {
-        Car(identifier: identifier,
+        print("RREADAD", mileage?.count )
+        return Car(identifier: identifier,
             mark: mark!,
             model: model!,
             body: body!,
