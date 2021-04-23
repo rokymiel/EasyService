@@ -56,5 +56,16 @@ struct Registration: Codable {
             default: self = .new
             }
         }
+        
+        var text: String {
+            switch self {
+            case .denied: return "Отклонена"
+            case .new: return "Новая"
+            case .accepted: return "Принята"
+            case .canceled: return "Отменена"
+            case .inProgress: return "В работе"
+            case .completed: return "Завершена"
+            }
+        }
     }
 }

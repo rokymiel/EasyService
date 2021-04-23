@@ -11,14 +11,16 @@ import UIKit
 class HomeViewController: UITableViewController {
     
     private var carsService: ICarsService!
+    private var registrationService:IRegistrationService!
     
     @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
     @IBOutlet weak var mileageChartCell: MileageChartViewCell!
     @IBOutlet weak var mileageViewCell: MileageViewCell!
-    class func sInit(carsService: ICarsService) -> HomeViewController {
+    class func sInit(registrationService:IRegistrationService, carsService: ICarsService) -> HomeViewController {
         let contraller = UIStoryboard.homeView.instantiate(self)
         contraller.carsService = carsService
+        contraller.registrationService = registrationService
         return contraller
     }
     
@@ -40,6 +42,8 @@ class HomeViewController: UITableViewController {
         }
     }
     
+    private var registrations: [Registration]?
+    
     func configure() {
         carsService.getCar { [weak self] (result) in
             DispatchQueue.main.async {
@@ -47,6 +51,16 @@ class HomeViewController: UITableViewController {
                     self?.carLabel.text = [car.mark, car.model, car.body].joined(separator: " ")
                     if let mileage = car.mileage.last {
                         self?.mileageViewCell.configure(mileage)
+                    }
+                    if let id = car.identifier {
+                        self?.registrationService.getRegistrations(with: id, completetion: { result in
+                            DispatchQueue.main.async {
+                                if case let .success(registrations) = result {
+                                    self?.registrations = registrations
+                                    self?.registrationsCollectionView.reloadData()
+                                }
+                            }
+                        })
                         
                     }
                 }
@@ -78,11 +92,14 @@ class HomeViewController: UITableViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return registrations?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = registrationsCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RegistrationCollectionViewCell.self), for: indexPath) as? RegistrationCollectionViewCell {
+            if let registration = registrations?[indexPath.row] {
+                cell.configure(registration)
+            }
             return cell
         }
         return UICollectionViewCell()

@@ -117,7 +117,11 @@
             <size key="customSize" width="181" height="250"/>
             <connections>
                 <outlet property="containerView" destination="GcJ-Rq-bFY" id="wkh-LI-4Ha"/>
+                <outlet property="dayTextLabel" destination="ZX9-LJ-v6P" id="YEy-Yf-Z0W"/>
+                <outlet property="monthTextLabel" destination="oYU-3u-IQs" id="Doy-YZ-Tct"/>
+                <outlet property="serviceLabel" destination="M8p-xm-zyU" id="oAc-Qk-ggT"/>
                 <outlet property="statusLabel" destination="nE4-Zl-c1M" id="bTg-Nv-q42"/>
+                <outlet property="typeOfWorksLabel" destination="CrP-Ll-bPT" id="K8a-9H-sKH"/>
             </connections>
             <point key="canvasLocation" x="197.82608695652175" y="202.90178571428569"/>
         </collectionViewCell>
