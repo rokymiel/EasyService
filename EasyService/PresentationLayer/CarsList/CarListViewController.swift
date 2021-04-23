@@ -178,7 +178,7 @@ extension CarListViewController: UITableViewDelegate {
         }
         let tabBar = UITabBarController()
         tabBar.viewControllers = [presentationAssembly.buildHomeViewController(),
-                                  presentationAssembly.buildServicesMapViewController()]
+                                  presentationAssembly.buildServicesMapViewController(), presentationAssembly.buildProfileViewController()]
         navigationController?.pushViewController(tabBar, animated: true)
 //        self.present(, animated: true)
     }

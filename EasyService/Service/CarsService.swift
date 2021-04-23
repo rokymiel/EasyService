@@ -16,6 +16,7 @@ protocol ICarsService {
     func select(id: String)
     func deselect()
     func getCar(_ completetion: @escaping (Result<Car, Error>) -> Void)
+    func count(_ completetion: @escaping (Result<Int, Error>) -> Void)
 }
 
 class CarsService: ICarsService {
@@ -95,6 +96,16 @@ class CarsService: ICarsService {
             if let cars = cars {
                 print("CORE", cars)
                 completetion(.success(cars.map { $0.dataModel }))
+            } else {
+                completetion(.failure(NoneError.none))
+            }
+        }
+    }
+    
+    func count(_ completetion: @escaping (Result<Int, Error>) -> Void) {
+        coreDataManager.count(request: CarDB.fetchRequest()) { (num) in
+            if let num = num {
+                completetion(.success(num))
             } else {
                 completetion(.failure(NoneError.none))
             }

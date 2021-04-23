@@ -72,7 +72,9 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     
     func buildProfileViewController() -> ProfileViewController {
-        return ProfileViewController.sInit()
+        return ProfileViewController.sInit(accountService: serviceAssembly.getAccountService(),
+                                           carsService: serviceAssembly.getCarsService(),
+                                           registrationService: serviceAssembly.getRegisrtationService())
     }
     
     func buildHomeViewController() -> HomeViewController {

@@ -16,6 +16,7 @@ protocol ICoreDatsStack {
     
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void )
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]?
+    func count(request: NSFetchRequest<NSFetchRequestResult>) -> Int?
 }
 
 class CoreDataStack: ICoreDatsStack {
@@ -46,6 +47,10 @@ class CoreDataStack: ICoreDatsStack {
             context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy //NSOverwriteMergePolicy
             block(context)
         }
+    }
+    
+    func count(request: NSFetchRequest<NSFetchRequestResult>) -> Int? {
+        return try? container.viewContext.count(for: request)
     }
     
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]? {

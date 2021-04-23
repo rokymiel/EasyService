@@ -210,6 +210,16 @@
                             <outlet property="delegate" destination="xZh-Hw-rbj" id="noK-QQ-2Gn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="carsLabel" destination="Psh-rW-Cp2" id="fET-8n-uoD"/>
+                        <outlet property="dateOfBirthLabel" destination="XKW-vk-G9P" id="ggb-eb-TYj"/>
+                        <outlet property="emailLabel" destination="3dg-FO-N6k" id="V2D-os-UKc"/>
+                        <outlet property="nameLabel" destination="Tea-T3-bga" id="7XY-sD-LvW"/>
+                        <outlet property="patronymicLabel" destination="fh7-lg-r1Y" id="7j2-OD-VRq"/>
+                        <outlet property="phoneLabel" destination="o5V-iK-Bl1" id="j8j-iR-EHu"/>
+                        <outlet property="registrationsLabel" destination="lb7-MQ-0Vt" id="4VN-VX-XZ1"/>
+                        <outlet property="surnameLabel" destination="M3M-tO-KIn" id="2zB-zd-EuI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCU-Vj-M0Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

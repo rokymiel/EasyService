@@ -15,6 +15,7 @@ protocol IRegistrationService {
     func getRegistrations(with car: String, completetion: @escaping (Result<[Registration], Error>) -> Void)
     func add(delegate: UpdateDelegate)
     func new(registration: Registration)
+    func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void)
 }
 
 @objc protocol UpdateDelegate: class {
@@ -61,7 +62,7 @@ class RegistrationService: IRegistrationService {
         request.predicate = predicate
         coreDataManager.fetchAll(request: request) { registrations in
             if let registrations = registrations {
-                print("COREregistrations",registrations)
+                print("COREregistrations", registrations)
                 completetion(.success(registrations.map { $0.dataModel }))
             } else {
                 completetion(.failure(NoneError.none))
@@ -113,6 +114,19 @@ class RegistrationService: IRegistrationService {
     func new(registration: Registration) {
         if let id = registration.identifier {
             regisrtationsFirestore.addDocument(with: id, from: registration)
+        }
+    }
+    
+    func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void) {
+        let request: NSFetchRequest<NSFetchRequestResult> = RegistrationDB.fetchRequest()
+        let predicate = NSPredicate(format: "clientID == %@", id)
+        request.predicate = predicate
+        coreDataManager.count(request: request) { (num) in
+            if let num = num {
+                completetion(.success(num))
+            } else {
+                completetion(.failure(NoneError.none))
+            }
         }
     }
 }
