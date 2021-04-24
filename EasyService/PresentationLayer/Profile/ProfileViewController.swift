@@ -69,4 +69,11 @@ class ProfileViewController: UITableViewController {
         }
     }
 
+    @IBAction func exitClicked(_ sender: Any) {
+        do {
+            try accountService.signOut()
+        } catch {
+            showAlert(with: "Не получилось выйти из аккаунта")
+        }
+    }
 }

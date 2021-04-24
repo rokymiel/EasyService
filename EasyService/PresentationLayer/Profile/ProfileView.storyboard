@@ -180,25 +180,31 @@
                             </tableViewSection>
                             <tableViewSection id="bz5-fI-JK0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="jyw-oG-ti6" imageView="Ras-CG-wzl" rowHeight="43.5" style="IBUITableViewCellStyleDefault" id="FSA-kG-VWg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="43.5" id="FSA-kG-VWg">
                                         <rect key="frame" x="20" y="551.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FSA-kG-VWg" id="NOs-Ci-3Ej">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Выйти" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jyw-oG-ti6">
-                                                    <rect key="frame" x="59" y="0.0" width="295" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" systemColor="systemRedColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="escape" catalog="system" id="Ras-CG-wzl">
-                                                    <rect key="frame" x="22" y="12" width="20" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYe-2K-EYq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                                    <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="titleEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="Выйти" image="escape" catalog="system">
+                                                        <color key="titleColor" systemColor="systemRedColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="exitClicked:" destination="xZh-Hw-rbj" eventType="touchUpInside" id="Vcn-rk-JYl"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="oYe-2K-EYq" secondAttribute="bottom" id="3mL-44-zEC"/>
+                                                <constraint firstItem="oYe-2K-EYq" firstAttribute="leading" secondItem="NOs-Ci-3Ej" secondAttribute="leading" id="F6c-5g-F51"/>
+                                                <constraint firstAttribute="trailing" secondItem="oYe-2K-EYq" secondAttribute="trailing" id="ROA-hy-1Cd"/>
+                                                <constraint firstItem="oYe-2K-EYq" firstAttribute="top" secondItem="NOs-Ci-3Ej" secondAttribute="top" id="TCh-uV-Wag"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="tintColor" systemColor="systemRedColor"/>
                                     </tableViewCell>
