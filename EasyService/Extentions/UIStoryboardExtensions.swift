@@ -12,8 +12,8 @@ extension UIStoryboard {
     @nonobjc class var login: UIStoryboard {
       return UIStoryboard(name: .login, bundle: nil)
     }
-    @nonobjc class var regisrtation: UIStoryboard {
-      return UIStoryboard(name: .regisrtation, bundle: nil)
+    @nonobjc class var registration: UIStoryboard {
+      return UIStoryboard(name: .registration, bundle: nil)
     }
     @nonobjc class var carList: UIStoryboard {
       return UIStoryboard(name: .carList, bundle: nil)
@@ -29,6 +29,9 @@ extension UIStoryboard {
     }
     @nonobjc class var newServiceRegisrtation: UIStoryboard {
       return UIStoryboard(name: .newServiceRegisrtation, bundle: nil)
+    }
+    @nonobjc class var serviceRegistrationView: UIStoryboard {
+      return UIStoryboard(name: .serviceRegistrationView, bundle: nil)
     }
     @nonobjc class var profileView: UIStoryboard {
       return UIStoryboard(name: .profileView, bundle: nil)
@@ -47,7 +50,7 @@ extension UIStoryboard {
 
 private extension String {
     static let login = "Login"
-    static let regisrtation = "RegisrtationView"
+    static let registration = "RegistrationView"
     static let carList = "CarListView"
     static let itemInListChooser = "ItemInListChooserView"
     static let newCarViewController = "NewCarView"
@@ -55,4 +58,5 @@ private extension String {
     static let newServiceRegisrtation = "NewServiceRegisrtationView"
     static let profileView = "ProfileView"
     static let homeView = "HomeView"
+    static let serviceRegistrationView = "ServiceRegistrationView"
 }

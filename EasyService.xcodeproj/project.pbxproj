@@ -22,6 +22,7 @@
 		7D385998262A2CF80036DF3B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385997262A2CF80036DF3B /* AuthService.swift */; };
 		7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */; };
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
+		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
 		7D6D93A02630B05C00E2E081 /* UIEdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */; };
@@ -58,9 +59,13 @@
 		7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2668261F95E700F04F32 /* MainNavigationController.swift */; };
 		7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */; };
 		7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */; };
+		7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */; };
+		7DCB824426343B6D00A60A62 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */; };
+		7DCB824A263455B300A60A62 /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8248263455B300A60A62 /* StatusCollectionViewCell.swift */; };
+		7DCB824B263455B300A60A62 /* StatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DCB8249263455B300A60A62 /* StatusCollectionViewCell.xib */; };
 		7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */; };
-		7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */; };
-		7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */; };
+		7DE0A3F8261CFA70002773E3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3F6261CFA70002773E3 /* RegistrationViewController.swift */; };
+		7DE0A3FB261CFDCF002773E3 /* RegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FA261CFDCF002773E3 /* RegistrationView.storyboard */; };
 		7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FC261DC255002773E3 /* LoginViewController.swift */; };
 		7DE0A3FF261DC25F002773E3 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE0A3FE261DC25F002773E3 /* Login.storyboard */; };
 		7DE0A402261DC743002773E3 /* UIRoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE0A401261DC743002773E3 /* UIRoundedTextField.swift */; };
@@ -99,6 +104,7 @@
 		7D385997262A2CF80036DF3B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
+		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetLabel.swift; sourceTree = "<group>"; };
@@ -135,9 +141,13 @@
 		7D9F2668261F95E700F04F32 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceRegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewServiceRegisrtationView.storyboard; sourceTree = "<group>"; };
+		7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistrationViewController.swift; sourceTree = "<group>"; };
+		7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		7DCB8248263455B300A60A62 /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
+		7DCB8249263455B300A60A62 /* StatusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCollectionViewCell.xib; sourceTree = "<group>"; };
 		7DE0A3F4261CF4E3002773E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrtationViewController.swift; sourceTree = "<group>"; };
-		7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisrtationView.storyboard; sourceTree = "<group>"; };
+		7DE0A3F6261CFA70002773E3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		7DE0A3FA261CFDCF002773E3 /* RegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegistrationView.storyboard; sourceTree = "<group>"; };
 		7DE0A3FC261DC255002773E3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7DE0A3FE261DC25F002773E3 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7DE0A401261DC743002773E3 /* UIRoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedTextField.swift; sourceTree = "<group>"; };
@@ -204,6 +214,7 @@
 		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7D56BAA426343040005C74E4 /* ServiceRegistration */,
 				7DFFB418263085B4003C6B4E /* HomePage */,
 				7DDF5636263073C000215CFE /* Profile */,
 				7DA54D1B262BA239002A6EB5 /* NewServiceRegisrtation */,
@@ -211,7 +222,7 @@
 				7D90C3DB2620D02B0035B704 /* ItemInListChooser */,
 				7D90C3CE261FA9850035B704 /* CarsList */,
 				7DE0A3EF261CE87E002773E3 /* Login */,
-				7DE0A3EE261CE85F002773E3 /* Regisrtation */,
+				7DE0A3EE261CE85F002773E3 /* Registration */,
 				7D1E658425A1045400AE97D7 /* NewCar */,
 				7D1E657D25A0FCDC00AE97D7 /* AddCar */,
 				7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */,
@@ -252,6 +263,16 @@
 				7D219294262654F100B77667 /* CarViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7D56BAA426343040005C74E4 /* ServiceRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				7DCB82472634557D00A60A62 /* StatusCell */,
+				7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */,
+				7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */,
+			);
+			path = ServiceRegistration;
 			sourceTree = "<group>";
 		};
 		7D6BD32D263343FA004C3622 /* MileageChartViewCell */ = {
@@ -367,6 +388,15 @@
 			path = NewServiceRegisrtation;
 			sourceTree = "<group>";
 		};
+		7DCB82472634557D00A60A62 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DCB8248263455B300A60A62 /* StatusCollectionViewCell.swift */,
+				7DCB8249263455B300A60A62 /* StatusCollectionViewCell.xib */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
 		7DDF5636263073C000215CFE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,13 +406,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		7DE0A3EE261CE85F002773E3 /* Regisrtation */ = {
+		7DE0A3EE261CE85F002773E3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				7DE0A3F6261CFA70002773E3 /* RegisrtationViewController.swift */,
-				7DE0A3FA261CFDCF002773E3 /* RegisrtationView.storyboard */,
+				7DE0A3F6261CFA70002773E3 /* RegistrationViewController.swift */,
+				7DE0A3FA261CFDCF002773E3 /* RegistrationView.storyboard */,
 			);
-			path = Regisrtation;
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		7DE0A3EF261CE87E002773E3 /* Login */ = {
@@ -412,6 +442,7 @@
 				7DE0A413261F6979002773E3 /* UIStoryboardExtensions.swift */,
 				7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */,
 				7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */,
+				7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -582,6 +613,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCB824B263455B300A60A62 /* StatusCollectionViewCell.xib in Resources */,
 				7D7F710F2622158B00B3341E /* gears.json in Resources */,
 				7D219296262654F100B77667 /* CarViewCell.xib in Resources */,
 				7DFFB41A263085D9003C6B4E /* HomeView.storyboard in Resources */,
@@ -592,7 +624,7 @@
 				7D7F710D2622158600B3341E /* carsBodies.json in Resources */,
 				7D0A69DA2624E3C4005C1599 /* AnnotationDetailsViewController.xib in Resources */,
 				7DFFB42326309EBB003C6B4E /* RegistrationCollectionViewCell.xib in Resources */,
-				7DE0A3FB261CFDCF002773E3 /* RegisrtationView.storyboard in Resources */,
+				7DE0A3FB261CFDCF002773E3 /* RegistrationView.storyboard in Resources */,
 				7D90C3DA261FB9F60035B704 /* NewCarView.storyboard in Resources */,
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
 				7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */,
@@ -601,6 +633,7 @@
 				7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */,
 				7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */,
 				7D90C3D8261FAFD70035B704 /* CarListView.storyboard in Resources */,
+				7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */,
 				7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +719,8 @@
 				7DE0A40F261E3CB3002773E3 /* User.swift in Sources */,
 				7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */,
 				7D90033926271764002168C1 /* Registration.swift in Sources */,
+				7DCB824426343B6D00A60A62 /* UIViewControllerExtension.swift in Sources */,
+				7DCB824A263455B300A60A62 /* StatusCollectionViewCell.swift in Sources */,
 				7DE0A3FD261DC255002773E3 /* LoginViewController.swift in Sources */,
 				7DE0A404261DCD68002773E3 /* UIRoundedButton.swift in Sources */,
 				7D90C3E12620D2B10035B704 /* UIUnderlinedTextField.swift in Sources */,
@@ -694,6 +729,7 @@
 				7D7F71112622293E00B3341E /* UIYearPickerDelegate.swift in Sources */,
 				7D7F710B2621A7B500B3341E /* ResourcesService.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
+				7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */,
 				7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */,
 				7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */,
 				7D90C3DF2620D23F0035B704 /* ItemInListChooserViewController.swift in Sources */,
@@ -714,7 +750,7 @@
 				7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */,
 				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
 				7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */,
-				7DE0A3F8261CFA70002773E3 /* RegisrtationViewController.swift in Sources */,
+				7DE0A3F8261CFA70002773E3 /* RegistrationViewController.swift in Sources */,
 				7D6D93C72630F96300E2E081 /* MileageChartViewCell.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,

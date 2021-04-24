@@ -1,5 +1,5 @@
 //
-//  RegisrtationViewController.swift
+//  RegistrationViewController.swift
 //  EasyService
 //
 //  Created by Михаил on 06.04.2021.
@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-final class RegisrtationViewController: UITableViewController, UITextFieldDelegate {
+final class RegistrationViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -40,8 +40,8 @@ final class RegisrtationViewController: UITableViewController, UITextFieldDelega
         return f
     }()
     
-    class func sInit(accountService: IAccountService, _ completition: @escaping () -> Void) -> RegisrtationViewController {
-        let contraller = UIStoryboard.regisrtation.instantiate(RegisrtationViewController.self)
+    class func sInit(accountService: IAccountService, _ completition: @escaping () -> Void) -> RegistrationViewController {
+        let contraller = UIStoryboard.registration.instantiate(self)
         contraller.accountService = accountService
         contraller.completition = completition
         return contraller

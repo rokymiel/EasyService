@@ -27,6 +27,7 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
         super.awakeFromNib()
         addSubview(container)
         container.backgroundColor = .secondarySystemGroupedBackground
+        container.squircle = true
         container.updateView()
         container.addSubview(lineChart)
 

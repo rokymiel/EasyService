@@ -16,6 +16,7 @@ protocol IRegistrationService {
     func add(delegate: UpdateDelegate)
     func new(registration: Registration)
     func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void)
+    func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void) 
 }
 
 @objc protocol UpdateDelegate: class {
@@ -42,6 +43,10 @@ class RegistrationService: IRegistrationService {
     
     func getServices(completetion: @escaping (Result<[Service], Error>) -> Void) {
         servicesFirestore.loadDocuments(completetion)
+    }
+    
+    func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void) {
+        servicesFirestore.loadDocument(id: id, completetion)
     }
     
     func getRegistration(with id: String, completetion: @escaping (Result<Registration, Error>) -> Void) {

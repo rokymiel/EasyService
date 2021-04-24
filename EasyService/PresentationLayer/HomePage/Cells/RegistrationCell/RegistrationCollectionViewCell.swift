@@ -15,7 +15,7 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
     
     func configure(_ model: Registration) {
         statusLabel.text = model.status.text
-
+        statusLabel.backgroundColor = model.status.color
         dayTextLabel.text = String(model.dateOfRegistration.get(.day))
         monthTextLabel.text = model.dateOfRegistration.month
         
@@ -38,6 +38,44 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
         sizeToFit()
         print(containerView.squircle)
         print(containerView.layer.cornerCurve)
+    }
+    private let group = DispatchGroup()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("BB")
+        group.enter()
+        UIView.animate(withDuration: 0.2) {
+            self.transform = .init(scaleX: 0.85, y: 0.85)
+        } completion: { _ in
+            self.group.leave()
+        }
+//        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: []) {
+//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+//                self.transform = .init(scaleX: 0.8, y: 0.8)
+//            }
+//            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+//                self.transform = .init(scaleX: 1, y: 1)
+//            }
+//        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        group.notify(queue: .main) {
+            UIView.animate(withDuration: 0.2) {
+                self.transform = .init(scaleX: 1, y: 1)
+            }
+        }
+
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        group.notify(queue: .main) {
+            UIView.animate(withDuration: 0.2) {
+                self.transform = .init(scaleX: 1, y: 1)
+            }
+        }
     }
 
 }

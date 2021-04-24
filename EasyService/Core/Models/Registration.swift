@@ -67,5 +67,27 @@ struct Registration: Codable {
             case .completed: return "Завершена"
             }
         }
+        init?(numberValue: Int) {
+            switch numberValue {
+            case 0: self = .new
+            case 1: self = .accepted
+            case 2: self = .inProgress
+            case 3: self = .completed
+            default:
+                return nil
+            }
+        }
+        static let statusNumber = 4
+        
+        var color: UIColor {
+            switch self {
+            case .denied: return .systemRed
+            case .canceled: return .gray
+            case .new: return .systemYellow
+            case .accepted: return .systemGreen
+            case .inProgress: return .systemBlue
+            case .completed: return .brown
+            }
+        }
     }
 }

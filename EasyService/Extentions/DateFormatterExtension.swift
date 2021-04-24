@@ -37,6 +37,13 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    var fullDateWithTime: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        dateFormatter.locale = .preferredLocale
+        return dateFormatter.string(from: self)
+    }
+    
     var dayMonthDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM"

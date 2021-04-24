@@ -10,22 +10,24 @@ import UIKit
 import Firebase
 
 protocol IPresentationAssembly {
-    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegisrtationViewController
+    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegistrationViewController
     func buildLoginController(_ completition: @escaping () -> Void) -> LoginViewController
     func buildCarListController() -> CarListViewController
     func buildItemInListChooserViewController() -> ItemInListChooserViewController
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController
     func buildServicesMapViewController() -> ServicesMapViewController
     func buildNewServiceRegisrtationViewController(with car: Car, service: Service) -> NewServiceRegisrtationViewController
+    func buildServiceRegistrationViewController(with registrationId: String) -> ServiceRegistrationViewController
     func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController
     func buildProfileViewController() -> ProfileViewController
     func buildHomeViewController() -> HomeViewController
+    func buildDetailsNavigationController(root: UIViewController?) -> UINavigationController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
     
     private let serviceAssembly: IServiceAssembly
-        
+    
     private lazy var db = Firestore.firestore()
     private lazy var usersFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
     private lazy var servicesFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("services"))
@@ -37,8 +39,8 @@ final class PresentationAssembly: IPresentationAssembly {
         self.serviceAssembly = serviceAssembly
     }
     
-    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegisrtationViewController {
-        return RegisrtationViewController.sInit(accountService: serviceAssembly.getAccountService(), completition)
+    func buildRegisrtationController(_ completition: @escaping () -> Void) -> RegistrationViewController {
+        return RegistrationViewController.sInit(accountService: serviceAssembly.getAccountService(), completition)
     }
     
     func buildLoginController(_ completition: @escaping () -> Void) -> LoginViewController {
@@ -67,6 +69,10 @@ final class PresentationAssembly: IPresentationAssembly {
         fatalError("Должен быть получен пользователь")
     }
     
+    func buildServiceRegistrationViewController(with registrationId: String) -> ServiceRegistrationViewController {
+        return ServiceRegistrationViewController.sInit(with: registrationId, registrationService: serviceAssembly.getRegisrtationService())
+    }
+    
     func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController {
         return AnnotationDetailsViewController(carsService: serviceAssembly.getCarsService(), presentationAssembly: self)
     }
@@ -78,6 +84,23 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     
     func buildHomeViewController() -> HomeViewController {
-        return HomeViewController.sInit(registrationService: serviceAssembly.getRegisrtationService(), carsService: serviceAssembly.getCarsService())
+        return HomeViewController.sInit(registrationService: serviceAssembly.getRegisrtationService(), carsService: serviceAssembly.getCarsService(), presentationAssembly: self)
+    }
+    
+    func buildDetailsNavigationController(root: UIViewController? = nil) -> UINavigationController {
+        let nv: UINavigationController
+        if let root = root {
+            nv = UINavigationController(rootViewController: root)
+        } else {
+            nv = UINavigationController()
+        }
+//        if #available(iOS 14.0, *) {
+        
+//        } else {
+//            // Fallback on earlier versions
+//        }
+
+
+        return nv
     }
 }

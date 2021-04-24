@@ -12,16 +12,20 @@ class HomeViewController: UITableViewController {
     
     private var carsService: ICarsService!
     private var registrationService: IRegistrationService!
+    private var presentationAssembly: IPresentationAssembly!
     
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var registrationsCollectionView: UICollectionView!
     @IBOutlet weak var mileageChartCell: MileageChartViewCell!
     @IBOutlet weak var mileageViewCell: MileageViewCell!
-    class func sInit(registrationService:IRegistrationService, carsService: ICarsService) -> HomeViewController {
+    class func sInit(registrationService: IRegistrationService,
+                     carsService: ICarsService,
+                     presentationAssembly: IPresentationAssembly) -> HomeViewController {
         let contraller = UIStoryboard.homeView.instantiate(self)
         contraller.carsService = carsService
         contraller.registrationService = registrationService
+        contraller.presentationAssembly = presentationAssembly
         return contraller
     }
     
@@ -30,6 +34,7 @@ class HomeViewController: UITableViewController {
         configure()
         
         registrationsCollectionView.dataSource = self
+        registrationsCollectionView.delegate = self
         registrationsCollectionView.register(
             UINib(nibName:
                     String(describing: RegistrationCollectionViewCell.self),
@@ -118,8 +123,45 @@ extension HomeViewController: UICollectionViewDataSource {
         return UICollectionViewCell()
         
     }
-    
-    
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print("ASK")
+        return true
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("SELECTED")
+        if let id = registrations?[indexPath.row].identifier {
+            self.present(presentationAssembly.buildDetailsNavigationController(root: presentationAssembly.buildServiceRegistrationViewController(with: id)), animated: true)
+        }
+       
+//        let cell = collectionView.cellForItem(at: indexPath)
+        
+//        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
+//        animation.fromValue = 1
+//        animation.toValue = 0.5
+//        animation.duration = 2
+//        animation.autoreverses = true
+//        cell?.statusLabel.layer.add(animation, forKey: #keyPath(CALayer.opacity))
+//        cell?.statusLabel.layer.opacity = 0.5
+//        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: []) {
+//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+//                cell?.transform = .init(scaleX: 0.8, y: 0.8)
+//            }
+//            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+//                cell?.transform = .init(scaleX: 1, y: 1)
+//            }
+//        }
+
+//        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse]) {
+//            cell?.transform = .init(scaleX: 0.6, y: 0.6)
+//        }
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
 }
 
 class FullWidthCollectionViewCell: UICollectionViewCell {
