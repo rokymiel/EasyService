@@ -35,12 +35,20 @@ class CarMainViewController: UITabBarController {
         button.addTarget(nil, action: #selector(backToCarList), for: .touchUpInside)
         home.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
+        homeNavigation.tabBarItem.image = UIImage(systemName: "car.fill")
+        map.tabBarItem.image = UIImage(systemName: "map.fill")
+        profileNavigation.tabBarItem.image = UIImage(systemName: "person.fill")
+        
+        homeNavigation.navigationBar.tintColor = .systemOrange
+        profileNavigation.navigationBar.tintColor = .systemOrange
+        
+        tabBar.tintColor = .systemOrange
+        
         viewControllers = [homeNavigation, map, profileNavigation]
         
         homeNavigation.view.gestureRecognizers = navigationController?.view.gestureRecognizers
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .left
-
 
         home.view.addGestureRecognizer(edgePan)
     }

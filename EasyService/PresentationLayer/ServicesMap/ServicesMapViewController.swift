@@ -37,7 +37,7 @@ class ServicesMapViewController: UIViewController {
         contraller.presentationAssembly = presentationAssembly
         return contraller
     }
-    private var searchString: String? = nil
+    private var searchString: String?
     private var servicePoints: [ServiceMKAnnotation]?
     private var filteredPoints: [ServiceMKAnnotation] {
         if let items = servicePoints {
@@ -203,6 +203,7 @@ extension ServicesMapViewController: CLLocationManagerDelegate {
             break
         case .authorizedAlways:
             break
+        @unknown default: break
         }
     }
     

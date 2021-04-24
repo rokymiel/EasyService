@@ -42,6 +42,7 @@ class MainNavigationController: UINavigationController {
         self.navigationBar.isHidden = true
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
+        navigationBar.tintColor = .systemOrange
         if let delegate = accountService.delegate, delegate == self {
            
         } else {
