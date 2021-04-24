@@ -49,14 +49,12 @@ final class LoginViewController: UIViewController {
             showAlert(with: "Введите пароль!")
             return
         }
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                self.showAlert(with: error.localizedDescription)
-                return
-            }
-            if result != nil {
+        accountService.signIn(with: email, password: password) { result in
+            switch result {
+            case .success:
                 self.dismiss(animated: true, completion: self.completition)
-
+            case .failure(let error):
+                self.showAlert(with: error.localizedDescription)
             }
         }
     }

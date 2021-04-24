@@ -183,14 +183,9 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
             return
         }
         // TODO - to accountService
-        Auth.auth().createUser(withEmail: email, password: passwordTextField.text!) { authResult, error in
-            if let error = error {
-                self.showAlert(with: error.localizedDescription)
-                self.createAccountButton.isEnabled = true
-                return
-            }
-            if let fUser = authResult?.user {
-//                print(fUser.token)
+        accountService.createUser(with: email, password: passwordTextField.text!) { result in
+            switch result {
+            case .success(let fUser):
                 let user = User(identifier: fUser.uid,
                                 name: name,
                                 surname: surname,
@@ -200,6 +195,9 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
                                 email: email)
                 self.accountService.saveNew(user: user)
                 self.dismiss(animated: true, completion: self.completition)
+            case .failure(let error):
+                self.showAlert(with: error.localizedDescription)
+                self.createAccountButton.isEnabled = true
             }
         }
     }
