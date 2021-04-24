@@ -27,7 +27,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-bj-ztP" customClass="UIRoundedTextField" customModule="EasyService" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-bj-ztP" customClass="UIRoundedTextField" customModule="EasyService" customModuleProvider="target">
                                         <rect key="frame" x="37" y="118" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="dyI-CS-B4C"/>
@@ -43,7 +43,7 @@
                                             <action selector="showRegisrtationView:" destination="s9c-tt-dNE" eventType="touchUpInside" id="j6h-dn-wxV"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tmd-Sx-T4X" customClass="UIRoundedTextField" customModule="EasyService" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Почта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tmd-Sx-T4X" customClass="UIRoundedTextField" customModule="EasyService" customModuleProvider="target">
                                         <rect key="frame" x="37" y="79" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="iw4-3m-zrv"/>
