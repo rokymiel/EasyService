@@ -35,6 +35,10 @@ class NewCarViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Новый автомобиль"
+        navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
+        addCloseItem()
         hideKeyboardWhenTappedAround()
         markTextField.delegate = self
         modelTextField.delegate = self

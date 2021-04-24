@@ -38,7 +38,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
             workTimeCells[i].detailTextLabel?.text = element
         }
     }
-    init(carsService: ICarsService,presentationAssembly: IPresentationAssembly) {
+    init(carsService: ICarsService, presentationAssembly: IPresentationAssembly) {
         self.presentationAssembly = presentationAssembly
         self.carsService = carsService
         super.init(nibName: "AnnotationDetailsViewController", bundle: nil)
@@ -60,7 +60,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         var calender = Calendar.current
         calender.locale = Locale(identifier: "ru")
         for i in 0..<7 {
-            let left = calender.shortWeekdaySymbols[(i+1)%7]
+            let left = calender.shortWeekdaySymbols[(i + 1)%7]
             let cell = newDetailsCell()
             cell.textLabel?.text = left
             cells.append(cell)
@@ -98,7 +98,6 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         
     }
     
-    
     /*
      // MARK: - Navigation
      
@@ -125,7 +124,11 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
                 case .success(let car):
                     if let presentationAssembly = self?.presentationAssembly {
                         DispatchQueue.main.async {
-                            self?.present(presentationAssembly.buildNewServiceRegisrtationViewController(with: car, service: service), animated: true)
+                            let newServiceRegisrtationViewController = presentationAssembly
+                                .buildNewServiceRegisrtationViewController(with: car,
+                                                                           service: service)
+                            self?.present(presentationAssembly
+                                            .buildDetailsNavigationController(root: newServiceRegisrtationViewController) , animated: true)
                         }
                     }
                 case .failure:
@@ -134,7 +137,6 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
             }
         }
     }
-    
     
 }
 
@@ -163,7 +165,6 @@ extension AnnotationDetailsViewController: UITableViewDataSource {
         return 4
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0: return addressViewCell
@@ -178,7 +179,7 @@ extension AnnotationDetailsViewController: UITableViewDataSource {
 
 extension AnnotationDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.section == 3) { return 50 }
+        if indexPath.section == 3 { return 50 }
         return 40
     }
 }

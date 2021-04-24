@@ -66,6 +66,10 @@ class NewServiceRegisrtationViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Новая запись"
+        navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
+        addCloseItem()
         hideKeyboardWhenTappedAround()
         carCell.configure(car)
         serviceNameLabel.text = service.name

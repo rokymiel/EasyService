@@ -49,8 +49,12 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Регистрация"
+        navigationController?.navigationBar.barTintColor = tableView.backgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
+        addCloseItem()
         showDatePicker()
-         hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
     }
     func showDatePicker() {
         //Formate Date

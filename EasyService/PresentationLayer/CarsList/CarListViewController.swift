@@ -53,9 +53,10 @@ class CarListViewController: UIViewController{
         // Do any additional setup after loading the view.
     }
     @objc func addClicked(sender: Any) {
-        present(presentationAssembly.buildNewCarViewController { car in
+        let newCarViewController = presentationAssembly.buildNewCarViewController { car in
             self.carsService.saveNew(car: car)
-        }, animated: true)
+        }
+        present(presentationAssembly.buildDetailsNavigationController(root: newCarViewController), animated: true)
     }
     func getEmptyView(title: String) -> UIView {
         let messageLabel = UILabel()
