@@ -65,6 +65,6 @@ final class LoginViewController: UIViewController {
         let regisrtationController = presentationAssembly.buildRegisrtationController {
             self.dismiss(animated: true, completion: self.completition)
         }
-        present(presentationAssembly.buildDetailsNavigationController(root: regisrtationController), animated: true)
+        present(presentationAssembly.buildNavigationController(root: regisrtationController), animated: true)
     }
 }

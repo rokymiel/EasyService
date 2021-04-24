@@ -32,7 +32,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
         registrationsCollectionView.dataSource = self
         registrationsCollectionView.delegate = self
         registrationsCollectionView.register(
@@ -136,7 +136,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("SELECTED")
         if let id = registrations?[indexPath.row].identifier {
-            self.present(presentationAssembly.buildDetailsNavigationController(root: presentationAssembly.buildServiceRegistrationViewController(with: id)), animated: true)
+            self.present(presentationAssembly.buildNavigationController(root: presentationAssembly.buildServiceRegistrationViewController(with: id)), animated: true)
         }
        
 //        let cell = collectionView.cellForItem(at: indexPath)

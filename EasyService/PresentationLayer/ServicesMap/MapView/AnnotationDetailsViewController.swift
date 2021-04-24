@@ -128,7 +128,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
                                 .buildNewServiceRegisrtationViewController(with: car,
                                                                            service: service)
                             self?.present(presentationAssembly
-                                            .buildDetailsNavigationController(root: newServiceRegisrtationViewController) , animated: true)
+                                            .buildNavigationController(root: newServiceRegisrtationViewController) , animated: true)
                         }
                     }
                 case .failure:

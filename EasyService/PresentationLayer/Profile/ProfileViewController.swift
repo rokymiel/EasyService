@@ -34,6 +34,7 @@ class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         accountService.getUser { [weak self] result in
             DispatchQueue.main.async {
                 if case let .success(user) = result {

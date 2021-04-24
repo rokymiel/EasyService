@@ -26,8 +26,8 @@ class CarListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if carsService.currentId != nil{
-            navigationController?.pushViewController(presentationAssembly.buildHomeViewController(), animated: true)
+        if carsService.currentId != nil {
+            openForSelectedCar()
         }
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -56,7 +56,7 @@ class CarListViewController: UIViewController{
         let newCarViewController = presentationAssembly.buildNewCarViewController { car in
             self.carsService.saveNew(car: car)
         }
-        present(presentationAssembly.buildDetailsNavigationController(root: newCarViewController), animated: true)
+        present(presentationAssembly.buildNavigationController(root: newCarViewController), animated: true)
     }
     func getEmptyView(title: String) -> UIView {
         let messageLabel = UILabel()
@@ -94,6 +94,20 @@ class CarListViewController: UIViewController{
         messageLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         messageLabel.textAlignment = .center
         return emptyView
+    }
+    
+    func openForSelectedCar() {
+        let tabBar = presentationAssembly.buildCarMainController()
+        navigationController?.pushViewController(tabBar, animated: true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     /*
@@ -177,10 +191,7 @@ extension CarListViewController: UITableViewDelegate {
         if let id = cars[indexPath.row].identifier {
             carsService.select(id: id)
         }
-        let tabBar = UITabBarController()
-        tabBar.viewControllers = [presentationAssembly.buildHomeViewController(),
-                                  presentationAssembly.buildServicesMapViewController(), presentationAssembly.buildProfileViewController()]
-        navigationController?.pushViewController(tabBar, animated: true)
-//        self.present(, animated: true)
+        openForSelectedCar()
+        //        self.present(, animated: true)
     }
 }

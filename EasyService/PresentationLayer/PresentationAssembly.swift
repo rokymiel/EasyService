@@ -21,7 +21,8 @@ protocol IPresentationAssembly {
     func buildAnnotationDetailsViewController() -> AnnotationDetailsViewController
     func buildProfileViewController() -> ProfileViewController
     func buildHomeViewController() -> HomeViewController
-    func buildDetailsNavigationController(root: UIViewController?) -> UINavigationController
+    func buildNavigationController(root: UIViewController?) -> UINavigationController
+    func buildCarMainController() -> CarMainViewController
 }
 
 final class PresentationAssembly: IPresentationAssembly {
@@ -87,20 +88,17 @@ final class PresentationAssembly: IPresentationAssembly {
         return HomeViewController.sInit(registrationService: serviceAssembly.getRegisrtationService(), carsService: serviceAssembly.getCarsService(), presentationAssembly: self)
     }
     
-    func buildDetailsNavigationController(root: UIViewController? = nil) -> UINavigationController {
+    func buildNavigationController(root: UIViewController? = nil) -> UINavigationController {
         let nv: UINavigationController
         if let root = root {
             nv = UINavigationController(rootViewController: root)
         } else {
             nv = UINavigationController()
         }
-//        if #available(iOS 14.0, *) {
-        
-//        } else {
-//            // Fallback on earlier versions
-//        }
-
-
         return nv
+    }
+    
+    func buildCarMainController() -> CarMainViewController {
+        return CarMainViewController(presentationAssembly: self, carsService: serviceAssembly.getCarsService())
     }
 }

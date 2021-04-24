@@ -59,6 +59,7 @@
 		7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2668261F95E700F04F32 /* MainNavigationController.swift */; };
 		7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */; };
 		7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */; };
+		7DBFF6812634A25E004FD5EC /* CarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */; };
 		7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */; };
 		7DCB824426343B6D00A60A62 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */; };
 		7DCB824A263455B300A60A62 /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8248263455B300A60A62 /* StatusCollectionViewCell.swift */; };
@@ -141,6 +142,7 @@
 		7D9F2668261F95E700F04F32 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceRegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewServiceRegisrtationView.storyboard; sourceTree = "<group>"; };
+		7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMainViewController.swift; sourceTree = "<group>"; };
 		7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistrationViewController.swift; sourceTree = "<group>"; };
 		7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		7DCB8248263455B300A60A62 /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		7D1E657C25A0FCBD00AE97D7 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7DBFF67F2634A1E5004FD5EC /* CarMain */,
 				7D56BAA426343040005C74E4 /* ServiceRegistration */,
 				7DFFB418263085B4003C6B4E /* HomePage */,
 				7DDF5636263073C000215CFE /* Profile */,
@@ -386,6 +389,14 @@
 				7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */,
 			);
 			path = NewServiceRegisrtation;
+			sourceTree = "<group>";
+		};
+		7DBFF67F2634A1E5004FD5EC /* CarMain */ = {
+			isa = PBXGroup;
+			children = (
+				7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */,
+			);
+			path = CarMain;
 			sourceTree = "<group>";
 		};
 		7DCB82472634557D00A60A62 /* StatusCell */ = {
@@ -728,6 +739,7 @@
 				7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */,
 				7D7F71112622293E00B3341E /* UIYearPickerDelegate.swift in Sources */,
 				7D7F710B2621A7B500B3341E /* ResourcesService.swift in Sources */,
+				7DBFF6812634A25E004FD5EC /* CarMainViewController.swift in Sources */,
 				7DF7A49C25A0EA920053C413 /* ViewController.swift in Sources */,
 				7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */,
 				7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */,
