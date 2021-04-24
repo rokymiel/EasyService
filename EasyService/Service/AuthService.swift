@@ -22,9 +22,9 @@ protocol IAuthService {
     
     var user: Firebase.User? { get }
     
-    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User, Error>) -> Void)
+    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
-    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User, Error>) -> Void)
+    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
     func signOut() throws
 }
@@ -48,23 +48,23 @@ class AuthService: IAuthService {
         Auth.auth().currentUser
     }
     
-    func createUser(with email: String, password: String,_ completion: @escaping (Result<Firebase.User, Error>) -> Void) {
+    func createUser(with email: String, password: String,_ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard let result = authResult, error != nil else {
-                completion(.failure(error ?? NoneError.none))
+            if let error = error {
+                completion(.failure(error))
                 return
             }
-            completion(.success(result.user))
+            completion(.success(authResult?.user))
         }
     }
     
-    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User, Error>) -> Void) {
+    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            guard let result = authResult, error != nil else {
-                completion(.failure(error ?? NoneError.none))
+            if let error = error {
+                completion(.failure(error))
                 return
             }
-            completion(.success(result.user))
+            completion(.success(authResult?.user))
         }
     }
     

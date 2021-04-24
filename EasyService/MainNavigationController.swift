@@ -26,7 +26,7 @@ class MainNavigationController: UINavigationController {
     lazy var coreDataStack = CoreDataStack()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor(named: "main")
         //        accountService.getUser { (result) in
         //            switch result {
         //            case .success(let user): // TODO: - как-то использовать
@@ -39,6 +39,7 @@ class MainNavigationController: UINavigationController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.navigationBar.isHidden = true
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
         if let delegate = accountService.delegate, delegate == self {
@@ -82,16 +83,22 @@ class MainNavigationController: UINavigationController {
 extension MainNavigationController: AccountDelegate {
     func login() {
         DispatchQueue.main.async {
-            self.viewControllers = [self.presentationAssembly.buildCarListController()]
+            self.navigationBar.isHidden = false
+            self.setViewControllers([self.presentationAssembly.buildCarListController()], animated: true)
         }
     }
     
     func logout() {
         DispatchQueue.main.async {
             print("ASA")
-            self.viewControllers = []
-            self.tabBarController?.viewControllers = []
-            self.present(self.presentationAssembly.buildLoginController({ }), animated: true)
+            let login = self.presentationAssembly.buildLoginController({ })
+            
+            self.navigationBar.isHidden = true
+            self.setViewControllers([login], animated: true)
+            
+//            self.viewControllers.removeAll()
+//            self.viewContr
+//            self.present(login, animated: true)
         }
     }
     

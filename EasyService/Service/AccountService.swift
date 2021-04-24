@@ -15,9 +15,9 @@ protocol IAccountService {
     func getUser(completition: @escaping (Result<User, Error>) -> Void)
     var currentId: String? { get }
     var delegate: AccountDelegate? { get set }
-    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User, Error>) -> Void)
+    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
-    func signIn(with email: String, password: String, completion: @escaping (Result<Firebase.User, Error>) -> Void)
+    func signIn(with email: String, password: String, completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
     func signOut() throws
 }
@@ -110,11 +110,11 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         }
     }
     
-    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User, Error>) -> Void) {
+    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
         authService.createUser(with: email, password: password, completion)
     }
     
-    func signIn(with email: String, password: String, completion: @escaping (Result<Firebase.User, Error>) -> Void) {
+    func signIn(with email: String, password: String, completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
         authService.signIn(with: email, password: password, completion)
     }
     

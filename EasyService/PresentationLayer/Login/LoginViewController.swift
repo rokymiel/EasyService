@@ -23,6 +23,7 @@ final class LoginViewController: UIViewController {
         let contraller = UIStoryboard.login.instantiate(LoginViewController.self)
         contraller.presentationAssembly = presentationAssembly
         contraller.completition = completition
+        contraller.accountService = accountService
         return contraller
     }
     
