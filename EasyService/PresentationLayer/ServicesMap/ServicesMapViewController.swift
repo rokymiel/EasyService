@@ -161,6 +161,9 @@ class ServicesMapViewController: UIViewController {
 }
 
 extension ServicesMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        mapView.view(for: userLocation)?.isEnabled = false
+    }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         //        let translation = recognizer.translation(in: self.view)
         if let annotation = (view.annotation as? ServiceMKAnnotation) {
