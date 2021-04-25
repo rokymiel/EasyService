@@ -19,3 +19,28 @@ extension UIViewController {
         dismiss(animated: true)
     }
 }
+
+// MARK: - Animate with keyboard
+extension UIViewController {
+    func animateWithKeyboard(
+        notification: NSNotification,
+        animations: ((_ keyboardFrame: CGRect) -> Void)?) {
+        // Extract the duration of the keyboard animation
+        let durationKey = UIResponder.keyboardAnimationDurationUserInfoKey
+        let frameKey = UIResponder.keyboardFrameEndUserInfoKey
+        let curveKey = UIResponder.keyboardAnimationCurveUserInfoKey
+        if let duration = notification.userInfo![durationKey] as? Double,
+            let keyboardFrameValue = notification.userInfo![frameKey] as? NSValue,
+            let curveValue = notification.userInfo![curveKey] as? Int,
+            let curve = UIView.AnimationCurve(rawValue: curveValue) {
+            
+            let animator = UIViewPropertyAnimator( duration: duration, curve: curve) {
+                animations?(keyboardFrameValue.cgRectValue)
+                self.view?.layoutIfNeeded()
+                
+            }
+            animator.startAnimation()
+        }
+        
+    }
+}

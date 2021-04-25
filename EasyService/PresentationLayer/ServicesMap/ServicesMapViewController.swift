@@ -129,7 +129,7 @@ class ServicesMapViewController: UIViewController {
             let frameAnimation = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
                 switch state {
                 case .expanded:
-                    self.serviceDetaildController.view.frame.origin.y = self.view.frame.height - 2*self.view.frame.height/3
+                    self.serviceDetaildController.view.frame.origin.y = self.view.frame.height - 2 * self.view.frame.height/3
                 case .collapsed:
                     self.serviceDetaildController.view.frame.origin.y = 0
                 }

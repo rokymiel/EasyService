@@ -11,6 +11,7 @@ import UIKit
 typealias ItemChosenHandler = (String) -> Void
 class ItemInListChooserViewController: UIViewController {
     
+    @IBOutlet weak var itemsTableBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchTextField: UIUnderlinedTextField!
     @IBOutlet weak var itemsTableView: UITableView!
     
@@ -37,6 +38,18 @@ class ItemInListChooserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
         itemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
@@ -53,6 +66,21 @@ class ItemInListChooserViewController: UIViewController {
     @IBAction func searchTextChanged(_ sender: Any) {
         searchString = searchTextField.text
         itemsTableView.reloadData()
+    }
+    // MARK: - Keyboard animation
+    @objc
+    func keyboardWillShow(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.itemsTableBottomConstraint?.constant = keyboardFrame.height
+        }
+    }
+    
+    @objc
+    dynamic func keyboardWillHide(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { _ in
+            self.itemsTableBottomConstraint?.constant = 0
+        }
+        
     }
     
 }
