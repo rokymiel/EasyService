@@ -27,7 +27,6 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
     @IBOutlet weak var containerView: UIContainerView!
     @IBOutlet weak var monthTextLabel: UILabel!
     @IBOutlet weak var typeOfWorksLabel: UILabel!
-    @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var statusLabel: UIEdgeInsetLabel!
     override func awakeFromNib() {
         super.awakeFromNib()
