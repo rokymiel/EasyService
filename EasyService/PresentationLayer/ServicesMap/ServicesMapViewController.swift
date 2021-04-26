@@ -11,10 +11,6 @@ import MapKit
 import CoreLocation
 
 class ServicesMapViewController: UIViewController {
-    enum CardState {
-        case expanded
-        case collapsed
-    }
     
     var visualEffectView: UIVisualEffectView!
     lazy var runningAnimations = [UIViewPropertyAnimator]()
@@ -76,6 +72,12 @@ class ServicesMapViewController: UIViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleCardPan(recognizer:)))
+        serviceDetaildController.dragAreaView.addGestureRecognizer(panGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(recognizer:)))
+        serviceDetaildController.dragSuperAreaView.addGestureRecognizer(tapGesture)
+        
     }
     
     func setupCard() {
@@ -98,10 +100,44 @@ class ServicesMapViewController: UIViewController {
     }
     
     @objc func handleCardTap(recognizer: UITapGestureRecognizer) {
-        
+        switch serviceDetaildController.state {
+        case .expanded:
+            showSmallDetails()
+        case .small:
+            showDetails()
+        default:
+            return
+        }
     }
     @objc func handleCardPan(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began, .changed:
+            let newY = recognizer.location(in: self.view).y
+            if newY > self.view.frame.height / 3 {
+                UIView.animate(withDuration: 0.1) {
+                    self.serviceDetaildController.view.frame = CGRect(x: 0, y: newY,
+                                                                      width: self.serviceDetaildController.view.frame.width,
+                                                                      height: self.serviceDetaildController.view.frame.height)
+                }
+            }
+        case .ended:
+            show(state: serviceDetaildController.state)
+        default:
+            return
+        }
         
+
+    }
+    
+    func show(state: CardState) {
+        switch state {
+        case .expanded:
+            showSmallDetails()
+        case .small:
+            showDetails()
+        default:
+            return
+        }
     }
     
     func startInteractiveTransition(state: CardState, duration: TimeInterval) {
@@ -129,9 +165,11 @@ class ServicesMapViewController: UIViewController {
             let frameAnimation = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
                 switch state {
                 case .expanded:
-                    self.serviceDetaildController.view.frame.origin.y = self.view.frame.height - 2 * self.view.frame.height/3
+                    self.serviceDetaildController.view.frame.origin.y = self.view.frame.height - 2 * self.view.frame.height / 3
                 case .collapsed:
                     self.serviceDetaildController.view.frame.origin.y = 0
+                default:
+                    return
                 }
             }
             
@@ -144,18 +182,50 @@ class ServicesMapViewController: UIViewController {
         }
     }
     func hideDetails() {
+        serviceDetaildController.state = .collapsed
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
             self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height,
                                                               width: self.serviceDetaildController.view.frame.width,
                                                               height: self.serviceDetaildController.view.frame.height)
         }, completion: nil)
     }
+    func showSmallDetails() {
+        serviceDetaildController.state = .small
+        print(self.view.frame.height - self.serviceDetaildController.dragSuperAreaView.frame.height)
+        let tab = tabBarController?.tabBar.frame.height ?? 0
+//        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseOut) {
+//            self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height - self.serviceDetaildController.dragSuperAreaView.frame.height - tab,
+//                                                              width: self.serviceDetaildController.view.frame.width,
+//                                                              height: self.serviceDetaildController.view.frame.height)
+//        }
+        
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 0.75,
+                       initialSpringVelocity: 0.0) {
+            self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height - self.serviceDetaildController.dragSuperAreaView.frame.height - tab,
+                                                              width: self.serviceDetaildController.view.frame.width,
+                                                              height: self.serviceDetaildController.view.frame.height)
+        }
+        
+    }
     func showDetails() {
-        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseOut, animations: {
+        if let annotation = mapView.selectedAnnotations.first as? ServiceMKAnnotation {
+            serviceDetaildController.configure(annotation.service)
+            var region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            region.center.latitude -= 0.05 / 4.5
+            
+            self.mapView.setRegion(region, animated: true)
+        }
+        serviceDetaildController.state = .expanded
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0) {
             self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height / 3,
                                                               width: self.serviceDetaildController.view.frame.width,
                                                               height: self.serviceDetaildController.view.frame.height)
-        }, completion: nil)
+        }
         
     }
 }
@@ -169,12 +239,12 @@ extension ServicesMapViewController: MKMapViewDelegate {
         if let annotation = (view.annotation as? ServiceMKAnnotation) {
             serviceDetaildController.configure(annotation.service)
             var region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
-            region.center.latitude -= 0.05 / 4.5
+//            region.center.latitude -= 0.05 / 4.5
             
             self.mapView.setRegion(region, animated: true)
             
         }
-        showDetails()
+        showSmallDetails()
         //        recognizer.setTranslation(.zero, in: self.view)
     }
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {

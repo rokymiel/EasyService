@@ -8,10 +8,18 @@
 
 import UIKit
 
+enum CardState {
+    case expanded
+    case small
+    case collapsed
+}
+
 class AnnotationDetailsViewController: UIViewController, Configurable {
     
     private let presentationAssembly: IPresentationAssembly
     private let carsService: ICarsService
+    
+    var state: CardState = .collapsed
     
     typealias Model = Service
     func configure(_ model: Service) {
@@ -70,6 +78,8 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
     
     //    @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var dragView: UIView!
+    @IBOutlet weak var dragAreaView: UIView!
+    @IBOutlet weak var dragSuperAreaView: UIView!
     @IBOutlet weak var detailsTableView: UITableView!
     
     override func viewDidLoad() {

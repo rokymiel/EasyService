@@ -10,17 +10,17 @@ import Foundation
 import SwiftyJSON
 
 protocol IResourcesService {
-    func getCars() -> [String:[String]]?
+    func getCars() -> [String: [String]]?
     func getGears() -> [String]?
     func getCarsBodies() -> [String]?
 }
 
 class ResourcesService: IResourcesService {
     
-    func getCars() -> [String:[String]]? {
+    func getCars() -> [String: [String]]? {
         if let path = Bundle.main.url(forResource: "cars", withExtension: "json"),
             let data = try? Data(contentsOf: path),
-            let json = try? JSON(data: data){
+            let json = try? JSON(data: data) {
             // use path
             var cars: [String: [String]] = [:]
             for car in json {
@@ -50,6 +50,5 @@ class ResourcesService: IResourcesService {
         }
         return nil
     }
-    
-    
+
 }
