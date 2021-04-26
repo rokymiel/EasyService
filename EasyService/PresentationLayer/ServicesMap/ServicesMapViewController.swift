@@ -73,7 +73,7 @@ class ServicesMapViewController: UIViewController {
         searchTableView.delegate = self
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleCardPan(recognizer:)))
-        serviceDetaildController.dragAreaView.addGestureRecognizer(panGesture)
+        serviceDetaildController.dragSuperAreaView.addGestureRecognizer(panGesture)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(recognizer:)))
         serviceDetaildController.dragSuperAreaView.addGestureRecognizer(tapGesture)

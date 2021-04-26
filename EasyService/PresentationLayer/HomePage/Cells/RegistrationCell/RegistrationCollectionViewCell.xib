@@ -58,14 +58,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zv2-5s-VkW" customClass="UIContainerView" customModule="EasyService" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="115" width="141" height="75"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OnDrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8p-xm-zyU">
-                                        <rect key="frame" x="8" y="8" width="125" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ТО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrP-Ll-bPT">
-                                        <rect key="frame" x="8" y="39" width="125" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ТО" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrP-Ll-bPT">
+                                        <rect key="frame" x="10" y="10" width="121" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -74,12 +68,10 @@
                                 <color key="backgroundColor" name="main"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Gd2-br-l1N"/>
-                                    <constraint firstItem="M8p-xm-zyU" firstAttribute="leading" secondItem="Zv2-5s-VkW" secondAttribute="leading" constant="8" id="KTr-cJ-wsw"/>
-                                    <constraint firstAttribute="bottom" secondItem="CrP-Ll-bPT" secondAttribute="bottom" constant="8" id="VFh-47-ZgC"/>
-                                    <constraint firstAttribute="trailing" secondItem="CrP-Ll-bPT" secondAttribute="trailing" constant="8" id="WxR-MO-K2N"/>
-                                    <constraint firstAttribute="trailing" secondItem="M8p-xm-zyU" secondAttribute="trailing" constant="8" id="YU0-C4-6zn"/>
-                                    <constraint firstItem="CrP-Ll-bPT" firstAttribute="leading" secondItem="Zv2-5s-VkW" secondAttribute="leading" constant="8" id="iTZ-yw-MXV"/>
-                                    <constraint firstItem="M8p-xm-zyU" firstAttribute="top" secondItem="Zv2-5s-VkW" secondAttribute="top" constant="8" id="iXU-XV-fbJ"/>
+                                    <constraint firstItem="CrP-Ll-bPT" firstAttribute="top" secondItem="Zv2-5s-VkW" secondAttribute="top" constant="10" id="Q19-o6-pXK"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CrP-Ll-bPT" secondAttribute="bottom" constant="10" id="VFh-47-ZgC"/>
+                                    <constraint firstAttribute="trailing" secondItem="CrP-Ll-bPT" secondAttribute="trailing" constant="10" id="WxR-MO-K2N"/>
+                                    <constraint firstItem="CrP-Ll-bPT" firstAttribute="leading" secondItem="Zv2-5s-VkW" secondAttribute="leading" constant="10" id="iTZ-yw-MXV"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hasShadow" value="NO"/>
@@ -119,7 +111,6 @@
                 <outlet property="containerView" destination="GcJ-Rq-bFY" id="wkh-LI-4Ha"/>
                 <outlet property="dayTextLabel" destination="ZX9-LJ-v6P" id="YEy-Yf-Z0W"/>
                 <outlet property="monthTextLabel" destination="oYU-3u-IQs" id="Doy-YZ-Tct"/>
-                <outlet property="serviceLabel" destination="M8p-xm-zyU" id="oAc-Qk-ggT"/>
                 <outlet property="statusLabel" destination="nE4-Zl-c1M" id="bTg-Nv-q42"/>
                 <outlet property="typeOfWorksLabel" destination="CrP-Ll-bPT" id="K8a-9H-sKH"/>
             </connections>
