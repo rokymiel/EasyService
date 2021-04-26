@@ -55,6 +55,7 @@ class HomeViewController: UITableViewController {
             DispatchQueue.main.async {
                 if case let .success(car) = result {
                     self?.carLabel.text = [car.mark, car.model, car.body].joined(separator: " ")
+                    self?.carDetailsTable.configure(car)
                     if let mileage = car.mileage.max(by: { $0.date < $1.date }) {
                         self?.mileageViewCell.configure(mileage)
                     }
@@ -101,11 +102,32 @@ class HomeViewController: UITableViewController {
         }
         return -1
     }
+
+    @IBOutlet weak var carDetailsTable: CarDetailsTableView!
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0, indexPath.row == 2 {
+            if carDetailsHidden {
+                return 0
+            } else {
+                return -1
+            }
+        }
+        return super.tableView(tableView, heightForRowAt: indexPath)
+    }
     private let headers: [Int: String] = [
         1: "Пробег",
         2: "Записи"
     ]
-    
+    private var carDetailsHidden = true
+    @IBAction func carDetailsClicked(_ sender: UIButton) {
+        if carDetailsHidden {
+            sender.setTitle("Скрыть", for: .normal)
+        } else {
+            sender.setTitle("Ещё", for: .normal)
+        }
+        carDetailsHidden = !carDetailsHidden
+        tableView.reloadRows(at: [.init(row: 2, section: 0)], with: .top)
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {

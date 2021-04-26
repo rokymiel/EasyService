@@ -22,6 +22,7 @@
 		7D385998262A2CF80036DF3B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385997262A2CF80036DF3B /* AuthService.swift */; };
 		7D38599A262A2FF10036DF3B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */; };
 		7D38599C262A3D240036DF3B /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D38599B262A3D240036DF3B /* CarsService.swift */; };
+		7D39FAD52637746C00710CE0 /* CarDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */; };
 		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
@@ -105,6 +106,7 @@
 		7D385997262A2CF80036DF3B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D385999262A2FF10036DF3B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		7D38599B262A3D240036DF3B /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
+		7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsTableView.swift; sourceTree = "<group>"; };
 		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,14 @@
 				7D219294262654F100B77667 /* CarViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7D39FAD32637742E00710CE0 /* CarDetailsTable */ = {
+			isa = PBXGroup;
+			children = (
+				7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */,
+			);
+			path = CarDetailsTable;
 			sourceTree = "<group>";
 		};
 		7D56BAA426343040005C74E4 /* ServiceRegistration */ = {
@@ -539,6 +549,7 @@
 		7DFFB41F26309E92003C6B4E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7D39FAD32637742E00710CE0 /* CarDetailsTable */,
 				7D6BD32D263343FA004C3622 /* MileageChartViewCell */,
 				7D6D93A72630EFB200E2E081 /* RegistrationCell */,
 				7D6D93A62630EF8A00E2E081 /* MileageCell */,
@@ -771,6 +782,7 @@
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
 				7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */,
 				7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */,
+				7D39FAD52637746C00710CE0 /* CarDetailsTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

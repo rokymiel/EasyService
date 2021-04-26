@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class UIContainerView: UIView {
     let containerView = UIView()
     
@@ -83,6 +84,9 @@ class UIContainerView: UIView {
         containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
+    }
+    override func addSubview(_ view: UIView) {
+        containerView.addSubview(view)
     }
     
     override var squircle: Bool {

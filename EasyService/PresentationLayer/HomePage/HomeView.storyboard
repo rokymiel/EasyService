@@ -57,10 +57,56 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB0-eN-7hQ">
+                                                    <rect key="frame" x="332" y="7" width="77" height="30"/>
+                                                    <color key="tintColor" systemColor="systemOrangeColor"/>
+                                                    <state key="normal" title="Ещё"/>
+                                                    <connections>
+                                                        <action selector="carDetailsClicked:" destination="E4M-Mj-esq" eventType="touchUpInside" id="vO7-0L-Ym4"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="gjJ-tc-zDX" firstAttribute="centerX" secondItem="K6D-li-8yy" secondAttribute="centerX" id="0m3-zI-eEI"/>
+                                                <constraint firstItem="KB0-eN-7hQ" firstAttribute="leading" secondItem="gjJ-tc-zDX" secondAttribute="trailing" constant="5" id="DDA-2c-0qK"/>
                                                 <constraint firstItem="gjJ-tc-zDX" firstAttribute="centerY" secondItem="K6D-li-8yy" secondAttribute="centerY" id="YpP-gY-fbI"/>
+                                                <constraint firstItem="KB0-eN-7hQ" firstAttribute="centerY" secondItem="K6D-li-8yy" secondAttribute="centerY" id="ujT-0S-1bs"/>
+                                                <constraint firstAttribute="trailing" secondItem="KB0-eN-7hQ" secondAttribute="trailing" constant="5" id="yYv-VQ-Xl6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="VOu-FU-Rna">
+                                        <rect key="frame" x="0.0" y="214" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VOu-FU-Rna" id="Fvb-x1-BXP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wws-ah-pwz" customClass="UIContainerView" customModule="EasyService" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="20" width="374" height="110"/>
+                                                    <subviews>
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RFq-V6-VnO" customClass="CarDetailsTableView" customModule="EasyService" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="10" width="374" height="90"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </tableView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="RFq-V6-VnO" secondAttribute="bottom" constant="10" id="ANP-eF-hHn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="RFq-V6-VnO" secondAttribute="trailing" id="Wwu-NQ-HfG"/>
+                                                        <constraint firstItem="RFq-V6-VnO" firstAttribute="leading" secondItem="wws-ah-pwz" secondAttribute="leading" id="hmc-rM-OJg"/>
+                                                        <constraint firstItem="RFq-V6-VnO" firstAttribute="top" secondItem="wws-ah-pwz" secondAttribute="top" constant="10" id="jwi-iR-LeD"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="squircle" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wws-ah-pwz" firstAttribute="leading" secondItem="Fvb-x1-BXP" secondAttribute="leading" constant="20" id="EO6-MR-S5H"/>
+                                                <constraint firstItem="wws-ah-pwz" firstAttribute="top" secondItem="Fvb-x1-BXP" secondAttribute="top" constant="20" id="Efs-8D-9Vm"/>
+                                                <constraint firstAttribute="trailing" secondItem="wws-ah-pwz" secondAttribute="trailing" constant="20" id="PcY-W6-D7g"/>
+                                                <constraint firstAttribute="bottom" secondItem="wws-ah-pwz" secondAttribute="bottom" constant="20" id="jXn-ex-66U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -69,7 +115,7 @@
                             <tableViewSection id="nKO-CP-mki">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jb6-ok-5RU" customClass="MileageViewCell" customModule="EasyService" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="270" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="420" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jb6-ok-5RU" id="iSi-Rr-xLX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -77,7 +123,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="250" id="Ix8-no-E3f" customClass="MileageChartViewCell" customModule="EasyService" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="314" width="414" height="250"/>
+                                        <rect key="frame" x="0.0" y="464" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ix8-no-E3f" id="cxb-pc-M7h">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -89,7 +135,7 @@
                             <tableViewSection id="foO-Pj-pj1">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4hp-0T-AUc">
-                                        <rect key="frame" x="0.0" y="620" width="414" height="152"/>
+                                        <rect key="frame" x="0.0" y="770" width="414" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4hp-0T-AUc" id="e0V-hK-R3X">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
@@ -127,6 +173,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="carDetailsTable" destination="RFq-V6-VnO" id="7hD-2U-F30"/>
                         <outlet property="carImage" destination="Hme-94-Psn" id="5uW-8D-UUQ"/>
                         <outlet property="carLabel" destination="gjJ-tc-zDX" id="4mc-Vv-UG9"/>
                         <outlet property="mileageChartCell" destination="Ix8-no-E3f" id="2MX-QA-dUn"/>
@@ -136,13 +183,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eld-lx-DmL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427.536231884058" y="212.94642857142856"/>
+            <point key="canvasLocation" x="367" y="151"/>
         </scene>
     </scenes>
     <resources>
         <image name="car_model" width="417.5" height="191.5"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
