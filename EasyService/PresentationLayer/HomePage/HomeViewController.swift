@@ -32,6 +32,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        registrationService.add(delegate: self)
         navigationController?.navigationBar.prefersLargeTitles = true
         registrationsCollectionView.dataSource = self
         registrationsCollectionView.delegate = self
@@ -61,20 +62,29 @@ class HomeViewController: UITableViewController {
                     }
                     self?.mileageChartCell.configure(car.mileage)
                     if let id = car.identifier {
-                        self?.registrationService.getRegistrations(with: id, completetion: { result in
-                            DispatchQueue.main.async {
-                                if case let .success(registrations) = result {
-                                    self?.registrations = registrations
-                                    self?.registrationsCollectionView.reloadData()
-                                }
-                            }
-                        })
+                        self?.carId = id
+                        self?.setRegistrations()
                         
                     }
                 }
             }
         }
     }
+    
+    func setRegistrations() {
+        if let id = carId {
+            registrationService.getRegistrations(with: id, completetion: { result in
+                DispatchQueue.main.async {
+                    if case let .success(registrations) = result {
+                        self.registrations = registrations
+                        self.registrationsCollectionView.reloadData()
+                    }
+                }
+            })
+        }
+    }
+    
+    private var carId: String?
     private var firstAppear = true
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -128,6 +138,24 @@ class HomeViewController: UITableViewController {
         carDetailsHidden = !carDetailsHidden
         tableView.reloadRows(at: [.init(row: 2, section: 0)], with: .top)
     }
+}
+
+extension HomeViewController: UpdateDelegate {
+    func updated(_ sender: Any) {
+        if sender is RegistrationService {
+            setRegistrations()
+        }
+    }
+    
+    func faild(_ sender: Any) {
+        if sender is RegistrationService {
+            DispatchQueue.main.async {
+                self.showAlert(with: "Не удалось обновить данные о записях в автосервисы")
+            }
+        }
+    }
+    
+    
 }
 
 extension HomeViewController: UICollectionViewDataSource {

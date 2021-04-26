@@ -16,7 +16,6 @@ class UIYearPickerDelegate: NSObject, UIPickerViewDataSource, UIPickerViewDelega
         minYear = min
         maxYear = max
     }
-    let items = [1,2,3]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

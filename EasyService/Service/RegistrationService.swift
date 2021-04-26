@@ -20,8 +20,8 @@ protocol IRegistrationService {
 }
 
 @objc protocol UpdateDelegate: class {
-    func updated()
-    func faild()
+    func updated(_ sender: Any)
+    func faild(_ sender: Any)
 }
 
 class RegistrationService: IRegistrationService {
@@ -89,8 +89,7 @@ class RegistrationService: IRegistrationService {
     
     private func loadAndListent() {
         regisrtationsFirestore.loadDocuments(where: Registration.CodingKeys.clientID.rawValue,
-                                             isEqualTo: userID) {
-            (result: Result<[(type: DocumentChangeType, item: Registration?)], Error>) in
+                                             isEqualTo: userID) { (result: Result<[(type: DocumentChangeType, item: Registration?)], Error>) in
             switch result {
             case .success(let registrations):
                 let group = DispatchGroup()
@@ -108,10 +107,10 @@ class RegistrationService: IRegistrationService {
                     }
                 }
                 group.notify(queue: .global()) {
-                    self.delegates.forEach { $0.value?.updated() }
+                    self.delegates.forEach { $0.value?.updated(self) }
                 }
             case .failure:
-                self.delegates.forEach { $0.value?.faild() }
+                self.delegates.forEach { $0.value?.faild(self) }
             }
         }
     }

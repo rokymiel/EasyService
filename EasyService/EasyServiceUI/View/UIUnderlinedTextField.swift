@@ -28,8 +28,8 @@ class UIUnderlinedTextField: UITextField{
         if layer.sublayers?.contains(border) ?? false{
             border.removeFromSuperlayer()
         }
-        border.path = UIBezierPath.init(
-            rect: CGRect.init(x: 0, y: self.bounds.height - 2,
+        border.path = UIBezierPath(
+            rect: .init(x: 0, y: self.bounds.height - 2,
                               width: self.bounds.width, height: 2)).cgPath
         self.layer.insertSublayer(border, at: 10)
         
