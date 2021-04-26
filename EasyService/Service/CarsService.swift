@@ -17,9 +17,11 @@ protocol ICarsService {
     func deselect()
     func getCar(_ completetion: @escaping (Result<Car, Error>) -> Void)
     func count(_ completetion: @escaping (Result<Int, Error>) -> Void)
+    func add(delegate: UpdateDelegate)
 }
 
 class CarsService: ICarsService {
+    private var delegates = [WeakRef<UpdateDelegate>]()
     
     private let carsFirebaseService: IFireStoreService
     private let coreDataManager: ICoreDataManager
@@ -30,6 +32,11 @@ class CarsService: ICarsService {
         self.coreDataManager = coreDataManager
         self.localDictionary = localDictionary
         self.currentId = localDictionary.get("selected_car_id") as? String
+        loadAndListen()
+    }
+    
+    func add(delegate: UpdateDelegate) {
+        delegates.append(.init(value: delegate))
     }
     
     func saveNew(car: Car) {
@@ -60,13 +67,15 @@ class CarsService: ICarsService {
     func getCars(_ completetion: @escaping (Result<[Car], Error>) -> Void) {
         readAllFromCore(completetion)
         
+    }
+    
+    private func loadAndListen() {
         loadCompletition { (result) in
             switch result {
             case .failure(let error):
-                completetion(.failure(error))
+                self.delegates.forEach { $0.value?.faild(with: error, self) }
             case .success(let cars):
                 print("LOAD", cars)
-                completetion(.success(cars.compactMap { $0.item }))
                 let group = DispatchGroup()
                 for (type, car) in cars {
                     switch type {
@@ -82,7 +91,7 @@ class CarsService: ICarsService {
                     }
                 }
                 group.notify(queue: .global()) {
-                    self.readAllFromCore(completetion)
+                    self.delegates.forEach { $0.value?.updated(self) }
                 }
                 
             }

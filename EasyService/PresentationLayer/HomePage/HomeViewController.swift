@@ -147,7 +147,7 @@ extension HomeViewController: UpdateDelegate {
         }
     }
     
-    func faild(_ sender: Any) {
+    func faild(with error: Error, _ sender: Any) {
         if sender is RegistrationService {
             DispatchQueue.main.async {
                 self.showAlert(with: "Не удалось обновить данные о записях в автосервисы")

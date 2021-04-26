@@ -21,7 +21,7 @@ protocol IRegistrationService {
 
 @objc protocol UpdateDelegate: class {
     func updated(_ sender: Any)
-    func faild(_ sender: Any)
+    func faild(with error: Error, _ sender: Any)
 }
 
 class RegistrationService: IRegistrationService {
@@ -109,8 +109,8 @@ class RegistrationService: IRegistrationService {
                 group.notify(queue: .global()) {
                     self.delegates.forEach { $0.value?.updated(self) }
                 }
-            case .failure:
-                self.delegates.forEach { $0.value?.faild(self) }
+            case .failure(let error):
+                self.delegates.forEach { $0.value?.faild(with: error, self) }
             }
         }
     }

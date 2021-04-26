@@ -38,6 +38,12 @@ class CarListViewController: UIViewController{
         title = "Автомобили"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(sender:)))
         
+        setCars()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func setCars() {
         carsService.getCars { (result) in
             if case let .success(cars) = result {
                 print("HIQWERTYU", cars.count)
@@ -49,8 +55,6 @@ class CarListViewController: UIViewController{
                 }
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
     @objc func addClicked(sender: Any) {
         let newCarViewController = presentationAssembly.buildNewCarViewController { car in
@@ -104,7 +108,7 @@ class CarListViewController: UIViewController{
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -183,6 +187,20 @@ private extension UITableView {
         self.backgroundView = nil
         self.separatorStyle = .singleLine
     }
+}
+
+extension CarListViewController: UpdateDelegate {
+    func updated(_ sender: Any) {
+        setCars()
+    }
+    
+    func faild(with error: Error, _ sender: Any) {
+        DispatchQueue.main.async {
+            self.showAlert(with: "Не удалось обновить данные об автомобилях")
+        }
+    }
+    
+    
 }
 
 extension CarListViewController: UITableViewDelegate {
