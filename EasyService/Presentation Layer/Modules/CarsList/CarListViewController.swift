@@ -38,6 +38,8 @@ class CarListViewController: UIViewController{
         title = "Автомобили"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClicked(sender:)))
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(profileClicked))
+        
         setCars()
         
         // Do any additional setup after loading the view.
@@ -61,6 +63,9 @@ class CarListViewController: UIViewController{
             self.carsService.saveNew(car: car)
         }
         present(presentationAssembly.buildNavigationController(root: newCarViewController), animated: true)
+    }
+    @objc func profileClicked(sender: Any) {
+        navigationController?.pushViewController(presentationAssembly.buildProfileViewController(), animated: true)
     }
     func getEmptyView(title: String) -> UIView {
         let messageLabel = UILabel()
@@ -103,17 +108,14 @@ class CarListViewController: UIViewController{
     func openForSelectedCar() {
         let tabBar = presentationAssembly.buildCarMainController()
         navigationController?.pushViewController(tabBar, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
+        
     /*
      // MARK: - Navigation
      
