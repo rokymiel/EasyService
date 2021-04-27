@@ -19,10 +19,6 @@ extension UIView {
         
     }
     
-    //    func squircle:  {
-    //        layer.cornerCurve = //.continuous
-    //    }
-    
     @IBInspectable
     var squircle: Bool {
         get { return layer.cornerCurve == .continuous}

@@ -29,7 +29,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         setWorkTime(service: model)
         nameLabel.text = service?.name
         addressViewCell.textLabel?.text = service?.address
-        detailsTableView.reloadData()
+        detailsTableView.reloadData(animated: true)
     }
     func setContacts(service: Service) {
         

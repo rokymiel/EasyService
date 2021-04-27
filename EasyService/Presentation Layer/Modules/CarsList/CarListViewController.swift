@@ -52,7 +52,7 @@ class CarListViewController: UIViewController{
                 DispatchQueue.main.async {
                     print("MileageDB", cars.map { $0.mileage})
                     self.cars = cars
-                    self.carsListTableView.reloadData()
+                    self.carsListTableView.reloadData(animated: true)
                     
                 }
             }
@@ -111,11 +111,6 @@ class CarListViewController: UIViewController{
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-        
     /*
      // MARK: - Navigation
      

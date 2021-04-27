@@ -56,6 +56,7 @@ class CarMainViewController: UITabBarController {
     @objc func backToCarList() {
         carsService.deselect()
         navigationController?.popViewController(animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {

@@ -30,7 +30,6 @@ class CarDetailsTableView: UITableView, Configurable {
     }
     
 
-    
     private lazy var markCell = cell()
     private lazy var modelCell = cell()
     private lazy var bodyCell = cell()
@@ -52,7 +51,7 @@ class CarDetailsTableView: UITableView, Configurable {
         engineCell.textLabel?.text = "Объем двигателя"
         yearCell.textLabel?.text = "Год производства"
         
-        reloadData()
+        reloadData(animated: true)
         heightAnchor.constraint(equalToConstant: contentSize.height).isActive = true
     }
     func cell() -> UITableViewCell {
