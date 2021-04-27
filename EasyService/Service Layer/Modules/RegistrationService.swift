@@ -19,11 +19,6 @@ protocol IRegistrationService {
     func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void) 
 }
 
-@objc protocol UpdateDelegate: class {
-    func updated(_ sender: Any)
-    func faild(with error: Error, _ sender: Any)
-}
-
 class RegistrationService: IRegistrationService {
     
     private var delegates = [WeakRef<UpdateDelegate>]()

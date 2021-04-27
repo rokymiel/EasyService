@@ -17,10 +17,15 @@ protocol IResourcesService {
 
 class ResourcesService: IResourcesService {
     
+    private let resources: IResources
+    
+    init(resources: IResources) {
+        self.resources = resources
+    }
+    
     func getCars() -> [String: [String]]? {
-        if let path = Bundle.main.url(forResource: "cars", withExtension: "json"),
-            let data = try? Data(contentsOf: path),
-            let json = try? JSON(data: data) {
+        if let data = resources.getData(forResource: "cars", withExtension: "json"),
+           let json = try? JSON(data: data) {
             // use path
             var cars: [String: [String]] = [:]
             for car in json {
@@ -32,23 +37,23 @@ class ResourcesService: IResourcesService {
         }
         return nil
     }
+    
     func getGears() -> [String]? {
-        if let path = Bundle.main.url(forResource: "gears", withExtension: "json"),
-            let data = try? Data(contentsOf: path),
-            let json = try? JSON(data: data) {
+        if let data = resources.getData(forResource: "gears", withExtension: "json"),
+           let json = try? JSON(data: data) {
             // use path
             return json.arrayObject as? [String]
         }
         return nil
     }
+    
     func getCarsBodies() -> [String]? {
-        if let path = Bundle.main.url(forResource: "carsBodies", withExtension: "json"),
-            let data = try? Data(contentsOf: path),
-            let json = try? JSON(data: data) {
+        if let data = resources.getData(forResource: "carsBodies", withExtension: "json"),
+           let json = try? JSON(data: data) {
             // use path
             return json.arrayObject as? [String]
         }
         return nil
     }
-
+    
 }

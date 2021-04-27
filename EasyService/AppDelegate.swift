@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        let serviceAssembly = ServiceAssembly()
+        let coreAssembly = CoreAssembly()
+        let serviceAssembly = ServiceAssembly(coreAssembly: coreAssembly)
         let assembly = PresentationAssembly(serviceAssembly: serviceAssembly)
         window = UIWindow(frame: UIScreen.main.bounds)
         

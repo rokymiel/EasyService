@@ -48,7 +48,7 @@ class AuthService: IAuthService {
         Auth.auth().currentUser
     }
     
-    func createUser(with email: String, password: String,_ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
+    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(.failure(error))

@@ -72,7 +72,7 @@ extension MileageDB: IModel {
 }
 
 extension Mileage {
-    func toDBModel(with car: String ,in context: NSManagedObjectContext) -> NSManagedObject {
+    func toDBModel(with car: String, in context: NSManagedObjectContext) -> NSManagedObject {
         MileageDB(mileage: self, of: car, in: context)
     }
 }

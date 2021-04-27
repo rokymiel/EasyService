@@ -29,13 +29,6 @@ final class PresentationAssembly: IPresentationAssembly {
     
     private let serviceAssembly: IServiceAssembly
     
-    private lazy var db = Firestore.firestore()
-    private lazy var usersFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("users"))
-    private lazy var servicesFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("services"))
-    private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("registrations"))
-    
-    private lazy var resourcesService: IResourcesService = ResourcesService()
-    
     init(serviceAssembly: IServiceAssembly) {
         self.serviceAssembly = serviceAssembly
     }
@@ -57,7 +50,7 @@ final class PresentationAssembly: IPresentationAssembly {
     }
     
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController {
-        return NewCarViewController.sInit(resourcesService: resourcesService, presentationAssembly: self, on: saved)
+        return NewCarViewController.sInit(resourcesService: serviceAssembly.getResourcesService(), presentationAssembly: self, on: saved)
     }
     func buildServicesMapViewController() -> ServicesMapViewController {
         return ServicesMapViewController.sInit(presentationAssembly: self, registrationService: serviceAssembly.getRegisrtationService())
@@ -65,7 +58,11 @@ final class PresentationAssembly: IPresentationAssembly {
     
     func buildNewServiceRegisrtationViewController(with car: Car, service: Service) -> NewServiceRegisrtationViewController {
         if let userId = serviceAssembly.getAccountService().currentId {
-            return NewServiceRegisrtationViewController.sInit(userId: userId, service: service, car: car, registrationService: serviceAssembly.getRegisrtationService(), presentationAssembly: self)
+            return NewServiceRegisrtationViewController.sInit(userId: userId,
+                                                              service: service,
+                                                              car: car,
+                                                              registrationService: serviceAssembly.getRegisrtationService(),
+                                                              presentationAssembly: self)
         }
         fatalError("Должен быть получен пользователь")
     }

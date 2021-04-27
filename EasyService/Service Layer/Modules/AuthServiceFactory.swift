@@ -13,7 +13,13 @@ protocol IAuthServiceFactory {
 }
 
 class AuthServiceFactory: IAuthServiceFactory {
+    private let coreAssembly: ICoreAssembly
+    
+    init(coreAssembly: ICoreAssembly) {
+        self.coreAssembly = coreAssembly
+    }
+    
     func buildAuthService(_ delegate: AuthorizationDelegate) -> IAuthService {
-        return AuthService(delegate)
+        return coreAssembly.getAuthService(delegate)
     }
 }

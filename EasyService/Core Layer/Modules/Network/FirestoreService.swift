@@ -57,7 +57,7 @@ final class FireStoreService: IFireStoreService {
                 return completion(.failure(error))
             }
             if let documents = snapshot?.documentChanges {
-                completion(.success(documents.map( {(type: $0.type, item: try? $0.document.data(as: T.self))})))
+                completion(.success(documents.map {(type: $0.type, item: try? $0.document.data(as: T.self))} ))
             }
         }
     }
