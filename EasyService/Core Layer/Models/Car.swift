@@ -17,7 +17,7 @@ struct Car: Codable {
     let gear: String
     let engine: Double
     let productionYear: Int
-    let mileage: [Mileage]
+    var mileage: [Mileage]
     
     enum CodingKeys: String, CodingKey {
         case identifier

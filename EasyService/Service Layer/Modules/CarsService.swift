@@ -18,6 +18,13 @@ protocol ICarsService {
     func getCar(_ completetion: @escaping (Result<Car, Error>) -> Void)
     func count(_ completetion: @escaping (Result<Int, Error>) -> Void)
     func add(delegate: UpdateDelegate)
+    func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)?)
+}
+
+extension ICarsService {
+    func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)? = nil) {
+        addMileage(mileage, failure: handler)
+    }
 }
 
 class CarsService: ICarsService {
@@ -48,8 +55,22 @@ class CarsService: ICarsService {
     
     var currentId: String?
     
+    func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)? = nil) {
+        getCar { result in
+            switch result {
+            case .failure(let error):
+                handler?(error)
+            case .success(var car):
+                print("MIIIILLLL", car.mileage)
+                car.mileage.append(mileage)
+                if let carId = car.identifier {
+                    self.carsFirebaseService.addDocument(with: carId, from: car)
+                }
+            }
+        }
+    }
+    
     func select(id: String) {
-        // save to
         currentId = id
         localDictionary.set(id, for: "selected_car_id")
     }
@@ -61,12 +82,10 @@ class CarsService: ICarsService {
     
     func getCar(_ completetion: @escaping (Result<Car, Error>) -> Void) {
         readCurrentFromCore(completetion)
-        // TODO: - добавить получение по сети
     }
      
     func getCars(_ completetion: @escaping (Result<[Car], Error>) -> Void) {
         readAllFromCore(completetion)
-        
     }
     
     private func loadAndListen() {

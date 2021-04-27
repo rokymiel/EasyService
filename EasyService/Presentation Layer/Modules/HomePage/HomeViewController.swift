@@ -32,6 +32,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        carsService.add(delegate: self)
         registrationService.add(delegate: self)
         navigationController?.navigationBar.prefersLargeTitles = true
         registrationsCollectionView.dataSource = self
@@ -98,12 +99,11 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let text = headers[section] {
+        if let model = headers[section] {
             let header = LabelHeaderView(reuseIdentifier: String(describing: LabelHeaderView.self))
-            header.configure(text)
+            header.configure(model)
             return header
         }
-        print("LOX")
         return nil
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -112,7 +112,7 @@ class HomeViewController: UITableViewController {
         }
         return -1
     }
-
+    
     @IBOutlet weak var carDetailsTable: CarDetailsTableView!
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0, indexPath.row == 2 {
@@ -124,9 +124,24 @@ class HomeViewController: UITableViewController {
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
-    private let headers: [Int: String] = [
-        1: "Пробег",
-        2: "Записи"
+    func addMileage() {
+        showInputDialog(title: "Текущий пробег",
+                        inputPlaceholder: "Введите текущий пробег",
+                        inputKeyboardType: .default, actionHandler: { input in
+                            guard let input = input,
+                                  let mileage = Int(input),
+                                  mileage >= 0 else {
+                                self.showAlert(with: "Введите неотрицательное число", handler: { _ in self.addMileage()})
+                                return
+                            }
+                            self.carsService.addMileage(.init(date: Date(), value: mileage, isVerified: false)) { error in
+                                self.showAlert(with: "Не удалось добавить пробег")
+                            }
+                        })
+    }
+    private lazy var headers: [Int: LabelHeaderView.Model] = [
+        1: .init(header: "Пробег", action: addMileage, actionText: nil, actionImage: UIImage(systemName: "plus")),
+        2: .init(header: "Записи", action: nil, actionText: nil, actionImage: nil)
     ]
     private var carDetailsHidden = true
     @IBAction func carDetailsClicked(_ sender: UIButton) {
@@ -142,20 +157,27 @@ class HomeViewController: UITableViewController {
 
 extension HomeViewController: UpdateDelegate {
     func updated(_ sender: Any) {
-        if sender is RegistrationService {
+        if sender is IRegistrationService {
             setRegistrations()
+        }
+        if sender is ICarsService {
+            configure()
         }
     }
     
     func faild(with error: Error, _ sender: Any) {
-        if sender is RegistrationService {
+        if sender is IRegistrationService {
             DispatchQueue.main.async {
                 self.showAlert(with: "Не удалось обновить данные о записях в автосервисы")
             }
         }
+        if sender is ICarsService {
+            DispatchQueue.main.async {
+                self.showAlert(with: "Не удалось обновить данные об автомобиле")
+            }
+        }
     }
-    
-    
+
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -164,7 +186,9 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = registrationsCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: RegistrationCollectionViewCell.self), for: indexPath) as? RegistrationCollectionViewCell {
+        if let cell = registrationsCollectionView
+            .dequeueReusableCell(withReuseIdentifier: String(describing: RegistrationCollectionViewCell.self),
+                                 for: indexPath) as? RegistrationCollectionViewCell {
             if let registration = registrations?[indexPath.row] {
                 cell.configure(registration)
             }
@@ -188,28 +212,28 @@ extension HomeViewController: UICollectionViewDelegate {
         if let id = registrations?[indexPath.row].identifier {
             self.present(presentationAssembly.buildNavigationController(root: presentationAssembly.buildServiceRegistrationViewController(with: id)), animated: true)
         }
-       
-//        let cell = collectionView.cellForItem(at: indexPath)
         
-//        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
-//        animation.fromValue = 1
-//        animation.toValue = 0.5
-//        animation.duration = 2
-//        animation.autoreverses = true
-//        cell?.statusLabel.layer.add(animation, forKey: #keyPath(CALayer.opacity))
-//        cell?.statusLabel.layer.opacity = 0.5
-//        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: []) {
-//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
-//                cell?.transform = .init(scaleX: 0.8, y: 0.8)
-//            }
-//            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
-//                cell?.transform = .init(scaleX: 1, y: 1)
-//            }
-//        }
-
-//        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse]) {
-//            cell?.transform = .init(scaleX: 0.6, y: 0.6)
-//        }
+        //        let cell = collectionView.cellForItem(at: indexPath)
+        
+        //        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
+        //        animation.fromValue = 1
+        //        animation.toValue = 0.5
+        //        animation.duration = 2
+        //        animation.autoreverses = true
+        //        cell?.statusLabel.layer.add(animation, forKey: #keyPath(CALayer.opacity))
+        //        cell?.statusLabel.layer.opacity = 0.5
+        //        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: []) {
+        //            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+        //                cell?.transform = .init(scaleX: 0.8, y: 0.8)
+        //            }
+        //            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+        //                cell?.transform = .init(scaleX: 1, y: 1)
+        //            }
+        //        }
+        
+        //        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse]) {
+        //            cell?.transform = .init(scaleX: 0.6, y: 0.6)
+        //        }
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
