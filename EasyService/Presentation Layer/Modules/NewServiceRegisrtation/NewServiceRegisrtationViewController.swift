@@ -200,6 +200,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
                                         serviceId: serviceId)
         
         registrationService.new(registration: registration)
+         dismiss(animated: true, completion: nil)
         
     }
     
