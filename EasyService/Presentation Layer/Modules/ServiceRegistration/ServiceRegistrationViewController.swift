@@ -14,6 +14,7 @@ class ServiceRegistrationViewController: UITableViewController {
     private var registrationId: String!
     private var registrationService: IRegistrationService!
     
+    @IBOutlet weak var cancelationButton: UIButton!
     @IBOutlet weak var statusCollection: UICollectionView!
     @IBOutlet weak var serviceNameLabel: UILabel!
     @IBOutlet weak var serviceAddressLabel: UILabel!
@@ -48,6 +49,7 @@ class ServiceRegistrationViewController: UITableViewController {
             DispatchQueue.main.async {
                 if case let .success(registration) = result {
                     self?.registration = registration
+                    self?.setCancelButton(registration.status)
                     self?.statusCollection.reloadData()
                     self?.costLabel.text = "-"
                     if let cost = registration.cost {
@@ -75,27 +77,57 @@ class ServiceRegistrationViewController: UITableViewController {
                 }
             }
         }
-        
     }
+    
+    func setCancelButton(_ status: Registration.Status) {
+        if status == .new || status == .accepted {
+            cancelationButton.isHidden = false
+        } else {
+            cancelationButton.isHidden = true
+        }
+    }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+        //
+    }
+    
 }
 
 extension ServiceRegistrationViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard registration != nil else {
+        guard let currentStatus = registration?.status else {
             return 0
         }
-        return Registration.Status.statusNumber
+        switch currentStatus {
+        case .canceled, .denied:
+            print("STAT", currentStatus)
+            return 2
+        default:
+            return Registration.Status.statusNumber
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("CELLLLL")
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StatusCollectionViewCell.self), for: indexPath) as? StatusCollectionViewCell,
-           let status = Registration.Status(numberValue: indexPath.row),
            let currentStatus = registration?.status {
-            cell.configure((status, status == currentStatus))
-            return cell
+            switch currentStatus {
+            case .canceled, .denied:
+                if indexPath.row != 0 {
+                    cell.isHidden = true
+                } else {
+                    cell.isHidden = false
+                }
+                cell.configure((currentStatus, true))
+                return cell
+            default:
+                if let status = Registration.Status(numberValue: indexPath.row) {
+                    cell.configure((status, status == currentStatus))
+                    return cell
+                }
+            }
         }
         return UICollectionViewCell()
     }
-    
-    
 }

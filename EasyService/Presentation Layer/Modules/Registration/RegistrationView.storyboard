@@ -347,6 +347,11 @@
             <point key="canvasLocation" x="866.66666666666674" y="136.60714285714286"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1QC-99-ylC">
+            <size key="intrinsicContentSize" width="120" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="main">
             <color red="0.99599999189376831" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

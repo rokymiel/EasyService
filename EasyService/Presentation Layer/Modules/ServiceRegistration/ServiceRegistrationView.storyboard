@@ -288,6 +288,36 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="BPq-2D-2IX">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="49c-HF-Dzl">
+                                        <rect key="frame" x="20" y="945" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="49c-HF-Dzl" id="k49-vh-jub">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKP-02-u8x">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                    <state key="normal" title="Отменить"/>
+                                                    <connections>
+                                                        <action selector="cancelClicked:" destination="GDS-lK-cEh" eventType="touchUpInside" id="fXO-Dr-aXO"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JKP-02-u8x" firstAttribute="top" secondItem="k49-vh-jub" secondAttribute="top" id="0sE-bC-gIk"/>
+                                                <constraint firstAttribute="trailing" secondItem="JKP-02-u8x" secondAttribute="trailing" id="KaJ-rw-7YW"/>
+                                                <constraint firstAttribute="bottom" secondItem="JKP-02-u8x" secondAttribute="bottom" id="nec-Na-TPe"/>
+                                                <constraint firstItem="JKP-02-u8x" firstAttribute="leading" secondItem="k49-vh-jub" secondAttribute="leading" id="u0f-fo-wSH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="GDS-lK-cEh" id="yVl-Vm-am1"/>
@@ -296,6 +326,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="tUo-KQ-Zqt"/>
                     <connections>
+                        <outlet property="cancelationButton" destination="JKP-02-u8x" id="bII-3S-XJJ"/>
                         <outlet property="costLabel" destination="L62-7e-Fss" id="uBL-O5-7og"/>
                         <outlet property="notesView" destination="l6f-Vu-Tpe" id="T4O-dy-WMU"/>
                         <outlet property="registrationDateLabel" destination="fr2-su-9Ym" id="UCg-yn-hkW"/>
@@ -310,12 +341,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMV-Cn-12o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284.0579710144928" y="178.79464285714286"/>
+            <point key="canvasLocation" x="1282.608695652174" y="178.79464285714286"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

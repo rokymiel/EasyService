@@ -13,6 +13,7 @@ class StatusCollectionViewCell: UICollectionViewCell, Configurable {
         statusLabel.text = model.status.text
         statusLabel.layer.opacity = model.isCurrent ? 1 : 0.3
         statusLabel.backgroundColor = model.status.color
+        statusLabel.textColor = model.status.tintColor
     }
     
     typealias Model = (status: Registration.Status, isCurrent: Bool)

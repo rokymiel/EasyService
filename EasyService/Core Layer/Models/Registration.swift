@@ -89,5 +89,12 @@ struct Registration: Codable {
             case .completed: return .brown
             }
         }
+        
+        var tintColor: UIColor {
+            switch self {
+            case .denied, .canceled, .completed: return .white
+            case .new, .accepted, .inProgress: return .black
+            }
+        }
     }
 }

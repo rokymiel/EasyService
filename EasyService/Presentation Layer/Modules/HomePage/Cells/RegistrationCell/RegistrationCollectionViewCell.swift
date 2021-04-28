@@ -11,11 +11,10 @@ import UIKit
 class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
     typealias Model = Registration
     
-    
-    
     func configure(_ model: Registration) {
         statusLabel.text = model.status.text
         statusLabel.backgroundColor = model.status.color
+        statusLabel.textColor = model.status.tintColor
         dayTextLabel.text = String(model.dateOfRegistration.get(.day))
         monthTextLabel.text = model.dateOfRegistration.month
         
@@ -48,14 +47,6 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
         } completion: { _ in
             self.group.leave()
         }
-//        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: []) {
-//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
-//                self.transform = .init(scaleX: 0.8, y: 0.8)
-//            }
-//            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
-//                self.transform = .init(scaleX: 1, y: 1)
-//            }
-//        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

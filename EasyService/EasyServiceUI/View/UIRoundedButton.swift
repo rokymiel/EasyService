@@ -8,17 +8,39 @@
 
 import UIKit
 
+@IBDesignable
 class UIRoundedButton: UIButton {
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    
+    @IBInspectable
+    var cornerRadius: CGFloat = 15 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    override var backgroundColor: UIColor? {
+        didSet {
+            layer.backgroundColor = backgroundColor?.cgColor
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
-
-    func setup() {
-        layer.cornerRadius = 15
-        layer.backgroundColor = UIColor.orange.cgColor
-        tintColor = UIColor.white
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
     }
-
+    
+    func setup() {
+        layer.cornerRadius = cornerRadius
+        if let color = backgroundColor?.cgColor {
+            layer.backgroundColor = color
+        } else {
+            layer.backgroundColor = UIColor.orange.cgColor
+            tintColor = UIColor.white
+        }
+    }
 }
