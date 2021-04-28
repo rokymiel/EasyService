@@ -63,9 +63,13 @@
 		7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */; };
 		7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */; };
 		7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20BF7263A1F7500060F04 /* CoreAssemblyMock.swift */; };
+		7DB20C02263A204200060F04 /* ResourcesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C01263A204200060F04 /* ResourcesMock.swift */; };
+		7DB20C08263A208800060F04 /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C07263A208800060F04 /* AuthServiceMock.swift */; };
+		7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C0B263A20EF00060F04 /* FireStoreServiceMock.swift */; };
+		7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C0F263A229800060F04 /* CoreDatsStackMock.swift */; };
+		7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C13263A232F00060F04 /* LocalDictionaryMock.swift */; };
 		7DB726B62637905D00316D9D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B52637905D00316D9D /* Resources.swift */; };
 		7DB726B926388F2D00316D9D /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B826388F2D00316D9D /* UITableViewExtension.swift */; };
-		7DB726C2263A1AC300316D9D /* EasyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726C1263A1AC300316D9D /* EasyServiceTests.swift */; };
 		7DBFF6812634A25E004FD5EC /* CarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */; };
 		7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */; };
 		7DCB824426343B6D00A60A62 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */; };
@@ -164,10 +168,14 @@
 		7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewServiceRegisrtationView.storyboard; sourceTree = "<group>"; };
 		7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssemblyMock.swift; sourceTree = "<group>"; };
 		7DB20BF7263A1F7500060F04 /* CoreAssemblyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssemblyMock.swift; sourceTree = "<group>"; };
+		7DB20C01263A204200060F04 /* ResourcesMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesMock.swift; sourceTree = "<group>"; };
+		7DB20C07263A208800060F04 /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
+		7DB20C0B263A20EF00060F04 /* FireStoreServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServiceMock.swift; sourceTree = "<group>"; };
+		7DB20C0F263A229800060F04 /* CoreDatsStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatsStackMock.swift; sourceTree = "<group>"; };
+		7DB20C13263A232F00060F04 /* LocalDictionaryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionaryMock.swift; sourceTree = "<group>"; };
 		7DB726B52637905D00316D9D /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		7DB726B826388F2D00316D9D /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7DB726BF263A1AC300316D9D /* EasyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DB726C1263A1AC300316D9D /* EasyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyServiceTests.swift; sourceTree = "<group>"; };
 		7DB726C3263A1AC300316D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMainViewController.swift; sourceTree = "<group>"; };
 		7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistrationViewController.swift; sourceTree = "<group>"; };
@@ -471,6 +479,7 @@
 		7DB20BD8263A1C6100060F04 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				7DB20C00263A202D00060F04 /* CoreMocks */,
 				7DB20BFB263A1FAB00060F04 /* AssmeblyMocks */,
 			);
 			path = Mocks;
@@ -485,11 +494,30 @@
 			path = AssmeblyMocks;
 			sourceTree = "<group>";
 		};
+		7DB20BFD263A1FF200060F04 /* ServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		7DB20C00263A202D00060F04 /* CoreMocks */ = {
+			isa = PBXGroup;
+			children = (
+				7DB20C01263A204200060F04 /* ResourcesMock.swift */,
+				7DB20C07263A208800060F04 /* AuthServiceMock.swift */,
+				7DB20C0B263A20EF00060F04 /* FireStoreServiceMock.swift */,
+				7DB20C0F263A229800060F04 /* CoreDatsStackMock.swift */,
+				7DB20C13263A232F00060F04 /* LocalDictionaryMock.swift */,
+			);
+			path = CoreMocks;
+			sourceTree = "<group>";
+		};
 		7DB726C0263A1AC300316D9D /* EasyServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				7DB20BFD263A1FF200060F04 /* ServiceTests */,
 				7DB20BD8263A1C6100060F04 /* Mocks */,
-				7DB726C1263A1AC300316D9D /* EasyServiceTests.swift */,
 				7DB726C3263A1AC300316D9D /* Info.plist */,
 			);
 			path = EasyServiceTests;
@@ -867,9 +895,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DB726C2263A1AC300316D9D /* EasyServiceTests.swift in Sources */,
+				7DB20C02263A204200060F04 /* ResourcesMock.swift in Sources */,
+				7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */,
+				7DB20C08263A208800060F04 /* AuthServiceMock.swift in Sources */,
 				7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */,
 				7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */,
+				7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */,
+				7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
