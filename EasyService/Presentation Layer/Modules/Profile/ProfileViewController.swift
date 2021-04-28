@@ -72,6 +72,8 @@ class ProfileViewController: UITableViewController {
     @IBAction func exitClicked(_ sender: Any) {
         do {
             try accountService.signOut()
+            carsService.deleteCars()
+            registrationService.deleteRegistrations()
         } catch {
             showAlert(with: "Не получилось выйти из аккаунта")
         }

@@ -13,6 +13,7 @@ protocol ICoreDataManager {
     func fetchAll<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping ([T]?) -> Void)
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping (T?) -> Void)
     func count(request: NSFetchRequest<NSFetchRequestResult>, _ block: @escaping (Int?) -> Void)
+    func deleteAll<T: NSFetchRequestResult>(request: NSFetchRequest<T>)
 }
 
 class CoreDataManager: ICoreDataManager {
@@ -50,6 +51,12 @@ class CoreDataManager: ICoreDataManager {
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping (T?) -> Void) {
         queue.async {
             block(self.coreDataStack.fetch(request: request)?.first)
+        }
+    }
+    
+    func deleteAll<T: NSFetchRequestResult>(request: NSFetchRequest<T>) {
+        queue.async {
+            self.coreDataStack.delete(request: request)
         }
     }
 }

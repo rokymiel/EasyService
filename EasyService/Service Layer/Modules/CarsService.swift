@@ -19,6 +19,7 @@ protocol ICarsService {
     func count(_ completetion: @escaping (Result<Int, Error>) -> Void)
     func add(delegate: UpdateDelegate)
     func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)?)
+    func deleteCars()
 }
 
 extension ICarsService {
@@ -88,6 +89,11 @@ class CarsService: ICarsService {
         readAllFromCore(completetion)
     }
     
+    func deleteCars() {
+        listenerRegistration?.remove()
+        coreDataManager.deleteAll(request: CarDB.fetchRequest())
+    }
+    
     private func loadAndListen() {
         loadCompletition { (result) in
             switch result {
@@ -155,9 +161,9 @@ class CarsService: ICarsService {
             }
         }
     }
-    
+    private var listenerRegistration: ListenerRegistration?
     private func loadCompletition(_ completion: @escaping (Result<[(type: DocumentChangeType, item: Car?)], Error>) -> Void) {
-        carsFirebaseService.loadDocuments(completion)
+        listenerRegistration = carsFirebaseService.loadDocuments(completion)
     }
     
 }

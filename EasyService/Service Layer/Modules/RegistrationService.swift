@@ -18,6 +18,7 @@ protocol IRegistrationService {
     func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void)
     func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void)
     func update(_ registration: Registration)
+    func deleteRegistrations()
 }
 
 class RegistrationService: IRegistrationService {
@@ -54,6 +55,10 @@ class RegistrationService: IRegistrationService {
     func add(delegate: UpdateDelegate) {
         delegates.append(.init(value: delegate))
     }
+    func deleteRegistrations() {
+        listenerRegistration?.remove()
+        coreDataManager.deleteAll(request: RegistrationDB.fetchRequest())
+    }
     
     private func readAllFromCore(with car: String, _ completetion: @escaping (Result<[Registration], Error>) -> Void) {
         let request: NSFetchRequest<RegistrationDB> = RegistrationDB.fetchRequest()
@@ -82,9 +87,9 @@ class RegistrationService: IRegistrationService {
             }
         }
     }
-    
+    private var listenerRegistration: ListenerRegistration?
     private func loadAndListent() {
-        regisrtationsFirestore.loadDocuments(where: Registration.CodingKeys.clientID.rawValue,
+        listenerRegistration = regisrtationsFirestore.loadDocuments(where: Registration.CodingKeys.clientID.rawValue,
                                              isEqualTo: userID) { (result: Result<[(type: DocumentChangeType, item: Registration?)], Error>) in
             switch result {
             case .success(let registrations):

@@ -48,8 +48,9 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
             delegate?.login()
         case .none:
             print("NONE")
-            // TODO: - clear cash
+            listenerRegistration?.remove()
             currentId = nil
+            coreDataManager.deleteAll(request: UserDB.fetchRequest())
             delegate?.logout()
         }
     }
@@ -99,12 +100,12 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
             }
         }
     }
-    
-    func loadUser(with id: String) {
-        fireStoreService.loadDocument(id: id, listener: userLoaded)
+    private var listenerRegistration: ListenerRegistration?
+    private func loadUser(with id: String) {
+        listenerRegistration = fireStoreService.loadDocument(id: id, listener: userLoaded)
     }
     
-    func userLoaded(result: (Result<User, Error>)) {
+    private func userLoaded(result: (Result<User, Error>)) {
         if case let .success(user) = result {
             coreDataManager.save(model: user, nil)
         }

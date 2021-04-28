@@ -17,6 +17,7 @@ protocol ICoreDatsStack {
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void )
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]?
     func count(request: NSFetchRequest<NSFetchRequestResult>) -> Int?
+    func delete<T: NSFetchRequestResult> (request: NSFetchRequest<T>)
 }
 
 class CoreDataStack: ICoreDatsStack {
@@ -66,6 +67,19 @@ class CoreDataStack: ICoreDatsStack {
 //        print("CREid", a?.identifier)
         request.returnsObjectsAsFaults = false
         return try? container.viewContext.fetch(request)
+    }
+    
+    func delete<T: NSFetchRequestResult> (request: NSFetchRequest<T>) {
+        request.returnsObjectsAsFaults = false
+        do {
+             let results = try container.viewContext.fetch(request)
+             for object in results {
+                 guard let objectData = object as? NSManagedObject else {continue}
+                 container.viewContext.delete(objectData)
+             }
+         } catch {
+             NSLog("Не удалось удалить данные из БД: \(error)")
+         }
     }
 }
 

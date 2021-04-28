@@ -10,21 +10,22 @@ import Firebase
 import FirebaseFirestoreSwift
 
 protocol IFireStoreService: class {
-    func addDocument(data: [String: Any])
     func addDocument<T>(from value: T) -> DocumentReference? where T: Encodable
     func addDocument<T>(with id: String, from value: T) where T: Encodable
-    
     func loadDocuments<T>(_ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable
-    
-    func loadDocuments<T>(_ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable
-    
+    func loadDocuments<T>(_ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) -> ListenerRegistration where T: Decodable
     func loadDocuments<T>(where field: String, isEqualTo value: Any, _ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable
-    
-    func loadDocuments<T>(where field: String, isEqualTo value: Any, _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable
-    func loadDocument<T>(id: String, _ completion: @escaping (Result<T, Error>) -> Void) where T: Decodable
-    func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) where T: Decodable
     func loadDocuments<T>(where fields: [String: [Any]], _ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable
-    func loadDocuments<T>(where fields: [String: [Any]], _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable
+    func loadDocuments<T>(where fields: [String: [Any]],
+                          _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void)
+    -> ListenerRegistration? where T: Decodable
+    func loadDocuments<T>(where field: String,
+                          isEqualTo value: Any,
+                          _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void)
+    -> ListenerRegistration where T: Decodable
+    func loadDocument<T>(id: String, _ completion: @escaping (Result<T, Error>) -> Void) where T: Decodable
+    func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) -> ListenerRegistration where T: Decodable
+    func addDocument(data: [String: Any])
 }
 
 final class FireStoreService: IFireStoreService {
@@ -50,14 +51,14 @@ final class FireStoreService: IFireStoreService {
         }
     }
     
-    func loadDocuments<T>(_ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable {
+    func loadDocuments<T>(_ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) -> ListenerRegistration where T: Decodable {
         
-        reference.addSnapshotListener { snapshot, error in
+        return reference.addSnapshotListener { snapshot, error in
             if let error = error {
                 return completion(.failure(error))
             }
             if let documents = snapshot?.documentChanges {
-                completion(.success(documents.map {(type: $0.type, item: try? $0.document.data(as: T.self))} ))
+                completion(.success(documents.map { (type: $0.type, item: try? $0.document.data(as: T.self)) }))
             }
         }
     }
@@ -91,33 +92,36 @@ final class FireStoreService: IFireStoreService {
         }
     }
     
-    func loadDocuments<T>(where fields: [String: [Any]], _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable {
+    func loadDocuments<T>(where fields: [String: [Any]],
+                          _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) -> ListenerRegistration? where T: Decodable {
         
         guard !fields.isEmpty else {
-            return
+            return nil
         }
         var query: Query = reference
         for (key, value) in fields {
             query = query.whereField(key, in: value)
         }
-        query.addSnapshotListener { snapshot, error in
+        return query.addSnapshotListener { snapshot, error in
             if let error = error {
                 return completion(.failure(error))
             }
             if let documents = snapshot?.documentChanges {
-                completion(.success(documents.map( {(type: $0.type, item: try? $0.document.data(as: T.self))})))
+                completion(.success(documents.map { (type: $0.type, item: try? $0.document.data(as: T.self)) }))
             }
         }
     }
     
-    func loadDocuments<T>(where field: String, isEqualTo value: Any, _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) where T: Decodable {
+    func loadDocuments<T>(where field: String,
+                          isEqualTo value: Any,
+                          _ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) -> ListenerRegistration where T: Decodable {
         
-        reference.whereField(field, isEqualTo: value).addSnapshotListener { snapshot, error in
+        return reference.whereField(field, isEqualTo: value).addSnapshotListener { snapshot, error in
             if let error = error {
                 return completion(.failure(error))
             }
             if let documents = snapshot?.documentChanges {
-                completion(.success(documents.map( {(type: $0.type, item: try? $0.document.data(as: T.self))})))
+                completion(.success(documents.map { (type: $0.type, item: try? $0.document.data(as: T.self)) }))
             }
         }
     }
@@ -133,9 +137,9 @@ final class FireStoreService: IFireStoreService {
         }
     }
     
-    func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) where T: Decodable {
+    func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) -> ListenerRegistration where T: Decodable {
         print("Id",id)
-        reference.document(id).addSnapshotListener { snapshot, error in
+        return reference.document(id).addSnapshotListener { snapshot, error in
             print("CC")
             if let error = error {
                 print(error)
@@ -148,7 +152,6 @@ final class FireStoreService: IFireStoreService {
                 print("Lox")
                 print(snapshot?.data())
             }
-            
         }
     }
     
