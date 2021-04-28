@@ -44,7 +44,12 @@ class ServiceRegistrationViewController: UITableViewController {
                   bundle: nil),
             forCellWithReuseIdentifier: String(describing: StatusCollectionViewCell.self))
         statusCollection.dataSource = self
+        registrationService.add(delegate: self)
         addCloseItem()
+        setData()
+    }
+    
+    func setData() {
         registrationService.getRegistration(with: registrationId) { [weak self] result in
             DispatchQueue.main.async {
                 if case let .success(registration) = result {
@@ -89,12 +94,16 @@ class ServiceRegistrationViewController: UITableViewController {
     
     @IBAction func cancelClicked(_ sender: Any) {
         //
+        if var registration = registration {
+            registration.status = .canceled
+            registrationService.update(registration)
+        }
     }
     
 }
 
 extension ServiceRegistrationViewController: UICollectionViewDataSource {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let currentStatus = registration?.status else {
             return 0
@@ -130,4 +139,18 @@ extension ServiceRegistrationViewController: UICollectionViewDataSource {
         }
         return UICollectionViewCell()
     }
+}
+
+extension ServiceRegistrationViewController: UpdateDelegate {
+    func updated(_ sender: Any) {
+        setData()
+    }
+    
+    func faild(with error: Error, _ sender: Any) {
+        DispatchQueue.main.async {
+            self.showAlert(with: "Не удалось обновить данные записи")
+        }
+    }
+    
+    
 }

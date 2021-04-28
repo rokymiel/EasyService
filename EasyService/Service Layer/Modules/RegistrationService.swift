@@ -16,7 +16,8 @@ protocol IRegistrationService {
     func add(delegate: UpdateDelegate)
     func new(registration: Registration)
     func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void)
-    func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void) 
+    func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void)
+    func update(_ registration: Registration)
 }
 
 class RegistrationService: IRegistrationService {
@@ -126,6 +127,12 @@ class RegistrationService: IRegistrationService {
             } else {
                 completetion(.failure(NoneError.none))
             }
+        }
+    }
+    
+    func update(_ registration: Registration) {
+        if let id = registration.identifier {
+            regisrtationsFirestore.addDocument(with: id, from: registration)
         }
     }
 }

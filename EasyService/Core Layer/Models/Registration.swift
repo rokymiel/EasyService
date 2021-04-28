@@ -17,7 +17,7 @@ struct Registration: Codable {
     let dateOfRegistration: Date
     let description: String?
     let notes: String?
-    let status: Status
+    var status: Status
     let timeOfWorks: Date?
     let typeOfWorks: String
     let serviceId: String
