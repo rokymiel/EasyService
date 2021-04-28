@@ -61,8 +61,11 @@
 		7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2668261F95E700F04F32 /* MainNavigationController.swift */; };
 		7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */; };
 		7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */; };
+		7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */; };
+		7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20BF7263A1F7500060F04 /* CoreAssemblyMock.swift */; };
 		7DB726B62637905D00316D9D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B52637905D00316D9D /* Resources.swift */; };
 		7DB726B926388F2D00316D9D /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B826388F2D00316D9D /* UITableViewExtension.swift */; };
+		7DB726C2263A1AC300316D9D /* EasyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726C1263A1AC300316D9D /* EasyServiceTests.swift */; };
 		7DBFF6812634A25E004FD5EC /* CarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */; };
 		7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */; };
 		7DCB824426343B6D00A60A62 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */; };
@@ -88,10 +91,23 @@
 		7DFFB41D2630869E003C6B4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB41C2630869E003C6B4E /* HomeViewController.swift */; };
 		7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */; };
 		7DFFB42326309EBB003C6B4E /* RegistrationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */; };
+		C987AC9EF0ADB7351D6B377C /* Pods_EasyServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACEB77A84DAB00ECFC74E28 /* Pods_EasyServiceTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7DB726C4263A1AC300316D9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DF7A48C25A0EA920053C413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DF7A49325A0EA920053C413;
+			remoteInfo = EasyService;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		17CA7D246057D496B5EF813E /* Pods-EasyServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyServiceTests/Pods-EasyServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3440064850FC7CB26443334A /* Pods_EasyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		590BAF81B173E08373B4EB3F /* Pods-EasyServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyServiceTests.release.xcconfig"; path = "Target Support Files/Pods-EasyServiceTests/Pods-EasyServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.release.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.release.xcconfig"; sourceTree = "<group>"; };
 		7D0A69D22624C596005C1599 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMKAnnotation.swift; sourceTree = "<group>"; };
@@ -146,8 +162,13 @@
 		7D9F2668261F95E700F04F32 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceRegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewServiceRegisrtationView.storyboard; sourceTree = "<group>"; };
+		7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssemblyMock.swift; sourceTree = "<group>"; };
+		7DB20BF7263A1F7500060F04 /* CoreAssemblyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssemblyMock.swift; sourceTree = "<group>"; };
 		7DB726B52637905D00316D9D /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		7DB726B826388F2D00316D9D /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		7DB726BF263A1AC300316D9D /* EasyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DB726C1263A1AC300316D9D /* EasyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyServiceTests.swift; sourceTree = "<group>"; };
+		7DB726C3263A1AC300316D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMainViewController.swift; sourceTree = "<group>"; };
 		7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistrationViewController.swift; sourceTree = "<group>"; };
 		7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -175,10 +196,19 @@
 		7DFFB41C2630869E003C6B4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationCollectionViewCell.xib; sourceTree = "<group>"; };
+		9ACEB77A84DAB00ECFC74E28 /* Pods_EasyServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.debug.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7DB726BC263A1AC300316D9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C987AC9EF0ADB7351D6B377C /* Pods_EasyServiceTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DF7A49125A0EA920053C413 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +468,33 @@
 			path = NewServiceRegisrtation;
 			sourceTree = "<group>";
 		};
+		7DB20BD8263A1C6100060F04 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7DB20BFB263A1FAB00060F04 /* AssmeblyMocks */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		7DB20BFB263A1FAB00060F04 /* AssmeblyMocks */ = {
+			isa = PBXGroup;
+			children = (
+				7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */,
+				7DB20BF7263A1F7500060F04 /* CoreAssemblyMock.swift */,
+			);
+			path = AssmeblyMocks;
+			sourceTree = "<group>";
+		};
+		7DB726C0263A1AC300316D9D /* EasyServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				7DB20BD8263A1C6100060F04 /* Mocks */,
+				7DB726C1263A1AC300316D9D /* EasyServiceTests.swift */,
+				7DB726C3263A1AC300316D9D /* Info.plist */,
+			);
+			path = EasyServiceTests;
+			sourceTree = "<group>";
+		};
 		7DBFF67F2634A1E5004FD5EC /* CarMain */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				7DF7A49625A0EA920053C413 /* EasyService */,
+				7DB726C0263A1AC300316D9D /* EasyServiceTests */,
 				7DF7A49525A0EA920053C413 /* Products */,
 				CBCE32CFE5F661F4D28459D6 /* Pods */,
 				8B2391905D2B986E057DA7E4 /* Frameworks */,
@@ -538,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				7DF7A49425A0EA920053C413 /* EasyService.app */,
+				7DB726BF263A1AC300316D9D /* EasyServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -588,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				3440064850FC7CB26443334A /* Pods_EasyService.framework */,
+				9ACEB77A84DAB00ECFC74E28 /* Pods_EasyServiceTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -597,6 +657,8 @@
 			children = (
 				BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */,
 				5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */,
+				17CA7D246057D496B5EF813E /* Pods-EasyServiceTests.debug.xcconfig */,
+				590BAF81B173E08373B4EB3F /* Pods-EasyServiceTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -604,6 +666,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7DB726BE263A1AC300316D9D /* EasyServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DB726C6263A1AC300316D9D /* Build configuration list for PBXNativeTarget "EasyServiceTests" */;
+			buildPhases = (
+				BD5043A18BA82568481050F3 /* [CP] Check Pods Manifest.lock */,
+				7DB726BB263A1AC300316D9D /* Sources */,
+				7DB726BC263A1AC300316D9D /* Frameworks */,
+				7DB726BD263A1AC300316D9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DB726C5263A1AC300316D9D /* PBXTargetDependency */,
+			);
+			name = EasyServiceTests;
+			productName = EasyServiceTests;
+			productReference = 7DB726BF263A1AC300316D9D /* EasyServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7DF7A49325A0EA920053C413 /* EasyService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DF7A4A825A0EA940053C413 /* Build configuration list for PBXNativeTarget "EasyService" */;
@@ -630,10 +711,14 @@
 		7DF7A48C25A0EA920053C413 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = rokymiel;
 				TargetAttributes = {
+					7DB726BE263A1AC300316D9D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 7DF7A49325A0EA920053C413;
+					};
 					7DF7A49325A0EA920053C413 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -653,11 +738,19 @@
 			projectRoot = "";
 			targets = (
 				7DF7A49325A0EA920053C413 /* EasyService */,
+				7DB726BE263A1AC300316D9D /* EasyServiceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7DB726BD263A1AC300316D9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DF7A49225A0EA920053C413 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -706,6 +799,28 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		BD5043A18BA82568481050F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyServiceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D506A568330B5F030F8E0AB7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -748,6 +863,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7DB726BB263A1AC300316D9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DB726C2263A1AC300316D9D /* EasyServiceTests.swift in Sources */,
+				7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */,
+				7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DF7A49025A0EA920053C413 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -816,6 +941,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7DB726C5263A1AC300316D9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DF7A49325A0EA920053C413 /* EasyService */;
+			targetProxy = 7DB726C4263A1AC300316D9D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7DF7A4A225A0EA940053C413 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -828,6 +961,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7DB726C7263A1AC300316D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17CA7D246057D496B5EF813E /* Pods-EasyServiceTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UKXNSMQN9;
+				INFOPLIST_FILE = EasyServiceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rokymiel.EasyServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyService.app/EasyService";
+			};
+			name = Debug;
+		};
+		7DB726C8263A1AC300316D9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 590BAF81B173E08373B4EB3F /* Pods-EasyServiceTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UKXNSMQN9;
+				INFOPLIST_FILE = EasyServiceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rokymiel.EasyServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyService.app/EasyService";
+			};
+			name = Release;
+		};
 		7DF7A4A625A0EA940053C413 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -983,6 +1162,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7DB726C6263A1AC300316D9D /* Build configuration list for PBXNativeTarget "EasyServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DB726C7263A1AC300316D9D /* Debug */,
+				7DB726C8263A1AC300316D9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7DF7A48F25A0EA920053C413 /* Build configuration list for PBXProject "EasyService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

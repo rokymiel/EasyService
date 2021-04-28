@@ -13,5 +13,9 @@ target 'EasyService' do
   pod 'FirebaseFirestoreSwift'
   pod 'SwiftyJSON'
   pod 'Charts'
+  
+  target 'EasyServiceTests' do
+      inherit! :search_paths
+  end
 
 end
