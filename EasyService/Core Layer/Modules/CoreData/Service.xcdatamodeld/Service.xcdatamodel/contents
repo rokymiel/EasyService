@@ -6,10 +6,10 @@
         <attribute name="gear" attributeType="String"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="mark" attributeType="String"/>
+        <attribute name="mileage" attributeType="Transformable" customClassName="[MileageX]"/>
         <attribute name="model" attributeType="String"/>
         <attribute name="productionYear" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserDB" inverseName="cars" inverseEntity="UserDB"/>
-        <relationship name="mileage" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MileageDB" inverseName="car" inverseEntity="MileageDB"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="identifier"/>
@@ -21,11 +21,9 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isVerified" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="value" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CarDB" inverseName="mileage" inverseEntity="CarDB"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="date"/>
-                <constraint value="carId"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
@@ -69,7 +67,7 @@
     </entity>
     <elements>
         <element name="CarDB" positionX="337.3984375" positionY="-16.98828125" width="128" height="178"/>
-        <element name="MileageDB" positionX="612.21875" positionY="284.15625" width="128" height="118"/>
+        <element name="MileageDB" positionX="545.15234375" positionY="12.53125" width="128" height="103"/>
         <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="238"/>
         <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
     </elements>

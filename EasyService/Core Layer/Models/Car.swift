@@ -41,3 +41,36 @@ struct Mileage: Codable {
         case isVerified = "is_verified"
     }
 }
+
+public class MileageX: NSObject, NSCoding {
+    public func encode(with coder: NSCoder) {
+        coder.encode(date, forKey: CodingKeys.date.rawValue)
+        coder.encode(value, forKey: CodingKeys.value.rawValue)
+        coder.encode(isVerified, forKey: CodingKeys.isVerified.rawValue)
+    }
+    
+    public required convenience init?(coder: NSCoder) {
+        guard let dDate = coder.decodeObject(forKey: CodingKeys.date.rawValue) as? Date else   {
+            return nil
+        }
+        let dValue = coder.decodeInt32(forKey: CodingKeys.value.rawValue)
+        let dVer = coder.decodeBool(forKey: CodingKeys.isVerified.rawValue)
+        self.init(date: dDate, value: dValue, isVerified: dVer)
+    }
+    
+    let date: Date
+    let value: Int32
+    let isVerified: Bool
+    
+    enum CodingKeys: String {
+        case date
+        case value
+        case isVerified = "is_verified"
+    }
+    
+    init(date: Date, value: Int32, isVerified: Bool) {
+        self.date = date
+        self.value = value
+        self.isVerified = isVerified
+    }
+}

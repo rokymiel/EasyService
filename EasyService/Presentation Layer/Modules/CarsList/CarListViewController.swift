@@ -29,7 +29,7 @@ class CarListViewController: UIViewController{
         if carsService.currentId != nil {
             openForSelectedCar()
         }
-        
+        carsService.add(delegate: self)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         carsListTableView.dataSource = self
         carsListTableView.delegate = self
@@ -188,6 +188,7 @@ private extension UITableView {
 
 extension CarListViewController: UpdateDelegate {
     func updated(_ sender: Any) {
+        print("UUPPPDD")
         setCars()
     }
     

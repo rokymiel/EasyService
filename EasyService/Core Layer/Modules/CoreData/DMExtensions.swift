@@ -41,14 +41,14 @@ extension UserDB: IModel {
     var dataModel: User {
         print("dataModel", identifier)
         return User(identifier: identifier,
-             name: name!,
-             surname: surname!,
-             patronymic: patronymic,
-             dateOfBirth: dateOfBirth!,
-             phone: phone!,
-             email: email!,
-             carIDs: carIDs!,
-             registrationsIDs: registrationsIDs!)
+                    name: name!,
+                    surname: surname!,
+                    patronymic: patronymic,
+                    dateOfBirth: dateOfBirth!,
+                    phone: phone!,
+                    email: email!,
+                    carIDs: carIDs!,
+                    registrationsIDs: registrationsIDs!)
     }
 }
 
@@ -87,27 +87,32 @@ extension CarDB: IModel {
         gear = car.gear
         engine = car.engine
         productionYear = Int32(car.productionYear)
-        if let id = car.identifier {
-            car.mileage.forEach { mileage in
-                if let model = mileage.toDBModel(with: id, in: context) as? MileageDB {
-                    self.addToMileage(model)
-                }
-            }
-        }
+        
+        mileage = car.mileage.map { .init(mileage: $0) }
+        
         print("SACEEEE", mileage?.count)
     }
     
     var dataModel: Car {
-        print("RREADAD", mileage?.count )
         return Car(identifier: identifier,
-            mark: mark!,
-            model: model!,
-            body: body!,
-            gear: gear!,
-            engine: engine,
-            productionYear: Int(productionYear), mileage: mileage?.compactMap { mil in
-                return (mil as? MileageDB)?.dataModel
-            } ?? [])
+                   mark: mark!,
+                   model: model!,
+                   body: body!,
+                   gear: gear!,
+                   engine: engine,
+                   productionYear: Int(productionYear), mileage: mileage?.compactMap { Mileage(mileage: $0) } ?? [])
+    }
+}
+
+extension Mileage {
+    init(mileage: MileageX) {
+        self.init(date: mileage.date, value: Int(mileage.value), isVerified: mileage.isVerified)
+    }
+}
+
+extension MileageX {
+    convenience init(mileage: Mileage) {
+        self.init(date: mileage.date, value: Int32(mileage.value), isVerified: mileage.isVerified)
     }
 }
 
@@ -142,16 +147,16 @@ extension RegistrationDB: IModel {
             dCost = Double(exactly: cost)
         }
         return Registration(identifier: identifier,
-                     carID: carID!,
-                     clientID: clientID!,
-                     cost: dCost,
-                     dateOfCreation: dateOfCreation!,
-                     dateOfRegistration: dateOfRegistration!,
-                     description: descriptionString,
-                     notes: notes,
-                     status: .init(rawValue: status!),
-                     timeOfWorks: timeOfWorks,
-                     typeOfWorks: typeOfWorks!, serviceId: serviceId!)
+                            carID: carID!,
+                            clientID: clientID!,
+                            cost: dCost,
+                            dateOfCreation: dateOfCreation!,
+                            dateOfRegistration: dateOfRegistration!,
+                            description: descriptionString,
+                            notes: notes,
+                            status: .init(rawValue: status!),
+                            timeOfWorks: timeOfWorks,
+                            typeOfWorks: typeOfWorks!, serviceId: serviceId!)
     }
 }
 

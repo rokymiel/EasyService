@@ -24,8 +24,8 @@ class CoreDataStack: ICoreDatsStack {
     
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: dataBaseName)
-        container.loadPersistentStores { _, error in
-//            sleep(5)
+        container.loadPersistentStores { desc, error in
+            desc.shouldMigrateStoreAutomatically = false
             print("Done")
 //            self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             if let error = error as NSError? {
