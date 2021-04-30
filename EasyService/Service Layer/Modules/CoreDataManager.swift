@@ -12,7 +12,7 @@ protocol ICoreDataManager {
     func save(model: IDBModel, _ block: (() -> Void)?)
     func fetchAll<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping ([T]?) -> Void)
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping (T?) -> Void)
-    func count(request: NSFetchRequest<NSFetchRequestResult>, _ block: @escaping (Int?) -> Void)
+    func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>, _ block: @escaping (Int?) -> Void)
     func deleteAll<T: NSFetchRequestResult>(request: NSFetchRequest<T>)
 }
 
@@ -42,7 +42,7 @@ class CoreDataManager: ICoreDataManager {
         }
     }
     
-    func count(request: NSFetchRequest<NSFetchRequestResult>, _ block: @escaping (Int?) -> Void) {
+    func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>, _ block: @escaping (Int?) -> Void) {
         queue.async {
             block(self.coreDataStack.count(request: request))
         }

@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        let coreAssembly = CoreAssembly()
-        let serviceAssembly = ServiceAssembly(coreAssembly: coreAssembly)
-        let assembly = PresentationAssembly(serviceAssembly: serviceAssembly)
         window = UIWindow(frame: UIScreen.main.bounds)
         //
         //        //        self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -53,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
         //        }
         application.registerForRemoteNotifications()
 //        DispatchQueue.main.async {
-            self.window?.rootViewController = MainNavigationController(presentationAssembly: assembly, serviceAssembly: serviceAssembly)
+        self.window?.rootViewController = MainNavigationController(rootAssemblyType: RootAssembly.self)
             self.window?.makeKeyAndVisible()
             
 //        }

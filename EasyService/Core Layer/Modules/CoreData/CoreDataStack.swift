@@ -16,7 +16,7 @@ protocol ICoreDatsStack {
     
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void )
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]?
-    func count(request: NSFetchRequest<NSFetchRequestResult>) -> Int?
+    func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>) -> Int?
     func delete<T: NSFetchRequestResult> (request: NSFetchRequest<T>)
 }
 
@@ -50,7 +50,7 @@ class CoreDataStack: ICoreDatsStack {
         }
     }
     
-    func count(request: NSFetchRequest<NSFetchRequestResult>) -> Int? {
+    func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>) -> Int? {
         return try? container.viewContext.count(for: request)
     }
     

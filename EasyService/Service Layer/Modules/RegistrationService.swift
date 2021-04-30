@@ -123,7 +123,7 @@ class RegistrationService: IRegistrationService {
     }
     
     func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void) {
-        let request: NSFetchRequest<NSFetchRequestResult> = RegistrationDB.fetchRequest()
+        let request: NSFetchRequest<RegistrationDB> = RegistrationDB.fetchRequest()
         let predicate = NSPredicate(format: "clientID == %@", id)
         request.predicate = predicate
         coreDataManager.count(request: request) { (num) in

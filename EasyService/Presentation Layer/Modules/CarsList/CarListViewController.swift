@@ -47,6 +47,7 @@ class CarListViewController: UIViewController{
     
     func setCars() {
         carsService.getCars { (result) in
+            print("CARREEEES", result)
             if case let .success(cars) = result {
                 print("HIQWERTYU", cars.count)
                 DispatchQueue.main.async {

@@ -137,7 +137,8 @@ class CarsService: ICarsService {
     }
     
     func count(_ completetion: @escaping (Result<Int, Error>) -> Void) {
-        coreDataManager.count(request: CarDB.fetchRequest()) { (num) in
+        let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
+        coreDataManager.count(request: request) { (num) in
             if let num = num {
                 completetion(.success(num))
             } else {

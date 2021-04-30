@@ -43,23 +43,29 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     func authorizationDidChange(_ auth: Aauthorization) {
         switch auth {
         case .user(let user):
-            currentId = user.uid
+            print("LOL", currentId)
             loadUser(with: user.uid)
             delegate?.login()
-            authService.token { token, _ in
-                if let token = token {
-                    self.fireStoreService.addDocument(of: user.uid, to: "tokens", with: token, from: Token(token: token))
-                }
-            }
+//            DispatchQueue.global().async {
+//                self.authService.token { token, _ in
+//                    if let token = token {
+//                        self.fireStoreService.addDocument(of: user.uid, to: "tokens", with: token, from: Token(token: token))
+//                    }
+//                }
+//            }
         case .none:
             print("NONE")
             listenerRegistration?.remove()
-            authService.token { token, _ in
-                if let token = token, let userId = self.currentId {
-                    self.fireStoreService.removeDocument(of: userId, to: "tokens", with: token)
-                }
-            }
-            currentId = nil
+//            DispatchQueue.global().async {
+//                self.authService.token { token, _ in
+//                    print("TOOOOOOKK", token)
+//                    print("CID", self.currentId)
+//                    if let token = token, let userId = self.currentId {
+//                        print("REMOVE", token)
+//                        self.fireStoreService.removeDocument(of: userId, to: "tokens", with: token)
+//                    }
+//                }
+//            }
             coreDataManager.deleteAll(request: UserDB.fetchRequest())
             delegate?.logout()
         }
@@ -71,6 +77,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     private var authService: IAuthService!
     
     init(authServiceFactory: IAuthServiceFactory, fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager) {
+        print("ACCINIT")
         self.fireStoreService = fireStoreService
         self.coreDataManager = coreDataManager
         self.authServiceFactory = authServiceFactory
@@ -86,6 +93,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     }
     
     func getUser(completition: @escaping (Result<User, Error>) -> Void) {
+        print("GUS", authService.user?.uid,"<SD>", currentId)
         if let user = authService.user {
             print(user.uid)
             getUser(with: user.uid, completition: completition)
@@ -94,14 +102,16 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         }
     }
     
-    var currentId: String?
+    var currentId: String? {
+        authService.user?.uid
+    }
     
     private func getUser(with id: String, completition: @escaping (Result<User, Error>) -> Void) {
         let request: NSFetchRequest<UserDB> = UserDB.fetchRequest()
         let predicate = NSPredicate(format: "identifier == %@", id)
         request.predicate = predicate
         coreDataManager.fetch(request: request) { (result) in
-
+            print("FECH", result)
             if let dbUser = result {
                 let user = dbUser.dataModel
                 completition(.success(user))
@@ -116,8 +126,13 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     }
     
     private func userLoaded(result: (Result<User, Error>)) {
+        print("ULOAD", result)
         if case let .success(user) = result {
-            coreDataManager.save(model: user, nil)
+            coreDataManager.save(model: user, {
+                self.coreDataManager.fetchAll(request: UserDB.fetchRequest()) { (res) in
+                    print("POQ", res)
+                }
+            })
         }
     }
     

@@ -11,13 +11,14 @@ import Firebase
 
 class MainNavigationController: UINavigationController {
     
-    private let presentationAssembly: IPresentationAssembly
-    private var serviceAssembly: IServiceAssembly
+    private let rootAssemblyType: IRootAssembly.Type
+    private var rootAssembly: IRootAssembly
     private var isLogin = false
     private var isFirst = true
-    init(presentationAssembly: IPresentationAssembly, serviceAssembly: IServiceAssembly) {
-        self.presentationAssembly = presentationAssembly
-        self.serviceAssembly = serviceAssembly
+    init(rootAssemblyType: IRootAssembly.Type) {
+        self.rootAssemblyType = rootAssemblyType
+        self.rootAssembly = self.rootAssemblyType.newRootAssembly()
+    
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -29,15 +30,6 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "main")
-        //        accountService.getUser { (result) in
-        //            switch result {
-        //            case .success(let user): // TODO: - как-то использовать
-        //                self.viewControllers = [self.presentationAssembly.buildCarListController()]
-        //            case .failure:
-        //                print("ASA")
-        //                self.present(self.presentationAssembly.buildLoginController(), animated: true)
-        //            }
-        //        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -45,43 +37,21 @@ class MainNavigationController: UINavigationController {
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
         navigationBar.tintColor = .systemOrange
-        var accountService = serviceAssembly.getAccountService()
+        setAccountDelegate()
+    }
+    
+    func resetAssemblies() {
+        rootAssembly = rootAssemblyType.newRootAssembly()
+    }
+    
+    func setAccountDelegate() {
+        var accountService = rootAssembly.serviceAssembly.getAccountService()
         if let delegate = accountService.delegate, delegate == self {
            
         } else {
             accountService.delegate = self
         }
-//        self.present(presentationAssembly.buildServicesMapViewController(), animated: true)
-//        account()
-//        self.viewControllers = [presentationAssembly.buildHomeViewController()]
     }
-    
-//    func account() {
-//
-////        do{ try Auth.auth().signOut() } catch {}
-//        accountService.getUser { (result) in
-//            switch result {
-//            case .success(let user):
-//                print("QWERTYUI")
-////                print("IIIDD ",user.email)
-//                DispatchQueue.main.async {
-//                    print(user)// TODO: - как-то использовать
-//                    self.viewControllers = [self.presentationAssembly.buildCarListController()]
-//                }
-//
-//            case .failure:
-//                print("fail")
-//                DispatchQueue.main.async {
-//                    print("ASA")
-//                    self.present(self.presentationAssembly.buildLoginController { _ in
-//                        print("asd")
-//                        self.viewControllers = [self.presentationAssembly.buildCarListController()]
-//                    }, animated: true)
-//
-//                }
-//            }
-//        }
-//    }
 }
 
 extension MainNavigationController: AccountDelegate {
@@ -89,10 +59,16 @@ extension MainNavigationController: AccountDelegate {
         print("LLLOOOOGGGGIIINNN")
         DispatchQueue.main.async {
             if !self.isLogin || self.isFirst {
+                if !self.isFirst {
+                    print("HEH")
+                    self.resetAssemblies()
+                    self.setAccountDelegate()
+                    
+                }
                 self.isLogin = true
                 self.isFirst = false
             self.navigationBar.isHidden = false
-                self.setViewControllers([self.presentationAssembly.buildCarListController()], animated: true)
+                self.setViewControllers([self.rootAssembly.presentationAssembly.buildCarListController()], animated: true)
             }
         }
     }
@@ -103,12 +79,11 @@ extension MainNavigationController: AccountDelegate {
             if self.isFirst || self.isLogin {
                 self.isLogin = false
                 self.isFirst = false
-                let login = self.presentationAssembly.buildLoginController({ })
+                let login = self.rootAssembly.presentationAssembly.buildLoginController({ })
                 
                 self.navigationBar.isHidden = true
                 self.setViewControllers([login], animated: true)
                 print("ASSSA", self.viewControllers.count)
-                
                 
             }
             
@@ -117,6 +92,38 @@ extension MainNavigationController: AccountDelegate {
 //            self.present(login, animated: true)
         }
     }
+    
+    
+}
+
+
+protocol IRootAssembly {
+    static func newRootAssembly() -> IRootAssembly
+    var coreAssembly: ICoreAssembly { get }
+    var serviceAssembly: IServiceAssembly { get }
+    var presentationAssembly: IPresentationAssembly { get }
+}
+
+class RootAssembly: IRootAssembly {
+    
+    private init(coreAssembly: ICoreAssembly, serviceAssembly: IServiceAssembly, presentationAssembly: IPresentationAssembly) {
+        self.coreAssembly = coreAssembly
+        self.serviceAssembly = serviceAssembly
+        self.presentationAssembly = presentationAssembly
+    }
+    
+    static func newRootAssembly() -> IRootAssembly {
+        let coreAssembly = CoreAssembly()
+        let serviceAssembly = ServiceAssembly(coreAssembly: coreAssembly)
+        let presentationAssembly = PresentationAssembly(serviceAssembly: serviceAssembly)
+        return RootAssembly(coreAssembly: coreAssembly, serviceAssembly: serviceAssembly, presentationAssembly: presentationAssembly)
+    }
+    
+    var coreAssembly: ICoreAssembly
+    
+    var serviceAssembly: IServiceAssembly
+    
+    var presentationAssembly: IPresentationAssembly
     
     
 }
