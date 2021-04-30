@@ -70,16 +70,21 @@ class CoreDataStack: ICoreDatsStack {
     }
     
     func delete<T: NSFetchRequestResult> (request: NSFetchRequest<T>) {
-        request.returnsObjectsAsFaults = false
-        do {
-             let results = try container.viewContext.fetch(request)
-             for object in results {
-                 guard let objectData = object as? NSManagedObject else {continue}
-                 container.viewContext.delete(objectData)
+        perform { context in
+            request.returnsObjectsAsFaults = false
+            do {
+                 let results = try context.fetch(request)
+                 for object in results {
+                     guard let objectData = object as? NSManagedObject else {continue}
+                     context.delete(objectData)
+                 }
+               context.trySave()
+                
+             } catch {
+                 NSLog("Не удалось удалить данные из БД: \(error)")
              }
-         } catch {
-             NSLog("Не удалось удалить данные из БД: \(error)")
-         }
+        }
+
     }
 }
 
