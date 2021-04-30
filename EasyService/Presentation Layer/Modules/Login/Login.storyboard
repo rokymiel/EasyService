@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubS-qu-f3Z">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubS-qu-f3Z" customClass="UIContainerView" customModule="EasyService" customModuleProvider="target">
                                 <rect key="frame" x="70" y="202" width="274" height="319"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21B-8M-jHn">
@@ -84,6 +84,9 @@
                                     <constraint firstItem="PR2-1p-zSL" firstAttribute="top" secondItem="aDd-bj-ztP" secondAttribute="bottom" constant="15" id="mGa-SN-x4Q"/>
                                     <constraint firstItem="Tmd-Sx-T4X" firstAttribute="top" secondItem="21B-8M-jHn" secondAttribute="bottom" constant="10" id="tri-Nl-0i9"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="squircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a6s-8U-YWv"/>
@@ -105,6 +108,11 @@
             <point key="canvasLocation" x="150.72463768115944" y="143.97321428571428"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="PR2-1p-zSL">
+            <size key="intrinsicContentSize" width="44" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="main">
             <color red="0.99599999189376831" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
