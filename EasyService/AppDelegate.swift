@@ -52,11 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
         //            application.registerUserNotificationSettings(settings)
         //        }
         application.registerForRemoteNotifications()
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.window?.rootViewController = MainNavigationController(presentationAssembly: assembly, serviceAssembly: serviceAssembly)
             self.window?.makeKeyAndVisible()
             
-        }
+//        }
         
         Messaging.messaging().token { token, error in
             if let error = error {
@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
 }
 
 
-extension AppDelegate:UNUserNotificationCenterDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate {
     //This method is to handle a notification that arrived while the app was running in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,

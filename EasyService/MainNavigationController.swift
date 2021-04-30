@@ -14,6 +14,7 @@ class MainNavigationController: UINavigationController {
     private let presentationAssembly: IPresentationAssembly
     private var serviceAssembly: IServiceAssembly
     private var isLogin = false
+    private var isFirst = true
     init(presentationAssembly: IPresentationAssembly, serviceAssembly: IServiceAssembly) {
         self.presentationAssembly = presentationAssembly
         self.serviceAssembly = serviceAssembly
@@ -87,10 +88,11 @@ extension MainNavigationController: AccountDelegate {
     func login() {
         print("LLLOOOOGGGGIIINNN")
         DispatchQueue.main.async {
-            if !self.isLogin {
+            if !self.isLogin || self.isFirst {
+                self.isLogin = true
+                self.isFirst = false
             self.navigationBar.isHidden = false
                 self.setViewControllers([self.presentationAssembly.buildCarListController()], animated: true)
-                self.isLogin = true
             }
         }
     }
@@ -98,12 +100,15 @@ extension MainNavigationController: AccountDelegate {
     func logout() {
         DispatchQueue.main.async {
             print("ASA")
-            if self.isLogin {
+            if self.isFirst || self.isLogin {
+                self.isLogin = false
+                self.isFirst = false
                 let login = self.presentationAssembly.buildLoginController({ })
                 
                 self.navigationBar.isHidden = true
                 self.setViewControllers([login], animated: true)
-                self.isLogin = false
+                print("ASSSA", self.viewControllers.count)
+                
                 
             }
             
