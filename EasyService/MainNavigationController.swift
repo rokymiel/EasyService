@@ -12,10 +12,11 @@ import Firebase
 class MainNavigationController: UINavigationController {
     
     private let presentationAssembly: IPresentationAssembly
-    private var accountService: IAccountService
-    init(presentationAssembly: IPresentationAssembly, accountService: IAccountService) {
+    private var serviceAssembly: IServiceAssembly
+    private var isLogin = false
+    init(presentationAssembly: IPresentationAssembly, serviceAssembly: IServiceAssembly) {
         self.presentationAssembly = presentationAssembly
-        self.accountService = accountService
+        self.serviceAssembly = serviceAssembly
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -43,6 +44,7 @@ class MainNavigationController: UINavigationController {
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
         navigationBar.tintColor = .systemOrange
+        var accountService = serviceAssembly.getAccountService()
         if let delegate = accountService.delegate, delegate == self {
            
         } else {
@@ -83,19 +85,27 @@ class MainNavigationController: UINavigationController {
 
 extension MainNavigationController: AccountDelegate {
     func login() {
+        print("LLLOOOOGGGGIIINNN")
         DispatchQueue.main.async {
+            if !self.isLogin {
             self.navigationBar.isHidden = false
-            self.setViewControllers([self.presentationAssembly.buildCarListController()], animated: true)
+                self.setViewControllers([self.presentationAssembly.buildCarListController()], animated: true)
+                self.isLogin = true
+            }
         }
     }
     
     func logout() {
         DispatchQueue.main.async {
             print("ASA")
-            let login = self.presentationAssembly.buildLoginController({ })
-            
-            self.navigationBar.isHidden = true
-            self.setViewControllers([login], animated: true)
+            if self.isLogin {
+                let login = self.presentationAssembly.buildLoginController({ })
+                
+                self.navigationBar.isHidden = true
+                self.setViewControllers([login], animated: true)
+                self.isLogin = false
+                
+            }
             
 //            self.viewControllers.removeAll()
 //            self.viewContr

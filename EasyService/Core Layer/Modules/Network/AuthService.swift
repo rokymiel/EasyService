@@ -27,6 +27,8 @@ protocol IAuthService {
     func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
     func signOut() throws
+    
+    func token(_ completion: @escaping (String?, Error?) -> Void)
 }
 
 class AuthService: IAuthService {
@@ -70,5 +72,15 @@ class AuthService: IAuthService {
     
     func signOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    func token(_ completion: @escaping (String?, Error?) -> Void) {
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            completion(nil, error)
+          } else if let token = token {
+            completion(token, nil)
+          }
+        }
     }
 }

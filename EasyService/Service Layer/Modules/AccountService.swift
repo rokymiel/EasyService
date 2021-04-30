@@ -46,9 +46,19 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
             currentId = user.uid
             loadUser(with: user.uid)
             delegate?.login()
+            authService.token { token, _ in
+                if let token = token {
+                    self.fireStoreService.addDocument(of: user.uid, to: "tokens", with: token, from: Token(token: token))
+                }
+            }
         case .none:
             print("NONE")
             listenerRegistration?.remove()
+            authService.token { token, _ in
+                if let token = token, let userId = self.currentId {
+                    self.fireStoreService.removeDocument(of: userId, to: "tokens", with: token)
+                }
+            }
             currentId = nil
             coreDataManager.deleteAll(request: UserDB.fetchRequest())
             delegate?.logout()

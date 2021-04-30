@@ -86,4 +86,16 @@ class AuthServiceMock: IAuthService {
             throw error
         }
     }
+
+    var invokedToken = false
+    var invokedTokenCount = 0
+    var stubbedTokenCompletionResult: (String?, Error?)?
+
+    func token(_ completion: @escaping (String?, Error?) -> Void) {
+        invokedToken = true
+        invokedTokenCount += 1
+        if let result = stubbedTokenCompletionResult {
+            completion(result.0, result.1)
+        }
+    }
 }

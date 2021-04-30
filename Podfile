@@ -10,6 +10,8 @@ target 'EasyService' do
   
   pod 'Firebase/Auth'
   pod "Firebase/Firestore"
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
   pod 'FirebaseFirestoreSwift'
   pod 'SwiftyJSON'
   pod 'Charts'

@@ -12,6 +12,8 @@ import FirebaseFirestoreSwift
 protocol IFireStoreService: class {
     func addDocument<T>(from value: T) -> DocumentReference? where T: Encodable
     func addDocument<T>(with id: String, from value: T) where T: Encodable
+    func addDocument<T>(of document: String, to collection: String, with id: String, from value: T) where T: Encodable
+    func removeDocument(of document: String, to collection: String, with id: String) 
     func loadDocuments<T>(_ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable
     func loadDocuments<T>(_ completion: @escaping (Result<[(type: DocumentChangeType, item: T?)], Error>) -> Void) -> ListenerRegistration where T: Decodable
     func loadDocuments<T>(where field: String, isEqualTo value: Any, _ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable
@@ -38,6 +40,17 @@ final class FireStoreService: IFireStoreService {
         do {try reference.document(id).setData(from: value)} catch {
             print(error)
         }
+    }
+    
+    func addDocument<T>(of document: String, to collection: String, with id: String, from value: T) where T: Encodable {
+        print("SSSAAAVVV")
+        do {try reference.document(document).collection(collection).document(id).setData(from: value)} catch {
+            print(error)
+        }
+    }
+    
+    func removeDocument(of document: String, to collection: String, with id: String) {
+        reference.document(document).collection(collection).document(id).delete()
     }
     
     func loadDocuments<T>(_ completion: @escaping (Result<[T], Error>) -> Void) where T: Decodable {

@@ -68,6 +68,7 @@
 		7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C0B263A20EF00060F04 /* FireStoreServiceMock.swift */; };
 		7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C0F263A229800060F04 /* CoreDatsStackMock.swift */; };
 		7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C13263A232F00060F04 /* LocalDictionaryMock.swift */; };
+		7DB20C38263B543B00060F04 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C37263B543B00060F04 /* Token.swift */; };
 		7DB726B62637905D00316D9D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B52637905D00316D9D /* Resources.swift */; };
 		7DB726B926388F2D00316D9D /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B826388F2D00316D9D /* UITableViewExtension.swift */; };
 		7DBFF6812634A25E004FD5EC /* CarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */; };
@@ -173,6 +174,8 @@
 		7DB20C0B263A20EF00060F04 /* FireStoreServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServiceMock.swift; sourceTree = "<group>"; };
 		7DB20C0F263A229800060F04 /* CoreDatsStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatsStackMock.swift; sourceTree = "<group>"; };
 		7DB20C13263A232F00060F04 /* LocalDictionaryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionaryMock.swift; sourceTree = "<group>"; };
+		7DB20C37263B543B00060F04 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		7DB20C3D263B5FB600060F04 /* EasyService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EasyService.entitlements; sourceTree = "<group>"; };
 		7DB726B52637905D00316D9D /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		7DB726B826388F2D00316D9D /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7DB726BF263A1AC300316D9D /* EasyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -596,6 +599,7 @@
 				7D7F71122622419700B3341E /* Car.swift */,
 				7D7F71142622544000B3341E /* Service.swift */,
 				7D90033826271764002168C1 /* Registration.swift */,
+				7DB20C37263B543B00060F04 /* Token.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -632,6 +636,7 @@
 		7DF7A49625A0EA920053C413 /* EasyService */ = {
 			isa = PBXGroup;
 			children = (
+				7DB20C3D263B5FB600060F04 /* EasyService.entitlements */,
 				7D21928F2626487700B77667 /* Supporting Files */,
 				7D90C3E22620F94B0035B704 /* Resources */,
 				7DE0A410261F672C002773E3 /* Service Layer */,
@@ -939,6 +944,7 @@
 				7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */,
 				7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */,
 				7D39FAE426378B4900710CE0 /* CoreAssembly.swift in Sources */,
+				7DB20C38263B543B00060F04 /* Token.swift in Sources */,
 				7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */,
 				7D90C3DF2620D23F0035B704 /* ItemInListChooserViewController.swift in Sources */,
 				7D90033D26271A9D002168C1 /* Service.xcdatamodeld in Sources */,
@@ -1158,15 +1164,19 @@
 			baseConfigurationReference = BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EasyService/EasyService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UKXNSMQN9;
 				INFOPLIST_FILE = EasyService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.rokymiel.EasyService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1177,15 +1187,19 @@
 			baseConfigurationReference = 5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EasyService/EasyService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UKXNSMQN9;
 				INFOPLIST_FILE = EasyService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.rokymiel.EasyService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
