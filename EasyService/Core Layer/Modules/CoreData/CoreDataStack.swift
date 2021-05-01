@@ -13,7 +13,7 @@ import UIKit
 protocol ICoreDatsStack {
     var container: NSPersistentContainer { get }
     func getViewContext() -> NSManagedObjectContext
-    
+    func setupContainer()
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void )
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]?
     func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>) -> Int?
@@ -35,8 +35,11 @@ class CoreDataStack: ICoreDatsStack {
         }
 //        self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return container
-        
     }()
+    
+    func setupContainer() {
+        _ = container
+    }
     
     func getViewContext() -> NSManagedObjectContext {
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -89,7 +92,7 @@ class CoreDataStack: ICoreDatsStack {
 }
 
 extension NSManagedObjectContext {
-    func trySave() -> Bool {
+    @objc func trySave() -> Bool {
         if self.hasChanges {
             do {
                 print("TrySave")

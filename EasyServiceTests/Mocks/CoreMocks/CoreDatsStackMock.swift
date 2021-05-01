@@ -31,6 +31,14 @@ class CoreDatsStackMock: ICoreDatsStack {
         return stubbedGetViewContextResult
     }
 
+    var invokedSetupContainer = false
+    var invokedSetupContainerCount = 0
+
+    func setupContainer() {
+        invokedSetupContainer = true
+        invokedSetupContainerCount += 1
+    }
+
     var invokedPerform = false
     var invokedPerformCount = 0
     var stubbedPerformBlockResult: (NSManagedObjectContext, Void)?

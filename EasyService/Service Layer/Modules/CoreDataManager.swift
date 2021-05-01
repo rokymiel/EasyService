@@ -22,7 +22,7 @@ class CoreDataManager: ICoreDataManager {
     init(dataStack: ICoreDatsStack) {
         self.coreDataStack = dataStack
         queue.async(flags: .barrier) {
-            _ = self.coreDataStack.container
+            self.coreDataStack.setupContainer()
         }
     }
     
