@@ -1,5 +1,7 @@
 
 language: swift
+osx_image: xcode12.2
+xcode_destination: platform=iOS Simulator,OS=13.6,name=iPhone 11
 cache:
   - cocoapods
   - bundler
