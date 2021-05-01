@@ -4,7 +4,7 @@ lane :build_for_testing do
   scan(
     build_for_testing: true,
     devices: ["iPhone 11"],
-    sdk: "iOS 13.6" 
+    sdk: "iOS 13.5" 
   )
 end
 
@@ -13,7 +13,7 @@ lane :test_without_building do
   scan(
     test_without_building: true,
     devices: ["iPhone 11"],
-    sdk: "iOS 13.6" 
+    sdk: "iOS 13.5" 
   )
 end
 
