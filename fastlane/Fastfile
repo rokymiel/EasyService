@@ -2,18 +2,14 @@ desc "Installs dependencies and builds with scan"
 lane :build_for_testing do
   cocoapods
   scan(
-    build_for_testing: true,
-    devices: ["iPhone 11"],
-    sdk: "iOS 13.5" 
+    build_for_testing: true
   )
 end
 
 desc "Runs tests on an already compiled application"
 lane :test_without_building do
   scan(
-    test_without_building: true,
-    devices: ["iPhone 11"],
-    sdk: "iOS 13.5" 
+    test_without_building: true
   )
 end
 
