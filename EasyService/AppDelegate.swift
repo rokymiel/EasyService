@@ -48,20 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
         //                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
         //            application.registerUserNotificationSettings(settings)
         //        }
-        application.registerForRemoteNotifications()
+        UIApplication.shared.registerForRemoteNotifications()
 //        DispatchQueue.main.async {
         self.window?.rootViewController = MainNavigationController(rootAssemblyType: RootAssembly.self)
             self.window?.makeKeyAndVisible()
             
 //        }
         
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FCM registration token: \(token)")
-            }
-        }
+
         //        Messaging.messaging().shouldEstablishDirectChannel = false
         //
         //        Messaging.messaging().delegate = self
@@ -93,7 +87,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
     //            Messaging.messaging().apnsToken = deviceToken
     //
     //    }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("deviceToken",deviceToken)
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FCM registration token: \(token)")
+            }
+        }
+    }
     
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        fatalError(error.localizedDescription)
+    }
     
 }
 
