@@ -45,8 +45,8 @@ class CoreDatsStackMock: ICoreDatsStack {
 
     var invokedFetch = false
     var invokedFetchCount = 0
-    var invokedFetchParameters: (request: Any, Void)?
-    var invokedFetchParametersList = [(request: Any, Void)]()
+    var invokedFetchParameters: (request: AnyObject, Void)?
+    var invokedFetchParametersList = [(request: AnyObject, Void)]()
     var stubbedFetchResult: [Any]!
 
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]? {
@@ -59,11 +59,11 @@ class CoreDatsStackMock: ICoreDatsStack {
 
     var invokedCount = false
     var invokedCountCount = 0
-    var invokedCountParameters: (request: NSFetchRequest<NSFetchRequestResult>, Void)?
-    var invokedCountParametersList = [(request: NSFetchRequest<NSFetchRequestResult>, Void)]()
+    var invokedCountParameters: (request: AnyObject, Void)?
+    var invokedCountParametersList = [(request: AnyObject, Void)]()
     var stubbedCountResult: Int!
 
-    func count(request: NSFetchRequest<NSFetchRequestResult>) -> Int? {
+    func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>) -> Int? {
         invokedCount = true
         invokedCountCount += 1
         invokedCountParameters = (request, ())
@@ -73,8 +73,8 @@ class CoreDatsStackMock: ICoreDatsStack {
 
     var invokedDelete = false
     var invokedDeleteCount = 0
-    var invokedDeleteParameters: (request: Any, Void)?
-    var invokedDeleteParametersList = [(request: Any, Void)]()
+    var invokedDeleteParameters: (request: AnyObject, Void)?
+    var invokedDeleteParametersList = [(request: AnyObject, Void)]()
 
     func delete<T: NSFetchRequestResult> (request: NSFetchRequest<T>) {
         invokedDelete = true
