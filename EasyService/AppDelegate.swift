@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        fatalError(error.localizedDescription)
+        //fatalError(error.localizedDescription)
     }
     
 }
