@@ -26,30 +26,74 @@ class CoreDataManagerTest: XCTestCase {
         coreDataManager = nil
     }
     
-//    func test_save() {
-//        // given
-//        let didReceiveResponse = expectation(description: #function)
-//        let context = NSManagedObjectContextMock()
-//        coreDatsStackMock.stubbedPerformBlockResult = (context, ())
-//        let model = DBModelMock()
-//        
-//        model.stubbedToDBModelResult = NSManagedObject(context: context)
-//        
-//        // when
-//        coreDataManager.save(model: model) {
-//            didReceiveResponse.fulfill()
-//        }
-//        
-//        // then
-//        wait(for: [didReceiveResponse], timeout: 0.01)
-//        XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
-//        XCTAssertTrue(coreDatsStackMock.invokedPerform)
-//        XCTAssertTrue(model.invokedToDBModel)
-//        assert(model.invokedToDBModelParameters?.context === context)
-//        XCTAssertTrue(context.invokedSave)
-//    }
+    func test_save() {
+        // given
+        let didReceiveResponse = expectation(description: #function)
+        let context = NSManagedObjectContextMock()
+        coreDatsStackMock.stubbedPerformBlockResult = (context, ())
+        let model = DBModelMock()
+
+        model.stubbedToDBModelResult = CarDB(context: context)
+
+        // when
+        coreDataManager.save(model: model) {
+            didReceiveResponse.fulfill()
+        }
+
+        // then
+        wait(for: [didReceiveResponse], timeout: 0.01)
+        XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
+        XCTAssertTrue(coreDatsStackMock.invokedPerform)
+        XCTAssertTrue(model.invokedToDBModel)
+        assert(model.invokedToDBModelParameters?.context === context)
+        XCTAssertTrue(context.invokedSave)
+    }
     
     func test_fetchAll() {
-        
+        // given
+        let didReceiveResponse = expectation(description: #function)
+        let context = NSManagedObjectContextMock()
+        coreDatsStackMock.stubbedFetchResult = [CarDB(context: context), CarDB(context: context)]
+        let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
+
+        // when
+        var res: [CarDB]?
+        coreDataManager.fetchAll(request: request) { result in
+            didReceiveResponse.fulfill()
+            res = result
+        }
+
+        // then
+        wait(for: [didReceiveResponse], timeout: 0.01)
+        XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
+        XCTAssertTrue(coreDatsStackMock.invokedFetch)
+        XCTAssertNotNil(res)
+        XCTAssertEqual(coreDatsStackMock.stubbedFetchResult as? [CarDB], res)
+
     }
+    
+    func test_fetch() {
+        // given
+        let didReceiveResponse = expectation(description: #function)
+        let context = NSManagedObjectContextMock()
+        let car1 = CarDB(context: context)
+        let car2 = CarDB(context: context)
+        coreDatsStackMock.stubbedFetchResult = [car1, car2]
+        let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
+
+        // when
+        var res: CarDB?
+        coreDataManager.fetch(request: request) { result in
+            didReceiveResponse.fulfill()
+            res = result
+        }
+
+        // then
+        wait(for: [didReceiveResponse], timeout: 0.01)
+        XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
+        XCTAssertTrue(coreDatsStackMock.invokedFetch)
+        XCTAssertNotNil(res)
+        XCTAssertEqual(car1, res)
+    }
+    
 }

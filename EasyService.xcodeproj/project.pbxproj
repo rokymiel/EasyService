@@ -25,7 +25,6 @@
 		7D39FAD52637746C00710CE0 /* CarDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */; };
 		7D39FAD9263789BD00710CE0 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAD8263789BD00710CE0 /* UpdateDelegate.swift */; };
 		7D39FAE426378B4900710CE0 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAE326378B4900710CE0 /* CoreAssembly.swift */; };
-		7D3ECCEC263E116600623769 /* NSManagedObjectMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCEB263E116600623769 /* NSManagedObjectMock.swift */; };
 		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
@@ -140,7 +139,6 @@
 		7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsTableView.swift; sourceTree = "<group>"; };
 		7D39FAD8263789BD00710CE0 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		7D39FAE326378B4900710CE0 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
-		7D3ECCEB263E116600623769 /* NSManagedObjectMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectMock.swift; sourceTree = "<group>"; };
 		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -560,7 +558,6 @@
 				7DB896B0263DFBC10069DA40 /* ModelMock.swift */,
 				7DB896B4263DFF3C0069DA40 /* DBModelMock.swift */,
 				7DB896B8263E003C0069DA40 /* NSManagedObjectContextMock.swift */,
-				7D3ECCEB263E116600623769 /* NSManagedObjectMock.swift */,
 			);
 			path = CoreMocks;
 			sourceTree = "<group>";
@@ -954,7 +951,6 @@
 				7DB896B1263DFBC10069DA40 /* ModelMock.swift in Sources */,
 				7DB896B5263DFF3C0069DA40 /* DBModelMock.swift in Sources */,
 				7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */,
-				7D3ECCEC263E116600623769 /* NSManagedObjectMock.swift in Sources */,
 				7DB20C02263A204200060F04 /* ResourcesMock.swift in Sources */,
 				7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */,
 				7DB20C08263A208800060F04 /* AuthServiceMock.swift in Sources */,
