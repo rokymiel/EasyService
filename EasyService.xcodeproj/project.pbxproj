@@ -75,6 +75,10 @@
 		7DB20C38263B543B00060F04 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20C37263B543B00060F04 /* Token.swift */; };
 		7DB726B62637905D00316D9D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B52637905D00316D9D /* Resources.swift */; };
 		7DB726B926388F2D00316D9D /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB726B826388F2D00316D9D /* UITableViewExtension.swift */; };
+		7DB896AD263DEFCA0069DA40 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB896AC263DEFCA0069DA40 /* CoreDataManagerTest.swift */; };
+		7DB896B1263DFBC10069DA40 /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB896B0263DFBC10069DA40 /* ModelMock.swift */; };
+		7DB896B5263DFF3C0069DA40 /* DBModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB896B4263DFF3C0069DA40 /* DBModelMock.swift */; };
+		7DB896B9263E003C0069DA40 /* NSManagedObjectContextMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB896B8263E003C0069DA40 /* NSManagedObjectContextMock.swift */; };
 		7DBFF6812634A25E004FD5EC /* CarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */; };
 		7DCB8241263433CC00A60A62 /* ServiceRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */; };
 		7DCB824426343B6D00A60A62 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */; };
@@ -188,6 +192,10 @@
 		7DB726B826388F2D00316D9D /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7DB726BF263A1AC300316D9D /* EasyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB726C3263A1AC300316D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DB896AC263DEFCA0069DA40 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
+		7DB896B0263DFBC10069DA40 /* ModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMock.swift; sourceTree = "<group>"; };
+		7DB896B4263DFF3C0069DA40 /* DBModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBModelMock.swift; sourceTree = "<group>"; };
+		7DB896B8263E003C0069DA40 /* NSManagedObjectContextMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContextMock.swift; sourceTree = "<group>"; };
 		7DBFF6802634A25E004FD5EC /* CarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMainViewController.swift; sourceTree = "<group>"; };
 		7DCB8240263433CC00A60A62 /* ServiceRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistrationViewController.swift; sourceTree = "<group>"; };
 		7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -534,6 +542,7 @@
 				7D6ED1DB263D702C003CD973 /* ServiceAssemblyTest.swift */,
 				7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */,
 				7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */,
+				7DB896AC263DEFCA0069DA40 /* CoreDataManagerTest.swift */,
 			);
 			path = ServiceTests;
 			sourceTree = "<group>";
@@ -546,6 +555,9 @@
 				7DB20C0B263A20EF00060F04 /* FireStoreServiceMock.swift */,
 				7DB20C0F263A229800060F04 /* CoreDatsStackMock.swift */,
 				7DB20C13263A232F00060F04 /* LocalDictionaryMock.swift */,
+				7DB896B0263DFBC10069DA40 /* ModelMock.swift */,
+				7DB896B4263DFF3C0069DA40 /* DBModelMock.swift */,
+				7DB896B8263E003C0069DA40 /* NSManagedObjectContextMock.swift */,
 			);
 			path = CoreMocks;
 			sourceTree = "<group>";
@@ -936,13 +948,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB896B1263DFBC10069DA40 /* ModelMock.swift in Sources */,
+				7DB896B5263DFF3C0069DA40 /* DBModelMock.swift in Sources */,
 				7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */,
 				7DB20C02263A204200060F04 /* ResourcesMock.swift in Sources */,
 				7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */,
 				7DB20C08263A208800060F04 /* AuthServiceMock.swift in Sources */,
 				7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */,
 				7D6ED1E2263D703B003CD973 /* ResourcesServiceTest.swift in Sources */,
+				7DB896AD263DEFCA0069DA40 /* CoreDataManagerTest.swift in Sources */,
 				7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */,
+				7DB896B9263E003C0069DA40 /* NSManagedObjectContextMock.swift in Sources */,
 				7D6ED1DC263D702C003CD973 /* ServiceAssemblyTest.swift in Sources */,
 				7D6ED1EB263D76A1003CD973 /* AuthorizationDelegateStub.swift in Sources */,
 				7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */,
@@ -1048,7 +1064,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UKXNSMQN9;
 				INFOPLIST_FILE = EasyServiceTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1071,7 +1087,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UKXNSMQN9;
 				INFOPLIST_FILE = EasyServiceTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
