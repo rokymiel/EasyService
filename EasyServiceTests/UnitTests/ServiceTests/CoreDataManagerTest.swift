@@ -96,4 +96,25 @@ class CoreDataManagerTest: XCTestCase {
         XCTAssertEqual(car1, res)
     }
     
+    func test_count() {
+        // given
+        let didReceiveResponse = expectation(description: #function)
+        coreDatsStackMock.stubbedCountResult = 5
+        let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
+
+        // when
+        var res: Int?
+        coreDataManager.count(request: request) { result in
+            didReceiveResponse.fulfill()
+            res = result
+        }
+
+        // then
+        wait(for: [didReceiveResponse], timeout: 0.01)
+        XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
+        XCTAssertTrue(coreDatsStackMock.invokedCount)
+        XCTAssertNotNil(res)
+        XCTAssertEqual(5, res)
+    }
+    
 }
