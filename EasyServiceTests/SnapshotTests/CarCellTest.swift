@@ -16,7 +16,7 @@ class CarCellTest: FBSnapshotTestCase {
         super.setUp()
         cell = CarViewCell()
         cell.frame = .init(x: 0, y: 0, width: 444, height: 90)
-        cell.configure(.init(identifier: "id", mark: "Audi", model: "A6", body: "Седан", gear: "Автоматическая", engine: 2.2, productionYear: 2019, mileage: []))
+        cell.configure(.fake(identifier: "ID"))
         self.recordMode = false
     }
     

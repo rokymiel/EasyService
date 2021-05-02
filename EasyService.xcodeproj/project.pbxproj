@@ -29,6 +29,11 @@
 		7D3ECCF9263EBA8F00623769 /* TaskExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */; };
 		7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */; };
 		7D4DF345263EE51400B2043A /* CarCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF344263EE51400B2043A /* CarCellTest.swift */; };
+		7D4DF3E6263EEF4F00B2043A /* CarsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3E5263EEF4F00B2043A /* CarsServiceTest.swift */; };
+		7D4DF3EA263EEF6200B2043A /* RegistrationServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3E9263EEF6200B2043A /* RegistrationServiceTest.swift */; };
+		7D4DF3EE263EF37F00B2043A /* ListenerRegistrationStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3ED263EF37F00B2043A /* ListenerRegistrationStub.swift */; };
+		7D4DF3F2263EF6D400B2043A /* UpdateDelegateStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3F1263EF6D400B2043A /* UpdateDelegateStub.swift */; };
+		7D4DF3F6263EF8CE00B2043A /* CarFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3F5263EF8CE00B2043A /* CarFake.swift */; };
 		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
@@ -36,7 +41,6 @@
 		7D6D93A32630DAA300E2E081 /* LabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */; };
 		7D6D93AB2630EFE700E2E081 /* MileageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93A92630EFE700E2E081 /* MileageViewCell.swift */; };
 		7D6D93C72630F96300E2E081 /* MileageChartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */; };
-		7D6ED1DC263D702C003CD973 /* ServiceAssemblyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1DB263D702C003CD973 /* ServiceAssemblyTest.swift */; };
 		7D6ED1E2263D703B003CD973 /* ResourcesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */; };
 		7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */; };
 		7D6ED1EB263D76A1003CD973 /* AuthorizationDelegateStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1EA263D76A1003CD973 /* AuthorizationDelegateStub.swift */; };
@@ -151,6 +155,11 @@
 		7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutor.swift; sourceTree = "<group>"; };
 		7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutorMock.swift; sourceTree = "<group>"; };
 		7D4DF344263EE51400B2043A /* CarCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCellTest.swift; sourceTree = "<group>"; };
+		7D4DF3E5263EEF4F00B2043A /* CarsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsServiceTest.swift; sourceTree = "<group>"; };
+		7D4DF3E9263EEF6200B2043A /* RegistrationServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationServiceTest.swift; sourceTree = "<group>"; };
+		7D4DF3ED263EF37F00B2043A /* ListenerRegistrationStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerRegistrationStub.swift; sourceTree = "<group>"; };
+		7D4DF3F1263EF6D400B2043A /* UpdateDelegateStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegateStub.swift; sourceTree = "<group>"; };
+		7D4DF3F5263EF8CE00B2043A /* CarFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarFake.swift; sourceTree = "<group>"; };
 		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +167,6 @@
 		7D6D93A22630DAA300E2E081 /* LabelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHeaderView.swift; sourceTree = "<group>"; };
 		7D6D93A92630EFE700E2E081 /* MileageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageViewCell.swift; sourceTree = "<group>"; };
 		7D6D93C62630F96300E2E081 /* MileageChartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageChartViewCell.swift; sourceTree = "<group>"; };
-		7D6ED1DB263D702C003CD973 /* ServiceAssemblyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssemblyTest.swift; sourceTree = "<group>"; };
 		7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesServiceTest.swift; sourceTree = "<group>"; };
 		7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactoryTest.swift; sourceTree = "<group>"; };
 		7D6ED1EA263D76A1003CD973 /* AuthorizationDelegateStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationDelegateStub.swift; sourceTree = "<group>"; };
@@ -431,6 +439,8 @@
 			isa = PBXGroup;
 			children = (
 				7D6ED1EA263D76A1003CD973 /* AuthorizationDelegateStub.swift */,
+				7D4DF3ED263EF37F00B2043A /* ListenerRegistrationStub.swift */,
+				7D4DF3F1263EF6D400B2043A /* UpdateDelegateStub.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -448,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				7D741A56263ECAD500805AF1 /* UserFake.swift */,
+				7D4DF3F5263EF8CE00B2043A /* CarFake.swift */,
 			);
 			path = Fake;
 			sourceTree = "<group>";
@@ -575,11 +586,12 @@
 		7DB20BFD263A1FF200060F04 /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				7D6ED1DB263D702C003CD973 /* ServiceAssemblyTest.swift */,
 				7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */,
 				7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */,
 				7DB896AC263DEFCA0069DA40 /* CoreDataManagerTest.swift */,
 				7D741A46263EC3DC00805AF1 /* AccountServiceTest.swift */,
+				7D4DF3E5263EEF4F00B2043A /* CarsServiceTest.swift */,
+				7D4DF3E9263EEF6200B2043A /* RegistrationServiceTest.swift */,
 			);
 			path = ServiceTests;
 			sourceTree = "<group>";
@@ -1008,6 +1020,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB896B1263DFBC10069DA40 /* ModelMock.swift in Sources */,
+				7D4DF3F6263EF8CE00B2043A /* CarFake.swift in Sources */,
 				7D741A52263EC50C00805AF1 /* CoreDataManagerMock.swift in Sources */,
 				7DB896B5263DFF3C0069DA40 /* DBModelMock.swift in Sources */,
 				7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */,
@@ -1021,13 +1034,16 @@
 				7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */,
 				7DB896B9263E003C0069DA40 /* NSManagedObjectContextMock.swift in Sources */,
 				7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */,
-				7D6ED1DC263D702C003CD973 /* ServiceAssemblyTest.swift in Sources */,
 				7D741A47263EC3DC00805AF1 /* AccountServiceTest.swift in Sources */,
+				7D4DF3F2263EF6D400B2043A /* UpdateDelegateStub.swift in Sources */,
 				7D6ED1EB263D76A1003CD973 /* AuthorizationDelegateStub.swift in Sources */,
 				7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */,
 				7D741A4C263EC48000805AF1 /* AuthServiceFactoryMock.swift in Sources */,
 				7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */,
 				7D4DF345263EE51400B2043A /* CarCellTest.swift in Sources */,
+				7D4DF3EE263EF37F00B2043A /* ListenerRegistrationStub.swift in Sources */,
+				7D4DF3EA263EEF6200B2043A /* RegistrationServiceTest.swift in Sources */,
+				7D4DF3E6263EEF4F00B2043A /* CarsServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

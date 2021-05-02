@@ -18,6 +18,7 @@ protocol ICarsService {
     func getCar(_ completetion: @escaping (Result<Car, Error>) -> Void)
     func count(_ completetion: @escaping (Result<Int, Error>) -> Void)
     func add(delegate: UpdateDelegate)
+    var delegates: [WeakRef<UpdateDelegate>] { get }
     func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)?)
     func deleteCars()
 }
@@ -29,7 +30,7 @@ extension ICarsService {
 }
 
 class CarsService: ICarsService {
-    private var delegates = [WeakRef<UpdateDelegate>]()
+    private(set) var delegates = [WeakRef<UpdateDelegate>]()
     
     private let carsFirebaseService: IFireStoreService
     private let coreDataManager: ICoreDataManager
@@ -49,7 +50,7 @@ class CarsService: ICarsService {
     
     func saveNew(car: Car) {
         if let id = car.identifier {
-            _ = carsFirebaseService.addDocument(with: id, from: car)
+            carsFirebaseService.addDocument(with: id, from: car)
         }
         coreDataManager.save(model: car, nil)
     }
