@@ -23,8 +23,17 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
     }()
     private var container = UIContainerView(frame: .zero)
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    init(reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
+    func setupUI() {
         addSubview(container)
         container.backgroundColor = .secondarySystemGroupedBackground
         container.squircle = true

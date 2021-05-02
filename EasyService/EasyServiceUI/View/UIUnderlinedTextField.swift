@@ -25,7 +25,7 @@ class UIUnderlinedTextField: UITextField{
     }
     
     private func addUnderLine() {
-        if layer.sublayers?.contains(border) ?? false{
+        if layer.sublayers?.contains(border) ?? false {
             border.removeFromSuperlayer()
         }
         border.path = UIBezierPath(

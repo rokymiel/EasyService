@@ -33,8 +33,17 @@ class MileageViewCell: UITableViewCell, Configurable {
     
     private let statusImage = UIImageView()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    init(reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
+    func setupUI() {
         addSubview(titleLabel)
         addSubview(mileageLabel)
         addSubview(metricsLabel)

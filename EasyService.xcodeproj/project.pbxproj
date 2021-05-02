@@ -34,6 +34,9 @@
 		7D4DF3EE263EF37F00B2043A /* ListenerRegistrationStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3ED263EF37F00B2043A /* ListenerRegistrationStub.swift */; };
 		7D4DF3F2263EF6D400B2043A /* UpdateDelegateStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3F1263EF6D400B2043A /* UpdateDelegateStub.swift */; };
 		7D4DF3F6263EF8CE00B2043A /* CarFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3F5263EF8CE00B2043A /* CarFake.swift */; };
+		7D4DF438263F504600B2043A /* UIContainerViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF437263F504600B2043A /* UIContainerViewTest.swift */; };
+		7D4DF43C263F555F00B2043A /* RegistrationCollectionViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF43B263F555F00B2043A /* RegistrationCollectionViewCellTest.swift */; };
+		7D4DF440263F55DA00B2043A /* RegistrationFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF43F263F55DA00B2043A /* RegistrationFake.swift */; };
 		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
@@ -75,6 +78,11 @@
 		7D9F2661261F6DD500F04F32 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */; };
 		7D9F2667261F77F700F04F32 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2666261F77F700F04F32 /* FirestoreService.swift */; };
 		7D9F2669261F95E700F04F32 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F2668261F95E700F04F32 /* MainNavigationController.swift */; };
+		7DA1F2EA263F5C3400FC9B3C /* MileageViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1F2E9263F5C3400FC9B3C /* MileageViewCellTest.swift */; };
+		7DA1F2F0263F5DCF00FC9B3C /* UIRoundedButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1F2EF263F5DCF00FC9B3C /* UIRoundedButtonTest.swift */; };
+		7DA1F2F4263F5F0800FC9B3C /* UIUnderlinedTextFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1F2F3263F5F0800FC9B3C /* UIUnderlinedTextFieldTest.swift */; };
+		7DA1F2FA263F5FA800FC9B3C /* UIRoundedTextFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1F2F9263F5FA800FC9B3C /* UIRoundedTextFieldTest.swift */; };
+		7DA1F2FE263F605800FC9B3C /* UIEdgeInsetLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1F2FD263F605800FC9B3C /* UIEdgeInsetLabelTest.swift */; };
 		7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */; };
 		7DA54D1F262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */; };
 		7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */; };
@@ -160,6 +168,9 @@
 		7D4DF3ED263EF37F00B2043A /* ListenerRegistrationStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerRegistrationStub.swift; sourceTree = "<group>"; };
 		7D4DF3F1263EF6D400B2043A /* UpdateDelegateStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegateStub.swift; sourceTree = "<group>"; };
 		7D4DF3F5263EF8CE00B2043A /* CarFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarFake.swift; sourceTree = "<group>"; };
+		7D4DF437263F504600B2043A /* UIContainerViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContainerViewTest.swift; sourceTree = "<group>"; };
+		7D4DF43B263F555F00B2043A /* RegistrationCollectionViewCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCollectionViewCellTest.swift; sourceTree = "<group>"; };
+		7D4DF43F263F55DA00B2043A /* RegistrationFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFake.swift; sourceTree = "<group>"; };
 		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +212,11 @@
 		7D9F2660261F6DD500F04F32 /* PresentationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
 		7D9F2666261F77F700F04F32 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		7D9F2668261F95E700F04F32 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		7DA1F2E9263F5C3400FC9B3C /* MileageViewCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageViewCellTest.swift; sourceTree = "<group>"; };
+		7DA1F2EF263F5DCF00FC9B3C /* UIRoundedButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedButtonTest.swift; sourceTree = "<group>"; };
+		7DA1F2F3263F5F0800FC9B3C /* UIUnderlinedTextFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUnderlinedTextFieldTest.swift; sourceTree = "<group>"; };
+		7DA1F2F9263F5FA800FC9B3C /* UIRoundedTextFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedTextFieldTest.swift; sourceTree = "<group>"; };
+		7DA1F2FD263F605800FC9B3C /* UIEdgeInsetLabelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetLabelTest.swift; sourceTree = "<group>"; };
 		7DA54D1C262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceRegisrtationViewController.swift; sourceTree = "<group>"; };
 		7DA54D1E262BA36F002A6EB5 /* NewServiceRegisrtationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewServiceRegisrtationView.storyboard; sourceTree = "<group>"; };
 		7DB20BD9263A1C7D00060F04 /* ServiceAssemblyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssemblyMock.swift; sourceTree = "<group>"; };
@@ -431,6 +447,13 @@
 			isa = PBXGroup;
 			children = (
 				7D4DF344263EE51400B2043A /* CarCellTest.swift */,
+				7D4DF437263F504600B2043A /* UIContainerViewTest.swift */,
+				7D4DF43B263F555F00B2043A /* RegistrationCollectionViewCellTest.swift */,
+				7DA1F2E9263F5C3400FC9B3C /* MileageViewCellTest.swift */,
+				7DA1F2EF263F5DCF00FC9B3C /* UIRoundedButtonTest.swift */,
+				7DA1F2F3263F5F0800FC9B3C /* UIUnderlinedTextFieldTest.swift */,
+				7DA1F2F9263F5FA800FC9B3C /* UIRoundedTextFieldTest.swift */,
+				7DA1F2FD263F605800FC9B3C /* UIEdgeInsetLabelTest.swift */,
 			);
 			path = SnapshotTests;
 			sourceTree = "<group>";
@@ -459,6 +482,7 @@
 			children = (
 				7D741A56263ECAD500805AF1 /* UserFake.swift */,
 				7D4DF3F5263EF8CE00B2043A /* CarFake.swift */,
+				7D4DF43F263F55DA00B2043A /* RegistrationFake.swift */,
 			);
 			path = Fake;
 			sourceTree = "<group>";
@@ -531,7 +555,6 @@
 				7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */,
 				7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */,
 				7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */,
-				7DB726B826388F2D00316D9D /* UITableViewExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -687,6 +710,7 @@
 				7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */,
 				7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */,
 				7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */,
+				7DB726B826388F2D00316D9D /* UITableViewExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -1026,20 +1050,28 @@
 				7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */,
 				7DB20C02263A204200060F04 /* ResourcesMock.swift in Sources */,
 				7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */,
+				7DA1F2FE263F605800FC9B3C /* UIEdgeInsetLabelTest.swift in Sources */,
 				7DB20C08263A208800060F04 /* AuthServiceMock.swift in Sources */,
+				7D4DF438263F504600B2043A /* UIContainerViewTest.swift in Sources */,
 				7D741A57263ECAD500805AF1 /* UserFake.swift in Sources */,
 				7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */,
+				7D4DF43C263F555F00B2043A /* RegistrationCollectionViewCellTest.swift in Sources */,
 				7D6ED1E2263D703B003CD973 /* ResourcesServiceTest.swift in Sources */,
 				7DB896AD263DEFCA0069DA40 /* CoreDataManagerTest.swift in Sources */,
 				7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */,
+				7DA1F2FA263F5FA800FC9B3C /* UIRoundedTextFieldTest.swift in Sources */,
 				7DB896B9263E003C0069DA40 /* NSManagedObjectContextMock.swift in Sources */,
+				7DA1F2EA263F5C3400FC9B3C /* MileageViewCellTest.swift in Sources */,
+				7DA1F2F0263F5DCF00FC9B3C /* UIRoundedButtonTest.swift in Sources */,
 				7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */,
 				7D741A47263EC3DC00805AF1 /* AccountServiceTest.swift in Sources */,
+				7DA1F2F4263F5F0800FC9B3C /* UIUnderlinedTextFieldTest.swift in Sources */,
 				7D4DF3F2263EF6D400B2043A /* UpdateDelegateStub.swift in Sources */,
 				7D6ED1EB263D76A1003CD973 /* AuthorizationDelegateStub.swift in Sources */,
 				7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */,
 				7D741A4C263EC48000805AF1 /* AuthServiceFactoryMock.swift in Sources */,
 				7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */,
+				7D4DF440263F55DA00B2043A /* RegistrationFake.swift in Sources */,
 				7D4DF345263EE51400B2043A /* CarCellTest.swift in Sources */,
 				7D4DF3EE263EF37F00B2043A /* ListenerRegistrationStub.swift in Sources */,
 				7D4DF3EA263EEF6200B2043A /* RegistrationServiceTest.swift in Sources */,
