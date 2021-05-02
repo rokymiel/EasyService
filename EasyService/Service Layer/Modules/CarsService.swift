@@ -41,6 +41,7 @@ class CarsService: ICarsService {
         self.coreDataManager = coreDataManager
         self.localDictionary = localDictionary
         self.currentId = localDictionary.get("selected_car_id") as? String
+        print("CARCURID", currentId)
         loadAndListen()
     }
     
@@ -91,6 +92,7 @@ class CarsService: ICarsService {
     }
     
     func deleteCars() {
+        deselect()
         listenerRegistration?.remove()
         coreDataManager.deleteAll(request: CarDB.fetchRequest())
     }

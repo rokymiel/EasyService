@@ -16,9 +16,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     private var service: Service!
     private var car: Car!
     private var userId: String!
-    
-    private lazy var chooser: ItemInListChooserViewController = presentationAssembly.buildItemInListChooserViewController()
-    
+        
     @IBOutlet weak var serviceNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var serviceLocationMap: MKMapView!
@@ -162,6 +160,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     }
     
     @IBAction func typeOfWorksChoose(_ sender: Any) {
+        let chooser: ItemInListChooserViewController = presentationAssembly.buildItemInListChooserViewController()
         chooser.items = ["ТО", "Ремонт", "Замена шин"]
         chooser.itemChosenHandler = { [weak self] str in
             self?.typeOfWorksTextField.text = str

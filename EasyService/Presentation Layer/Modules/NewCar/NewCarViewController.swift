@@ -63,7 +63,6 @@ class NewCarViewController: UITableViewController {
         yearTextField.inputAccessoryView = toolbar
         yearTextField.inputView = yearPicker
         
-        chooser = presentationAssembly.buildItemInListChooserViewController()
         cars = resourcesService.getCars()
         gears = resourcesService.getGears()
         carsBodies = resourcesService.getCarsBodies()
@@ -78,52 +77,46 @@ class NewCarViewController: UITableViewController {
         self.view.endEditing(true)
     }
     
-    var chooser: ItemInListChooserViewController?
     private var cars: [String: [String]]?
     private var gears: [String]?
     private var carsBodies: [String]?
     
     @IBAction func markClicked(_ sender: Any) {
-        
-        if let controller = chooser {
-            controller.items = cars?.keys.sorted()
-            controller.itemChosenHandler = { str in
-                self.markTextField.text = str
-            }
-            present(controller, animated: true)
+        let controller = presentationAssembly.buildItemInListChooserViewController()
+        controller.items = cars?.keys.sorted()
+        controller.itemChosenHandler = { str in
+            self.markTextField.text = str
         }
+        present(controller, animated: true)
     }
     
     @IBAction func modelClicked(_ sender: Any) {
-        if let controller = chooser {
-            controller.items = cars?[markTextField.text ?? ""]
-            controller.itemChosenHandler = { str in
-                self.modelTextField.text = str
-            }
-            present(controller, animated: true)
+        let controller = presentationAssembly.buildItemInListChooserViewController()
+        controller.items = cars?[markTextField.text ?? ""]
+        controller.itemChosenHandler = { str in
+            self.modelTextField.text = str
         }
+        present(controller, animated: true)
+        
     }
     
     @IBAction func bodyClicked(_ sender: Any) {
-//        if let controller = chooser {
         let controller = presentationAssembly.buildItemInListChooserViewController()
-            controller.items = carsBodies
-            controller.itemChosenHandler = { str in
-                self.bodyTextField.text = str
-            }
-            present(controller, animated: true)
-//        }
+        controller.items = carsBodies
+        controller.itemChosenHandler = { str in
+            self.bodyTextField.text = str
+        }
+        present(controller, animated: true)
     }
     
     @IBAction func gearClicked(_ sender: Any) {
-        if let controller = chooser {
-            controller.items = gears
-            
-            controller.itemChosenHandler = { str in
-                self.gearTextField.text = str
-            }
-            present(controller, animated: true)
+        let controller = presentationAssembly.buildItemInListChooserViewController()
+        controller.items = gears
+        
+        controller.itemChosenHandler = { str in
+            self.gearTextField.text = str
         }
+        present(controller, animated: true)
     }
     
     private var lastVolumeTextField: Double = 0.2
@@ -144,21 +137,20 @@ class NewCarViewController: UITableViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: Any) {
-        
         engineVolumeTextField.text = String( engineVolumeStepper.value / 10)
     }
-        
+    
     @IBAction func carSavedClicked(_ sender: Any) {
         guard let mark = markTextField.text,
-            let model = modelTextField.text,
-            let body = bodyTextField.text,
-            let gear = gearTextField.text,
-            let engineStr = engineVolumeTextField.text,
-            let engine = Double(engineStr),
-            let yearStr = yearTextField.text,
-            let year = Int(yearStr),
-            let mileageStr = mileageTextField.text,
-            let mileage = Int(mileageStr) else {
+              let model = modelTextField.text,
+              let body = bodyTextField.text,
+              let gear = gearTextField.text,
+              let engineStr = engineVolumeTextField.text,
+              let engine = Double(engineStr),
+              let yearStr = yearTextField.text,
+              let year = Int(yearStr),
+              let mileageStr = mileageTextField.text,
+              let mileage = Int(mileageStr) else {
             markTextField.setPlaceholder(color: .systemRed)
             modelTextField.setPlaceholder(color: .systemRed)
             bodyTextField.setPlaceholder(color: .systemRed)
@@ -166,7 +158,7 @@ class NewCarViewController: UITableViewController {
             engineVolumeTextField.setPlaceholder(color: .systemRed)
             yearTextField.setPlaceholder(color: .systemRed)
             mileageTextField.setPlaceholder(color: .systemRed)
-                return
+            return
         }
         
         saved(Car(identifier: UUID().uuidString, mark: mark, model: model,
