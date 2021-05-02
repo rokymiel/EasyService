@@ -25,6 +25,8 @@
 		7D39FAD52637746C00710CE0 /* CarDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */; };
 		7D39FAD9263789BD00710CE0 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAD8263789BD00710CE0 /* UpdateDelegate.swift */; };
 		7D39FAE426378B4900710CE0 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAE326378B4900710CE0 /* CoreAssembly.swift */; };
+		7D3ECCF9263EBA8F00623769 /* TaskExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */; };
+		7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */; };
 		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
@@ -36,6 +38,10 @@
 		7D6ED1E2263D703B003CD973 /* ResourcesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */; };
 		7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */; };
 		7D6ED1EB263D76A1003CD973 /* AuthorizationDelegateStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED1EA263D76A1003CD973 /* AuthorizationDelegateStub.swift */; };
+		7D741A47263EC3DC00805AF1 /* AccountServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D741A46263EC3DC00805AF1 /* AccountServiceTest.swift */; };
+		7D741A4C263EC48000805AF1 /* AuthServiceFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D741A4B263EC48000805AF1 /* AuthServiceFactoryMock.swift */; };
+		7D741A52263EC50C00805AF1 /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D741A51263EC50C00805AF1 /* CoreDataManagerMock.swift */; };
+		7D741A57263ECAD500805AF1 /* UserFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D741A56263ECAD500805AF1 /* UserFake.swift */; };
 		7D7B0177262F11D000F3CCD8 /* LocalDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */; };
 		7D7BE3B3262CE04000C075F7 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */; };
 		7D7BE3B5262CFCBE00C075F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */; };
@@ -139,6 +145,8 @@
 		7D39FAD42637746C00710CE0 /* CarDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsTableView.swift; sourceTree = "<group>"; };
 		7D39FAD8263789BD00710CE0 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		7D39FAE326378B4900710CE0 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
+		7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutor.swift; sourceTree = "<group>"; };
+		7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutorMock.swift; sourceTree = "<group>"; };
 		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +158,10 @@
 		7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesServiceTest.swift; sourceTree = "<group>"; };
 		7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactoryTest.swift; sourceTree = "<group>"; };
 		7D6ED1EA263D76A1003CD973 /* AuthorizationDelegateStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationDelegateStub.swift; sourceTree = "<group>"; };
+		7D741A46263EC3DC00805AF1 /* AccountServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceTest.swift; sourceTree = "<group>"; };
+		7D741A4B263EC48000805AF1 /* AuthServiceFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactoryMock.swift; sourceTree = "<group>"; };
+		7D741A51263EC50C00805AF1 /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
+		7D741A56263ECAD500805AF1 /* UserFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFake.swift; sourceTree = "<group>"; };
 		7D7B0176262F11D000F3CCD8 /* LocalDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDictionary.swift; sourceTree = "<group>"; };
 		7D7BE3B2262CE04000C075F7 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = EasyService/Assets.xcassets/TextFieldExtension.swift; sourceTree = SOURCE_ROOT; };
 		7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -306,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				7D6BD32A263238EE004C3622 /* WeakRef.swift */,
+				7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -417,6 +430,23 @@
 			path = Stubs;
 			sourceTree = "<group>";
 		};
+		7D741A4A263EC46400805AF1 /* ServiceMock */ = {
+			isa = PBXGroup;
+			children = (
+				7D741A4B263EC48000805AF1 /* AuthServiceFactoryMock.swift */,
+				7D741A51263EC50C00805AF1 /* CoreDataManagerMock.swift */,
+			);
+			path = ServiceMock;
+			sourceTree = "<group>";
+		};
+		7D741A55263ECAC900805AF1 /* Fake */ = {
+			isa = PBXGroup;
+			children = (
+				7D741A56263ECAD500805AF1 /* UserFake.swift */,
+			);
+			path = Fake;
+			sourceTree = "<group>";
+		};
 		7D7B0175262F119B00F3CCD8 /* Local */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +551,7 @@
 		7DB20BD8263A1C6100060F04 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				7D741A4A263EC46400805AF1 /* ServiceMock */,
 				7DB20C00263A202D00060F04 /* CoreMocks */,
 				7DB20BFB263A1FAB00060F04 /* AssmeblyMocks */,
 			);
@@ -543,6 +574,7 @@
 				7D6ED1E1263D703B003CD973 /* ResourcesServiceTest.swift */,
 				7D6ED1E5263D75FD003CD973 /* AuthServiceFactoryTest.swift */,
 				7DB896AC263DEFCA0069DA40 /* CoreDataManagerTest.swift */,
+				7D741A46263EC3DC00805AF1 /* AccountServiceTest.swift */,
 			);
 			path = ServiceTests;
 			sourceTree = "<group>";
@@ -558,6 +590,7 @@
 				7DB896B0263DFBC10069DA40 /* ModelMock.swift */,
 				7DB896B4263DFF3C0069DA40 /* DBModelMock.swift */,
 				7DB896B8263E003C0069DA40 /* NSManagedObjectContextMock.swift */,
+				7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */,
 			);
 			path = CoreMocks;
 			sourceTree = "<group>";
@@ -565,6 +598,7 @@
 		7DB726C0263A1AC300316D9D /* EasyServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				7D741A55263ECAC900805AF1 /* Fake */,
 				7D6ED1E9263D768B003CD973 /* Stubs */,
 				7D6ED1DA263D6FEE003CD973 /* SnapshotTests */,
 				7D6ED1D9263D6FE3003CD973 /* UnitTests */,
@@ -949,19 +983,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB896B1263DFBC10069DA40 /* ModelMock.swift in Sources */,
+				7D741A52263EC50C00805AF1 /* CoreDataManagerMock.swift in Sources */,
 				7DB896B5263DFF3C0069DA40 /* DBModelMock.swift in Sources */,
 				7D6ED1E6263D75FD003CD973 /* AuthServiceFactoryTest.swift in Sources */,
 				7DB20C02263A204200060F04 /* ResourcesMock.swift in Sources */,
 				7DB20C10263A229800060F04 /* CoreDatsStackMock.swift in Sources */,
 				7DB20C08263A208800060F04 /* AuthServiceMock.swift in Sources */,
+				7D741A57263ECAD500805AF1 /* UserFake.swift in Sources */,
 				7DB20BDA263A1C7D00060F04 /* ServiceAssemblyMock.swift in Sources */,
 				7D6ED1E2263D703B003CD973 /* ResourcesServiceTest.swift in Sources */,
 				7DB896AD263DEFCA0069DA40 /* CoreDataManagerTest.swift in Sources */,
 				7DB20BF8263A1F7500060F04 /* CoreAssemblyMock.swift in Sources */,
 				7DB896B9263E003C0069DA40 /* NSManagedObjectContextMock.swift in Sources */,
+				7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */,
 				7D6ED1DC263D702C003CD973 /* ServiceAssemblyTest.swift in Sources */,
+				7D741A47263EC3DC00805AF1 /* AccountServiceTest.swift in Sources */,
 				7D6ED1EB263D76A1003CD973 /* AuthorizationDelegateStub.swift in Sources */,
 				7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */,
+				7D741A4C263EC48000805AF1 /* AuthServiceFactoryMock.swift in Sources */,
 				7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1014,6 +1053,7 @@
 				7D385998262A2CF80036DF3B /* AuthService.swift in Sources */,
 				7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */,
 				7D39FAD9263789BD00710CE0 /* UpdateDelegate.swift in Sources */,
+				7D3ECCF9263EBA8F00623769 /* TaskExecutor.swift in Sources */,
 				7D90034826277D25002168C1 /* CoreDataManager.swift in Sources */,
 				7D0A69D52624D538005C1599 /* ServiceMKAnnotation.swift in Sources */,
 				7DE0A40C261E38BB002773E3 /* DateFormatterExtension.swift in Sources */,

@@ -14,6 +14,7 @@ protocol ICoreAssembly {
     func getFireStoreService(with reference: CollectionReference) -> IFireStoreService
     func getAuthService(_ delegate: AuthorizationDelegate) -> IAuthService
     func getResources() -> IResources
+    func assembleTaskExecutor() -> ITaskExecutor
 }
 
 class CoreAssembly: ICoreAssembly {
@@ -41,4 +42,8 @@ class CoreAssembly: ICoreAssembly {
         return resources
     }
     
+    
+    func assembleTaskExecutor() -> ITaskExecutor {
+        return TaskExecutor()
+    }
 }

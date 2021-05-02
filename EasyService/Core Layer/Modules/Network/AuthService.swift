@@ -20,11 +20,11 @@ protocol AuthorizationDelegate: NSObject {
 protocol IAuthService {
     var delegate: AuthorizationDelegate? { get set }
     
-    var user: Firebase.User? { get }
+    var userId: String? { get }
     
     func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
-    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
+    func signIn(with email: String, password: String, _ completion: @escaping (Result<String?, Error>) -> Void)
     
     func signOut() throws
     
@@ -46,8 +46,8 @@ class AuthService: IAuthService {
         }
     }
     
-    var user: Firebase.User? {
-        Auth.auth().currentUser
+    var userId: String? {
+        Auth.auth().currentUser?.uid
     }
     
     func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
@@ -60,13 +60,13 @@ class AuthService: IAuthService {
         }
     }
     
-    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
+    func signIn(with email: String, password: String, _ completion: @escaping (Result<String?, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            completion(.success(authResult?.user))
+            completion(.success(authResult?.user.uid))
         }
     }
     

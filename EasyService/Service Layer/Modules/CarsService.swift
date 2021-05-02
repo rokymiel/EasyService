@@ -154,7 +154,7 @@ class CarsService: ICarsService {
             request.predicate = predicate
             coreDataManager.fetch(request: request) { (car) in
                 if let car = car {
-                    print("CORE",car)
+                    print("CORE", car)
                     completetion(.success(car.dataModel))
                 } else {
                     completetion(.failure(NoneError.none))

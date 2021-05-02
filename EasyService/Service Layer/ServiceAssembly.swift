@@ -29,11 +29,12 @@ final class ServiceAssembly: IServiceAssembly {
     //    private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("user"))
     private lazy var localDictionary: ILocalDictionary = coreAssembly.getLocalDictionary()
     private lazy var coreDataStack: ICoreDatsStack = coreAssembly.getCoreDataStack()
-    private lazy var coreDataManager: ICoreDataManager = CoreDataManager(dataStack: coreDataStack)
+    private lazy var coreDataManager: ICoreDataManager = CoreDataManager(dataStack: coreDataStack, taskExecutor: coreAssembly.assembleTaskExecutor())
     private lazy var authServiceFactory: IAuthServiceFactory = AuthServiceFactory(coreAssembly: coreAssembly)
     private lazy var accountService: IAccountService = AccountService(authServiceFactory: authServiceFactory,
                                                                       fireStoreService: usersFirestoreService,
-                                                                      coreDataManager: coreDataManager)
+                                                                      coreDataManager: coreDataManager,
+                                                                      taskExecutor: coreAssembly.assembleTaskExecutor())
     private var carsService: ICarsService!
     private var registrationService: IRegistrationService!
     

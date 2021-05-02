@@ -8,8 +8,8 @@
 
 @testable import EasyService
 
-class ModelMock: IModel {
-    typealias DataType = String 
+class ModelMock<T>: IModel {
+    typealias DataType = T
 
     var invokedDataModelGetter = false
     var invokedDataModelGetterCount = 0

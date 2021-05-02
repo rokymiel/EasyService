@@ -68,4 +68,14 @@ class CoreAssemblyMock: ICoreAssembly {
         invokedGetResourcesCount += 1
         return stubbedGetResourcesResult
     }
+
+    var invokedAssembleTaskExecutor = false
+    var invokedAssembleTaskExecutorCount = 0
+    var stubbedAssembleTaskExecutorResult: ITaskExecutor!
+
+    func assembleTaskExecutor() -> ITaskExecutor {
+        invokedAssembleTaskExecutor = true
+        invokedAssembleTaskExecutorCount += 1
+        return stubbedAssembleTaskExecutorResult
+    }
 }

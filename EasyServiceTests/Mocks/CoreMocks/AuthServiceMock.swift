@@ -33,14 +33,14 @@ class AuthServiceMock: IAuthService {
         }
     }
 
-    var invokedUserGetter = false
-    var invokedUserGetterCount = 0
-    var stubbedUser: Firebase.User!
+    var invokedUserIdGetter = false
+    var invokedUserIdGetterCount = 0
+    var stubbedUserId: String!
 
-    var user: Firebase.User? {
-        invokedUserGetter = true
-        invokedUserGetterCount += 1
-        return stubbedUser
+    var userId: String? {
+        invokedUserIdGetter = true
+        invokedUserIdGetterCount += 1
+        return stubbedUserId
     }
 
     var invokedCreateUser = false
@@ -63,9 +63,9 @@ class AuthServiceMock: IAuthService {
     var invokedSignInCount = 0
     var invokedSignInParameters: (email: String, password: String)?
     var invokedSignInParametersList = [(email: String, password: String)]()
-    var stubbedSignInCompletionResult: (Result<Firebase.User?, Error>, Void)?
+    var stubbedSignInCompletionResult: (Result<String?, Error>, Void)?
 
-    func signIn(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
+    func signIn(with email: String, password: String, _ completion: @escaping (Result<String?, Error>) -> Void) {
         invokedSignIn = true
         invokedSignInCount += 1
         invokedSignInParameters = (email, password)

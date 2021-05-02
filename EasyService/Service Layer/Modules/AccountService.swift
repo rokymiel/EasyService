@@ -17,7 +17,7 @@ protocol IAccountService {
     var delegate: AccountDelegate? { get set }
     func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void)
     
-    func signIn(with email: String, password: String, completion: @escaping (Result<Firebase.User?, Error>) -> Void)
+    func signIn(with email: String, password: String, completion: @escaping (Result<String?, Error>) -> Void)
     
     func signOut() throws
 }
@@ -32,40 +32,39 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     private var callbacks = [UserCallback]()
     weak var delegate: AccountDelegate? {
         didSet {
-            if authService.user != nil {
+            if authService.userId != nil {
                 delegate?.login()
             } else {
                 delegate?.logout()
             }
         }
     }
-    
+    private var id: String?
     func authorizationDidChange(_ auth: Aauthorization) {
         switch auth {
         case .user(let user):
-            print("LOL", currentId)
+            id = currentId
             loadUser(with: user.uid)
             delegate?.login()
-//            DispatchQueue.global().async {
-//                self.authService.token { token, _ in
-//                    if let token = token {
-//                        self.fireStoreService.addDocument(of: user.uid, to: "tokens", with: token, from: Token(token: token))
-//                    }
-//                }
-//            }
+            taskExecutor.async {
+                self.authService.token { token, _ in
+                    if let token = token {
+                        self.fireStoreService.addDocument(of: user.uid, to: "tokens", with: token, from: Token(token: token))
+                    }
+                }
+            }
         case .none:
             print("NONE")
             listenerRegistration?.remove()
-//            DispatchQueue.global().async {
-//                self.authService.token { token, _ in
-//                    print("TOOOOOOKK", token)
-//                    print("CID", self.currentId)
-//                    if let token = token, let userId = self.currentId {
-//                        print("REMOVE", token)
-//                        self.fireStoreService.removeDocument(of: userId, to: "tokens", with: token)
-//                    }
-//                }
-//            }
+            taskExecutor.async { [id] in
+                self.authService.token { token, _ in
+                    if let token = token, let userId = id {
+                        print("REMOVE", token)
+                        self.fireStoreService.removeDocument(of: userId, to: "tokens", with: token)
+                    }
+                }
+            }
+            id = nil
             coreDataManager.deleteAll(request: UserDB.fetchRequest())
             delegate?.logout()
         }
@@ -75,35 +74,37 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
     private let coreDataManager: ICoreDataManager
     private let authServiceFactory: IAuthServiceFactory
     private var authService: IAuthService!
+    private var taskExecutor: ITaskExecutor
     
-    init(authServiceFactory: IAuthServiceFactory, fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager) {
+    init(authServiceFactory: IAuthServiceFactory, fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager, taskExecutor: ITaskExecutor) {
         print("ACCINIT")
         self.fireStoreService = fireStoreService
         self.coreDataManager = coreDataManager
         self.authServiceFactory = authServiceFactory
+        self.taskExecutor = taskExecutor
+        self.taskExecutor.queue = .global()
         super.init()
         authService = self.authServiceFactory.buildAuthService(self)
     }
     
     func saveNew(user: User) {
         if let id = user.identifier {
-            _ = fireStoreService.addDocument(with: id, from: user)
+            fireStoreService.addDocument(with: id, from: user)
         }
         coreDataManager.save(model: user, nil)
     }
     
     func getUser(completition: @escaping (Result<User, Error>) -> Void) {
-        print("GUS", authService.user?.uid,"<SD>", currentId)
-        if let user = authService.user {
-            print(user.uid)
-            getUser(with: user.uid, completition: completition)
+        print("GUS", authService.userId,"<SD>", currentId)
+        if let userId = authService.userId {
+            getUser(with: userId, completition: completition)
         } else {
             completition(.failure(NoneError.none))
         }
     }
     
     var currentId: String? {
-        authService.user?.uid
+        authService.userId
     }
     
     private func getUser(with id: String, completition: @escaping (Result<User, Error>) -> Void) {
@@ -140,7 +141,7 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         authService.createUser(with: email, password: password, completion)
     }
     
-    func signIn(with email: String, password: String, completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
+    func signIn(with email: String, password: String, completion: @escaping (Result<String?, Error>) -> Void) {
         authService.signIn(with: email, password: password, completion)
     }
     
