@@ -14,7 +14,7 @@ class CarCellTest: FBSnapshotTestCase {
     var cell: CarViewCell!
     override func setUp() {
         super.setUp()
-        cell = CarViewCell()
+        cell = CarViewCell(style: .default, reuseIdentifier: "cell")
         cell.frame = .init(x: 0, y: 0, width: 444, height: 90)
         cell.configure(.fake(identifier: "ID"))
         self.recordMode = false

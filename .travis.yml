@@ -5,7 +5,7 @@ xcode_destination: platform=iOS Simulator,OS=13.6,name=iPhone 11
 cache:
   - cocoapods
   - bundler
-befor_install:
+before_install:
     - gem install bundler
 install:
     - bundle install
