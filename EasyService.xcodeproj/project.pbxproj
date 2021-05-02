@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262838D31FEB1FDED326A5CC /* Pods_EasyService_EasyServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209828B51DC21CD4B15B66B2 /* Pods_EasyService_EasyServiceTests.framework */; };
 		2B88B6E95F79C93244F404AF /* Pods_EasyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3440064850FC7CB26443334A /* Pods_EasyService.framework */; };
 		7D0A69D32624C596005C1599 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69D22624C596005C1599 /* RegistrationService.swift */; };
 		7D0A69D52624D538005C1599 /* ServiceMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */; };
@@ -27,6 +28,7 @@
 		7D39FAE426378B4900710CE0 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAE326378B4900710CE0 /* CoreAssembly.swift */; };
 		7D3ECCF9263EBA8F00623769 /* TaskExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */; };
 		7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */; };
+		7D4DF345263EE51400B2043A /* CarCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF344263EE51400B2043A /* CarCellTest.swift */; };
 		7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */; };
 		7D6BD32B263238EE004C3622 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6BD32A263238EE004C3622 /* WeakRef.swift */; };
 		7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */; };
@@ -110,7 +112,6 @@
 		7DFFB41D2630869E003C6B4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB41C2630869E003C6B4E /* HomeViewController.swift */; };
 		7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */; };
 		7DFFB42326309EBB003C6B4E /* RegistrationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */; };
-		C987AC9EF0ADB7351D6B377C /* Pods_EasyServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACEB77A84DAB00ECFC74E28 /* Pods_EasyServiceTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +126,9 @@
 
 /* Begin PBXFileReference section */
 		17CA7D246057D496B5EF813E /* Pods-EasyServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyServiceTests/Pods-EasyServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		209828B51DC21CD4B15B66B2 /* Pods_EasyService_EasyServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService_EasyServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3440064850FC7CB26443334A /* Pods_EasyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		543C5557D148232CC059B7BE /* Pods-EasyService-EasyServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService-EasyServiceTests.release.xcconfig"; path = "Target Support Files/Pods-EasyService-EasyServiceTests/Pods-EasyService-EasyServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		590BAF81B173E08373B4EB3F /* Pods-EasyServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyServiceTests.release.xcconfig"; path = "Target Support Files/Pods-EasyServiceTests/Pods-EasyServiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.release.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.release.xcconfig"; sourceTree = "<group>"; };
 		7D0A69D22624C596005C1599 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		7D39FAE326378B4900710CE0 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutor.swift; sourceTree = "<group>"; };
 		7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutorMock.swift; sourceTree = "<group>"; };
+		7D4DF344263EE51400B2043A /* CarCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCellTest.swift; sourceTree = "<group>"; };
 		7D56BAA526343055005C74E4 /* ServiceRegistrationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceRegistrationView.storyboard; sourceTree = "<group>"; };
 		7D6BD32A263238EE004C3622 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		7D6CA30326307B3A00B89C67 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -235,7 +239,7 @@
 		7DFFB41C2630869E003C6B4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DFFB42126309EBB003C6B4E /* RegistrationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationCollectionViewCell.xib; sourceTree = "<group>"; };
-		9ACEB77A84DAB00ECFC74E28 /* Pods_EasyServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		834C07B3A3D8B5494F1ED459 /* Pods-EasyService-EasyServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService-EasyServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyService-EasyServiceTests/Pods-EasyService-EasyServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA7401BE752FED7A5250F7EE /* Pods-EasyService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyService.debug.xcconfig"; path = "Target Support Files/Pods-EasyService/Pods-EasyService.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,7 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C987AC9EF0ADB7351D6B377C /* Pods_EasyServiceTests.framework in Frameworks */,
+				262838D31FEB1FDED326A5CC /* Pods_EasyService_EasyServiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +422,7 @@
 		7D6ED1DA263D6FEE003CD973 /* SnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
+				7D4DF344263EE51400B2043A /* CarCellTest.swift */,
 			);
 			path = SnapshotTests;
 			sourceTree = "<group>";
@@ -762,7 +767,7 @@
 			isa = PBXGroup;
 			children = (
 				3440064850FC7CB26443334A /* Pods_EasyService.framework */,
-				9ACEB77A84DAB00ECFC74E28 /* Pods_EasyServiceTests.framework */,
+				209828B51DC21CD4B15B66B2 /* Pods_EasyService_EasyServiceTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -774,6 +779,8 @@
 				5F43670BA72C65ACBA6D9403 /* Pods-EasyService.release.xcconfig */,
 				17CA7D246057D496B5EF813E /* Pods-EasyServiceTests.debug.xcconfig */,
 				590BAF81B173E08373B4EB3F /* Pods-EasyServiceTests.release.xcconfig */,
+				834C07B3A3D8B5494F1ED459 /* Pods-EasyService-EasyServiceTests.debug.xcconfig */,
+				543C5557D148232CC059B7BE /* Pods-EasyService-EasyServiceTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -789,6 +796,7 @@
 				7DB726BB263A1AC300316D9D /* Sources */,
 				7DB726BC263A1AC300316D9D /* Frameworks */,
 				7DB726BD263A1AC300316D9D /* Resources */,
+				9E7B1970BD097152132CF539 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -914,6 +922,23 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		9E7B1970BD097152132CF539 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyService-EasyServiceTests/Pods-EasyService-EasyServiceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyService-EasyServiceTests/Pods-EasyService-EasyServiceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyService-EasyServiceTests/Pods-EasyService-EasyServiceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD5043A18BA82568481050F3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -929,7 +954,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EasyServiceTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EasyService-EasyServiceTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1002,6 +1027,7 @@
 				7DB20C14263A232F00060F04 /* LocalDictionaryMock.swift in Sources */,
 				7D741A4C263EC48000805AF1 /* AuthServiceFactoryMock.swift in Sources */,
 				7DB20C0C263A20EF00060F04 /* FireStoreServiceMock.swift in Sources */,
+				7D4DF345263EE51400B2043A /* CarCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,7 +1123,7 @@
 /* Begin XCBuildConfiguration section */
 		7DB726C7263A1AC300316D9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17CA7D246057D496B5EF813E /* Pods-EasyServiceTests.debug.xcconfig */;
+			baseConfigurationReference = 834C07B3A3D8B5494F1ED459 /* Pods-EasyService-EasyServiceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -1120,7 +1146,7 @@
 		};
 		7DB726C8263A1AC300316D9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 590BAF81B173E08373B4EB3F /* Pods-EasyServiceTests.release.xcconfig */;
+			baseConfigurationReference = 543C5557D148232CC059B7BE /* Pods-EasyService-EasyServiceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;

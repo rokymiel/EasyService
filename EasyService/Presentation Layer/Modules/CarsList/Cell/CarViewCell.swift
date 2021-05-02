@@ -70,8 +70,7 @@ class CarViewCell: UITableViewCell, Configurable {
 //        backgroundColor = .systemGray6
 //        if let superview = superview {
             carImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-            carImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-            carImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15).isActive = true
+            carImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
             carImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
             carImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
             

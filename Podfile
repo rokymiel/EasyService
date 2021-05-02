@@ -17,7 +17,9 @@ target 'EasyService' do
   pod 'Charts'
   
   target 'EasyServiceTests' do
-      inherit! :search_paths
+      use_frameworks!
+      
+      pod 'iOSSnapshotTestCase'
   end
 
 end
