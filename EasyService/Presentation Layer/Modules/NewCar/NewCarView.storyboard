@@ -12,7 +12,7 @@
         <scene sceneID="F93-Li-AMb">
             <objects>
                 <tableViewController id="2no-9U-k4f" customClass="NewCarViewController" customModule="EasyService" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZjX-gs-tEq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZjX-gs-tEq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="main"/>
@@ -139,7 +139,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd3-Z2-a9o">
-                                                    <rect key="frame" x="10" y="5" width="224" height="34"/>
+                                                    <rect key="frame" x="137" y="5" width="97" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="V8y-LQ-l0L"/>
                                                     </constraints>
@@ -158,15 +158,24 @@
                                                         <action selector="stepperValueChanged:" destination="2no-9U-k4f" eventType="valueChanged" id="oX8-52-4b8"/>
                                                     </connections>
                                                 </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Объем двигателя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V18-LC-87n">
+                                                    <rect key="frame" x="10" y="5" width="117" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="img-ht-rlU" firstAttribute="leading" secondItem="yd3-Z2-a9o" secondAttribute="trailing" constant="5" id="4n1-vN-9Zk"/>
+                                                <constraint firstItem="V18-LC-87n" firstAttribute="top" secondItem="7sI-UO-g8l" secondAttribute="top" constant="5" id="8Ug-mQ-9R1"/>
                                                 <constraint firstItem="img-ht-rlU" firstAttribute="top" secondItem="7sI-UO-g8l" secondAttribute="top" constant="5" id="DBw-0v-yw6"/>
                                                 <constraint firstAttribute="trailing" secondItem="img-ht-rlU" secondAttribute="trailing" constant="10" id="J32-gU-fBT"/>
                                                 <constraint firstAttribute="bottom" secondItem="img-ht-rlU" secondAttribute="bottom" constant="5" id="R0b-mx-rhA"/>
-                                                <constraint firstItem="yd3-Z2-a9o" firstAttribute="leading" secondItem="7sI-UO-g8l" secondAttribute="leading" constant="10" id="bb6-YW-6Za"/>
+                                                <constraint firstItem="yd3-Z2-a9o" firstAttribute="leading" secondItem="V18-LC-87n" secondAttribute="trailing" constant="10" id="bb6-YW-6Za"/>
                                                 <constraint firstItem="yd3-Z2-a9o" firstAttribute="top" secondItem="7sI-UO-g8l" secondAttribute="top" constant="5" id="bdy-rA-fPx"/>
+                                                <constraint firstItem="V18-LC-87n" firstAttribute="leading" secondItem="7sI-UO-g8l" secondAttribute="leading" constant="10" id="e29-DI-Sag"/>
                                                 <constraint firstAttribute="bottom" secondItem="yd3-Z2-a9o" secondAttribute="bottom" constant="5" id="oJa-lB-xNN"/>
+                                                <constraint firstAttribute="bottom" secondItem="V18-LC-87n" secondAttribute="bottom" constant="5" id="xFE-lX-vAb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -303,9 +312,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="114.40000000000001" y="170.68965517241381"/>
+            <point key="canvasLocation" x="-89" y="110"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="oIv-wy-XkC">
+            <size key="intrinsicContentSize" width="77" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="main">
             <color red="0.99599999189376831" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

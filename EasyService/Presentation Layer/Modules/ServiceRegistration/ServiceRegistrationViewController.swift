@@ -61,6 +61,53 @@ class ServiceRegistrationViewController: UITableViewController {
                         self?.costLabel.text = String(cost)
                     }
                     self?.registrationDateLabel.text = registration.dateOfRegistration.fullDateWithTime
+//                    if let time = registration.timeOfWorks {
+//                        self?.registrationEndLabel.text = time.fullDateWithTime
+//                        let calendar = Calendar.current
+//
+//                        // Replace the hour (time) of both dates with 00:00
+//
+////                        let date1 = calendar.startOfDay(for: firstDate)
+////                        let date2 = calendar.startOfDay(for: secondDate)
+////                        let components2 = calendar.dateComponents([.hour, .minute, .second], from: date2)
+////                        let date3 = calendar.date(bySettingHour: components2.hour!, minute: components2.minute!, second: components2.second!, of: date1)!
+//
+//                        let components = calendar.dateComponents([.day, .hour, .minute], from: registration.dateOfRegistration, to: time)
+//                        var interval = ""
+//                        if let days = components.day, days > 0  {
+//                            switch days {
+//                            case 1:
+//                                interval += "\(days) день"
+//                            case 2...4:
+//                                interval += "\(days) деня"
+//                            case 5...:
+//                                interval += "\(days) дней"
+//                            default:
+//                                break
+//                            }
+//                        }
+//
+//                        if let days = components.minute, days > 0  {
+//
+//                        }
+//
+//                        if let days = components.day, days > 0  {
+//                            switch days {
+//                            case 1:
+//                                interval += "\(days) день"
+//                            case 2...4:
+//                                interval += "\(days) деня"
+//                            case 5...:
+//                                interval += "\(days) дней"
+//                            default:
+//                                break
+//                            }
+//                        }
+//
+//
+//                        self?.worksTimeLabel.text = interval
+//
+//                    }
                     self?.registrationEndLabel.text = registration.timeOfWorks?.fullDateWithTime ?? "-"
                     self?.typeOfWorksLabel.text = registration.typeOfWorks
                     self?.notesView.text = registration.notes
