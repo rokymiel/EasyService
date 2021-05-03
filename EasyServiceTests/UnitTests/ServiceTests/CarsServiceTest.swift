@@ -85,12 +85,24 @@ class CarsServiceTest: XCTestCase {
         // then
     }
     
-    func test_count() { // <<<<<<<
+    func test_count() {
         // given
+        coreDataManagerMock.stubbedCountBlockResult = (5, ())
 
+        var res = 0
         // when
+        carsService.count { result in
+            switch result {
+            case .success(let num):
+                res = num
+            case .failure:
+                assertionFailure()
+            }
+        }
 
         // then
+        XCTAssertTrue(coreDataManagerMock.invokedCount)
+        XCTAssertEqual(res, 5)
     }
     
     func test_add() {
@@ -110,7 +122,6 @@ class CarsServiceTest: XCTestCase {
         // given
         let delegate1 = UpdateDelegateStub()
         
-
         // when
         carsService.add(delegate: delegate1)
         do {
@@ -131,12 +142,14 @@ class CarsServiceTest: XCTestCase {
         // then
     }
     
-    func test_deleteCars() {// <<<<<<<
-        // given
-
+    func test_deleteCars() {
         // when
-
+        carsService.deleteCars()
+        
         // then
+        XCTAssertTrue(localDictionaryMock.invokedRemove)
+        XCTAssertNil(carsService.currentId)
+        XCTAssertTrue(coreDataManagerMock.invokedDeleteAll)
     }
 }
 

@@ -14,6 +14,7 @@ protocol IRegistrationService {
     func getRegistration(with id: String, completetion: @escaping (Result<Registration, Error>) -> Void)
     func getRegistrations(with car: String, completetion: @escaping (Result<[Registration], Error>) -> Void)
     func add(delegate: UpdateDelegate)
+    var delegates: [WeakRef<UpdateDelegate>] { get }
     func new(registration: Registration)
     func count(user id: String, _ completetion: @escaping (Result<Int, Error>) -> Void)
     func getService(with id: String, completetion: @escaping (Result<Service, Error>) -> Void)
@@ -23,7 +24,7 @@ protocol IRegistrationService {
 
 class RegistrationService: IRegistrationService {
     
-    private var delegates = [WeakRef<UpdateDelegate>]()
+    private(set) var delegates = [WeakRef<UpdateDelegate>]()
     
     private let servicesFirestore: IFireStoreService
     private let regisrtationsFirestore: IFireStoreService
