@@ -119,7 +119,6 @@ class CarsServiceTest: XCTestCase {
         XCTAssertTrue(coreDataManagerMock.invokedFetch)
         XCTAssertNotNil(res)
         XCTAssertEqual(res?.identifier, carId)
-        
     }
     
     func test_count() {
@@ -173,10 +172,28 @@ class CarsServiceTest: XCTestCase {
     
     func test_addMileage() {
         // given
+        let carId = "CAR_ID"
+        let mileage = Mileage(date: Date(timeIntervalSince1970: 0), value: 60000, isVerified: true)
+        let context = CoreDataStackMock().storeContainer.viewContext
+        let car: Car = .fake(identifier: carId)
+        let carDB = CarDB(car: car, in: context)
+        localDictionaryMock.stubbedGetResult = carId
+        coreDataManagerMock.stubbedFetchBlockResult = (carDB, ())
+        let carsService = CarsService(carsFirebaseService: carsFirebaseServiceMock, coreDataManager: coreDataManagerMock, localDictionary: localDictionaryMock)
         
         // when
+        carsService.addMileage(mileage)
         
         // then
+        XCTAssertTrue(coreDataManagerMock.invokedFetch)
+        XCTAssertTrue(carsFirebaseServiceMock.invokedAddDocumentWith)
+        XCTAssertEqual(carsFirebaseServiceMock.invokedAddDocumentWithParameters?.id, carId)
+        let m = (carsFirebaseServiceMock.invokedAddDocumentWithParameters?.value as? Car)?.mileage
+        XCTAssertEqual(m?.count, 1)
+        XCTAssertEqual(m?.first?.date, mileage.date)
+        XCTAssertEqual(m?.first?.value, mileage.value)
+        XCTAssertEqual(m?.first?.isVerified, mileage.isVerified)
+        
     }
     
     func test_deleteCars() {
