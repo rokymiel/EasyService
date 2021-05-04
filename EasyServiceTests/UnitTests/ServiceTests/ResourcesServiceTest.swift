@@ -29,7 +29,7 @@ class ResourcesServiceTest: XCTestCase {
     func test_getCars() {
         // given
         resourcesMock.stubbedGetDataResult = carsData()
-
+        
         // when
         let carList = resourcesService.getCars()
         
@@ -44,7 +44,7 @@ class ResourcesServiceTest: XCTestCase {
     func test_getGears() {
         // given
         resourcesMock.stubbedGetDataResult = strings()
-
+        
         // when
         let res = resourcesService.getGears()
         
@@ -59,7 +59,7 @@ class ResourcesServiceTest: XCTestCase {
     func test_getCarsBodies() {
         // given
         resourcesMock.stubbedGetDataResult = strings()
-
+        
         // when
         let res = resourcesService.getCarsBodies()
         

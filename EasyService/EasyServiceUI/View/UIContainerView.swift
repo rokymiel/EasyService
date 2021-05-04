@@ -51,7 +51,6 @@ class UIContainerView: UIView {
     func updateView() {
         let backgroundColor = self.backgroundColor
         
-        // set the shadow of the view's layer
         layer.backgroundColor = UIColor.clear.cgColor
         if hasShadow {
             layer.shadowColor = UIColor.black.cgColor
@@ -60,31 +59,25 @@ class UIContainerView: UIView {
         layer.shadowOpacity = 0.3
         layer.shadowRadius = shadowRadius
         
-        
-        // set the cornerRadius of the containerView's layer
         containerView.layer.cornerRadius = cornerRadius
         containerView.layer.masksToBounds = true
         containerView.backgroundColor = backgroundColor
     }
     
     private func layoutView() {
-       
+        
         updateView()
         insertSubview(containerView, at: 0)
-        //
-        // add additional views to the containerView here
-        //
         
-        // add constraints
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        // pin the containerView to the edges to the view
         containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
     }
+    
     override func addSubview(_ view: UIView) {
         containerView.addSubview(view)
     }

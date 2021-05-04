@@ -26,9 +26,7 @@ protocol IModel {
 extension UserDB: IModel {
     convenience init(user: User, in context: NSManagedObjectContext) {
         self.init(context: context)
-        print("init1", user.identifier)
         identifier = user.identifier
-        print("init2", identifier)
         name = user.name
         surname = user.surname
         patronymic = user.patronymic
@@ -39,16 +37,15 @@ extension UserDB: IModel {
         registrationsIDs = user.registrationsIDs
     }
     var dataModel: User {
-        print("dataModel", identifier)
-        return User(identifier: identifier,
-                    name: name!,
-                    surname: surname!,
-                    patronymic: patronymic,
-                    dateOfBirth: dateOfBirth!,
-                    phone: phone!,
-                    email: email!,
-                    carIDs: carIDs!,
-                    registrationsIDs: registrationsIDs!)
+        User(identifier: identifier,
+             name: name!,
+             surname: surname!,
+             patronymic: patronymic,
+             dateOfBirth: dateOfBirth!,
+             phone: phone!,
+             email: email!,
+             carIDs: carIDs!,
+             registrationsIDs: registrationsIDs!)
     }
 }
 
@@ -89,18 +86,16 @@ extension CarDB: IModel {
         productionYear = Int32(car.productionYear)
         
         mileage = car.mileage.map { .init(mileage: $0) }
-        
-        print("SACEEEE", mileage?.count)
     }
     
     var dataModel: Car {
-        return Car(identifier: identifier,
-                   mark: mark!,
-                   model: model!,
-                   body: body!,
-                   gear: gear!,
-                   engine: engine,
-                   productionYear: Int(productionYear), mileage: mileage?.compactMap { Mileage(mileage: $0) } ?? [])
+        Car(identifier: identifier,
+            mark: mark!,
+            model: model!,
+            body: body!,
+            gear: gear!,
+            engine: engine,
+            productionYear: Int(productionYear), mileage: mileage?.compactMap { Mileage(mileage: $0) } ?? [])
     }
 }
 

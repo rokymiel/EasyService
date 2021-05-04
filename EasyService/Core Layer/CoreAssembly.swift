@@ -42,7 +42,6 @@ class CoreAssembly: ICoreAssembly {
         return resources
     }
     
-    
     func assembleTaskExecutor() -> ITaskExecutor {
         return TaskExecutor()
     }

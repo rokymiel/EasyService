@@ -39,7 +39,7 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
         container.squircle = true
         container.updateView()
         container.addSubview(lineChart)
-
+        
         lineChart.translatesAutoresizingMaskIntoConstraints = false
         lineChart.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
         lineChart.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true

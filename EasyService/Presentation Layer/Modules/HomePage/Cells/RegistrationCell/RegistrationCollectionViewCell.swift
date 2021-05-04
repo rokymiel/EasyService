@@ -19,7 +19,7 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
         monthTextLabel.text = model.dateOfRegistration.month
         
         typeOfWorksLabel.text = model.typeOfWorks
-
+        
     }
     
     @IBOutlet weak var dayTextLabel: UILabel!
@@ -37,7 +37,9 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
         print(containerView.squircle)
         print(containerView.layer.cornerCurve)
     }
+    
     private let group = DispatchGroup()
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         print("BB")
@@ -56,7 +58,7 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
                 self.transform = .init(scaleX: 1, y: 1)
             }
         }
-
+        
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -67,5 +69,4 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
             }
         }
     }
-
 }

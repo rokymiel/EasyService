@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CarListViewController: UIViewController{
+class CarListViewController: UIViewController {
     
     @IBOutlet weak var carsListTableView: UITableView!
     private var button: UIRoundedButton!
@@ -21,8 +21,8 @@ class CarListViewController: UIViewController{
         contraller.presentationAssembly = presentationAssembly
         return contraller
     }
-    private var cars = [Car]()//[Car(identifier: "1", mark: "Audi", model: "A6", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2016),
-    // Car(identifier: "2", mark: "Audi", model: "A3", body: "седан", gear: "автоматическая", engine: 2.0, productionYear: 2020)]
+    
+    private var cars = [Car]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +41,6 @@ class CarListViewController: UIViewController{
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(profileClicked))
         
         setCars()
-        
-        // Do any additional setup after loading the view.
     }
     
     func setCars() {
@@ -59,15 +57,18 @@ class CarListViewController: UIViewController{
             }
         }
     }
+    
     @objc func addClicked(sender: Any) {
         let newCarViewController = presentationAssembly.buildNewCarViewController { car in
             self.carsService.saveNew(car: car)
         }
         present(presentationAssembly.buildNavigationController(root: newCarViewController), animated: true)
     }
+    
     @objc func profileClicked(sender: Any) {
         navigationController?.pushViewController(presentationAssembly.buildProfileViewController(), animated: true)
     }
+    
     func getEmptyView(title: String) -> UIView {
         let messageLabel = UILabel()
         messageLabel.text = "Автомобилей нет"
@@ -98,9 +99,7 @@ class CarListViewController: UIViewController{
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         button.addTarget(self, action: #selector(addClicked(sender:)), for: .touchUpInside)
-        //        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        // The only tricky part is here:
         messageLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         messageLabel.textAlignment = .center
         return emptyView
@@ -111,17 +110,6 @@ class CarListViewController: UIViewController{
         navigationController?.pushViewController(tabBar, animated: true)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension CarListViewController: UITableViewDataSource {
@@ -153,6 +141,7 @@ private extension UITableView {
         self.backgroundView = view
         self.separatorStyle = .none
     }
+    
     func setEmptyView(title: String, message: String) {
         let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
         let titleLabel = UIRoundedButton()
@@ -162,8 +151,7 @@ private extension UITableView {
         titleLabel.backgroundColor = .red
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        //    titleLabel.textColor = UIColor.black
-        //    titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        
         messageLabel.textColor = UIColor.lightGray
         messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
         emptyView.addSubview(titleLabel)
@@ -177,7 +165,6 @@ private extension UITableView {
         messageLabel.text = message
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
-        // The only tricky part is here:
         self.backgroundView = emptyView
         self.separatorStyle = .none
     }
@@ -189,7 +176,6 @@ private extension UITableView {
 
 extension CarListViewController: UpdateDelegate {
     func updated(_ sender: Any) {
-        print("UUPPPDD")
         setCars()
     }
     
@@ -198,8 +184,6 @@ extension CarListViewController: UpdateDelegate {
             self.showAlert(with: "Не удалось обновить данные об автомобилях")
         }
     }
-    
-    
 }
 
 extension CarListViewController: UITableViewDelegate {
@@ -209,6 +193,5 @@ extension CarListViewController: UITableViewDelegate {
             carsService.select(id: id)
         }
         openForSelectedCar()
-        //        self.present(, animated: true)
     }
 }

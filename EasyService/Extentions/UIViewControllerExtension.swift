@@ -15,6 +15,7 @@ extension UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = .systemGray
         
     }
+    
     @objc func closeView() {
         dismiss(animated: true)
     }

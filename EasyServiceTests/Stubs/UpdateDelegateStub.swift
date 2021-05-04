@@ -9,8 +9,8 @@
 @testable import EasyService
 
 class UpdateDelegateStub: UpdateDelegate {
-
+    
     func updated(_ sender: Any) {}
-
+    
     func faild(with error: Error, _ sender: Any) {}
 }

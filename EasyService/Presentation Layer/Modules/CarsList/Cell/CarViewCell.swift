@@ -11,12 +11,6 @@ import UIKit
 class CarViewCell: UITableViewCell, Configurable {
     typealias Model = Car
     
-    //    @IBOutlet weak var carImage: UIImageView!
-    //    @IBOutlet weak var markLabel: UILabel!
-    //    @IBOutlet weak var modelLabel: UILabel!
-    //    @IBOutlet weak var bodyLabel: UILabel!
-    //    @IBOutlet weak var yearLabel: UILabel!
-    
     private lazy var carImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "car_placeholder"))
         image.backgroundColor = .systemOrange
@@ -35,7 +29,7 @@ class CarViewCell: UITableViewCell, Configurable {
     private lazy var modelLabel = UILabel()
     private lazy var bodyLabel = UILabel()
     private lazy var yearLabel = UILabel()
-
+    
     func configure(_ model: Car) {
         carImage.layer.cornerCurve = .continuous
         carImage.layer.cornerRadius = carImage.frame.height / 4
@@ -52,32 +46,31 @@ class CarViewCell: UITableViewCell, Configurable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
-
+        
     }
+    
     func setupUI() {
         contentView.addSubview(carImage)
         contentView.addSubview(markLabel)
         contentView.addSubview(modelLabel)
         contentView.addSubview(bodyLabel)
         contentView.addSubview(yearLabel)
-
+        
         carImage.translatesAutoresizingMaskIntoConstraints = false
         markLabel.translatesAutoresizingMaskIntoConstraints = false
         modelLabel.translatesAutoresizingMaskIntoConstraints = false
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         yearLabel.translatesAutoresizingMaskIntoConstraints = false
-
-//        backgroundColor = .systemGray6
-//        if let superview = superview {
-            carImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-            carImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        
+        carImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        carImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         carImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         carImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15).isActive = true
-            carImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
-            carImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
-            
-            yearLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
-//        }
+        carImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        carImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        yearLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
         
         markLabel.bottomAnchor.constraint(equalTo: carImage.centerYAnchor).isActive = true
         markLabel.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 10).isActive = true

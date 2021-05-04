@@ -46,5 +46,4 @@ class TaskExecutor: ITaskExecutor {
     }
     
     var queue: DispatchQueue
-    
 }

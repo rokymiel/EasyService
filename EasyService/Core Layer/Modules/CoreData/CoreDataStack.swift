@@ -27,13 +27,10 @@ class CoreDataStack: ICoreDatsStack {
         let container = NSPersistentContainer(name: dataBaseName)
         container.loadPersistentStores { desc, error in
             desc.shouldMigrateStoreAutomatically = false
-            print("Done")
-//            self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
-//        self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return container
     }()
     
@@ -48,7 +45,7 @@ class CoreDataStack: ICoreDatsStack {
     
     func perform(_ block: @escaping (NSManagedObjectContext) -> Void ) {
         container.performBackgroundTask { (context) in
-            context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy //NSOverwriteMergePolicy
+            context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             block(context)
         }
     }
@@ -58,16 +55,6 @@ class CoreDataStack: ICoreDatsStack {
     }
     
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>) -> [T]? {
-//        let c = try? container.viewContext.fetch(request)
-//        for a in c ?? []{
-//            print(a as? UserDB)
-//        }
-//        print(c as? [T])
-//        let f: NSFetchRequest<UserDB> = UserDB.fetchRequest()
-//        let a = try? container.viewContext.fetch(f).first
-//        print("CREmail", a?.email)
-//        print("CRE", a)
-//        print("CREid", a?.identifier)
         request.returnsObjectsAsFaults = false
         return try? container.viewContext.fetch(request)
     }
@@ -76,18 +63,18 @@ class CoreDataStack: ICoreDatsStack {
         perform { context in
             request.returnsObjectsAsFaults = false
             do {
-                 let results = try context.fetch(request)
-                 for object in results {
-                     guard let objectData = object as? NSManagedObject else {continue}
-                     context.delete(objectData)
-                 }
-               context.trySave()
+                let results = try context.fetch(request)
+                for object in results {
+                    guard let objectData = object as? NSManagedObject else {continue}
+                    context.delete(objectData)
+                }
+                _ = context.trySave()
                 
-             } catch {
-                 NSLog("Не удалось удалить данные из БД: \(error)")
-             }
+            } catch {
+                NSLog("Не удалось удалить данные из БД: \(error)")
+            }
         }
-
+        
     }
 }
 

@@ -33,6 +33,7 @@ class ServicesMapViewController: UIViewController {
         contraller.presentationAssembly = presentationAssembly
         return contraller
     }
+    
     private var searchString: String?
     private var servicePoints: [ServiceMKAnnotation]?
     private var filteredPoints: [ServiceMKAnnotation] {
@@ -68,7 +69,6 @@ class ServicesMapViewController: UIViewController {
         searchTableView.layer.cornerRadius = 15
         searchTableView.layer.cornerCurve = .continuous
         searchBar.delegate = self
-        //        searchTableView.register(UITableViewCell.De.self, forCellReuseIdentifier: cellReuseIdentifier)
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
@@ -81,11 +81,6 @@ class ServicesMapViewController: UIViewController {
     }
     
     func setupCard() {
-        //        visualEffectView = UIVisualEffectView()
-        //        visualEffectView.frame = view.frame
-        ////        view.addSubview(visualEffectView)
-        //        view.insertSubview(visualEffectView, at: 0)
-        
         serviceDetaildController = presentationAssembly.buildAnnotationDetailsViewController()
         addChild(serviceDetaildController)
         view.addSubview(serviceDetaildController.view)
@@ -93,10 +88,8 @@ class ServicesMapViewController: UIViewController {
         serviceDetaildController.view.frame = CGRect(x: 0,
                                                      y: view.frame.height ,
                                                      width: view.bounds.width,
-                                                     height: 2*view.frame.height/3)
+                                                     height: 2 * view.frame.height / 3)
         serviceDetaildController.view.clipsToBounds = true
-        
-        
     }
     
     @objc func handleCardTap(recognizer: UITapGestureRecognizer) {
@@ -125,8 +118,6 @@ class ServicesMapViewController: UIViewController {
         default:
             return
         }
-        
-
     }
     
     func show(state: CardState) {
@@ -149,17 +140,20 @@ class ServicesMapViewController: UIViewController {
             animationProgressWhenInterrupted = animation.fractionComplete
         }
     }
+    
     func updateInteractiveTransition(fractionCompleted: CGFloat) {
         for animation in runningAnimations {
             animation.pauseAnimation()
             animation.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
         }
     }
+    
     func continueInteractiveTransition() {
         for animation in runningAnimations {
             animation.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
     }
+    
     func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
         if runningAnimations.isEmpty {
             let frameAnimation = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
@@ -181,6 +175,7 @@ class ServicesMapViewController: UIViewController {
             runningAnimations.append(frameAnimation)
         }
     }
+    
     func hideDetails() {
         serviceDetaildController.state = .collapsed
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
@@ -189,16 +184,11 @@ class ServicesMapViewController: UIViewController {
                                                               height: self.serviceDetaildController.view.frame.height)
         }, completion: nil)
     }
+    
     func showSmallDetails() {
         serviceDetaildController.state = .small
         print(self.view.frame.height - self.serviceDetaildController.dragSuperAreaView.frame.height)
         let tab = tabBarController?.tabBar.frame.height ?? 0
-//        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseOut) {
-//            self.serviceDetaildController.view.frame = CGRect(x: 0, y: self.view.frame.height - self.serviceDetaildController.dragSuperAreaView.frame.height - tab,
-//                                                              width: self.serviceDetaildController.view.frame.width,
-//                                                              height: self.serviceDetaildController.view.frame.height)
-//        }
-        
         UIView.animate(withDuration: 0.4,
                        delay: 0,
                        usingSpringWithDamping: 0.75,
@@ -207,8 +197,8 @@ class ServicesMapViewController: UIViewController {
                                                               width: self.serviceDetaildController.view.frame.width,
                                                               height: self.serviceDetaildController.view.frame.height)
         }
-        
     }
+    
     func showDetails() {
         if let annotation = mapView.selectedAnnotations.first as? ServiceMKAnnotation {
             serviceDetaildController.configure(annotation.service)
@@ -226,7 +216,6 @@ class ServicesMapViewController: UIViewController {
                                                               width: self.serviceDetaildController.view.frame.width,
                                                               height: self.serviceDetaildController.view.frame.height)
         }
-        
     }
 }
 
@@ -235,46 +224,29 @@ extension ServicesMapViewController: MKMapViewDelegate {
         mapView.view(for: userLocation)?.isEnabled = false
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        //        let translation = recognizer.translation(in: self.view)
         if let annotation = (view.annotation as? ServiceMKAnnotation) {
             serviceDetaildController.configure(annotation.service)
-            var region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
-//            region.center.latitude -= 0.05 / 4.5
-            
+            let region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
             self.mapView.setRegion(region, animated: true)
-            
         }
         showSmallDetails()
-        //        recognizer.setTranslation(.zero, in: self.view)
     }
+    
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        print("DEselected")
         hideDetails()
     }
 }
 
 extension ServicesMapViewController: CLLocationManagerDelegate {
-    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    //        guard let location = locations.last else { return }
-    //        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 4000, longitudinalMeters: 4000)
-    //        mapView.setRegion(region, animated: true)
-    //    }
-    
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
             followUserLocation()
             locationManager.startUpdatingLocation()
-        case .denied:
-            // Show alert
-            break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            // Show alert
-            break
-        case .authorizedAlways:
+        case .authorizedAlways, .restricted, .denied:
             break
         @unknown default: break
         }
@@ -284,8 +256,6 @@ extension ServicesMapViewController: CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             checkLocationAuthorization()
-        } else {
-            // the user didn't turn it on
         }
     }
     
@@ -310,6 +280,7 @@ extension ServicesMapViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         mapView.deselectAnnotation(nil, animated: true)
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchTableView.isHidden = false
         if searchText.isBlank() {
@@ -335,6 +306,7 @@ extension ServicesMapViewController: UISearchBarDelegate {
                           completion: { _ in
                             self.searchTableView.isHidden = true })
     }
+    
     func showSearchTable() {
         isSearching = true
         UIView.transition(with: searchTableView, duration: 0.4,

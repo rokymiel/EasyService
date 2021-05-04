@@ -26,6 +26,4 @@ class UIYearPickerDelegate: NSObject, UIPickerViewDataSource, UIPickerViewDelega
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(row + minYear)
     }
-    
-    
 }

@@ -76,11 +76,11 @@ class AuthService: IAuthService {
     
     func token(_ completion: @escaping (String?, Error?) -> Void) {
         Messaging.messaging().token { token, error in
-          if let error = error {
-            completion(nil, error)
-          } else if let token = token {
-            completion(token, nil)
-          }
+            if let error = error {
+                completion(nil, error)
+            } else if let token = token {
+                completion(token, nil)
+            }
         }
     }
 }

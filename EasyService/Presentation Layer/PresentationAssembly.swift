@@ -52,6 +52,7 @@ final class PresentationAssembly: IPresentationAssembly {
     func buildNewCarViewController(on saved: @escaping (Car) -> Void) -> NewCarViewController {
         return NewCarViewController.sInit(resourcesService: serviceAssembly.getResourcesService(), presentationAssembly: self, on: saved)
     }
+    
     func buildServicesMapViewController() -> ServicesMapViewController {
         return ServicesMapViewController.sInit(presentationAssembly: self, registrationService: serviceAssembly.getRegisrtationService())
     }

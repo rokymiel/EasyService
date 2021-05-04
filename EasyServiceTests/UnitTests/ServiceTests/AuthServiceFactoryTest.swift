@@ -31,7 +31,7 @@ class AuthServiceFactoryTest: XCTestCase {
     func test_buildAuthService() {
         // given
         coreAssemblyMock.stubbedGetAuthServiceResult = AuthServiceMock()
-
+        
         // when
         let res = authServiceFactory.buildAuthService(authorizationDelegateStub)
         

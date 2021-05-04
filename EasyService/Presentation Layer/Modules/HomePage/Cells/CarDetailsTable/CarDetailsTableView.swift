@@ -29,7 +29,6 @@ class CarDetailsTableView: UITableView, Configurable {
         setLayouts()
     }
     
-
     private lazy var markCell = cell()
     private lazy var modelCell = cell()
     private lazy var bodyCell = cell()
@@ -37,6 +36,7 @@ class CarDetailsTableView: UITableView, Configurable {
     private lazy var engineCell = cell()
     private lazy var yearCell = cell()
     private lazy var cells = [markCell, modelCell, bodyCell, gearCell, engineCell, yearCell]
+    
     func setLayouts() {
         backgroundColor = .clear
         dataSource = self
@@ -54,7 +54,8 @@ class CarDetailsTableView: UITableView, Configurable {
         reloadData(animated: true)
         heightAnchor.constraint(equalToConstant: contentSize.height).isActive = true
     }
-    func cell() -> UITableViewCell {
+    
+    private func cell() -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "cellDetails")
         cell.backgroundColor = .clear
         return cell
@@ -68,6 +69,4 @@ extension CarDetailsTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return cells[indexPath.row]
     }
-    
-    
 }

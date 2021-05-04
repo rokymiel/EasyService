@@ -16,7 +16,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     private var service: Service!
     private var car: Car!
     private var userId: String!
-        
+    
     @IBOutlet weak var serviceNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var serviceLocationMap: MKMapView!
@@ -25,25 +25,6 @@ class NewServiceRegisrtationViewController: UITableViewController {
     @IBOutlet weak var typeOfWorksTextField: UITextField!
     @IBOutlet weak var carCell: CarViewCell!
     @IBOutlet weak var notesTextView: UITextView!
-    
-    let dateFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "dd.MM.yyyy"
-        f.locale = .init(identifier: "ru")
-        return f
-    }()
-    let timeFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "HH:mm"
-        f.locale = .init(identifier: "ru")
-        return f
-    }()
-    let resultFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "dd.MM.yyyy HH:mm"
-        f.locale = .init(identifier: "ru")
-        return f
-    }()
     
     private let datePicker = UIDatePicker()
     private let timePicker = UIDatePicker()
@@ -124,16 +105,17 @@ class NewServiceRegisrtationViewController: UITableViewController {
     }
     
     @objc func doneTimePicker() {
-        timeTextField.text = timeFormatter.string(from: timePicker.date)
+        timeTextField.text = timePicker.date.time
         self.view.endEditing(false)
     }
+    
     @objc func doneDatePicker() {
         var calender = Calendar.current
         calender.locale = Locale(identifier: "ru")
         let dayIdx = (calender.component(.weekday, from: datePicker.date) + 5) % 7
         timeTextField.isEnabled = true
         if setTime(dayIdx) {
-            dateTextField.text = dateFormatter.string(from: datePicker.date)
+            dateTextField.text = datePicker.date.fullDate
             self.view.endEditing(false)
         }
     }
@@ -142,13 +124,12 @@ class NewServiceRegisrtationViewController: UITableViewController {
         dateTextField.setPlaceholder()
         self.view.endEditing(false)
     }
+    
     func setTime(_ idx: Int) -> Bool {
-        //        let time = service.workTime[idx]
-        
         let interval = service.workTime[idx].split(separator: "-")
         if interval.count == 2 {
-            let start = timeFormatter.date(from: String(interval[0]))
-            let end = timeFormatter.date(from: String(interval[1]))
+            let start = DateFormatter.timeFormatter().date(from: String(interval[0]))
+            let end = DateFormatter.timeFormatter().date(from: String(interval[1]))
             timePicker.minimumDate = start
             timePicker.maximumDate = end
             return true
@@ -169,18 +150,17 @@ class NewServiceRegisrtationViewController: UITableViewController {
     }
     
     @IBAction func registerClicked(_ sender: Any) {
-        
         guard let type = typeOfWorksTextField.text, !type.isBlank(),
-            let date = dateTextField.text, !date.isBlank(),
-            let time = timeTextField.text, !time.isBlank()
-            else {
-                typeOfWorksTextField.setPlaceholder(color: .systemRed)
-                dateTextField.setPlaceholder(color: .systemRed)
-                timeTextField.setPlaceholder(color: .systemRed)
-                return
+              let date = dateTextField.text, !date.isBlank(),
+              let time = timeTextField.text, !time.isBlank()
+        else {
+            typeOfWorksTextField.setPlaceholder(color: .systemRed)
+            dateTextField.setPlaceholder(color: .systemRed)
+            timeTextField.setPlaceholder(color: .systemRed)
+            return
         }
         guard let carID = car.identifier,
-              let resultDate = resultFormatter.date(from: "\(date) \(time)"),
+              let resultDate = DateFormatter.fullDateWithTimeFormatter().date(from: "\(date) \(time)"),
               let serviceId = service.identifier else {
             return
         }
@@ -199,8 +179,6 @@ class NewServiceRegisrtationViewController: UITableViewController {
                                         serviceId: serviceId)
         
         registrationService.new(registration: registration)
-         dismiss(animated: true, completion: nil)
-        
+        dismiss(animated: true, completion: nil)
     }
-    
 }

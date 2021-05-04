@@ -17,59 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
         if NSClassFromString("XCTest") != nil {
             return true
         }
+        
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        //
-        //        //        self.window = UIWindow(frame: UIScreen.main.bounds)
-        //
-        //        //        UIApplication.shared.windows.first?.rootViewController = PresentationAssembly().buildLoginController()
-        //
-        //        //        Auth.auth().currentUser
-        
-        
-        
-        
-        
-        //        if #available(iOS 10.0, *) {
-        // For iOS 10 display notification (sent via APNS)
         
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
-            completionHandler: {v, error in
-                print("QR", v)
-                print("QQ", error)
-                
-            })
-        //        } else {
-        //            let settings: UIUserNotificationSettings =
-        //                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-        //            application.registerUserNotificationSettings(settings)
-        //        }
+            completionHandler: {_, _ in })
         UIApplication.shared.registerForRemoteNotifications()
-        //        DispatchQueue.main.async {
         self.window?.rootViewController = MainNavigationController(rootAssemblyType: RootAssembly.self)
         self.window?.makeKeyAndVisible()
-        
-        //        }
-        
-        
-        //        Messaging.messaging().shouldEstablishDirectChannel = false
-        //
-        //        Messaging.messaging().delegate = self
-        
-        
-        //        do {
-        //            try Auth.auth().signOut()
-        //        } catch let signOutError as NSError {
-        //          print ("Error signing out: %@", signOutError)
-        //        }
         
         return true
     }
@@ -83,14 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
-    }
-    //    func application(_ application: UIApplication,
-    //                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    //            Messaging.messaging().apnsToken = deviceToken
-    //
-    //    }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("deviceToken",deviceToken)
         Messaging.messaging().token { token, error in
@@ -101,11 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
             }
         }
     }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        //fatalError(error.localizedDescription)
-    }
-    
 }
 
 

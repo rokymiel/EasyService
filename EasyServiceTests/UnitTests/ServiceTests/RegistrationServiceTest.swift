@@ -114,11 +114,11 @@ class RegistrationServiceTest: XCTestCase {
         // given
         let delegate1 = UpdateDelegateStub()
         let delegate2 = UpdateDelegateStub()
-
+        
         // when
         registrationService.add(delegate: delegate1)
         registrationService.add(delegate: delegate2)
-
+        
         // then
         XCTAssertEqual(registrationService.delegates.count, 2)
     }
@@ -155,7 +155,7 @@ class RegistrationServiceTest: XCTestCase {
     func test_count() {
         // given
         coreDataManagerMock.stubbedCountBlockResult = (5, ())
-
+        
         var res = 0
         // when
         registrationService.count(user: userID) { result in
@@ -166,7 +166,7 @@ class RegistrationServiceTest: XCTestCase {
                 assertionFailure()
             }
         }
-
+        
         // then
         XCTAssertTrue(coreDataManagerMock.invokedCount)
         XCTAssertEqual(res, 5)

@@ -14,7 +14,7 @@ class CoreDataManagerTest: XCTestCase {
     var coreDatsStackMock: CoreDataStackMock!
     var taskExecutorMock: TaskExecutorMock!
     var coreDataManager: ICoreDataManager!
-        
+    
     override func setUp() {
         super.setUp()
         taskExecutorMock = TaskExecutorMock()
@@ -37,11 +37,11 @@ class CoreDataManagerTest: XCTestCase {
         let model = DBModelMock()
         taskExecutorMock.shouldInvokeAsyncWork = true
         model.stubbedToDBModelResult = CarDB(context: coreDatsStackMock.storeContainer.viewContext)
-
+        
         // when
         coreDataManager.save(model: model) {
         }
-
+        
         // then
         XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
         XCTAssertTrue(coreDatsStackMock.invokedPerform)
@@ -59,14 +59,14 @@ class CoreDataManagerTest: XCTestCase {
         coreDatsStackMock.stubbedFetchResult = [CarDB(context: context), CarDB(context: context)]
         taskExecutorMock.shouldInvokeAsyncWork = true
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
-
+        
         // when
         var res: [CarDB]?
         coreDataManager.fetchAll(request: request) { result in
             didReceiveResponse.fulfill()
             res = result
         }
-
+        
         // then
         wait(for: [didReceiveResponse], timeout: 0.01)
         XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
@@ -75,7 +75,7 @@ class CoreDataManagerTest: XCTestCase {
         XCTAssertEqual(taskExecutorMock.invokedAsyncCount, 2)
         XCTAssertNotNil(res)
         XCTAssertEqual(coreDatsStackMock.stubbedFetchResult as? [CarDB], res)
-
+        
     }
     
     func test_fetch() {
@@ -86,13 +86,13 @@ class CoreDataManagerTest: XCTestCase {
         coreDatsStackMock.stubbedFetchResult = [car1, car2]
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
         taskExecutorMock.shouldInvokeAsyncWork = true
-
+        
         // when
         var res: CarDB?
         coreDataManager.fetch(request: request) { result in
             res = result
         }
-
+        
         // then
         XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
         XCTAssertTrue(coreDatsStackMock.invokedFetch)
@@ -107,13 +107,13 @@ class CoreDataManagerTest: XCTestCase {
         coreDatsStackMock.stubbedCountResult = 5
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
         taskExecutorMock.shouldInvokeAsyncWork = true
-
+        
         // when
         var res: Int?
         coreDataManager.count(request: request) { result in
             res = result
         }
-
+        
         // then
         XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
         XCTAssertTrue(coreDatsStackMock.invokedCount)
@@ -127,10 +127,10 @@ class CoreDataManagerTest: XCTestCase {
         // given
         coreDatsStackMock.stubbedCountResult = 5
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
-
+        
         // when
         coreDataManager.deleteAll(request: request)
-
+        
         // then
         XCTAssertTrue(coreDatsStackMock.invokedSetupContainer)
         XCTAssertTrue(coreDatsStackMock.invokedDelete)

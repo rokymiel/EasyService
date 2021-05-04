@@ -27,7 +27,7 @@ protocol AccountDelegate: NSObject {
     func logout()
 }
 
-final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
+final class AccountService: NSObject, IAccountService {
     typealias UserCallback = (Result<User, Error>) -> Void
     private var callbacks = [UserCallback]()
     weak var delegate: AccountDelegate? {
@@ -40,6 +40,89 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
         }
     }
     private var id: String?
+    private var listenerRegistration: ListenerRegistration?
+    private let fireStoreService: IFireStoreService
+    private let coreDataManager: ICoreDataManager
+    private let authServiceFactory: IAuthServiceFactory
+    private var authService: IAuthService!
+    private var taskExecutor: ITaskExecutor
+    
+    init(authServiceFactory: IAuthServiceFactory, fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager, taskExecutor: ITaskExecutor) {
+        print("ACCINIT")
+        self.fireStoreService = fireStoreService
+        self.coreDataManager = coreDataManager
+        self.authServiceFactory = authServiceFactory
+        self.taskExecutor = taskExecutor
+        self.taskExecutor.queue = .global()
+        super.init()
+        authService = self.authServiceFactory.buildAuthService(self)
+    }
+    
+    func saveNew(user: User) {
+        if let id = user.identifier {
+            fireStoreService.addDocument(with: id, from: user)
+        }
+        coreDataManager.save(model: user, nil)
+    }
+    
+    func getUser(completition: @escaping (Result<User, Error>) -> Void) {
+        if let userId = authService.userId {
+            getUser(with: userId, completition: completition)
+        } else {
+            completition(.failure(NoneError.none))
+        }
+    }
+    
+    var currentId: String? {
+        authService.userId
+    }
+    
+    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
+        authService.createUser(with: email, password: password, completion)
+    }
+    
+    func signIn(with email: String, password: String, completion: @escaping (Result<String?, Error>) -> Void) {
+        authService.signIn(with: email, password: password, completion)
+    }
+    
+    func signOut() throws {
+        try authService.signOut()
+    }
+    
+    // MARK: - Private
+    
+    private func getUser(with id: String, completition: @escaping (Result<User, Error>) -> Void) {
+        let request: NSFetchRequest<UserDB> = UserDB.fetchRequest()
+        let predicate = NSPredicate(format: "identifier == %@", id)
+        request.predicate = predicate
+        coreDataManager.fetch(request: request) { (result) in
+            if let dbUser = result {
+                let user = dbUser.dataModel
+                completition(.success(user))
+            } else {
+                completition(.failure(NoneError.none))
+            }
+        }
+    }
+    
+    private func loadUser(with id: String) {
+        listenerRegistration = fireStoreService.loadDocument(id: id, listener: userLoaded)
+    }
+    
+    private func userLoaded(result: (Result<User, Error>)) {
+        print("ULOAD", result)
+        if case let .success(user) = result {
+            coreDataManager.save(model: user, {
+                self.coreDataManager.fetchAll(request: UserDB.fetchRequest()) { (res) in
+                }
+            })
+        }
+    }
+    
+    
+}
+
+extension AccountService: AuthorizationDelegate {
     func authorizationDidChange(_ auth: Aauthorization) {
         switch auth {
         case .user(let user):
@@ -69,87 +152,4 @@ final class AccountService: NSObject, IAccountService, AuthorizationDelegate {
             delegate?.logout()
         }
     }
-    
-    private let fireStoreService: IFireStoreService
-    private let coreDataManager: ICoreDataManager
-    private let authServiceFactory: IAuthServiceFactory
-    private var authService: IAuthService!
-    private var taskExecutor: ITaskExecutor
-    
-    init(authServiceFactory: IAuthServiceFactory, fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager, taskExecutor: ITaskExecutor) {
-        print("ACCINIT")
-        self.fireStoreService = fireStoreService
-        self.coreDataManager = coreDataManager
-        self.authServiceFactory = authServiceFactory
-        self.taskExecutor = taskExecutor
-        self.taskExecutor.queue = .global()
-        super.init()
-        authService = self.authServiceFactory.buildAuthService(self)
-    }
-    
-    func saveNew(user: User) {
-        if let id = user.identifier {
-            fireStoreService.addDocument(with: id, from: user)
-        }
-        coreDataManager.save(model: user, nil)
-    }
-    
-    func getUser(completition: @escaping (Result<User, Error>) -> Void) {
-        print("GUS", authService.userId,"<SD>", currentId)
-        if let userId = authService.userId {
-            getUser(with: userId, completition: completition)
-        } else {
-            completition(.failure(NoneError.none))
-        }
-    }
-    
-    var currentId: String? {
-        authService.userId
-    }
-    
-    private func getUser(with id: String, completition: @escaping (Result<User, Error>) -> Void) {
-        let request: NSFetchRequest<UserDB> = UserDB.fetchRequest()
-        let predicate = NSPredicate(format: "identifier == %@", id)
-        request.predicate = predicate
-        coreDataManager.fetch(request: request) { (result) in
-            print("FECH", result)
-            if let dbUser = result {
-                let user = dbUser.dataModel
-                completition(.success(user))
-            } else {
-                completition(.failure(NoneError.none))
-            }
-        }
-    }
-    private var listenerRegistration: ListenerRegistration?
-    private func loadUser(with id: String) {
-        listenerRegistration = fireStoreService.loadDocument(id: id, listener: userLoaded)
-    }
-    
-    private func userLoaded(result: (Result<User, Error>)) {
-        print("ULOAD", result)
-        if case let .success(user) = result {
-            coreDataManager.save(model: user, {
-                self.coreDataManager.fetchAll(request: UserDB.fetchRequest()) { (res) in
-                    print("POQ", res)
-                }
-            })
-        }
-    }
-    
-    func createUser(with email: String, password: String, _ completion: @escaping (Result<Firebase.User?, Error>) -> Void) {
-        authService.createUser(with: email, password: password, completion)
-    }
-    
-    func signIn(with email: String, password: String, completion: @escaping (Result<String?, Error>) -> Void) {
-        authService.signIn(with: email, password: password, completion)
-    }
-    
-    func signOut() throws {
-        try authService.signOut()
-    }
-}
-
-enum NoneError: Error {
-    case none
 }

@@ -62,48 +62,57 @@ class ServiceRegistrationViewController: UITableViewController {
                     }
                     self?.registrationDateLabel.text = registration.dateOfRegistration.fullDateWithTime
                     if let time = registration.timeOfWorks {
-                        self?.registrationEndLabel.text = time.fullDateWithTime
-                        let calendar = Calendar.current
-                        let components = calendar.dateComponents([.day, .hour, .minute], from: registration.dateOfRegistration, to: time)
-                        var interval = [String]()
-                        if let days = components.day, days > 0 {
-                            interval.append("\(days)д.")
-                        }
-
-                        if let hours = components.hour, hours % 24 > 0 {
-                            let h = hours % 24
-                            interval.append("\(h)ч.")
-                        }
-                        
-                        if let minutes = components.minute, minutes % 60 > 0 {
-                            let m = minutes % 60
-                            interval.append("\(m)мин.")
-                        }
-
-                        self?.worksTimeLabel.text = interval.joined(separator: " ")
-
+                        self?.setTimeOfWorks(time, registration.dateOfRegistration)
+                    } else {
+                        self?.worksTimeLabel.text = "-"
                     }
                     self?.registrationEndLabel.text = registration.timeOfWorks?.fullDateWithTime ?? "-"
                     self?.typeOfWorksLabel.text = registration.typeOfWorks
                     self?.notesView.text = registration.notes
-                    self?.registrationService.getService(with: registration.serviceId) { [weak self] result in
-                        DispatchQueue.main.async {
-                            if case let .success(service) = result {
-                                self?.serviceNameLabel.text = service.name
-                                self?.serviceAddressLabel.text = service.address
-                                let annotation = MKPointAnnotation()
-                                annotation.coordinate = .init(latitude: service.location.latitude, longitude: service.location.longitude)
-                                self?.serviceMap.addAnnotation(annotation)
-                                let region = MKCoordinateRegion(center: annotation.coordinate,
-                                                                span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
-                                
-                                self?.serviceMap.setRegion(region, animated: false)
-                            }
-                        }
-                    }
+                    self?.setService(with: registration.serviceId)
                 }
             }
         }
+    }
+    
+    func setService(with service: String) {
+        registrationService.getService(with: service) { [weak self] result in
+            DispatchQueue.main.async {
+                if case let .success(service) = result {
+                    self?.serviceNameLabel.text = service.name
+                    self?.serviceAddressLabel.text = service.address
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = .init(latitude: service.location.latitude, longitude: service.location.longitude)
+                    self?.serviceMap.addAnnotation(annotation)
+                    let region = MKCoordinateRegion(center: annotation.coordinate,
+                                                    span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
+                    
+                    self?.serviceMap.setRegion(region, animated: false)
+                }
+            }
+        }
+    }
+    
+    func setTimeOfWorks(_ time: Date, _ registration: Date) {
+        registrationEndLabel.text = time.fullDateWithTime
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day, .hour, .minute], from: registration, to: time)
+        var interval = [String]()
+        if let days = components.day, days > 0 {
+            interval.append("\(days)д.")
+        }
+        
+        if let hours = components.hour, hours % 24 > 0 {
+            let h = hours % 24
+            interval.append("\(h)ч.")
+        }
+        
+        if let minutes = components.minute, minutes % 60 > 0 {
+            let m = minutes % 60
+            interval.append("\(m)мин.")
+        }
+        
+        worksTimeLabel.text = interval.joined(separator: " ")
     }
     
     func setCancelButton(_ status: Registration.Status) {
@@ -132,7 +141,6 @@ extension ServiceRegistrationViewController: UICollectionViewDataSource {
         }
         switch currentStatus {
         case .canceled, .denied:
-            print("STAT", currentStatus)
             return 2
         default:
             return Registration.Status.statusNumber
@@ -140,7 +148,6 @@ extension ServiceRegistrationViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("CELLLLL")
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: StatusCollectionViewCell.self), for: indexPath) as? StatusCollectionViewCell,
            let currentStatus = registration?.status {
             switch currentStatus {
@@ -173,6 +180,5 @@ extension ServiceRegistrationViewController: UpdateDelegate {
             self.showAlert(with: "Не удалось обновить данные записи")
         }
     }
-    
     
 }

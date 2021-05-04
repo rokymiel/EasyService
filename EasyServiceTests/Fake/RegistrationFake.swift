@@ -23,16 +23,16 @@ extension Registration {
                      typeOfWorks: String? = nil,
                      serviceId: String? = nil) -> Registration {
         Registration(identifier: identifier,
-              carID: carID ?? "CAR_ID",
-              clientID: clientID ?? "CLIENT_ID",
-              cost: cost ?? 999,
-              dateOfCreation: dateOfCreation ?? Date(timeIntervalSince1970: 0),
-              dateOfRegistration: dateOfRegistration ?? Date(timeIntervalSince1970: 0),
-              description: description ?? "QWERTYYU",
-              notes: notes ?? "It's my notes",
-              status: status ?? .new,
-              timeOfWorks: timeOfWorks ?? Date(timeIntervalSince1970: 0),
-              typeOfWorks: typeOfWorks ?? "ТО",
-              serviceId: serviceId ?? "SERVICE_ID")
+                     carID: carID ?? "CAR_ID",
+                     clientID: clientID ?? "CLIENT_ID",
+                     cost: cost ?? 999,
+                     dateOfCreation: dateOfCreation ?? Date(timeIntervalSince1970: 0),
+                     dateOfRegistration: dateOfRegistration ?? Date(timeIntervalSince1970: 0),
+                     description: description ?? "QWERTYYU",
+                     notes: notes ?? "It's my notes",
+                     status: status ?? .new,
+                     timeOfWorks: timeOfWorks ?? Date(timeIntervalSince1970: 0),
+                     typeOfWorks: typeOfWorks ?? "ТО",
+                     serviceId: serviceId ?? "SERVICE_ID")
     }
 }

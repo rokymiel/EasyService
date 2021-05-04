@@ -23,7 +23,5 @@ class StatusCollectionViewCell: UICollectionViewCell, Configurable {
         super.awakeFromNib()
         statusLabel.layer.cornerRadius = 10
         statusLabel.layer.masksToBounds = true
-        // Initialization code
     }
-
 }

@@ -72,14 +72,9 @@ class MileageViewCell: UITableViewCell, Configurable {
         
         statusImage.image = .verified
         statusImage.tintColor = .systemGreen
-        
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
-    
 }

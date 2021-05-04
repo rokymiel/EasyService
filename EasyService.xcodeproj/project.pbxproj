@@ -15,8 +15,6 @@
 		7D0A69DA2624E3C4005C1599 /* AnnotationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */; };
 		7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A69DB2624F3B9005C1599 /* Configurable.swift */; };
 		7D0ECCB0263073FC0025C5DA /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0ECCAF263073FC0025C5DA /* ProfileView.storyboard */; };
-		7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */; };
-		7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */; };
 		7D1E658725A1048500AE97D7 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E658525A1048500AE97D7 /* NewCarViewController.swift */; };
 		7D219295262654F100B77667 /* CarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D219293262654F100B77667 /* CarViewCell.swift */; };
 		7D219296262654F100B77667 /* CarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D219294262654F100B77667 /* CarViewCell.xib */; };
@@ -29,6 +27,8 @@
 		7D39FAE426378B4900710CE0 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39FAE326378B4900710CE0 /* CoreAssembly.swift */; };
 		7D3ECCF9263EBA8F00623769 /* TaskExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */; };
 		7D3ECCFD263EBE1500623769 /* TaskExecutorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */; };
+		7D49F2172641E5A600F12514 /* NoneError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49F2162641E5A600F12514 /* NoneError.swift */; };
+		7D49F21B2641E9CA00F12514 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49F21A2641E9CA00F12514 /* UICollectionViewExtension.swift */; };
 		7D4DF345263EE51400B2043A /* CarCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF344263EE51400B2043A /* CarCellTest.swift */; };
 		7D4DF3E6263EEF4F00B2043A /* CarsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3E5263EEF4F00B2043A /* CarsServiceTest.swift */; };
 		7D4DF3EA263EEF6200B2043A /* RegistrationServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF3E9263EEF6200B2043A /* RegistrationServiceTest.swift */; };
@@ -148,8 +148,6 @@
 		7D0A69D82624E3C4005C1599 /* AnnotationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationDetailsViewController.xib; sourceTree = "<group>"; };
 		7D0A69DB2624F3B9005C1599 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		7D0ECCAF263073FC0025C5DA /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
-		7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
-		7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCarView.xib; sourceTree = "<group>"; };
 		7D1E658525A1048500AE97D7 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
 		7D219293262654F100B77667 /* CarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewCell.swift; sourceTree = "<group>"; };
 		7D219294262654F100B77667 /* CarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarViewCell.xib; sourceTree = "<group>"; };
@@ -162,6 +160,8 @@
 		7D39FAE326378B4900710CE0 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutor.swift; sourceTree = "<group>"; };
 		7D3ECCFC263EBE1500623769 /* TaskExecutorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExecutorMock.swift; sourceTree = "<group>"; };
+		7D49F2162641E5A600F12514 /* NoneError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneError.swift; sourceTree = "<group>"; };
+		7D49F21A2641E9CA00F12514 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		7D4DF344263EE51400B2043A /* CarCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCellTest.swift; sourceTree = "<group>"; };
 		7D4DF3E5263EEF4F00B2043A /* CarsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsServiceTest.swift; sourceTree = "<group>"; };
 		7D4DF3E9263EEF6200B2043A /* RegistrationServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationServiceTest.swift; sourceTree = "<group>"; };
@@ -324,15 +324,6 @@
 			path = "Presentation Layer";
 			sourceTree = "<group>";
 		};
-		7D1E657D25A0FCDC00AE97D7 /* AddCar */ = {
-			isa = PBXGroup;
-			children = (
-				7D1E658025A0FD6D00AE97D7 /* AddCarViewController.swift */,
-				7D1E658125A0FD6D00AE97D7 /* AddCarView.xib */,
-			);
-			path = AddCar;
-			sourceTree = "<group>";
-		};
 		7D1E658425A1045400AE97D7 /* NewCar */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +338,7 @@
 			children = (
 				7D6BD32A263238EE004C3622 /* WeakRef.swift */,
 				7D3ECCF8263EBA8F00623769 /* TaskExecutor.swift */,
+				7D49F2162641E5A600F12514 /* NoneError.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -382,7 +374,6 @@
 				7DE0A3EF261CE87E002773E3 /* Login */,
 				7DE0A3EE261CE85F002773E3 /* Registration */,
 				7D1E658425A1045400AE97D7 /* NewCar */,
-				7D1E657D25A0FCDC00AE97D7 /* AddCar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -711,6 +702,7 @@
 				7D7BE3B4262CFCBE00C075F7 /* UIViewExtension.swift */,
 				7DCB824326343B6D00A60A62 /* UIViewControllerExtension.swift */,
 				7DB726B826388F2D00316D9D /* UITableViewExtension.swift */,
+				7D49F21A2641E9CA00F12514 /* UICollectionViewExtension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -929,7 +921,6 @@
 				7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */,
 				7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */,
 				7D7F71092621A75B00B3341E /* cars.json in Resources */,
-				7D1E658325A0FD6D00AE97D7 /* AddCarView.xib in Resources */,
 				7DE0A3F5261CF4E3002773E3 /* GoogleService-Info.plist in Resources */,
 				7D90C3D8261FAFD70035B704 /* CarListView.storyboard in Resources */,
 				7D56BAA626343055005C74E4 /* ServiceRegistrationView.storyboard in Resources */,
@@ -1132,15 +1123,16 @@
 				7D0A69D52624D538005C1599 /* ServiceMKAnnotation.swift in Sources */,
 				7DE0A40C261E38BB002773E3 /* DateFormatterExtension.swift in Sources */,
 				7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */,
-				7D1E658225A0FD6D00AE97D7 /* AddCarViewController.swift in Sources */,
 				7D7F711A2622587800B3341E /* ServicesMapViewController.swift in Sources */,
 				7DE0A3F8261CFA70002773E3 /* RegistrationViewController.swift in Sources */,
 				7D6D93C72630F96300E2E081 /* MileageChartViewCell.swift in Sources */,
 				7DE0A412261F674B002773E3 /* AccountService.swift in Sources */,
 				7D90C3D5261FAC410035B704 /* CarListViewController.swift in Sources */,
 				7D6CA30426307B3A00B89C67 /* ProfileViewController.swift in Sources */,
+				7D49F2172641E5A600F12514 /* NoneError.swift in Sources */,
 				7D90033F26271ED3002168C1 /* ServiceAssembly.swift in Sources */,
 				7DE0A407261DD210002773E3 /* UIContainerView.swift in Sources */,
+				7D49F21B2641E9CA00F12514 /* UICollectionViewExtension.swift in Sources */,
 				7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */,
 				7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */,
 				7D39FAD52637746C00710CE0 /* CarDetailsTableView.swift in Sources */,

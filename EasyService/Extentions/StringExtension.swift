@@ -20,9 +20,11 @@ extension String {
         let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
     }
+    
     func isBlank() -> Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
+    
     func isTrimmed() -> Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines) == self
     }

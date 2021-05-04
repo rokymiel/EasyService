@@ -106,6 +106,7 @@ class HomeViewController: UITableViewController {
         }
         return nil
     }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if headers[section] != nil {
             return 40
@@ -124,6 +125,7 @@ class HomeViewController: UITableViewController {
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
+    
     func addMileage() {
         showInputDialog(title: "Текущий пробег",
                         inputPlaceholder: "Введите текущий пробег",
@@ -134,15 +136,17 @@ class HomeViewController: UITableViewController {
                                 self.showAlert(with: "Введите неотрицательное число", handler: { _ in self.addMileage()})
                                 return
                             }
-                            self.carsService.addMileage(.init(date: Date(), value: mileage, isVerified: false)) { error in
+                            self.carsService.addMileage(.init(date: Date(), value: mileage, isVerified: false)) { _ in
                                 self.showAlert(with: "Не удалось добавить пробег")
                             }
                         })
     }
+    
     private lazy var headers: [Int: LabelHeaderView.Model] = [
         1: .init(header: "Пробег", action: addMileage, actionText: nil, actionImage: UIImage(systemName: "plus")),
         2: .init(header: "Записи", action: nil, actionText: nil, actionImage: nil)
     ]
+    
     private var carDetailsHidden = true
     @IBAction func carDetailsClicked(_ sender: UIButton) {
         if carDetailsHidden {
@@ -177,7 +181,6 @@ extension HomeViewController: UpdateDelegate {
             }
         }
     }
-
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -195,7 +198,6 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
-        
     }
 }
 
@@ -203,70 +205,15 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        print("ASK")
         return true
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("SELECTED")
         if let id = registrations?[indexPath.row].identifier {
             self.present(presentationAssembly.buildNavigationController(root: presentationAssembly.buildServiceRegistrationViewController(with: id)), animated: true)
         }
-        
-        //        let cell = collectionView.cellForItem(at: indexPath)
-        
-        //        let animation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
-        //        animation.fromValue = 1
-        //        animation.toValue = 0.5
-        //        animation.duration = 2
-        //        animation.autoreverses = true
-        //        cell?.statusLabel.layer.add(animation, forKey: #keyPath(CALayer.opacity))
-        //        cell?.statusLabel.layer.opacity = 0.5
-        //        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: []) {
-        //            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
-        //                cell?.transform = .init(scaleX: 0.8, y: 0.8)
-        //            }
-        //            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
-        //                cell?.transform = .init(scaleX: 1, y: 1)
-        //            }
-        //        }
-        
-        //        UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse]) {
-        //            cell?.transform = .init(scaleX: 0.6, y: 0.6)
-        //        }
         collectionView.deselectItem(at: indexPath, animated: true)
-    }
-}
-
-class FullWidthCollectionViewCell: UICollectionViewCell {
-    override func systemLayoutSizeFitting(
-        _ targetSize: CGSize,
-        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
-        verticalFittingPriority: UILayoutPriority) -> CGSize {
-        
-        // Replace the height in the target size to
-        // allow the cell to flexibly compute its height
-        var targetSize = targetSize
-        targetSize.height = CGFloat.greatestFiniteMagnitude
-        
-        // The .required horizontal fitting priority means
-        // the desired cell width (targetSize.width) will be
-        // preserved. However, the vertical fitting priority is
-        // .fittingSizeLevel meaning the cell will find the
-        // height that best fits the content
-        let size = super.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: .required,
-            verticalFittingPriority: .fittingSizeLevel
-        )
-        
-        return size
-    }
-}
-
-extension UICollectionView {
-    var widestCellWidth: CGFloat {
-        let insets = contentInset.left + contentInset.right
-        return bounds.width - insets
     }
 }

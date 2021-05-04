@@ -10,13 +10,13 @@
 import Foundation
 
 class ResourcesMock: IResources {
-
+    
     var invokedGetData = false
     var invokedGetDataCount = 0
     var invokedGetDataParameters: (forResource: String, withExtension: String)?
     var invokedGetDataParametersList = [(forResource: String, withExtension: String)]()
     var stubbedGetDataResult: Data!
-
+    
     func getData(forResource: String, withExtension: String) -> Data? {
         invokedGetData = true
         invokedGetDataCount += 1

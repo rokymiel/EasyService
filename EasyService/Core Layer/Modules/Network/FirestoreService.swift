@@ -31,6 +31,13 @@ protocol IFireStoreService: class {
 }
 
 final class FireStoreService: IFireStoreService {
+    
+    let reference: CollectionReference
+    
+    init(reference: CollectionReference) {
+        self.reference = reference
+    }
+    
     func addDocument<T>(from value: T) -> DocumentReference? where T: Encodable {
         return try? reference.addDocument(from: value)
     }
@@ -166,12 +173,6 @@ final class FireStoreService: IFireStoreService {
                 print(snapshot?.data())
             }
         }
-    }
-    
-    let reference: CollectionReference
-    
-    init(reference: CollectionReference) {
-        self.reference = reference
     }
     
     func addDocument(data: [String: Any]) {

@@ -26,7 +26,6 @@ final class ServiceAssembly: IServiceAssembly {
     private lazy var usersFirestoreService: IFireStoreService = coreAssembly.getFireStoreService(with: db.collection("users"))
     private var userId: String?
     private lazy var carsFirestoreService: IFireStoreService = coreAssembly.getFireStoreService(with: db.collection("users"))
-    //    private lazy var registrationsFirestoreService: IFireStoreService = FireStoreService(reference: db.collection("user"))
     private lazy var localDictionary: ILocalDictionary = coreAssembly.getLocalDictionary()
     private lazy var coreDataStack: ICoreDatsStack = coreAssembly.getCoreDataStack()
     private lazy var coreDataManager: ICoreDataManager = CoreDataManager(dataStack: coreDataStack, taskExecutor: coreAssembly.assembleTaskExecutor())
@@ -77,10 +76,15 @@ final class ServiceAssembly: IServiceAssembly {
         
     }
     
+    // MARK: - Private
+    
     private func update() {
-        registrationService = RegistrationService(with: userId!, servicesFirestore: servicesFirestoreService, regisrtationsFirestore: registrationsFirestoreService, coreDataManager: coreDataManager)
-        carsService = CarsService(carsFirebaseService: FireStoreService(reference: db.collection("users").document(userId!).collection("cars")),
+        registrationService = RegistrationService(with: userId!,
+                                                  servicesFirestore: servicesFirestoreService,
+                                                  regisrtationsFirestore: registrationsFirestoreService,
+                                                  coreDataManager: coreDataManager)
+        carsService = CarsService(carsFirebaseService: coreAssembly.getFireStoreService(with: db.collection("users").document(userId!).collection("cars")),
+                                  
                                   coreDataManager: coreDataManager, localDictionary: localDictionary)
     }
-        
 }

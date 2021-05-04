@@ -49,7 +49,7 @@ class CarMainViewController: UITabBarController {
         homeNavigation.view.gestureRecognizers = navigationController?.view.gestureRecognizers
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .left
-
+        
         home.view.addGestureRecognizer(edgePan)
     }
     
@@ -61,9 +61,7 @@ class CarMainViewController: UITabBarController {
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized {
-            print("Screen edge swiped!")
             backToCarList()
         }
     }
-    
 }

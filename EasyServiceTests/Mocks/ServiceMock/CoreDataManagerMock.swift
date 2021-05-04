@@ -10,13 +10,13 @@
 import CoreData
 
 class CoreDataManagerMock: ICoreDataManager {
-
+    
     var invokedSave = false
     var invokedSaveCount = 0
     var invokedSaveParameters: (model: IDBModel, Void)?
     var invokedSaveParametersList = [(model: IDBModel, Void)]()
     var shouldInvokeSaveBlock = false
-
+    
     func save(model: IDBModel, _ block: (() -> Void)?) {
         invokedSave = true
         invokedSaveCount += 1
@@ -26,13 +26,13 @@ class CoreDataManagerMock: ICoreDataManager {
             block?()
         }
     }
-
+    
     var invokedFetchAll = false
     var invokedFetchAllCount = 0
     var invokedFetchAllParameters: (request: AnyObject, Void)?
     var invokedFetchAllParametersList = [(request: AnyObject, Void)]()
     var stubbedFetchAllBlockResult: ([Any]?, Void)?
-
+    
     func fetchAll<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping ([T]?) -> Void) {
         invokedFetchAll = true
         invokedFetchAllCount += 1
@@ -42,13 +42,13 @@ class CoreDataManagerMock: ICoreDataManager {
             block(result.0 as? [T])
         }
     }
-
+    
     var invokedFetch = false
     var invokedFetchCount = 0
     var invokedFetchParameters: (request: AnyObject, Void)?
     var invokedFetchParametersList = [(request: AnyObject, Void)]()
     var stubbedFetchBlockResult: (Any?, Void)?
-
+    
     func fetch<T: NSFetchRequestResult> (request: NSFetchRequest<T>, _ block: @escaping (T?) -> Void) {
         invokedFetch = true
         invokedFetchCount += 1
@@ -58,13 +58,13 @@ class CoreDataManagerMock: ICoreDataManager {
             block(result.0 as? T)
         }
     }
-
+    
     var invokedCount = false
     var invokedCountCount = 0
     var invokedCountParameters: (request: AnyObject, Void)?
     var invokedCountParametersList = [(request: AnyObject, Void)]()
     var stubbedCountBlockResult: (Int?, Void)?
-
+    
     func count<T: NSFetchRequestResult>(request: NSFetchRequest<T>, _ block: @escaping (Int?) -> Void) {
         invokedCount = true
         invokedCountCount += 1
@@ -74,12 +74,12 @@ class CoreDataManagerMock: ICoreDataManager {
             block(result.0)
         }
     }
-
+    
     var invokedDeleteAll = false
     var invokedDeleteAllCount = 0
     var invokedDeleteAllParameters: (request: AnyObject, Void)?
     var invokedDeleteAllParametersList = [(request: AnyObject, Void)]()
-
+    
     func deleteAll<T: NSFetchRequestResult>(request: NSFetchRequest<T>) {
         invokedDeleteAll = true
         invokedDeleteAllCount += 1

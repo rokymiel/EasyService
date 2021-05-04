@@ -79,7 +79,7 @@ class AccountServiceTest: XCTestCase {
         let user = User.fake(identifier: "ID")
         let userDB = UserDB(user: user, in: context)
         coreDataManagerMock.stubbedFetchBlockResult = (userDB, ())
-
+        
         // when
         var resUser: EasyService.User?
         accountService.getUser { result in
@@ -90,7 +90,7 @@ class AccountServiceTest: XCTestCase {
                 assertionFailure()
             }
         }
-
+        
         // then
         XCTAssertTrue(authServiceMock.invokedUserIdGetter)
         XCTAssertTrue(coreDataManagerMock.invokedFetch)
@@ -99,7 +99,7 @@ class AccountServiceTest: XCTestCase {
     
     func test_getUserWithoutCurrentUserId() {
         // given
-
+        
         // when
         var error: Error?
         accountService.getUser { res in

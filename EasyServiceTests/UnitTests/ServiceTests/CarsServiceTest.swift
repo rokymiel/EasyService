@@ -40,7 +40,7 @@ class CarsServiceTest: XCTestCase {
         let car: Car = .fake(identifier: carId)
         let carsDB = [CarDB(car: car, in: context)]
         coreDataManagerMock.stubbedFetchAllBlockResult = (carsDB, ())
-
+        
         // when
         var res: [Car]?
         carsService.getCars { result in
@@ -64,7 +64,7 @@ class CarsServiceTest: XCTestCase {
         
         // when
         carsService.saveNew(car: car)
-
+        
         // then
         XCTAssertTrue(carsFirebaseServiceMock.invokedAddDocumentWith)
         XCTAssertEqual(carsFirebaseServiceMock.invokedAddDocumentWithParameters?.id, car.identifier)
@@ -76,10 +76,10 @@ class CarsServiceTest: XCTestCase {
     func test_select() {
         // given
         let id = "ID"
-
+        
         // when
         carsService.select(id: id)
-
+        
         // then
         XCTAssertEqual(carsService.currentId, id)
         XCTAssertTrue(localDictionaryMock.invokedSet)
@@ -89,7 +89,7 @@ class CarsServiceTest: XCTestCase {
     func test_deselect() {
         // when
         carsService.deselect()
-
+        
         // then
         XCTAssertTrue(localDictionaryMock.invokedRemove)
         XCTAssertNil(carsService.currentId)
@@ -104,7 +104,7 @@ class CarsServiceTest: XCTestCase {
         localDictionaryMock.stubbedGetResult = carId
         coreDataManagerMock.stubbedFetchBlockResult = (carDB, ())
         let carsService = CarsService(carsFirebaseService: carsFirebaseServiceMock, coreDataManager: coreDataManagerMock, localDictionary: localDictionaryMock)
-
+        
         // when
         var res: Car?
         carsService.getCar { result in
@@ -119,13 +119,13 @@ class CarsServiceTest: XCTestCase {
         XCTAssertTrue(coreDataManagerMock.invokedFetch)
         XCTAssertNotNil(res)
         XCTAssertEqual(res?.identifier, carId)
-
+        
     }
     
     func test_count() {
         // given
         coreDataManagerMock.stubbedCountBlockResult = (5, ())
-
+        
         var res = 0
         // when
         carsService.count { result in
@@ -136,7 +136,7 @@ class CarsServiceTest: XCTestCase {
                 assertionFailure()
             }
         }
-
+        
         // then
         XCTAssertTrue(coreDataManagerMock.invokedCount)
         XCTAssertEqual(res, 5)
@@ -146,11 +146,11 @@ class CarsServiceTest: XCTestCase {
         // given
         let delegate1 = UpdateDelegateStub()
         let delegate2 = UpdateDelegateStub()
-
+        
         // when
         carsService.add(delegate: delegate1)
         carsService.add(delegate: delegate2)
-
+        
         // then
         XCTAssertEqual(carsService.delegates.count, 2)
     }
@@ -173,9 +173,9 @@ class CarsServiceTest: XCTestCase {
     
     func test_addMileage() {
         // given
-
+        
         // when
-
+        
         // then
     }
     

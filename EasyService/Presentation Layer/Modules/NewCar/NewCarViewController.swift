@@ -27,9 +27,9 @@ class NewCarViewController: UITableViewController {
         contraller.presentationAssembly = presentationAssembly
         contraller.resourcesService = resourcesService
         contraller.saved = saved
-        //        contraller.accountService = accountService
         return contraller
     }
+    
     let yearPicker = UIPickerView()
     var yearPickerDelegate: UIYearPickerDelegate?
     
@@ -51,7 +51,7 @@ class NewCarViewController: UITableViewController {
         yearPicker.dataSource = yearPickerDelegate
         yearPicker.delegate = yearPickerDelegate
         yearPicker.selectRow(year - 1890, inComponent: 0, animated: false)
-        //ToolBar
+        
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
@@ -125,7 +125,7 @@ class NewCarViewController: UITableViewController {
         if let text = engineVolumeTextField.text, !text.isBlank() {
             if let num = Double(text), num >= 0, num <= 10 {
                 lastVolumeTextField = num
-                engineVolumeStepper.value = floor(num*10)
+                engineVolumeStepper.value = floor(num * 10)
                 return
             }
             engineVolumeTextField.text = String(lastVolumeTextField)
@@ -167,12 +167,6 @@ class NewCarViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
 }
-let dateFormatter: DateFormatter = {
-    let f = DateFormatter()
-    f.dateFormat = "dd.MM.yyyy"
-    f.locale = .init(identifier: "ru")
-    return f
-}()
 
 extension NewCarViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

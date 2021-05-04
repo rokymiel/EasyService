@@ -23,7 +23,7 @@ class ItemInListChooserViewController: UIViewController {
     private var filteredPersons: [String] {
         if let items = items {
             if let searchString = searchString?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
-                !searchString.isEmpty {
+               !searchString.isEmpty {
                 return items.filter { $0.lowercased().contains(searchString) }
             }
             return items

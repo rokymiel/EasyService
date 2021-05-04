@@ -10,6 +10,6 @@
 import Foundation
 
 class AuthorizationDelegateStub: NSObject, AuthorizationDelegate {
-
+    
     func authorizationDidChange(_ auth: Aauthorization) {}
 }

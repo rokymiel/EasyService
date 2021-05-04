@@ -10,11 +10,11 @@
 
 class ModelMock<T>: IModel {
     typealias DataType = T
-
+    
     var invokedDataModelGetter = false
     var invokedDataModelGetterCount = 0
     var stubbedDataModel: DataType!
-
+    
     var dataModel: DataType {
         invokedDataModelGetter = true
         invokedDataModelGetterCount += 1

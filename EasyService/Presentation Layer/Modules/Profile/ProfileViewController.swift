@@ -31,7 +31,7 @@ class ProfileViewController: UITableViewController {
         contraller.registrationService = registrationService
         return contraller
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -69,7 +69,7 @@ class ProfileViewController: UITableViewController {
             }
         }
     }
-
+    
     @IBAction func exitClicked(_ sender: Any) {
         do {
             try accountService.signOut()

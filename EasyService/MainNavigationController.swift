@@ -26,11 +26,13 @@ class MainNavigationController: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     lazy var coreDataStack = CoreDataStack()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "main")
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationBar.prefersLargeTitles = true
@@ -55,11 +57,9 @@ class MainNavigationController: UINavigationController {
 
 extension MainNavigationController: AccountDelegate {
     func login() {
-        print("LLLOOOOGGGGIIINNN")
         DispatchQueue.main.async {
             if !self.isLogin || self.isFirst {
                 if !self.isFirst {
-                    print("HEH")
                     self.resetAssemblies()
                     self.setAccountDelegate()
                     
@@ -74,7 +74,6 @@ extension MainNavigationController: AccountDelegate {
     
     func logout() {
         DispatchQueue.main.async {
-            print("ASA")
             if self.isFirst || self.isLogin {
                 self.isLogin = false
                 self.isFirst = false
@@ -82,8 +81,6 @@ extension MainNavigationController: AccountDelegate {
                 
                 self.setNavigationBarHidden(true, animated: true)
                 self.setViewControllers([login], animated: true)
-                print("ASSSA", self.viewControllers.count)
-                
             }
         }
     }

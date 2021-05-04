@@ -33,12 +33,12 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
     
     let datePicker = UIDatePicker()
     
-    let formatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "dd.MM.yyyy"
-        f.locale = NSLocale.current
-        return f
-    }()
+    //    let formatter: DateFormatter = {
+    //        let f = DateFormatter()
+    //        f.dateFormat = "dd.MM.yyyy"
+    //        f.locale = NSLocale.current
+    //        return f
+    //    }()
     
     class func sInit(accountService: IAccountService, _ completition: @escaping () -> Void) -> RegistrationViewController {
         let contraller = UIStoryboard.registration.instantiate(self)
@@ -56,8 +56,8 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         showDatePicker()
         hideKeyboardWhenTappedAround()
     }
+    
     func showDatePicker() {
-        //Formate Date
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .inline
         } else {
@@ -68,7 +68,6 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         datePicker.locale = .current
         datePicker.sizeToFit()
         
-        //ToolBar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
@@ -82,13 +81,11 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         if #available(iOS 14.0, *) {
             dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 300)
         }
-        
-        
     }
     
     @objc func donedatePicker() {
         print("DAAAATE", datePicker.date)
-        dateTextField.text = formatter.string(from: datePicker.date)
+        dateTextField.text = datePicker.date.fullDate
         self.view.endEditing(true)
     }
     
@@ -127,6 +124,7 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         }
         
     }
+    
     @IBAction func surnameEditingDidBegin(_ sender: Any) {
         surnameLabel.textColor = .label
     }
@@ -138,9 +136,11 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         }
         
     }
+    
     @IBAction func nameEditingDidBegin(_ sender: Any) {
         nameLabel.textColor = .label
     }
+    
     @IBAction func dateEditingDidBegin(_ sender: Any) {
         dateLabel.textColor = .label
         dateTextField.textColor = .label
@@ -148,7 +148,7 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
     
     @IBAction func dateEditingDidEnd(_ sender: Any) {
         
-        guard let date = dateTextField.text, formatter.isDate(string: date) else {
+        guard let date = dateTextField.text, DateFormatter.fullDateFormatter().isDate(string: date) else {
             dateLabel.textColor = UIColor.red
             dateTextField.textColor = UIColor.red
             return
@@ -159,30 +159,32 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         createAccountButton.isEnabled = false
         self.view.endEditing(true)
         guard let name = nameTextField.text,
-            let surname = surnameTextField.text,
-            let dateStr = dateTextField.text,
-            let email = emailTextField.text,
-            let phone = phoneTextField.text,
-            !name.isBlank(),
-            !surname.isBlank(),
-            let date = formatter.date(from: dateStr),
-            email.isEmail(),
-            phone.isRUPhone() else {
-                createAccountButton.isEnabled = false
-                return
+              let surname = surnameTextField.text,
+              let dateStr = dateTextField.text,
+              let email = emailTextField.text,
+              let phone = phoneTextField.text,
+              !name.isBlank(),
+              !surname.isBlank(),
+              let date = DateFormatter.fullDateFormatter().date(from: dateStr),
+              email.isEmail(),
+              phone.isRUPhone() else {
+            createAccountButton.isEnabled = false
+            return
         }
+        
         let patronymic = patronymicTextField.text
         guard passwordTextField.text != nil, repeatPasswordTextField.text != nil else {
             showAlert(with: "Введите пароль!")
             createAccountButton.isEnabled = true
             return
         }
+        
         guard passwordTextField.text == repeatPasswordTextField.text else {
             showAlert(with: "Пароли не совпадают!")
             createAccountButton.isEnabled = true
             return
         }
-        // TODO - to accountService
+        
         accountService.createUser(with: email, password: passwordTextField.text!) { result in
             switch result {
             case .success(let fUser):

@@ -36,12 +36,14 @@ class CarsService: ICarsService {
     private let coreDataManager: ICoreDataManager
     private let localDictionary: ILocalDictionary
     
+    private var listenerRegistration: ListenerRegistration?
+    var currentId: String?
+    
     init(carsFirebaseService: IFireStoreService, coreDataManager: ICoreDataManager, localDictionary: ILocalDictionary) {
         self.carsFirebaseService = carsFirebaseService
         self.coreDataManager = coreDataManager
         self.localDictionary = localDictionary
         self.currentId = localDictionary.get("selected_car_id") as? String
-        print("CARCURID", currentId)
         loadAndListen()
     }
     
@@ -55,8 +57,6 @@ class CarsService: ICarsService {
         }
         coreDataManager.save(model: car, nil)
     }
-    
-    var currentId: String?
     
     func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)? = nil) {
         getCar { result in
@@ -86,7 +86,7 @@ class CarsService: ICarsService {
     func getCar(_ completetion: @escaping (Result<Car, Error>) -> Void) {
         readCurrentFromCore(completetion)
     }
-     
+    
     func getCars(_ completetion: @escaping (Result<[Car], Error>) -> Void) {
         readAllFromCore(completetion)
     }
@@ -96,6 +96,19 @@ class CarsService: ICarsService {
         listenerRegistration?.remove()
         coreDataManager.deleteAll(request: CarDB.fetchRequest())
     }
+    
+    func count(_ completetion: @escaping (Result<Int, Error>) -> Void) {
+        let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
+        coreDataManager.count(request: request) { (num) in
+            if let num = num {
+                completetion(.success(num))
+            } else {
+                completetion(.failure(NoneError.none))
+            }
+        }
+    }
+    
+    // MARK: - Private
     
     private func loadAndListen() {
         loadCompletition { (result) in
@@ -139,17 +152,6 @@ class CarsService: ICarsService {
         }
     }
     
-    func count(_ completetion: @escaping (Result<Int, Error>) -> Void) {
-        let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
-        coreDataManager.count(request: request) { (num) in
-            if let num = num {
-                completetion(.success(num))
-            } else {
-                completetion(.failure(NoneError.none))
-            }
-        }
-    }
-    
     private func readCurrentFromCore(_ completetion: @escaping (Result<Car, Error>) -> Void) {
         if let id = currentId {
             let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
@@ -165,7 +167,7 @@ class CarsService: ICarsService {
             }
         }
     }
-    private var listenerRegistration: ListenerRegistration?
+    
     private func loadCompletition(_ completion: @escaping (Result<[(type: DocumentChangeType, item: Car?)], Error>) -> Void) {
         listenerRegistration = carsFirebaseService.loadDocuments(completion)
     }
