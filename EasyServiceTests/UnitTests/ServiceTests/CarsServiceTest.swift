@@ -35,11 +35,29 @@ class CarsServiceTest: XCTestCase {
     
     func test_getCars() {
         // given
+        let carId = "CAR_ID"
+        let context = CoreDataStackMock().storeContainer.viewContext
+        let car: Car = .fake(identifier: carId)
+        let carsDB = [CarDB(car: car, in: context)]
+        coreDataManagerMock.stubbedFetchAllBlockResult = (carsDB, ())
 
         // when
-
+        var res: [Car]?
+        carsService.getCars { result in
+            switch result {
+            case .success(let cars):
+                res = cars
+            case .failure:
+                assertionFailure()
+            }
+        }
         // then
+        XCTAssertTrue(coreDataManagerMock.invokedFetchAll)
+        XCTAssertNotNil(res)
+        XCTAssertEqual(res?.count, 1)
+        XCTAssertEqual(res?.first?.identifier, carId)
     }
+    
     func test_saveNew() {
         // given
         let car = Car.fake(identifier: "ID")
