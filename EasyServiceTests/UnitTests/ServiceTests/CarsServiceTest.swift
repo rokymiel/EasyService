@@ -79,10 +79,29 @@ class CarsServiceTest: XCTestCase {
     
     func test_getCar() {
         // given
+        let carId = "CAR_ID"
+        let context = CoreDataStackMock().storeContainer.viewContext
+        let car: Car = .fake(identifier: carId)
+        let carDB = CarDB(car: car, in: context)
+        localDictionaryMock.stubbedGetResult = carId
+        coreDataManagerMock.stubbedFetchBlockResult = (carDB, ())
+        let carsService = CarsService(carsFirebaseService: carsFirebaseServiceMock, coreDataManager: coreDataManagerMock, localDictionary: localDictionaryMock)
 
         // when
-
+        var res: Car?
+        carsService.getCar { result in
+            switch result {
+            case .success(let car):
+                res = car
+            case .failure:
+                assertionFailure()
+            }
+        }
         // then
+        XCTAssertTrue(coreDataManagerMock.invokedFetch)
+        XCTAssertNotNil(res)
+        XCTAssertEqual(res?.identifier, carId)
+
     }
     
     func test_count() {
@@ -152,4 +171,3 @@ class CarsServiceTest: XCTestCase {
         XCTAssertTrue(coreDataManagerMock.invokedDeleteAll)
     }
 }
-
