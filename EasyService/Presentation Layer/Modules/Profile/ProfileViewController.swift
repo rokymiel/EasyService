@@ -37,7 +37,6 @@ class ProfileViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         accountService.getUser { [weak self] result in
             DispatchQueue.main.async {
-                print("REESSSS", result)
                 if case let .success(user) = result {
                     self?.nameLabel.text = user.name
                     self?.surnameLabel.text = user.surname

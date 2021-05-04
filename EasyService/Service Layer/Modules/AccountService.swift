@@ -48,7 +48,6 @@ final class AccountService: NSObject, IAccountService {
     private var taskExecutor: ITaskExecutor
     
     init(authServiceFactory: IAuthServiceFactory, fireStoreService: IFireStoreService, coreDataManager: ICoreDataManager, taskExecutor: ITaskExecutor) {
-        print("ACCINIT")
         self.fireStoreService = fireStoreService
         self.coreDataManager = coreDataManager
         self.authServiceFactory = authServiceFactory
@@ -110,7 +109,6 @@ final class AccountService: NSObject, IAccountService {
     }
     
     private func userLoaded(result: (Result<User, Error>)) {
-        print("ULOAD", result)
         if case let .success(user) = result {
             coreDataManager.save(model: user, nil)
         }
@@ -132,12 +130,10 @@ extension AccountService: AuthorizationDelegate {
                 }
             }
         case .none:
-            print("NONE")
             listenerRegistration?.remove()
             taskExecutor.async { [id] in
                 self.authService.token { token, _ in
                     if let token = token, let userId = id {
-                        print("REMOVE", token)
                         self.fireStoreService.removeDocument(of: userId, to: "tokens", with: token)
                     }
                 }

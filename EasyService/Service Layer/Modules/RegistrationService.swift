@@ -100,7 +100,6 @@ class RegistrationService: IRegistrationService {
         request.predicate = predicate
         coreDataManager.fetchAll(request: request) { registrations in
             if let registrations = registrations {
-                print("COREregistrations", registrations)
                 completetion(.success(registrations.map { $0.dataModel }))
             } else {
                 completetion(.failure(NoneError.none))
@@ -137,7 +136,7 @@ class RegistrationService: IRegistrationService {
                             }
                         }
                     case .removed:
-                        print("removed")
+                        print("removed") // TODO
                     }
                 }
                 group.notify(queue: .global()) {

@@ -34,15 +34,12 @@ class RegistrationCollectionViewCell: UICollectionViewCell, Configurable {
         statusLabel.layer.cornerRadius = 10
         statusLabel.layer.masksToBounds = true
         sizeToFit()
-        print(containerView.squircle)
-        print(containerView.layer.cornerCurve)
     }
     
     private let group = DispatchGroup()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        print("BB")
         group.enter()
         UIView.animate(withDuration: 0.2) {
             self.transform = .init(scaleX: 0.85, y: 0.85)

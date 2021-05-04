@@ -84,7 +84,6 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
     }
     
     @objc func donedatePicker() {
-        print("DAAAATE", datePicker.date)
         dateTextField.text = datePicker.date.fullDate
         self.view.endEditing(true)
     }

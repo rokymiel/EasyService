@@ -25,7 +25,6 @@ class CoreDataManager: ICoreDataManager {
         self.taskExecutor = taskExecutor
         self.taskExecutor.queue = DispatchQueue(label: "corequeue", qos: .default, attributes: .concurrent)
         self.taskExecutor.async(flags: .barrier) {
-            print(type(of: self.coreDataStack))
             self.coreDataStack.setupContainer()
         }
     }

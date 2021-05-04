@@ -59,7 +59,6 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
     var mileage = Model()
     
     func configure(_ model: Model) {
-        print("COMN", model.count)
         var entries = [ChartDataEntry]()
         var colors = [UIColor]()
         mileage = model.sorted(by: { $0.date < $1.date })

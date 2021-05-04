@@ -64,7 +64,6 @@ class CarsService: ICarsService {
             case .failure(let error):
                 handler?(error)
             case .success(var car):
-                print("MIIIILLLL", car.mileage)
                 car.mileage.append(mileage)
                 if let carId = car.identifier {
                     self.carsFirebaseService.addDocument(with: carId, from: car)
@@ -116,7 +115,6 @@ class CarsService: ICarsService {
             case .failure(let error):
                 self.delegates.forEach { $0.value?.faild(with: error, self) }
             case .success(let cars):
-                print("LOAD", cars)
                 let group = DispatchGroup()
                 for (type, car) in cars {
                     switch type {
@@ -128,7 +126,7 @@ class CarsService: ICarsService {
                             }
                         }
                     case .removed:
-                        print("removed")
+                        print("removed") // TODO
                     }
                 }
                 group.notify(queue: .global()) {
@@ -144,7 +142,6 @@ class CarsService: ICarsService {
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
         coreDataManager.fetchAll(request: request) { (cars) in
             if let cars = cars {
-                print("CORE", cars)
                 completetion(.success(cars.map { $0.dataModel }))
             } else {
                 completetion(.failure(NoneError.none))
@@ -159,7 +156,6 @@ class CarsService: ICarsService {
             request.predicate = predicate
             coreDataManager.fetch(request: request) { (car) in
                 if let car = car {
-                    print("CORE", car)
                     completetion(.success(car.dataModel))
                 } else {
                     completetion(.failure(NoneError.none))

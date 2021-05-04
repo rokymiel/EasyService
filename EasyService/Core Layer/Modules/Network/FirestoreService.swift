@@ -43,16 +43,14 @@ final class FireStoreService: IFireStoreService {
     }
     
     func addDocument<T>(with id: String, from value: T) where T: Encodable {
-        print("SSSAAAVVV")
         do {try reference.document(id).setData(from: value)} catch {
-            print(error)
+            NSLog(#function, "Не удалось добавить документ", error)
         }
     }
     
     func addDocument<T>(of document: String, to collection: String, with id: String, from value: T) where T: Encodable {
-        print("SSSAAAVVV")
         do {try reference.document(document).collection(collection).document(id).setData(from: value)} catch {
-            print(error)
+            NSLog(#function, "Не удалось добавить документ", error)
         }
     }
     
@@ -159,16 +157,13 @@ final class FireStoreService: IFireStoreService {
     
     func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) -> ListenerRegistration where T: Decodable {
         return reference.document(id).addSnapshotListener { snapshot, error in
-            print("CC")
             if let error = error {
-                print(error)
                 return listener(.failure(error))
             }
             if let snapshot = snapshot, let item = try? snapshot.data(as: T.self) {
-                print(item)
                 listener(.success(item))
             } else {
-                print("Lox")
+                NSLog(#function, "В результате нет снапшота и ошибки")
             }
         }
     }

@@ -58,7 +58,7 @@ class ServicesMapViewController: UIViewController {
                 })
                 self.mapView.addAnnotations(self.servicePoints ?? [])
             case .failure(let error):
-                print(error)
+               showAlert(with: "Не удалось загрузить данные")
             }
         }
         searchView.layer.cornerRadius = 15
@@ -187,7 +187,6 @@ class ServicesMapViewController: UIViewController {
     
     func showSmallDetails() {
         serviceDetaildController.state = .small
-        print(self.view.frame.height - self.serviceDetaildController.dragSuperAreaView.frame.height)
         let tab = tabBarController?.tabBar.frame.height ?? 0
         UIView.animate(withDuration: 0.4,
                        delay: 0,
