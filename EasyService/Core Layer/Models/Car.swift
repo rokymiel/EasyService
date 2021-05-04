@@ -50,7 +50,7 @@ public class MileageX: NSObject, NSCoding {
     }
     
     public required convenience init?(coder: NSCoder) {
-        guard let dDate = coder.decodeObject(forKey: CodingKeys.date.rawValue) as? Date else   {
+        guard let dDate = coder.decodeObject(forKey: CodingKeys.date.rawValue) as? Date else {
             return nil
         }
         let dValue = coder.decodeInt32(forKey: CodingKeys.value.rawValue)

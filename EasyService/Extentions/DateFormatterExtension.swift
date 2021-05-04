@@ -70,7 +70,7 @@ extension Date {
         return DateFormatter.fullDateWithTimeFormatter().string(from: self)
     }
     
-    var time: String  {
+    var time: String {
         return DateFormatter.timeFormatter().string(from: self)
     }
     

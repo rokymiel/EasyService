@@ -20,16 +20,16 @@ class TaskExecutorMock: ITaskExecutor {
     var stubbedQueue: DispatchQueue!
     
     var queue: DispatchQueue {
+        get {
+            invokedQueueGetter = true
+            invokedQueueGetterCount += 1
+            return stubbedQueue
+        }
         set {
             invokedQueueSetter = true
             invokedQueueSetterCount += 1
             invokedQueue = newValue
             invokedQueueList.append(newValue)
-        }
-        get {
-            invokedQueueGetter = true
-            invokedQueueGetterCount += 1
-            return stubbedQueue
         }
     }
     

@@ -82,13 +82,9 @@ extension NSManagedObjectContext {
     @objc func trySave() -> Bool {
         if self.hasChanges {
             do {
-                print("TrySave")
                 try self.save()
                 return true
             } catch {
-                print("AAAAAAAAAASUKA",error)
-                print(error.localizedDescription)
-                print(self)
                 self.rollback()
                 return false
             }

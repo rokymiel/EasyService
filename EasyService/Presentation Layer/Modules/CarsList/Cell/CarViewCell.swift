@@ -62,7 +62,6 @@ class CarViewCell: UITableViewCell, Configurable {
         bodyLabel.translatesAutoresizingMaskIntoConstraints = false
         yearLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
         carImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
         carImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         carImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true

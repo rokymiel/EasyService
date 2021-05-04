@@ -112,14 +112,9 @@ final class AccountService: NSObject, IAccountService {
     private func userLoaded(result: (Result<User, Error>)) {
         print("ULOAD", result)
         if case let .success(user) = result {
-            coreDataManager.save(model: user, {
-                self.coreDataManager.fetchAll(request: UserDB.fetchRequest()) { (res) in
-                }
-            })
+            coreDataManager.save(model: user, nil)
         }
     }
-    
-    
 }
 
 extension AccountService: AuthorizationDelegate {

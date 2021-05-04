@@ -68,7 +68,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
         var calender = Calendar.current
         calender.locale = Locale(identifier: "ru")
         for i in 0..<7 {
-            let left = calender.shortWeekdaySymbols[(i + 1)%7]
+            let left = calender.shortWeekdaySymbols[(i + 1) % 7]
             let cell = newDetailsCell()
             cell.textLabel?.text = left
             cells.append(cell)
@@ -138,7 +138,7 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
                                 .buildNewServiceRegisrtationViewController(with: car,
                                                                            service: service)
                             self?.present(presentationAssembly
-                                            .buildNavigationController(root: newServiceRegisrtationViewController) , animated: true)
+                                            .buildNavigationController(root: newServiceRegisrtationViewController), animated: true)
                         }
                     }
                 case .failure:

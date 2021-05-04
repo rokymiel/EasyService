@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIUnderlinedTextField: UITextField{
+class UIUnderlinedTextField: UITextField {
     
     let border = CAShapeLayer()
     

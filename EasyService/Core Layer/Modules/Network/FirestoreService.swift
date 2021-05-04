@@ -158,7 +158,6 @@ final class FireStoreService: IFireStoreService {
     }
     
     func loadDocument<T>(id: String, listener: @escaping (Result<T, Error>) -> Void) -> ListenerRegistration where T: Decodable {
-        print("Id",id)
         return reference.document(id).addSnapshotListener { snapshot, error in
             print("CC")
             if let error = error {
@@ -170,7 +169,6 @@ final class FireStoreService: IFireStoreService {
                 listener(.success(item))
             } else {
                 print("Lox")
-                print(snapshot?.data())
             }
         }
     }
