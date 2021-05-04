@@ -57,8 +57,8 @@ class ServicesMapViewController: UIViewController {
                 self.servicePoints = services.map({ ServiceMKAnnotation(service: $0)
                 })
                 self.mapView.addAnnotations(self.servicePoints ?? [])
-            case .failure(let error):
-               showAlert(with: "Не удалось загрузить данные")
+            case .failure:
+                self.showAlert(with: "Не удалось загрузить данные")
             }
         }
         searchView.layer.cornerRadius = 15

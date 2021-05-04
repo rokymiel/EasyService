@@ -44,13 +44,13 @@ final class FireStoreService: IFireStoreService {
     
     func addDocument<T>(with id: String, from value: T) where T: Encodable {
         do {try reference.document(id).setData(from: value)} catch {
-            NSLog(#function, "Не удалось добавить документ", error)
+            NSLog(#function, "Не удалось добавить документ", error.localizedDescription)
         }
     }
     
     func addDocument<T>(of document: String, to collection: String, with id: String, from value: T) where T: Encodable {
         do {try reference.document(document).collection(collection).document(id).setData(from: value)} catch {
-            NSLog(#function, "Не удалось добавить документ", error)
+            NSLog(#function, "Не удалось добавить документ", error.localizedDescription)
         }
     }
     

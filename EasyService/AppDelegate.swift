@@ -39,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        
         let dataDict = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
@@ -48,13 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FCM registration token: \(token)")
-            }
-        }
+        Messaging.messaging().token { _, _ in }
     }
 }
 
