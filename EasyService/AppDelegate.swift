@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseMessaging
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, MessagingDelegate {
@@ -17,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if NSClassFromString("XCTest") != nil {
+            return true
+        }
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -49,13 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate, Messagin
         //            application.registerUserNotificationSettings(settings)
         //        }
         UIApplication.shared.registerForRemoteNotifications()
-//        DispatchQueue.main.async {
+        //        DispatchQueue.main.async {
         self.window?.rootViewController = MainNavigationController(rootAssemblyType: RootAssembly.self)
-            self.window?.makeKeyAndVisible()
-            
-//        }
+        self.window?.makeKeyAndVisible()
         
-
+        //        }
+        
+        
         //        Messaging.messaging().shouldEstablishDirectChannel = false
         //
         //        Messaging.messaging().delegate = self

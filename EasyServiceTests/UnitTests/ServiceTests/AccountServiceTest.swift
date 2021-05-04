@@ -74,7 +74,7 @@ class AccountServiceTest: XCTestCase {
     
     func test_getUserWithCurrentUserId() {
         // given
-        let context = NSManagedObjectContextMock()
+        let context = CoreDataStackMock().storeContainer.viewContext
         authServiceMock.stubbedUserId = "ID"
         let user = User.fake(identifier: "ID")
         let userDB = UserDB(user: user, in: context)

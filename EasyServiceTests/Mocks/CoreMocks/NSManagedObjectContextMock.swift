@@ -26,3 +26,7 @@ class NSManagedObjectContextMock: NSManagedObjectContext {
         return stubbedSaveResult
     }
 }
+
+extension NSManagedObjectContext {
+    
+}

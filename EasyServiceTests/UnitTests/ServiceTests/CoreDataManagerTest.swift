@@ -11,14 +11,14 @@ import XCTest
 import CoreData
 
 class CoreDataManagerTest: XCTestCase {
-    var coreDatsStackMock: CoreDatsStackMock!
+    var coreDatsStackMock: CoreDataStackMock!
     var taskExecutorMock: TaskExecutorMock!
     var coreDataManager: ICoreDataManager!
-    
+        
     override func setUp() {
         super.setUp()
         taskExecutorMock = TaskExecutorMock()
-        coreDatsStackMock = CoreDatsStackMock()
+        coreDatsStackMock = CoreDataStackMock()
         taskExecutorMock.shouldInvokeAsyncWork = true
         coreDataManager = CoreDataManager(dataStack: coreDatsStackMock, taskExecutor: taskExecutorMock)
     }
@@ -36,7 +36,7 @@ class CoreDataManagerTest: XCTestCase {
         coreDatsStackMock.stubbedPerformBlockResult = (context, ())
         let model = DBModelMock()
         taskExecutorMock.shouldInvokeAsyncWork = true
-        model.stubbedToDBModelResult = CarDB(context: context)
+        model.stubbedToDBModelResult = CarDB(context: coreDatsStackMock.storeContainer.viewContext)
 
         // when
         coreDataManager.save(model: model) {
@@ -55,7 +55,7 @@ class CoreDataManagerTest: XCTestCase {
     func test_fetchAll() {
         // given
         let didReceiveResponse = expectation(description: #function)
-        let context = NSManagedObjectContextMock()
+        let context = coreDatsStackMock.storeContainer.viewContext
         coreDatsStackMock.stubbedFetchResult = [CarDB(context: context), CarDB(context: context)]
         taskExecutorMock.shouldInvokeAsyncWork = true
         let request: NSFetchRequest<CarDB> = CarDB.fetchRequest()
@@ -80,7 +80,7 @@ class CoreDataManagerTest: XCTestCase {
     
     func test_fetch() {
         // given
-        let context = NSManagedObjectContextMock()
+        let context = coreDatsStackMock.storeContainer.viewContext
         let car1 = CarDB(context: context)
         let car2 = CarDB(context: context)
         coreDatsStackMock.stubbedFetchResult = [car1, car2]
