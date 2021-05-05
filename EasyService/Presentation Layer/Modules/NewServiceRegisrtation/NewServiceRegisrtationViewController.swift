@@ -72,7 +72,9 @@ class NewServiceRegisrtationViewController: UITableViewController {
         }
         datePicker.minimumDate = Date()
         datePicker.datePickerMode = .date
+        datePicker.locale = .preferredLocale
         datePicker.sizeToFit()
+        
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneDatePicker))

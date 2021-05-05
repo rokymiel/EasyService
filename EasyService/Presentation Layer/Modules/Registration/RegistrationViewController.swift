@@ -65,7 +65,7 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         }
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date()
-        datePicker.locale = .current
+        datePicker.locale = .preferredLocale
         datePicker.sizeToFit()
         
         let toolbar = UIToolbar()
@@ -79,7 +79,7 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
         if #available(iOS 14.0, *) {
-            dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 300)
+            dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 380)
         }
     }
     
