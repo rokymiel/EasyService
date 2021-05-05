@@ -17,6 +17,7 @@ struct Service: Codable {
     let location: GeoPoint
     let workTime: [String]
     let phone: String
+    let workTypes: [String]
     
     enum CodingKeys: String, CodingKey {
         case identifier
@@ -25,5 +26,6 @@ struct Service: Codable {
         case location
         case workTime = "work_time"
         case phone
+        case workTypes = "work_types"
     }
 }

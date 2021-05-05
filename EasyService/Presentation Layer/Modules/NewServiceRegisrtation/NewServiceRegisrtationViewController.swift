@@ -142,7 +142,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
     
     @IBAction func typeOfWorksChoose(_ sender: Any) {
         let chooser: ItemInListChooserViewController = presentationAssembly.buildItemInListChooserViewController()
-        chooser.items = ["ТО", "Ремонт", "Замена шин"]
+        chooser.items = service.workTypes
         chooser.itemChosenHandler = { [weak self] str in
             self?.typeOfWorksTextField.text = str
         }
