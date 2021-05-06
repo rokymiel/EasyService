@@ -68,7 +68,9 @@ class NewServiceRegisrtationViewController: UITableViewController {
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .inline
         } else {
-            datePicker.preferredDatePickerStyle = .wheels
+            if #available(iOS 13.4, *) {
+                datePicker.preferredDatePickerStyle = .wheels
+            }
         }
         datePicker.minimumDate = Date()
         datePicker.datePickerMode = .date
@@ -93,7 +95,9 @@ class NewServiceRegisrtationViewController: UITableViewController {
     func addTimeToolbar() {
         timePicker.datePickerMode = .time
         timePicker.minuteInterval = 10
-        timePicker.preferredDatePickerStyle = .wheels
+        if #available(iOS 13.4, *) {
+            timePicker.preferredDatePickerStyle = .wheels
+        }
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTimePicker))

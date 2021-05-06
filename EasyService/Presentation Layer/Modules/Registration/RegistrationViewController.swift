@@ -61,7 +61,9 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .inline
         } else {
-            datePicker.preferredDatePickerStyle = .wheels
+            if #available(iOS 13.4, *) {
+                datePicker.preferredDatePickerStyle = .wheels
+            }
         }
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date()
