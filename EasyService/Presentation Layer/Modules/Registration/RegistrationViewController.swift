@@ -167,7 +167,7 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
               let date = DateFormatter.fullDateFormatter().date(from: dateStr),
               email.isEmail(),
               phone.isRUPhone() else {
-            createAccountButton.isEnabled = false
+            createAccountButton.isEnabled = true
             return
         }
         

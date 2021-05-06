@@ -38,7 +38,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-Ea-IUv">
                                                     <rect key="frame" x="10" y="40.5" width="354" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                     <connections>
                                                         <action selector="nameEditingDidBegin:" destination="VJg-Dq-a0c" eventType="editingDidBegin" id="23h-7l-AGK"/>
                                                         <action selector="nameEditingDidEnd:" destination="VJg-Dq-a0c" eventType="editingDidEnd" id="hcD-jn-4Qc"/>
@@ -75,7 +75,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите фамилию" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-QP-BVA">
                                                     <rect key="frame" x="10" y="41" width="354" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="family-name"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
                                                     <connections>
                                                         <action selector="surnameEditingDidBegin:" destination="VJg-Dq-a0c" eventType="editingDidBegin" id="bWL-w8-bEX"/>
                                                         <action selector="surnameEditingDidEnd:" destination="VJg-Dq-a0c" eventType="editingDidEnd" id="oVs-oN-H3v"/>
@@ -112,7 +112,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите отчество (опционально)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swx-dW-KlZ">
                                                     <rect key="frame" x="10" y="41" width="354" height="18.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="additional-name"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="additional-name"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -187,7 +187,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите почту" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0c-8c-LxO">
                                                     <rect key="frame" x="10" y="41" width="354" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                     <connections>
                                                         <action selector="emailEditingDidBegin:" destination="VJg-Dq-a0c" eventType="editingDidBegin" id="o9x-Pd-mDc"/>
                                                         <action selector="emailEditingDidEnd:" destination="VJg-Dq-a0c" eventType="editingDidEnd" id="UaD-mk-qaX"/>
@@ -224,7 +224,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="keG-mo-Bl7">
                                                     <rect key="frame" x="10" y="41" width="354" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                                     <connections>
                                                         <action selector="phoneEditingDidBegin:" destination="VJg-Dq-a0c" eventType="editingDidBegin" id="nrt-Rh-YnX"/>
                                                         <action selector="phoneEditingDidEnd:" destination="VJg-Dq-a0c" eventType="editingDidEnd" id="WvI-dK-Uss"/>
