@@ -132,8 +132,8 @@ class HomeViewController: UITableViewController {
                         inputKeyboardType: .default, actionHandler: { input in
                             guard let input = input,
                                   let mileage = Int(input),
-                                  mileage >= 0 else {
-                                self.showAlert(with: "Введите неотрицательное число", handler: { _ in self.addMileage()})
+                                  mileage > 0 else {
+                                self.showAlert(with: "Введите положительное число", handler: { _ in self.addMileage()})
                                 return
                             }
                             self.carsService.addMileage(.init(date: Date(), value: mileage, isVerified: false)) { _ in
