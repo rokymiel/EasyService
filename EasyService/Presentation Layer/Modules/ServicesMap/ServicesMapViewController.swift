@@ -281,7 +281,6 @@ extension ServicesMapViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchTableView.isHidden = false
         if searchText.isBlank() {
             if isSearching {
                 hideSearchTable()

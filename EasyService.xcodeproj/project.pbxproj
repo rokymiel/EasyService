@@ -1331,7 +1331,7 @@
 				CODE_SIGN_ENTITLEMENTS = EasyService/EasyService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3UKXNSMQN9;
 				INFOPLIST_FILE = EasyService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1356,7 +1356,7 @@
 				CODE_SIGN_ENTITLEMENTS = EasyService/EasyService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3UKXNSMQN9;
 				INFOPLIST_FILE = EasyService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

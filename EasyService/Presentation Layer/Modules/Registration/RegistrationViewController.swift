@@ -33,13 +33,6 @@ final class RegistrationViewController: UITableViewController, UITextFieldDelega
     
     let datePicker = UIDatePicker()
     
-    //    let formatter: DateFormatter = {
-    //        let f = DateFormatter()
-    //        f.dateFormat = "dd.MM.yyyy"
-    //        f.locale = NSLocale.current
-    //        return f
-    //    }()
-    
     class func sInit(accountService: IAccountService, _ completition: @escaping () -> Void) -> RegistrationViewController {
         let contraller = UIStoryboard.registration.instantiate(self)
         contraller.accountService = accountService
