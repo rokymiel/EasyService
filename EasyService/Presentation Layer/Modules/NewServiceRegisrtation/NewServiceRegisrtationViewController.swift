@@ -86,7 +86,7 @@ class NewServiceRegisrtationViewController: UITableViewController {
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
         if #available(iOS 14.0, *) {
-            dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 380)
+            dateTextField.inputView?.frame = CGRect(x: 0, y: 0, width: dateTextField.inputView?.frame.width ?? 0, height: 400)
         }
     }
     
