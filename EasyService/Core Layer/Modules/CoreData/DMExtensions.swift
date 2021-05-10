@@ -100,12 +100,12 @@ extension CarDB: IModel {
 }
 
 extension Mileage {
-    init(mileage: MileageX) {
+    init(mileage: NSMileage) {
         self.init(date: mileage.date, value: Int(mileage.value), isVerified: mileage.isVerified)
     }
 }
 
-extension MileageX {
+extension NSMileage {
     convenience init(mileage: Mileage) {
         self.init(date: mileage.date, value: Int32(mileage.value), isVerified: mileage.isVerified)
     }

@@ -42,7 +42,7 @@ struct Mileage: Codable {
     }
 }
 
-public class MileageX: NSObject, NSCoding {
+public class NSMileage: NSObject, NSCoding {
     public func encode(with coder: NSCoder) {
         coder.encode(date, forKey: CodingKeys.date.rawValue)
         coder.encode(value, forKey: CodingKeys.value.rawValue)
