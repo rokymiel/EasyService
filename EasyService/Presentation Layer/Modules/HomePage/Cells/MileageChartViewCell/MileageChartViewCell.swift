@@ -19,6 +19,7 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
         chart.xAxis.labelPosition = .bottom
         chart.animate(xAxisDuration: 1)
         chart.xAxis.labelFont = .systemFont(ofSize: 7)
+        chart.legend.form = .none
         return chart
     }()
     private var container = UIContainerView(frame: .zero)
@@ -71,6 +72,7 @@ final class MileageChartViewCell: UITableViewCell, Configurable {
         set.lineWidth = 2
         set.colors = [.orange]
         set.circleColors = colors
+        set.label = nil
         lineChart.data = LineChartData(dataSet: set)
         
     }

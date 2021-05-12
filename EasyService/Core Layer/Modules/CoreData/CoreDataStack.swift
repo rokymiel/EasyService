@@ -22,8 +22,10 @@ protocol ICoreDatsStack {
 
 class CoreDataStack: ICoreDatsStack {
     private let dataBaseName = "Service"
-    
-    lazy var container: NSPersistentContainer = {
+    // Здесь можно сделать статический метод configure, который
+    // создает экземпляр и настраивает контейнер
+    // Пример Firestore.firestore()
+    private(set) lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: dataBaseName)
         container.loadPersistentStores { desc, error in
             desc.shouldMigrateStoreAutomatically = false

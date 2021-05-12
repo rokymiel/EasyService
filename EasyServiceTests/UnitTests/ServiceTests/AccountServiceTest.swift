@@ -56,8 +56,7 @@ class AccountServiceTest: XCTestCase {
         XCTAssertEqual(fireStoreServiceMock.invokedAddDocumentWithParameters?.id, user.identifier)
         XCTAssertEqual((fireStoreServiceMock.invokedAddDocumentWithParameters?.value as? EasyService.User)?.identifier, user.identifier)
         
-        XCTAssertTrue(coreDataManagerMock.invokedSave)
-        XCTAssertEqual((coreDataManagerMock.invokedSaveParameters?.model as? EasyService.User)?.identifier, user.identifier)
+        XCTAssertFalse(coreDataManagerMock.invokedSave)
     }
     
     func test_currentId() {

@@ -69,8 +69,7 @@ class CarsServiceTest: XCTestCase {
         XCTAssertTrue(carsFirebaseServiceMock.invokedAddDocumentWith)
         XCTAssertEqual(carsFirebaseServiceMock.invokedAddDocumentWithParameters?.id, car.identifier)
         XCTAssertEqual((carsFirebaseServiceMock.invokedAddDocumentWithParameters?.value as? Car)?.identifier, car.identifier)
-        XCTAssertTrue(coreDataManagerMock.invokedSave)
-        XCTAssertEqual((coreDataManagerMock.invokedSaveParameters?.model as? Car)?.identifier, car.identifier)
+        XCTAssertFalse(coreDataManagerMock.invokedSave)
     }
     
     func test_select() {

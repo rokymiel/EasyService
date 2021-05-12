@@ -95,7 +95,7 @@ class RegistrationService: IRegistrationService {
     private func readAllFromCore(with car: String, _ completetion: @escaping (Result<[Registration], Error>) -> Void) {
         let request: NSFetchRequest<RegistrationDB> = RegistrationDB.fetchRequest()
         let predicate = NSPredicate(format: "carID == %@", car)
-        let salarySort = NSSortDescriptor(key: "dateOfRegistration", ascending: false)
+        let salarySort = NSSortDescriptor(key: "dateOfRegistration", ascending: true)
         request.sortDescriptors = [salarySort]
         request.predicate = predicate
         coreDataManager.fetchAll(request: request) { registrations in

@@ -28,8 +28,6 @@ protocol AccountDelegate: NSObject {
 }
 
 final class AccountService: NSObject, IAccountService {
-    typealias UserCallback = (Result<User, Error>) -> Void
-    private var callbacks = [UserCallback]()
     weak var delegate: AccountDelegate? {
         didSet {
             if authService.userId != nil {
@@ -61,7 +59,6 @@ final class AccountService: NSObject, IAccountService {
         if let id = user.identifier {
             fireStoreService.addDocument(with: id, from: user)
         }
-        coreDataManager.save(model: user, nil)
     }
     
     func getUser(completition: @escaping (Result<User, Error>) -> Void) {

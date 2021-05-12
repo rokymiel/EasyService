@@ -19,10 +19,10 @@ class NewCarViewController: UITableViewController {
     @IBOutlet weak var engineVolumeStepper: UIStepper!
     @IBOutlet weak var mileageTextField: UITextField!
     
-    private var presentationAssembly: PresentationAssembly!
+    private var presentationAssembly: IPresentationAssembly!
     private var resourcesService: IResourcesService!
     private var saved: ((Car) -> Void)!
-    class func sInit(resourcesService: IResourcesService, presentationAssembly: PresentationAssembly, on saved: @escaping (Car) -> Void) -> NewCarViewController {
+    class func sInit(resourcesService: IResourcesService, presentationAssembly: IPresentationAssembly, on saved: @escaping (Car) -> Void) -> NewCarViewController {
         let contraller = UIStoryboard.newCarViewController.instantiate(self)
         contraller.presentationAssembly = presentationAssembly
         contraller.resourcesService = resourcesService

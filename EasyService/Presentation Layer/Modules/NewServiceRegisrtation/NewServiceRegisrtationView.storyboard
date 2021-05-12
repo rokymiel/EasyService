@@ -282,6 +282,11 @@
             <point key="canvasLocation" x="86.956521739130437" y="183.48214285714286"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="K5g-vT-jRi">
+            <size key="intrinsicContentSize" width="92" height="33"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="main">
             <color red="0.99599999189376831" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

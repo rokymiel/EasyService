@@ -12,9 +12,6 @@ import CoreLocation
 
 class ServicesMapViewController: UIViewController {
     
-    var visualEffectView: UIVisualEffectView!
-    lazy var runningAnimations = [UIViewPropertyAnimator]()
-    var animationProgressWhenInterrupted: CGFloat = 0
     private var isSearching = false
     private let cellReuseIdentifier = "searchCell"
     
@@ -131,51 +128,6 @@ class ServicesMapViewController: UIViewController {
         }
     }
     
-    func startInteractiveTransition(state: CardState, duration: TimeInterval) {
-        if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(state: state, duration: duration)
-        }
-        for animation in runningAnimations {
-            animation.pauseAnimation()
-            animationProgressWhenInterrupted = animation.fractionComplete
-        }
-    }
-    
-    func updateInteractiveTransition(fractionCompleted: CGFloat) {
-        for animation in runningAnimations {
-            animation.pauseAnimation()
-            animation.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
-        }
-    }
-    
-    func continueInteractiveTransition() {
-        for animation in runningAnimations {
-            animation.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-        }
-    }
-    
-    func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
-        if runningAnimations.isEmpty {
-            let frameAnimation = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
-                switch state {
-                case .expanded:
-                    self.serviceDetaildController.view.frame.origin.y = self.view.frame.height - 2 * self.view.frame.height / 3
-                case .collapsed:
-                    self.serviceDetaildController.view.frame.origin.y = 0
-                default:
-                    return
-                }
-            }
-            
-            frameAnimation.addCompletion { (_) in
-                self.runningAnimations.removeAll()
-            }
-            
-            frameAnimation.startAnimation()
-            runningAnimations.append(frameAnimation)
-        }
-    }
-    
     func hideDetails() {
         serviceDetaildController.state = .collapsed
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
@@ -239,13 +191,13 @@ extension ServicesMapViewController: MKMapViewDelegate {
 extension ServicesMapViewController: CLLocationManagerDelegate {
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
-        case .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             mapView.showsUserLocation = true
             followUserLocation()
             locationManager.startUpdatingLocation()
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .authorizedAlways, .restricted, .denied:
+        case  .restricted, .denied:
             break
         @unknown default: break
         }
@@ -339,17 +291,5 @@ extension ServicesMapViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         hideSearchTable()
         mapView.selectAnnotation(filteredPoints[indexPath.row], animated: true)
-    }
-}
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }

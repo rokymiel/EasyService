@@ -16,17 +16,13 @@ extension User {
                      patronymic: String? = nil,
                      dateOfBirth: Date? = nil,
                      phone: String? = nil,
-                     email: String? = nil,
-                     carIDs: [String]? = nil,
-                     registrationsIDs: [String]? = nil) -> User {
+                     email: String? = nil) -> User {
         User(identifier: identifier,
              name: name ?? "John",
              surname: surname ?? "Bro",
              patronymic: patronymic ?? "Daiton",
              dateOfBirth: dateOfBirth ?? Date(),
              phone: phone ?? "98988898",
-             email: email ?? "aa@aa.com",
-             carIDs: carIDs ?? [],
-             registrationsIDs: registrationsIDs ?? [])
+             email: email ?? "aa@aa.com")
     }
 }

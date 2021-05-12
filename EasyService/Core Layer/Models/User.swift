@@ -16,8 +16,6 @@ struct User: Codable {
     let dateOfBirth: Date
     let phone: String
     let email: String
-    var carIDs = [String]()
-    var registrationsIDs = [String]()
     
     enum CodingKeys: String, CodingKey {
         case identifier

@@ -27,7 +27,6 @@ class MainNavigationController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var coreDataStack = CoreDataStack()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "main")

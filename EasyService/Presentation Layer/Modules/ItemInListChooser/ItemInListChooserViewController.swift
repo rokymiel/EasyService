@@ -20,7 +20,7 @@ class ItemInListChooserViewController: UIViewController {
     
     let cellReuseIdentifier = "cell"
     private var searchString: String?
-    private var filteredPersons: [String] {
+    private var filteredItems: [String] {
         if let items = items {
             if let searchString = searchString?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
                !searchString.isEmpty {
@@ -87,21 +87,21 @@ class ItemInListChooserViewController: UIViewController {
 
 extension ItemInListChooserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredPersons.count
+        return filteredItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ?? UITableViewCell()
-        cell.textLabel?.text = filteredPersons[indexPath.row]
+        cell.textLabel?.text = filteredItems[indexPath.row]
         return cell
     }
 }
 
 extension ItemInListChooserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchTextField.text = filteredPersons[indexPath.row]
+        searchTextField.text = filteredItems[indexPath.row]
         
-        itemChosenHandler(filteredPersons[indexPath.row])
+        itemChosenHandler(filteredItems[indexPath.row])
         
         if let navigationController = navigationController {
             navigationController.popViewController(animated: true)

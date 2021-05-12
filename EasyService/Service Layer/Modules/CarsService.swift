@@ -55,7 +55,6 @@ class CarsService: ICarsService {
         if let id = car.identifier {
             carsFirebaseService.addDocument(with: id, from: car)
         }
-        coreDataManager.save(model: car, nil)
     }
     
     func addMileage(_ mileage: Mileage, failure handler: ((Error) -> Void)? = nil) {

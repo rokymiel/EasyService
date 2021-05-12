@@ -33,8 +33,6 @@ extension UserDB: IModel {
         dateOfBirth = user.dateOfBirth
         phone = user.phone
         email = user.email
-        carIDs = user.carIDs
-        registrationsIDs = user.registrationsIDs
     }
     var dataModel: User {
         User(identifier: identifier,
@@ -43,9 +41,7 @@ extension UserDB: IModel {
              patronymic: patronymic,
              dateOfBirth: dateOfBirth!,
              phone: phone!,
-             email: email!,
-             carIDs: carIDs!,
-             registrationsIDs: registrationsIDs!)
+             email: email!)
     }
 }
 

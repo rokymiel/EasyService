@@ -22,7 +22,7 @@ class CarMainViewController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
+    private func setupUI() {
         let home = presentationAssembly.buildHomeViewController()
         let map = presentationAssembly.buildServicesMapViewController()
         let profile = presentationAssembly.buildProfileViewController()

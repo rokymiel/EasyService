@@ -48,14 +48,12 @@
         </uniquenessConstraints>
     </entity>
     <entity name="UserDB" representedClassName="UserDB" syncable="YES" codeGenerationType="class">
-        <attribute name="carIDs" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
         <attribute name="dateOfBirth" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="email" attributeType="String"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="patronymic" optional="YES" attributeType="String"/>
         <attribute name="phone" attributeType="String"/>
-        <attribute name="registrationsIDs" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
         <attribute name="surname" attributeType="String"/>
         <relationship name="cars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CarDB" inverseName="client" inverseEntity="CarDB"/>
         <relationship name="registrations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RegistrationDB" inverseName="client" inverseEntity="RegistrationDB"/>
@@ -69,6 +67,6 @@
         <element name="CarDB" positionX="337.3984375" positionY="-16.98828125" width="128" height="178"/>
         <element name="MileageDB" positionX="545.15234375" positionY="12.53125" width="128" height="103"/>
         <element name="RegistrationDB" positionX="193.29296875" positionY="284.90234375" width="128" height="238"/>
-        <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="208"/>
+        <element name="UserDB" positionX="-10.0859375" positionY="57.26171875" width="128" height="178"/>
     </elements>
 </model>
