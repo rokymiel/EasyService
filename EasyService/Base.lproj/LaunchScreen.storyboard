@@ -41,7 +41,7 @@
     <resources>
         <image name="logo" width="512" height="512"/>
         <namedColor name="main">
-            <color red="0.99607843137254903" green="0.72549019607843135" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99599999189376831" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

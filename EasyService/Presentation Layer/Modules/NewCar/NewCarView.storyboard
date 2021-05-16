@@ -26,7 +26,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите марку" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2b-Lj-ENS">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите марку" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2b-Lj-ENS" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="323" height="34"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -54,7 +54,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите модель" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cj5-RB-jfH">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите модель" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cj5-RB-jfH" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="323" height="34"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -82,7 +82,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите кузов" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-VU-0Qo">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите кузов" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-VU-0Qo" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="323" height="34"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -110,7 +110,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите трансмиссию" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-Hu-McF">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите трансмиссию" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-Hu-McF" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="323" height="34"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -138,7 +138,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd3-Z2-a9o">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd3-Z2-a9o" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="137" y="5" width="97" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="V8y-LQ-l0L"/>
@@ -186,7 +186,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите год" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zi0-F8-gbX">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Выберите год" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zi0-F8-gbX" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="323" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="gIv-SL-BCX"/>
@@ -210,7 +210,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пробег" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucY-eY-NRB">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пробег" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucY-eY-NRB" customClass="UINoneActionsTextField" customModule="EasyService" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="50" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="LZc-Cl-Hi2"/>

@@ -121,6 +121,7 @@
 		7DF7A49825A0EA920053C413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7A49725A0EA920053C413 /* AppDelegate.swift */; };
 		7DF7A4A125A0EA940053C413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A4A025A0EA940053C413 /* Assets.xcassets */; };
 		7DF7A4A425A0EA940053C413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF7A4A225A0EA940053C413 /* LaunchScreen.storyboard */; };
+		7DFEFCB8264F052E005B5FE7 /* UINoneActionsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEFCB7264F052E005B5FE7 /* UINoneActionsTextField.swift */; };
 		7DFFB41A263085D9003C6B4E /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFFB419263085D9003C6B4E /* HomeView.storyboard */; };
 		7DFFB41D2630869E003C6B4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB41C2630869E003C6B4E /* HomeViewController.swift */; };
 		7DFFB42226309EBB003C6B4E /* RegistrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */; };
@@ -259,6 +260,7 @@
 		7DF7A4A025A0EA940053C413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DF7A4A325A0EA940053C413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF7A4A525A0EA940053C413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DFEFCB7264F052E005B5FE7 /* UINoneActionsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINoneActionsTextField.swift; sourceTree = "<group>"; };
 		7DFFB419263085D9003C6B4E /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		7DFFB41C2630869E003C6B4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7DFFB42026309EBB003C6B4E /* RegistrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				7D7F71102622293E00B3341E /* UIYearPickerDelegate.swift */,
 				7D0A69D42624D538005C1599 /* ServiceMKAnnotation.swift */,
 				7D6D939F2630B05C00E2E081 /* UIEdgeInsetLabel.swift */,
+				7DFEFCB7264F052E005B5FE7 /* UINoneActionsTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1136,6 +1139,7 @@
 				7DA54D1D262BA27C002A6EB5 /* NewServiceRegisrtationViewController.swift in Sources */,
 				7D0A69DC2624F3B9005C1599 /* Configurable.swift in Sources */,
 				7D39FAD52637746C00710CE0 /* CarDetailsTableView.swift in Sources */,
+				7DFEFCB8264F052E005B5FE7 /* UINoneActionsTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

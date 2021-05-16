@@ -175,16 +175,20 @@ extension ServicesMapViewController: MKMapViewDelegate {
         mapView.view(for: userLocation)?.isEnabled = false
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = (view.annotation as? ServiceMKAnnotation) {
-            serviceDetaildController.configure(annotation.service)
-            let region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
-            self.mapView.setRegion(region, animated: true)
+        if !(view.annotation is MKUserLocation) {
+            if let annotation = (view.annotation as? ServiceMKAnnotation) {
+                serviceDetaildController.configure(annotation.service)
+                let region = MKCoordinateRegion(center: annotation.coordinate, span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05))
+                self.mapView.setRegion(region, animated: true)
+            }
+            showSmallDetails()
         }
-        showSmallDetails()
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        hideDetails()
+        if !(view.annotation is MKUserLocation) {
+            hideDetails()
+        }
     }
 }
 

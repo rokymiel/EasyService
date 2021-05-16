@@ -166,6 +166,8 @@ class NewCarViewController: UITableViewController {
                   mileage: [.init(date: Date(), value: mileage, isVerified: false)]))
         dismiss(animated: true, completion: nil)
     }
+    
+    
 }
 
 extension NewCarViewController: UITextFieldDelegate {

@@ -220,28 +220,35 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="bWf-o3-DMY" detailTextLabel="uYl-Nj-uiL" style="IBUITableViewCellStyleValue1" id="mvx-9T-h4m">
-                                        <rect key="frame" x="20" y="659.5" width="374" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mvx-9T-h4m">
+                                        <rect key="frame" x="20" y="659.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mvx-9T-h4m" id="bKQ-ed-Xj8">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Тип работ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bWf-o3-DMY">
-                                                    <rect key="frame" x="20" y="12" width="80" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип работ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3Q-UW-u9t">
+                                                    <rect key="frame" x="20" y="11" width="80" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uYl-Nj-uiL">
-                                                    <rect key="frame" x="346" y="12" width="8" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="-" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yM-Bh-x0T">
+                                                    <rect key="frame" x="346" y="11" width="8" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9yM-Bh-x0T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X3Q-UW-u9t" secondAttribute="trailing" constant="5" id="HnY-tZ-aXH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9yM-Bh-x0T" secondAttribute="bottom" id="JS0-Yh-xqp"/>
+                                                <constraint firstItem="X3Q-UW-u9t" firstAttribute="top" secondItem="bKQ-ed-Xj8" secondAttribute="topMargin" id="TTu-PK-WIH"/>
+                                                <constraint firstItem="X3Q-UW-u9t" firstAttribute="leading" secondItem="bKQ-ed-Xj8" secondAttribute="leadingMargin" id="gTp-I2-vxc"/>
+                                                <constraint firstItem="9yM-Bh-x0T" firstAttribute="top" secondItem="bKQ-ed-Xj8" secondAttribute="topMargin" id="n8g-vj-Kl2"/>
+                                                <constraint firstItem="9yM-Bh-x0T" firstAttribute="trailing" secondItem="bKQ-ed-Xj8" secondAttribute="trailingMargin" id="thk-vU-EQ1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="X3Q-UW-u9t" secondAttribute="bottom" id="uQe-z8-Krf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -249,7 +256,7 @@
                             <tableViewSection headerTitle="Прочее" id="imp-RC-NeT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="SGE-T7-3lQ">
-                                        <rect key="frame" x="20" y="759" width="374" height="150"/>
+                                        <rect key="frame" x="20" y="759.5" width="374" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SGE-T7-3lQ" id="itC-53-qvw">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
@@ -291,7 +298,7 @@
                             <tableViewSection id="BPq-2D-2IX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="49c-HF-Dzl">
-                                        <rect key="frame" x="20" y="945" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="945.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="49c-HF-Dzl" id="k49-vh-jub">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -335,7 +342,7 @@
                         <outlet property="serviceMap" destination="wXU-he-oEd" id="Xr0-Ou-x6Z"/>
                         <outlet property="serviceNameLabel" destination="7Yt-gY-uvr" id="Aq6-Xo-u6V"/>
                         <outlet property="statusCollection" destination="mY6-sT-I2p" id="QkJ-hq-UUm"/>
-                        <outlet property="typeOfWorksLabel" destination="uYl-Nj-uiL" id="vMa-cw-2PZ"/>
+                        <outlet property="typeOfWorksLabel" destination="9yM-Bh-x0T" id="dZn-J5-hYE"/>
                         <outlet property="worksTimeLabel" destination="2Ad-Dz-ev0" id="ZCa-qO-AJ3"/>
                     </connections>
                 </tableViewController>

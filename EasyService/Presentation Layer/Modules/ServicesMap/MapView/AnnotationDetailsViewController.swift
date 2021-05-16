@@ -61,6 +61,8 @@ class AnnotationDetailsViewController: UIViewController, Configurable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addressViewCell.textLabel?.numberOfLines = 0
+        addressViewCell.textLabel?.lineBreakMode = .byWordWrapping
         view.backgroundColor = .systemBackground
         dragView.layer.cornerRadius = dragView.frame.height / 2.0
         
@@ -173,6 +175,6 @@ extension AnnotationDetailsViewController: UITableViewDataSource {
 extension AnnotationDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 3 { return 50 }
-        return 40
+        return -1
     }
 }
